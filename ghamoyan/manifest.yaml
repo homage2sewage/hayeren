@@ -1,0 +1,60 @@
+title: Երևանի խոսակցական լեզուն (Yerevan's Colloquial Language)
+title-en: Yerevan's Colloquial Language
+authors:
+  - Ղամոյան, Լուսինե (Ghamoyan, Lusine)
+  - Սարգսյան, Մերի (Sargsyan, Meri)
+  - Քարտաշյան, Անահիտ (Kartashyan, Anahit)
+year: 2014
+publisher: Մունետիկ (Munetik), Yerevan
+pages: 120
+isbn: 978-9939-9010-8-4
+
+dialect: yerevan-colloquial
+register: descriptive-linguistic-study
+audience: linguists
+contrastive-with: [eastern-standard]
+language: armenian (eastern, literary register; body has no English/Russian summary)
+
+extraction:
+  jsonl: out/full.jsonl
+  md: out/full.md
+  encoding: |
+    ARMSCII-8 (standard Armenian 8-bit code) with 2 PDF-specific
+    overrides (Greek μ → Armenian բ; ¨ → և ev-ligature). Decoded via
+    standard lookup table in armscii.py.
+  pages-extracted: 118
+
+structure:
+  introduction: pp. 4–9
+  chapter-1: pp. 10–34 — Yerevan's current linguistic situation; influencing factors
+  chapter-2: pp. 35–40 — Phonological features of Yerevan colloquial
+  chapter-3: pp. 41–69 — Lexical phenomena
+  chapter-4: pp. 70–91 — Grammatical phenomena (morphology + syntax)
+  chapter-5: pp. 92–96 — Stylistic peculiarities
+  epilogue: p. 97
+  conclusions: p. 98
+  appendix-1: pp. 100–103
+  appendix-2: pp. 104–113
+  appendix-3: pp. 114–115
+  bibliography: p. 116
+
+notes: |
+  Synchronic (համաժամանակյա) study of Yerevan colloquial speech vs
+  the literary norm. Based on questionnaire-interviews and recordings
+  of unconstrained speech. Frames itself explicitly as documenting
+  "violations of linguistic norms, deviations from the literary
+  language, and non-canonical manifestations" — pure descriptive,
+  not prescriptive.
+
+  Body is entirely in Armenian (ArialArmenian dominant) with some
+  Russian (ArialLatRus) and minimal Latin. Most useful sections for
+  cross-source topic walks against Sakayan: Chapter 2 (phonology) and
+  Chapter 4 (grammar). Chapter 3 (lexicon) is the natural source for
+  lexical-doublet topics.
+
+  When ghamoyan's claim differs from Sakayan's, the difference is
+  almost always *register*, not *fact* — Sakayan teaches the literary
+  form, ghamoyan documents the colloquial. Topic-walks should default
+  to `attestation: multi-attested` with an explicit literary-vs-
+  colloquial body section, only flagging `conflicting` when the books
+  genuinely disagree on something within the same register.

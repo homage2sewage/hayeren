@@ -1,0 +1,7 @@
+out/
+*pdf
+__pycache__
+.venv/
+*~
+.claude/settings.local.json
+.cache/

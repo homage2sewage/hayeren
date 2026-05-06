@@ -1,0 +1,40 @@
+title: Eastern Armenian for the English-Speaking World — A Contrastive Approach
+authors:
+  - Sakayan, Dora
+year: 2007
+publisher: Yerevan State University Press
+pages: 558
+
+dialect: eastern-standard
+register: prescriptive-pedagogy
+audience: english-speakers
+contrastive-with: [english]
+language: english (with Armenian script and transliteration columns)
+
+extraction:
+  jsonl: out/full.jsonl
+  md: out/full.md
+  encoding: |
+    Custom-encoded fonts at Latin/symbol codepoints. Barz-Italic is
+    the dominant Armenian-script font; DallakTimes / DallakTimeBold /
+    Pedour-Regular / Pedour-Light share the Barz mapping. Armtrans
+    carries the phonetic transliteration column (already
+    Latin-with-diacritics). Decoded via empirical glyph→Unicode map
+    in fonts.py; validated against the transliteration column.
+  pages-extracted: 558
+
+structure:
+  prefatory: pp. i–xxiv (front matter)
+  units: 11 units, pp. 1–280 (approx)
+  appendices: phonological + grammatical appendices, pp. 350+
+  vocabulary: per-unit vocabulary tables with three-column layout
+              (Armenian / transliteration / English)
+  dialogues: per-unit dialogues with speaker tags
+  paradigms: per-unit conjugation/declension tables
+
+notes: |
+  Subtitled "A Contrastive Approach". Layout-preserving extraction via
+  pymupdf; reading-order preserved in JSONL. Uses Times-Roman for
+  English prose, Times-Italic for English glosses, Symbol font for
+  arrows/markers. Per-unit content is auto-detected via build_units.py
+  which produces units.json with page:y bookmarks.

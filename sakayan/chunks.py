@@ -29,8 +29,9 @@ from pathlib import Path
 
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_OUT = HERE / "out" / "by-unit" / "chunks.tsv"
-DIALOGUE_GLOB = str(HERE / "out" / "by-unit" / "unit*_dialogue*.tsv")
+CARDS = HERE.parent / "cards" / "sakayan"
+DEFAULT_OUT = CARDS / "chunks.tsv"
+DIALOGUE_GLOB = str(CARDS / "unit*_dialogue*.tsv")
 
 MAX_WORDS = 7
 

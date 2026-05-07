@@ -2,13 +2,13 @@
 """Build the project's top-1000 lemma frequency list from extracted
 sakayan + ghamoyan material.
 
-Inputs (all already-extracted Armenian):
+Inputs (all already-extracted Armenian, from cards/):
 
-    ../sakayan/out/by-unit/unit*_vocab.tsv      (col 0: Armenian)
-    ../sakayan/out/by-unit/unit*_dialogue*.tsv  (col 1: Armenian)
-    ../sakayan/out/by-unit/paradigms.tsv        (col 0: Armenian)
-    ../sakayan/out/by-unit/chunks.tsv           (col 0: Armenian)
-    ../ghamoyan/out/fillers.tsv                 (col 0: Armenian)
+    ../cards/sakayan/unit*_vocab.tsv      (col 0: Armenian)
+    ../cards/sakayan/unit*_dialogue*.tsv  (col 1: Armenian)
+    ../cards/sakayan/paradigms.tsv        (col 0: Armenian)
+    ../cards/sakayan/chunks.tsv           (col 0: Armenian)
+    ../cards/ghamoyan/fillers.tsv         (col 0: Armenian)
 
 Output:
 
@@ -36,8 +36,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-SAKAYAN_OUT = ROOT / "sakayan" / "out" / "by-unit"
-GHAMOYAN_OUT = ROOT / "ghamoyan" / "out"
+# Anki-ready card TSVs are at workspace root in cards/<source>/
+CARDS = ROOT / "cards"
+SAKAYAN_CARDS = CARDS / "sakayan"
+GHAMOYAN_CARDS = CARDS / "ghamoyan"
 OUT = HERE / "out"
 
 
@@ -72,11 +74,17 @@ SUFFIXES: list[str] = sorted(
     [
         # plural + case + article combinations
         "երից", "ներից", "ներով", "ներում", "ների", "ներ",
-        # case + article (singular)
-        "ից", "ով", "ին", "ի", "ն", "ը", "ս", "դ",
-        # NB: `-ում` removed from the strip list — see SUBSTITUTIONS,
-        # where it gets remapped back to the verb's `-ել/-ալ` infinitive
-        # form rather than chopped to a bare stem.
+        # case + article (singular). Notes:
+        #   `-ն` and `-ս` removed entirely — they're a definite article
+        #     only after vowel-final stems (rare in modern colloquial),
+        #     and far more often they're part of the lemma itself
+        #     (հայերեն, հայկական, տարեկան, ամեն, այսպես, անուն…).
+        #     Stripping them caused systematic over-stripping bugs in
+        #     validation. Slight under-aggregation of 1sg-possessive
+        #     forms (`անունս` "my name" vs `անուն` "name") is a smaller
+        #     cost than producing 5+ broken stems in the top-100.
+        #   `-ում` removed — see SUBSTITUTIONS for proper handling.
+        "ից", "ով", "ին", "ի", "ը", "դ",
     ],
     key=len,
     reverse=True,
@@ -119,12 +127,17 @@ def lemmatize(
     2. Substitution rules (abstract noun, verb participles).
     3. Plain suffix stripping (case/article endings).
     4. `-ել ↔ -ալ` swap if known_lemmas suggests it.
-    """
-    if len(token) < 3:
-        return token
 
+    `-ն` and `-ս` are gated: only stripped when the preceding letter
+    is a vowel (i.e. they're really a definite article on a
+    vowel-final stem, not part of the lemma)."""
+    # Inflected→lemma lookup runs first because short paradigm cells
+    # (`եմ`, `ես`, `է`, `եք`) are 2-char and the length check below
+    # would otherwise return them unchanged, skipping the mapping.
     if inflected_to_lemma and token in inflected_to_lemma:
         return inflected_to_lemma[token]
+    if len(token) < 3:
+        return token
 
     candidate = None
     for old, new in SUBSTITUTIONS:
@@ -178,7 +191,7 @@ def collect_inflected_to_lemma() -> dict[str, str]:
     `ունենալ`, `ունենք` → `ունենալ`, etc. This catches conjugated forms
     that suffix-stripping alone can't lemmatize."""
     mapping: dict[str, str] = {}
-    paradigms = SAKAYAN_OUT / "paradigms.tsv"
+    paradigms = SAKAYAN_CARDS / "paradigms.tsv"
     if not paradigms.exists():
         return mapping
     verb_re = re.compile(r"verb:([Ա-Ֆա-ֆև]+)")
@@ -191,17 +204,28 @@ def collect_inflected_to_lemma() -> dict[str, str]:
             if not m:
                 continue
             lemma = m.group(1)
-            # The cell may be multi-word (e.g. "պիտի գրեմ"); each
-            # constituent token gets mapped to the verb's lemma so a
-            # later occurrence of `պիտի` or `գրեմ` resolves correctly.
+            # The cell may be multi-word ("գրել եմ" perfect, "պիտի
+            # գրեմ" mandative, "հոգնած եմ" resultative). For compound
+            # forms only the *head* token (the participle / lexical
+            # verb form) belongs to this verb's lemma; auxiliaries
+            # like `եմ, ես, է` belong to `լինել`, modal `պիտի` is its
+            # own lemma. Index only token[0] to avoid auxiliaries
+            # leaking into the lexical-verb count.
             armenian = ANNOTATION_RE.sub("", armenian)
             armenian = INTRAWORD_PUNCT.sub("", armenian)
-            for tok in ARMENIAN_TOKEN.findall(armenian):
-                mapping[tok.lower()] = lemma
+            tokens = ARMENIAN_TOKEN.findall(armenian)
+            if tokens:
+                mapping[tokens[0].lower()] = lemma
     # A few hand-pinned mappings for tokens that suffix-stripping
     # mauls but that aren't in any paradigm row:
     mapping.setdefault("պիտի", "պիտի")  # modal particle, treat as own lemma
     mapping.setdefault("պետք", "պետք")  # noun + modal
+    # Stem-change nouns where suffix-stripping the inflected form
+    # produces a non-lemma stem (`սեր` → `սիր-` in oblique cases):
+    mapping.setdefault("սիրով", "սեր")
+    mapping.setdefault("սիրուց", "սեր")
+    mapping.setdefault("սիրում", "սեր")
+    mapping.setdefault("սիրեր", "սեր")  # plural
     return mapping
 
 
@@ -223,24 +247,24 @@ def collect_sources() -> dict[str, list[str]]:
     """Return {source_name: [armenian_text_strings]}."""
     sources: dict[str, list[str]] = {}
 
-    vocab_files = sorted(SAKAYAN_OUT.glob("unit*_vocab.tsv"))
+    vocab_files = sorted(SAKAYAN_CARDS.glob("unit*_vocab.tsv"))
     sources["sakayan_vocab"] = [
         cell for f in vocab_files for cell in read_tsv_column(f, 0)
     ]
 
-    dialogue_files = sorted(SAKAYAN_OUT.glob("unit*_dialogue*.tsv"))
+    dialogue_files = sorted(SAKAYAN_CARDS.glob("unit*_dialogue*.tsv"))
     sources["sakayan_dialogue"] = [
         cell for f in dialogue_files for cell in read_tsv_column(f, 1)
     ]
 
     sources["sakayan_paradigms"] = read_tsv_column(
-        SAKAYAN_OUT / "paradigms.tsv", 0
+        SAKAYAN_CARDS / "paradigms.tsv", 0
     )
     sources["sakayan_chunks"] = read_tsv_column(
-        SAKAYAN_OUT / "chunks.tsv", 0
+        SAKAYAN_CARDS / "chunks.tsv", 0
     )
     sources["ghamoyan_fillers"] = read_tsv_column(
-        GHAMOYAN_OUT / "fillers.tsv", 0
+        GHAMOYAN_CARDS / "fillers.tsv", 0
     )
     return sources
 

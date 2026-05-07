@@ -23,7 +23,7 @@ The simple path — generate everything in one shot:
 ```sh
 .venv/bin/python extract.py                # JSONL + MD for all 558 pages
 .venv/bin/python build_units.py            # → units.json (11 units detected)
-.venv/bin/python make_anki.py              # → out/by-unit/*.tsv + all.tsv
+.venv/bin/python make_anki.py              # → ../cards/sakayan/*.tsv + all.tsv
 ```
 
 Word lookup (Wiktionary):
@@ -121,10 +121,10 @@ serves only as the oracle for the two checks above.
 - [x] `build_units.py` — auto-detected manifest of all 11 units.
 - [x] `paradigms.py` + `paradigms_data.py` — one card per paradigm cell.
 - [x] `make_anki.py` — one-step bulk extraction; **1184 cards** in
-      `out/by-unit/all.tsv` (606 vocab + 290 dialogues + 86 paradigms
+      `../cards/sakayan/all.tsv` (606 vocab + 290 dialogues + 86 paradigms
       + 202 chunks).
 - [x] `chunks.py` — short single-sentence utterances harvested from
-      dialogues, deduped, written to `out/by-unit/chunks.tsv`.
+      dialogues, deduped, written to `../cards/sakayan/chunks.tsv`.
 - [x] `DallakTimes` / `DallakTimeBold` / `Pedour-Regular` /
       `Pedour-Light` mapped (they share Barz-Italic's encoding).
 - [x] `paradigms_data.py` covers all 10 grammar units (1-10):

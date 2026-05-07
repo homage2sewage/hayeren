@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Walk units.json and produce Anki-importable TSV for every unit.
 
-Outputs into out/by-unit/:
+Outputs into ../cards/sakayan/:
 
     unit{N}_vocab.tsv           — vocab table for unit N
     unit{N}_dialogue{i}.tsv     — each dialogue
@@ -30,7 +30,10 @@ import vocab
 HERE = Path(__file__).resolve().parent
 DEFAULT_PDF = HERE / "dora_sahakyan.pdf"
 UNITS_JSON = HERE / "units.json"
-OUT_DIR = HERE / "out" / "by-unit"
+# Anki-ready TSVs go to the workspace-root `cards/<source>/` so it's
+# clear where the current variant lives, separate from extraction
+# artifacts (which stay in this project's `out/`).
+OUT_DIR = HERE.parent / "cards" / "sakayan"
 
 
 def write_vocab(rows: list[dict], path: Path, tag: str) -> int:

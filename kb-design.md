@@ -401,20 +401,38 @@ parent context with WebSearch enabled).
 
 ## Open / next steps
 
-**Topics under `topics/` as of 2026-05-07 (post-parnasyan walk):**
+**Topics under `topics/` as of 2026-05-07 (post-ghamoyan deep-read):**
 
 | topic | domain | sources | status | attestation |
 |-------|--------|---------|--------|-------------|
-| voiced_aspirated_alternation | phonology | sakayan p18,30,36,42 + ghamoyan p39 | draft | multi-attested |
-| three_way_laryngeal_contrast | phonology | sakayan p18 + ghamoyan p39 + **parnasyan p21** | draft | multi-attested |
-| yerevan_consonant_reductions | phonology | ghamoyan p37,38 | draft | single-source |
-| present_tense | morphology | sakayan p36 + ghamoyan p73 + **parnasyan p30,31,32** | draft | multi-attested |
-| colloquial_copula_a | morphology | ghamoyan p73 | draft | single-source |
-| pro_drop | syntax | sakayan p36,71 + ghamoyan p79,80 + **parnasyan p49** | draft | multi-attested |
+| voiced_aspirated_alternation | phonology | sakayan + ghamoyan | draft | multi-attested |
+| three_way_laryngeal_contrast | phonology | sakayan + ghamoyan + parnasyan + tioyan | draft | multi-attested |
+| yerevan_consonant_reductions | phonology | ghamoyan only | draft | single-source |
+| **no_palatalisation** | phonology | parnasyan only | draft | single-source |
+| present_tense | morphology | sakayan + ghamoyan + parnasyan | draft | multi-attested |
+| colloquial_copula_a | morphology | ghamoyan only | draft | single-source |
+| negation | morphology | sakayan + ghamoyan + parnasyan + tioyan | draft | multi-attested |
+| verb_classes | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| participles | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| irregular_verbs | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| **determinate_article** | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| **auxiliary_e** | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| pro_drop | syntax | sakayan + ghamoyan + parnasyan + tioyan | draft | multi-attested |
+| code_switching_with_russian | lexicon | ghamoyan only | draft | single-source |
+| yerevan_slang | lexicon | ghamoyan only | draft | single-source |
+| idioms_phrasal | lexicon | ghamoyan only | draft | single-source |
+| intimate_register | pragmatics | ghamoyan only | draft | single-source |
 
-All six pass `citation-check` (**117/117 fragments verified** — 15
-new from parnasyan) and `critic-pass` phase-1 lint
-(0 errors / 0 warnings).
+**Stats**: **17 topics**. **355/355** verbatim fragments verified.
+0 errors / 0 warnings across critic-pass lint. All basic-grammar
+topics from `armenian-grammar.md` are now split, plus 4 lexicon-and-
+pragmatics topics from ghamoyan's Ch 3 / Ch 5 / Appendix 2 deep-read.
+
+Plus top-level reference docs: `transliteration-notes.md` (Latin
+romanization conventions and pitfalls), `armenian-grammar.md`
+(parent — being progressively split), `grammar-terms.md` (trilingual
+glossary), `frequency-lists.md`, `anki-design.md`,
+`armenian-vocab-research.md`.
 
 **Next moves:**
 
@@ -550,6 +568,106 @@ new from parnasyan) and `critic-pass` phase-1 lint
   made: book directories live at top level (drop the `books/<name>/`
   wrapper from earlier sketches; citation-check already accepts
   both, so no code change needed).
+
+- **2026-05-07 (3 discovery-walk topics written + `հլը`
+  acquisition plan)** — executed the highest-priority candidates
+  from the Russian-source discovery walk:
+  - `topics/morphology/determinate_article.md` (12 fragments) —
+    sakayan p38 + parnasyan p45 + tioyan p44+p16. Russian-L1's
+    sharpest grammatical addition (Russian has no articles).
+  - `topics/phonology/no_palatalisation.md` (3 fragments) —
+    parnasyan p21 only; Russian-L1-specific gotcha.
+  - `topics/morphology/auxiliary_e.md` (25 fragments) —
+    consolidation. Sakayan p35 + p77 + parnasyan p30 + tioyan p14.
+    Documents Armenian's *three* "to-be" verbs (`եմ` copular,
+    `ունեմ` possessive, `կամ` existential) — finer-grained than
+    English's monolithic "to be."
+
+  Plus a research log at
+  `research/2026-05-07-hl-acquisition-plan.md` for the `հլը`
+  colloquial-particle gap. The plan recommends a combined approach:
+  Acharyan's etymological dictionary (free PDF, archive.org Hrarm
+  series) for etymology + EANC corpus search for contemporary usage,
+  with the result becoming the project's first `lexicon/<lemma>.md`
+  entry. Identified schema decisions deferred to the actual write
+  (lexicon layout, naming, EANC citation format).
+
+  **State after**: **17 topics**, **355/355 fragments verify**,
+  lint clean. All 20 tasks completed. Domain coverage: phonology
+  (4), morphology (8), syntax (1), lexicon (3), pragmatics (1).
+  The remaining systematic-grammar gaps are: per-tense topic files
+  (perfect, future, imperfect, aorist, subjunctive, conditional,
+  mandative, hypothetical, resultative — 9 forms), the case system
+  (7 cases), and the `lexicon/` layer kickoff via `հլը`.
+
+- **2026-05-07 (tioyan walk completion + Russian-source discovery
+  walk + `հլը` honest-gap demo)** — closed tasks #5 and #6.
+
+  **Tioyan walk closure**: added tioyan citations to two topics
+  that previously cited only sakayan + ghamoyan + parnasyan.
+  three_way_laryngeal_contrast gains tioyan p50 (the cleanest
+  cross-linguistic typological statement in the corpus —
+  "Armenian has three-member rows: voiced — voiceless — voiceless
+  aspirated; Russian has only voiced/voiceless; English/German pair
+  voiced/aspirated"). pro_drop gains tioyan p34 (an exercise
+  instruction that implicitly acknowledges pro-drop via "add
+  pronoun *where necessary*"). Both citations bring the affected
+  topics to 4-source triangulation.
+
+  **Discovery walk on Russian-source novelties**: catalogued at
+  `walks/2026-05-07-discovery-walk-russian.md`. Three high-priority
+  candidates queued (`determinate_article`, `no_palatalisation`,
+  `auxiliary_e`); medium-priority case-system-overview, numerals;
+  low-priority reflexive_pronouns, punctuation. Ranked by yield/
+  effort in a decision matrix. Recommended next-write:
+  `topics/morphology/determinate_article.md` (parnasyan p45 has
+  a strong canonical Russian-language statement; sharpest
+  Russian-L1 contrast since Russian has no articles).
+
+  **Honest-gap demo (`հլը`)**: a Q&A test on the colloquial
+  particle `հլը` /hələ/ "still / wait". Result: 0 topic mentions,
+  0 mentions in sakayan/parnasyan/tioyan, 1 mention in ghamoyan
+  p49 (variant `հլա`, listed as "distorted language" without
+  definition), 0 Wiktionary entries. The system *honestly cannot*
+  explain `հլը` from current citations — exactly the "I don't know"
+  use case the project is designed to support. Filling this gap
+  would require Acharyan's etymological dictionary or a contemporary
+  corpus (EANC); flagged for future lexicon work.
+
+  **State after**: 14 topics, **315/315 fragments verify**, lint
+  clean. All 16 tasks completed. Backlog: write the recommended
+  3 new topics from the Russian-source discovery walk; expand
+  `lexicon/` to fill gaps like `հլը`; tackle the case-system-
+  overview question.
+
+- **2026-05-07 (ghamoyan deep-read — Ch 3, Ch 5, Appendix 2)**
+  Closed out the ghamoyan content-mining gap. Four new topics:
+  - `topics/lexicon/code_switching_with_russian.md` — Russian
+    items in Armenian morphology + bare adverbial insertions; cited
+    from p48 + Appendix 2 word-pair list (24 fragments).
+  - `topics/lexicon/yerevan_slang.md` — youth jargon catalogue
+    (բոց ա, թույն, քյառթու, ֆազոտ, …) + slang-formation patterns
+    (metaphor + foreign-borrowing) (25 fragments).
+  - `topics/lexicon/idioms_phrasal.md` — fixed expressions, single-
+    noun idiom families (the dog/շուն set), antithetical pairs
+    (եye / hand / tongue), synonym clusters for "to be silent"
+    (22 fragments).
+  - `topics/pragmatics/intimate_register.md` — endearments
+    (կյանք, ջան, ազիզ, մռութ, արև), the affectionate `-ս`
+    possessive, doubled-possessive `իմ կյանքս`, productive
+    diminutives (12 fragments).
+
+  Ch 1 (sociolinguistic intro) and Appendices 1+3 were skimmed but
+  not directly cited — content is contextual rather than topic-
+  generating; appendix 1 (error tables) and appendix 3 (nicknames)
+  yield material for future topics, not current ones. Ch 1 may
+  enrich existing topics' "Why this exists" framings on a future
+  pass.
+
+  **State after**: 14 topics, **305/305 fragments verified**, lint
+  clean. Domain coverage: phonology (3), morphology (6), syntax (1),
+  lexicon (3), pragmatics (1). All four ghamoyan-deep-read tasks
+  (#13-16) marked completed.
 
 - **2026-05-07 (parnasyan OCR + topic walk)** — OCR'd parnasyan
   end-to-end (430 book pages from a 215-image double-page-spread

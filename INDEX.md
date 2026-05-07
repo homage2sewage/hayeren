@@ -42,6 +42,12 @@ subdirectories — keep top level limited to this index and shared assets.
 │   ├── README.md
 │   ├── build_ours.py / compare.py
 │   └── out/                       # our_top_1000.tsv, comparison_report.md, …
+├── cards/                         # ⭐ Anki-importable TSVs — current variants live here
+│   ├── README.md
+│   ├── top_1000.tsv               # unified frequency-ranked top-1000 deck
+│   ├── sakayan/                   # vocab / dialogue / paradigm / chunk TSVs + all.tsv
+│   ├── ghamoyan/fillers.tsv
+│   └── frequency/gap_additions.tsv
 ├── topics/                        # synthesis layer — one MD per linguistic phenomenon
 │   └── phonology/
 │       └── voiced_aspirated_alternation.md   # first topic; schema test passed

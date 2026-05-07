@@ -112,7 +112,7 @@ the user can suspend/show the whole register at once.
 
 ## Filler deck — first slice done
 
-`out/fillers.tsv` (32 entries). Per-row format:
+`../cards/ghamoyan/fillers.tsv` (32 entries). Per-row format:
 
 ```
 Armenian \t  English (2-3 words) / Russian (2-3 words)  \t  tags

@@ -88,10 +88,10 @@ collecting good chunk candidates from the dialogues. Deferred.
    headers and emits `units.json` — the manifest of every unit's vocab
    pages and dialogue (page, y) bookmarks.
 3. `make_anki.py` reads `units.json` and produces:
-   - `out/by-unit/unit{NN}_vocab.tsv` (one per unit)
-   - `out/by-unit/unit{NN}_dialogue{i}.tsv` (one per dialogue)
-   - `out/by-unit/paradigms.tsv` (curated from `paradigms_data.py`)
-   - `out/by-unit/all.tsv` (concatenated; speaker prefixed onto the
+   - `cards/sakayan/unit{NN}_vocab.tsv` (one per unit)
+   - `cards/sakayan/unit{NN}_dialogue{i}.tsv` (one per dialogue)
+   - `cards/sakayan/paradigms.tsv` (curated from `paradigms_data.py`)
+   - `cards/sakayan/all.tsv` (concatenated; speaker prefixed onto the
      Armenian field for dialogues so all rows have the same shape)
 4. `phonetics.annotate` and `english_numbers.normalize` post-process the
    Armenian and English fields respectively, transparently.
@@ -207,7 +207,7 @@ card per cell, plus retroactive comma-split on the vocab side so
 User: "let's extract the whole book, expand knowledge along the way".
 Implemented `build_units.py` + `make_anki.py` for one-step bulk
 extraction of all 11 units. Output is 914 cards in
-`out/by-unit/all.tsv`. Layout quirks discovered along the way (two-
+`cards/sakayan/all.tsv`. Layout quirks discovered along the way (two-
 column tables, Layout A/B for English position, single un-numbered
 dialogues, lone-Roman-letter false positives in the glossary) are
 documented above. Knowledge files updated with all newly-found
@@ -236,7 +236,7 @@ and the user can read them and extend `paradigms_data.py` as needed.
 User: "yes, do it" (build lexical-chunk cards). Implemented `chunks.py`
 which walks every dialogue TSV, filters for short (≤7 words, single-
 sentence) Armenian utterances, dedupes by Armenian text, and emits
-`out/by-unit/chunks.tsv` (202 cards). Wired into `make_anki.py` so
+`cards/sakayan/chunks.tsv` (202 cards). Wired into `make_anki.py` so
 the chunks regenerate alongside vocab/dialogue/paradigm output.
 
 Format: dialogue exchange minus the speaker label. So
@@ -307,7 +307,7 @@ appendix table lists these explicitly. Encoded verbatim from there.
 
 Final tally after both passes: **256 paradigm cards** (33 finite-tense
 paradigms + 8 participle tables + the possessive-adjective table) and
-1354 cards total in `out/by-unit/all.tsv`.
+1354 cards total in `cards/sakayan/all.tsv`.
 
 **Still TODO (deferred — diminishing returns):**
 
@@ -350,7 +350,7 @@ Source: Ghamoyan Ch 4 §1 (*մակաբույծ բառեր* "parasitic words", p8
 plus a few discourse markers grepped from elsewhere in the book
 (notably `ըստ էության` from the appendix of common errors).
 
-Output: `ghamoyan/out/fillers.tsv` — 32 cards in three sub-tags:
+Output: `cards/ghamoyan/fillers.tsv` — 32 cards in three sub-tags:
 
 - `ghamoyan colloquial filler standard` (21) — discourse markers
   used in any register: ուրեմն, ի դեպ, ի միջի այլոց, համենայն դեպս,

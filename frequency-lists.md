@@ -187,14 +187,14 @@ makes external comparison meaningful. We can extend to 2 000 later.
 
 Aggregate all extracted Armenian from:
 
-- `sakayan/out/by-unit/unit*_vocab.tsv` — vocab cards (lemma-form
+- `cards/sakayan/unit*_vocab.tsv` — vocab cards (lemma-form
   by construction; ~600 entries).
-- `sakayan/out/by-unit/unit*_dialogue*.tsv` — dialogue Armenian
+- `cards/sakayan/unit*_dialogue*.tsv` — dialogue Armenian
   text (running prose; needs tokenization + lemmatization;
   ~290 exchanges, ~3 000 tokens).
-- `sakayan/out/by-unit/paradigms.tsv` — verb paradigm cells
+- `cards/sakayan/paradigms.tsv` — verb paradigm cells
   (already lemma-form for our purposes; ~350 entries).
-- `ghamoyan/out/fillers.tsv` — colloquial fillers (~32 entries).
+- `cards/ghamoyan/fillers.tsv` — colloquial fillers (~32 entries).
 
 Note: the Sakayan textbook is a deliberately *learner-oriented*
 corpus, not a balanced one — it over-represents introductory vocab

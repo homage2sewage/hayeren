@@ -1,0 +1,354 @@
+ունեմ	I have	sakayan unit1 paradigm verb:ունենալ tense:present_(irregular)
+ունես	you have (sg/informal)	sakayan unit1 paradigm verb:ունենալ tense:present_(irregular)
+ունի	he/she has	sakayan unit1 paradigm verb:ունենալ tense:present_(irregular)
+ունենք	we have	sakayan unit1 paradigm verb:ունենալ tense:present_(irregular)
+ունեք	you have (pl/formal)	sakayan unit1 paradigm verb:ունենալ tense:present_(irregular)
+ունեն	they have	sakayan unit1 paradigm verb:ունենալ tense:present_(irregular)
+ունենում եմ	I have (continuative)	sakayan unit1 paradigm verb:ունենալ tense:present_(regular_continuative)
+ունենում ես	you have (sg, continuative)	sakayan unit1 paradigm verb:ունենալ tense:present_(regular_continuative)
+ունենում է	he/she has (continuative)	sakayan unit1 paradigm verb:ունենալ tense:present_(regular_continuative)
+ունենում ենք	we have (continuative)	sakayan unit1 paradigm verb:ունենալ tense:present_(regular_continuative)
+ունենում եք	you have (pl, continuative)	sakayan unit1 paradigm verb:ունենալ tense:present_(regular_continuative)
+ունենում են	they have (continuative)	sakayan unit1 paradigm verb:ունենալ tense:present_(regular_continuative)
+եմ	I am	sakayan unit1 paradigm verb:լինել tense:present_(irregular_auxiliary)
+ես	you are (sg/informal)	sakayan unit1 paradigm verb:լինել tense:present_(irregular_auxiliary)
+է	he/she is	sakayan unit1 paradigm verb:լինել tense:present_(irregular_auxiliary)
+ենք	we are	sakayan unit1 paradigm verb:լինել tense:present_(irregular_auxiliary)
+եք	you are (pl/formal)	sakayan unit1 paradigm verb:լինել tense:present_(irregular_auxiliary)
+են	they are	sakayan unit1 paradigm verb:լինել tense:present_(irregular_auxiliary)
+չեմ	I am not	sakayan unit2 paradigm verb:լինել tense:present_negative
+չես	you are not (sg)	sakayan unit2 paradigm verb:լինել tense:present_negative
+չի	he/she is not	sakayan unit2 paradigm verb:լինել tense:present_negative
+չենք	we are not	sakayan unit2 paradigm verb:լինել tense:present_negative
+չեք	you are not (pl)	sakayan unit2 paradigm verb:լինել tense:present_negative
+չեն	they are not	sakayan unit2 paradigm verb:լինել tense:present_negative
+չունեմ	I don't have	sakayan unit2 paradigm verb:ունենալ tense:present_negative_(irregular)
+չունես	you don't have (sg)	sakayan unit2 paradigm verb:ունենալ tense:present_negative_(irregular)
+չունի	he/she doesn't have	sakayan unit2 paradigm verb:ունենալ tense:present_negative_(irregular)
+չունենք	we don't have	sakayan unit2 paradigm verb:ունենալ tense:present_negative_(irregular)
+չունեք	you don't have (pl)	sakayan unit2 paradigm verb:ունենալ tense:present_negative_(irregular)
+չունեն	they don't have	sakayan unit2 paradigm verb:ունենալ tense:present_negative_(irregular)
+չգիտեմ	I don't know	sakayan unit2 paradigm verb:գիտենալ tense:present_negative_(irregular)
+չգիտես	you don't know (sg)	sakayan unit2 paradigm verb:գիտենալ tense:present_negative_(irregular)
+չգիտի	he/she doesn't know	sakayan unit2 paradigm verb:գիտենալ tense:present_negative_(irregular)
+չգիտենք	we don't know	sakayan unit2 paradigm verb:գիտենալ tense:present_negative_(irregular)
+չգիտեք	you don't know (pl)	sakayan unit2 paradigm verb:գիտենալ tense:present_negative_(irregular)
+չգիտեն	they don't know	sakayan unit2 paradigm verb:գիտենալ tense:present_negative_(irregular)
+էի	I was	sakayan unit3 paradigm verb:լինել tense:imperfect
+էիր	you were (sg)	sakayan unit3 paradigm verb:լինել tense:imperfect
+էր	he/she was	sakayan unit3 paradigm verb:լինել tense:imperfect
+էինք	we were	sakayan unit3 paradigm verb:լինել tense:imperfect
+էիք	you were (pl)	sakayan unit3 paradigm verb:լինել tense:imperfect
+էին	they were	sakayan unit3 paradigm verb:լինել tense:imperfect
+ունեի	I had	sakayan unit3 paradigm verb:ունենալ tense:imperfect_(irregular)
+ունեիր	you had (sg)	sakayan unit3 paradigm verb:ունենալ tense:imperfect_(irregular)
+ուներ	he/she had	sakayan unit3 paradigm verb:ունենալ tense:imperfect_(irregular)
+ունեինք	we had	sakayan unit3 paradigm verb:ունենալ tense:imperfect_(irregular)
+ունեիք	you had (pl)	sakayan unit3 paradigm verb:ունենալ tense:imperfect_(irregular)
+ունեին	they had	sakayan unit3 paradigm verb:ունենալ tense:imperfect_(irregular)
+գիտեի	I knew	sakayan unit3 paradigm verb:գիտենալ tense:imperfect_(irregular)
+գիտեիր	you knew (sg)	sakayan unit3 paradigm verb:գիտենալ tense:imperfect_(irregular)
+գիտեր	he/she knew	sakayan unit3 paradigm verb:գիտենալ tense:imperfect_(irregular)
+գիտեինք	we knew	sakayan unit3 paradigm verb:գիտենալ tense:imperfect_(irregular)
+գիտեիք	you knew (pl)	sakayan unit3 paradigm verb:գիտենալ tense:imperfect_(irregular)
+գիտեին	they knew	sakayan unit3 paradigm verb:գիտենալ tense:imperfect_(irregular)
+գրեցի	I wrote	sakayan unit4 paradigm verb:գրել tense:aorist_(simple_past)
+գրեցիր	you wrote (sg)	sakayan unit4 paradigm verb:գրել tense:aorist_(simple_past)
+գրեց	he/she wrote	sakayan unit4 paradigm verb:գրել tense:aorist_(simple_past)
+գրեցինք	we wrote	sakayan unit4 paradigm verb:գրել tense:aorist_(simple_past)
+գրեցիք	you wrote (pl)	sakayan unit4 paradigm verb:գրել tense:aorist_(simple_past)
+գրեցին	they wrote	sakayan unit4 paradigm verb:գրել tense:aorist_(simple_past)
+կարդացի	I read (past)	sakayan unit4 paradigm verb:կարդալ tense:aorist_(simple_past)
+կարդացիր	you read (sg, past)	sakayan unit4 paradigm verb:կարդալ tense:aorist_(simple_past)
+կարդաց	he/she read (past)	sakayan unit4 paradigm verb:կարդալ tense:aorist_(simple_past)
+կարդացինք	we read (past)	sakayan unit4 paradigm verb:կարդալ tense:aorist_(simple_past)
+կարդացիք	you read (pl, past)	sakayan unit4 paradigm verb:կարդալ tense:aorist_(simple_past)
+կարդացին	they read (past)	sakayan unit4 paradigm verb:կարդալ tense:aorist_(simple_past)
+գրել եմ	I have written	sakayan unit5 paradigm verb:գրել tense:perfect
+գրել ես	you have written (sg)	sakayan unit5 paradigm verb:գրել tense:perfect
+գրել է	he/she has written	sakayan unit5 paradigm verb:գրել tense:perfect
+գրել ենք	we have written	sakayan unit5 paradigm verb:գրել tense:perfect
+գրել եք	you have written (pl)	sakayan unit5 paradigm verb:գրել tense:perfect
+գրել են	they have written	sakayan unit5 paradigm verb:գրել tense:perfect
+կարդացել եմ	I have read	sakayan unit5 paradigm verb:կարդալ tense:perfect
+կարդացել ես	you have read (sg)	sakayan unit5 paradigm verb:կարդալ tense:perfect
+կարդացել է	he/she has read	sakayan unit5 paradigm verb:կարդալ tense:perfect
+կարդացել ենք	we have read	sakayan unit5 paradigm verb:կարդալ tense:perfect
+կարդացել եք	you have read (pl)	sakayan unit5 paradigm verb:կարդալ tense:perfect
+կարդացել են	they have read	sakayan unit5 paradigm verb:կարդալ tense:perfect
+գրել էի	I had written	sakayan unit5 paradigm verb:գրել tense:pluperfect
+գրել էիր	you had written (sg)	sakayan unit5 paradigm verb:գրել tense:pluperfect
+գրել էր	he/she had written	sakayan unit5 paradigm verb:գրել tense:pluperfect
+գրել էինք	we had written	sakayan unit5 paradigm verb:գրել tense:pluperfect
+գրել էիք	you had written (pl)	sakayan unit5 paradigm verb:գրել tense:pluperfect
+գրել էին	they had written	sakayan unit5 paradigm verb:գրել tense:pluperfect
+կարդացել էի	I had read	sakayan unit5 paradigm verb:կարդալ tense:pluperfect
+կարդացել էիր	you had read (sg)	sakayan unit5 paradigm verb:կարդալ tense:pluperfect
+կարդացել էր	he/she had read	sakayan unit5 paradigm verb:կարդալ tense:pluperfect
+կարդացել էինք	we had read	sakayan unit5 paradigm verb:կարդալ tense:pluperfect
+կարդացել էիք	you had read (pl)	sakayan unit5 paradigm verb:կարդալ tense:pluperfect
+կարդացել էին	they had read	sakayan unit5 paradigm verb:կարդալ tense:pluperfect
+գրելու եմ	I will write	sakayan unit6 paradigm verb:գրել tense:future_indicative
+գրելու ես	you will write (sg)	sakayan unit6 paradigm verb:գրել tense:future_indicative
+գրելու է	he/she will write	sakayan unit6 paradigm verb:գրել tense:future_indicative
+գրելու ենք	we will write	sakayan unit6 paradigm verb:գրել tense:future_indicative
+գրելու եք	you will write (pl)	sakayan unit6 paradigm verb:գրել tense:future_indicative
+գրելու են	they will write	sakayan unit6 paradigm verb:գրել tense:future_indicative
+կարդալու եմ	I will read	sakayan unit6 paradigm verb:կարդալ tense:future_indicative
+կարդալու ես	you will read (sg)	sakayan unit6 paradigm verb:կարդալ tense:future_indicative
+կարդալու է	he/she will read	sakayan unit6 paradigm verb:կարդալ tense:future_indicative
+կարդալու ենք	we will read	sakayan unit6 paradigm verb:կարդալ tense:future_indicative
+կարդալու եք	you will read (pl)	sakayan unit6 paradigm verb:կարդալ tense:future_indicative
+կարդալու են	they will read	sakayan unit6 paradigm verb:կարդալ tense:future_indicative
+գրեմ	(that) I write	sakayan unit7 paradigm verb:գրել tense:subjunctive_future
+գրես	(that) you write (sg)	sakayan unit7 paradigm verb:գրել tense:subjunctive_future
+գրի	(that) he/she write	sakayan unit7 paradigm verb:գրել tense:subjunctive_future
+գրենք	(that) we write / let's write	sakayan unit7 paradigm verb:գրել tense:subjunctive_future
+գրեք	(that) you write (pl)	sakayan unit7 paradigm verb:գրել tense:subjunctive_future
+գրեն	(that) they write	sakayan unit7 paradigm verb:գրել tense:subjunctive_future
+կարդամ	(that) I read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_future
+կարդաս	(that) you read (sg)	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_future
+կարդա	(that) he/she read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_future
+կարդանք	(that) we read / let's read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_future
+կարդաք	(that) you read (pl)	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_future
+կարդան	(that) they read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_future
+գրեի	(that) I wrote / would write	sakayan unit7 paradigm verb:գրել tense:subjunctive_past
+գրեիր	(that) you wrote (sg) / would write	sakayan unit7 paradigm verb:գրել tense:subjunctive_past
+գրեր	(that) he/she wrote / would write	sakayan unit7 paradigm verb:գրել tense:subjunctive_past
+գրեինք	(that) we wrote / would write	sakayan unit7 paradigm verb:գրել tense:subjunctive_past
+գրեիք	(that) you wrote (pl) / would write	sakayan unit7 paradigm verb:գրել tense:subjunctive_past
+գրեին	(that) they wrote / would write	sakayan unit7 paradigm verb:գրել tense:subjunctive_past
+կարդայի	(that) I read / would read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_past
+կարդայիր	(that) you read (sg) / would read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_past
+կարդար	(that) he/she read / would read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_past
+կարդայինք	(that) we read / would read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_past
+կարդայիք	(that) you read (pl) / would read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_past
+կարդային	(that) they read / would read	sakayan unit7 paradigm verb:կարդալ tense:subjunctive_past
+պիտի գրեմ	I must write / I should write	sakayan unit8 paradigm verb:գրել tense:mandative_future_I_(պիտի)
+պիտի գրես	you must write (sg)	sakayan unit8 paradigm verb:գրել tense:mandative_future_I_(պիտի)
+պիտի գրի	he/she must write	sakayan unit8 paradigm verb:գրել tense:mandative_future_I_(պիտի)
+պիտի գրենք	we must write	sakayan unit8 paradigm verb:գրել tense:mandative_future_I_(պիտի)
+պիտի գրեք	you must write (pl)	sakayan unit8 paradigm verb:գրել tense:mandative_future_I_(պիտի)
+պիտի գրեն	they must write	sakayan unit8 paradigm verb:գրել tense:mandative_future_I_(պիտի)
+պիտի կարդամ	I must read / I should read	sakayan unit8 paradigm verb:կարդալ tense:mandative_future_I_(պիտի)
+պիտի կարդաս	you must read (sg)	sakayan unit8 paradigm verb:կարդալ tense:mandative_future_I_(պիտի)
+պիտի կարդա	he/she must read	sakayan unit8 paradigm verb:կարդալ tense:mandative_future_I_(պիտի)
+պիտի կարդանք	we must read	sakayan unit8 paradigm verb:կարդալ tense:mandative_future_I_(պիտի)
+պիտի կարդաք	you must read (pl)	sakayan unit8 paradigm verb:կարդալ tense:mandative_future_I_(պիտի)
+պիտի կարդան	they must read	sakayan unit8 paradigm verb:կարդալ tense:mandative_future_I_(պիտի)
+պիտի գրեի	I should have written / I was supposed to write	sakayan unit8 paradigm verb:գրել tense:mandative_past_I_(պիտի)
+պիտի գրեիր	you should have written (sg)	sakayan unit8 paradigm verb:գրել tense:mandative_past_I_(պիտի)
+պիտի գրեր	he/she should have written	sakayan unit8 paradigm verb:գրել tense:mandative_past_I_(պիտի)
+պիտի գրեինք	we should have written	sakayan unit8 paradigm verb:գրել tense:mandative_past_I_(պիտի)
+պիտի գրեիք	you should have written (pl)	sakayan unit8 paradigm verb:գրել tense:mandative_past_I_(պիտի)
+պիտի գրեին	they should have written	sakayan unit8 paradigm verb:գրել tense:mandative_past_I_(պիտի)
+պիտի կարդայի	I should have read	sakayan unit8 paradigm verb:կարդալ tense:mandative_past_I_(պիտի)
+պիտի կարդայիր	you should have read (sg)	sakayan unit8 paradigm verb:կարդալ tense:mandative_past_I_(պիտի)
+պիտի կարդար	he/she should have read	sakayan unit8 paradigm verb:կարդալ tense:mandative_past_I_(պիտի)
+պիտի կարդայինք	we should have read	sakayan unit8 paradigm verb:կարդալ tense:mandative_past_I_(պիտի)
+պիտի կարդայիք	you should have read (pl)	sakayan unit8 paradigm verb:կարդալ tense:mandative_past_I_(պիտի)
+պիտի կարդային	they should have read	sakayan unit8 paradigm verb:կարդալ tense:mandative_past_I_(պիտի)
+նստած եմ	I am sitting	sakayan unit9 paradigm verb:նստել tense:resultative_present
+նստած ես	you are sitting (sg)	sakayan unit9 paradigm verb:նստել tense:resultative_present
+նստած է	he/she is sitting	sakayan unit9 paradigm verb:նստել tense:resultative_present
+նստած ենք	we are sitting	sakayan unit9 paradigm verb:նստել tense:resultative_present
+նստած եք	you are sitting (pl)	sakayan unit9 paradigm verb:նստել tense:resultative_present
+նստած են	they are sitting	sakayan unit9 paradigm verb:նստել tense:resultative_present
+նստած էի	I was sitting	sakayan unit9 paradigm verb:նստել tense:resultative_past
+նստած էիր	you were sitting (sg)	sakayan unit9 paradigm verb:նստել tense:resultative_past
+նստած էր	he/she was sitting	sakayan unit9 paradigm verb:նստել tense:resultative_past
+նստած էինք	we were sitting	sakayan unit9 paradigm verb:նստել tense:resultative_past
+նստած էիք	you were sitting (pl)	sakayan unit9 paradigm verb:նստել tense:resultative_past
+նստած էին	they were sitting	sakayan unit9 paradigm verb:նստել tense:resultative_past
+հոգնած եմ	I am tired	sakayan unit9 paradigm verb:հոգնել tense:resultative_present
+հոգնած ես	you are tired (sg)	sakayan unit9 paradigm verb:հոգնել tense:resultative_present
+հոգնած է	he/she is tired	sakayan unit9 paradigm verb:հոգնել tense:resultative_present
+հոգնած ենք	we are tired	sakayan unit9 paradigm verb:հոգնել tense:resultative_present
+հոգնած եք	you are tired (pl)	sakayan unit9 paradigm verb:հոգնել tense:resultative_present
+հոգնած են	they are tired	sakayan unit9 paradigm verb:հոգնել tense:resultative_present
+կգրեմ	I would write / I'll write (probably)	sakayan unit10 paradigm verb:գրել tense:hypothetical_future_I_(կ-)
+կգրես	you would write (sg)	sakayan unit10 paradigm verb:գրել tense:hypothetical_future_I_(կ-)
+կգրի	he/she would write	sakayan unit10 paradigm verb:գրել tense:hypothetical_future_I_(կ-)
+կգրենք	we would write	sakayan unit10 paradigm verb:գրել tense:hypothetical_future_I_(կ-)
+կգրեք	you would write (pl)	sakayan unit10 paradigm verb:գրել tense:hypothetical_future_I_(կ-)
+կգրեն	they would write	sakayan unit10 paradigm verb:գրել tense:hypothetical_future_I_(կ-)
+կկարդամ	I would read / I'll read (probably)	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_future_I_(կ-)
+կկարդաս	you would read (sg)	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_future_I_(կ-)
+կկարդա	he/she would read	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_future_I_(կ-)
+կկարդանք	we would read	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_future_I_(կ-)
+կկարդաք	you would read (pl)	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_future_I_(կ-)
+կկարդան	they would read	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_future_I_(կ-)
+կգրեի	I would have written	sakayan unit10 paradigm verb:գրել tense:hypothetical_past_I_(կ-)
+կգրեիր	you would have written (sg)	sakayan unit10 paradigm verb:գրել tense:hypothetical_past_I_(կ-)
+կգրեր	he/she would have written	sakayan unit10 paradigm verb:գրել tense:hypothetical_past_I_(կ-)
+կգրեինք	we would have written	sakayan unit10 paradigm verb:գրել tense:hypothetical_past_I_(կ-)
+կգրեիք	you would have written (pl)	sakayan unit10 paradigm verb:գրել tense:hypothetical_past_I_(կ-)
+կգրեին	they would have written	sakayan unit10 paradigm verb:գրել tense:hypothetical_past_I_(կ-)
+կկարդայի	I would have read	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_past_I_(կ-)
+կկարդայիր	you would have read (sg)	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_past_I_(կ-)
+կկարդար	he/she would have read	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_past_I_(կ-)
+կկարդայինք	we would have read	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_past_I_(կ-)
+կկարդայիք	you would have read (pl)	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_past_I_(կ-)
+կկարդային	they would have read	sakayan unit10 paradigm verb:կարդալ tense:hypothetical_past_I_(կ-)
+գրել	to write	sakayan unit12 paradigm verb:գրել tense:participles
+գրող	writer / one who writes	sakayan unit12 paradigm verb:գրել tense:participles
+գրած	written / having written	sakayan unit12 paradigm verb:գրել tense:participles
+գրելիս	while writing	sakayan unit12 paradigm verb:գրել tense:participles
+գրելու	going to write / about to write	sakayan unit12 paradigm verb:գրել tense:participles
+գրի	[negative participle — appears in 'չեմ գրի' I won't write]	sakayan unit12 paradigm verb:գրել tense:participles
+գրելով	by writing / through writing	sakayan unit12 paradigm verb:գրել tense:participles
+կարդալ	to read	sakayan unit12 paradigm verb:կարդալ tense:participles
+կարդացող	reader / one who reads	sakayan unit12 paradigm verb:կարդալ tense:participles
+կարդացած	read / having read	sakayan unit12 paradigm verb:կարդալ tense:participles
+կարդալիս	while reading	sakayan unit12 paradigm verb:կարդալ tense:participles
+կարդալու	going to read / about to read	sakayan unit12 paradigm verb:կարդալ tense:participles
+կարդա	[negative participle — 'չեմ կարդա' I won't read]	sakayan unit12 paradigm verb:կարդալ tense:participles
+կարդալով	by reading / through reading	sakayan unit12 paradigm verb:կարդալ tense:participles
+ունենալ	to have	sakayan unit12 paradigm verb:ունենալ tense:participles
+ունեցող	owner / one who has	sakayan unit12 paradigm verb:ունենալ tense:participles
+ունեցած	had / possessed	sakayan unit12 paradigm verb:ունենալ tense:participles
+ունենալիս	while having	sakayan unit12 paradigm verb:ունենալ tense:participles
+ունենալու	going to have / about to have	sakayan unit12 paradigm verb:ունենալ tense:participles
+ունենա	[negative — 'չեմ ունենա' I won't have]	sakayan unit12 paradigm verb:ունենալ tense:participles
+ունենալով	by having / through having	sakayan unit12 paradigm verb:ունենալ tense:participles
+լինել	to be	sakayan unit12 paradigm verb:լինել tense:participles
+եղող	one who is / being	sakayan unit12 paradigm verb:լինել tense:participles
+եղած	having been / former	sakayan unit12 paradigm verb:լինել tense:participles
+լինելիս	while being	sakayan unit12 paradigm verb:լինել tense:participles
+լինելու	going to be / about to be	sakayan unit12 paradigm verb:լինել tense:participles
+լինի	[negative — 'չեմ լինի' I won't be]	sakayan unit12 paradigm verb:լինել tense:participles
+լինելով	by being / through being	sakayan unit12 paradigm verb:լինել tense:participles
+գալ	to come	sakayan unit12 paradigm verb:գալ tense:participles
+եկող	comer / the one coming	sakayan unit12 paradigm verb:գալ tense:participles
+եկած	having come / arrived	sakayan unit12 paradigm verb:գալ tense:participles
+գալիս	while coming / on arriving	sakayan unit12 paradigm verb:գալ tense:participles
+գալու	going to come / about to come	sakayan unit12 paradigm verb:գալ tense:participles
+գա	[negative — 'չեմ գա' I won't come]	sakayan unit12 paradigm verb:գալ tense:participles
+գալով	by coming / through coming	sakayan unit12 paradigm verb:գալ tense:participles
+տեսնել	to see	sakayan unit12 paradigm verb:տեսնել tense:participles
+տեսնող	viewer / one who sees	sakayan unit12 paradigm verb:տեսնել tense:participles
+տեսած	having seen / seen	sakayan unit12 paradigm verb:տեսնել tense:participles
+տեսնելիս	while seeing / on seeing	sakayan unit12 paradigm verb:տեսնել tense:participles
+տեսնելու	going to see / about to see	sakayan unit12 paradigm verb:տեսնել tense:participles
+տեսնի	[negative — 'չեմ տեսնի' I won't see]	sakayan unit12 paradigm verb:տեսնել tense:participles
+տեսնելով	by seeing / through seeing	sakayan unit12 paradigm verb:տեսնել tense:participles
+ուտել	to eat	sakayan unit12 paradigm verb:ուտել tense:participles
+ուտող	eater / one who eats	sakayan unit12 paradigm verb:ուտել tense:participles
+կերած	eaten / having eaten	sakayan unit12 paradigm verb:ուտել tense:participles
+ուտելիս	while eating	sakayan unit12 paradigm verb:ուտել tense:participles
+ուտելու	going to eat / about to eat	sakayan unit12 paradigm verb:ուտել tense:participles
+ուտի	[negative — 'չեմ ուտի' I won't eat]	sakayan unit12 paradigm verb:ուտել tense:participles
+ուտելով	by eating / through eating	sakayan unit12 paradigm verb:ուտել tense:participles
+տալ	to give	sakayan unit12 paradigm verb:տալ tense:participles
+տվող	giver / one who gives	sakayan unit12 paradigm verb:տալ tense:participles
+տված	given / having given	sakayan unit12 paradigm verb:տալ tense:participles
+տալիս	while giving / on giving	sakayan unit12 paradigm verb:տալ tense:participles
+տալու	going to give / about to give	sakayan unit12 paradigm verb:տալ tense:participles
+տա	[negative — 'չեմ տա' I won't give]	sakayan unit12 paradigm verb:տալ tense:participles
+տալով	by giving / through giving	sakayan unit12 paradigm verb:տալ tense:participles
+անել	to do / to make	sakayan unit12 paradigm verb:անել tense:participles
+անող	doer / one who does	sakayan unit12 paradigm verb:անել tense:participles
+արած	done / made (irregular: aorist արեցի)	sakayan unit12 paradigm verb:անել tense:participles
+անելիս	while doing	sakayan unit12 paradigm verb:անել tense:participles
+անելու	going to do / about to do	sakayan unit12 paradigm verb:անել tense:participles
+անի	[negative — 'չեմ անի' I won't do]	sakayan unit12 paradigm verb:անել tense:participles
+անելով	by doing / through doing	sakayan unit12 paradigm verb:անել tense:participles
+առնել	to take / to buy	sakayan unit12 paradigm verb:առնել tense:participles
+առնող	taker / buyer	sakayan unit12 paradigm verb:առնել tense:participles
+առած	taken / bought (aorist առա)	sakayan unit12 paradigm verb:առնել tense:participles
+առնելիս	while taking / while buying	sakayan unit12 paradigm verb:առնել tense:participles
+առնելու	going to take / about to take	sakayan unit12 paradigm verb:առնել tense:participles
+առնի	[negative — 'չեմ առնի' I won't take]	sakayan unit12 paradigm verb:առնել tense:participles
+առնելով	by taking / through taking	sakayan unit12 paradigm verb:առնել tense:participles
+ասել	to say / to tell	sakayan unit12 paradigm verb:ասել tense:participles
+ասող	speaker / one who says	sakayan unit12 paradigm verb:ասել tense:participles
+ասած	said / told (aorist ասացի)	sakayan unit12 paradigm verb:ասել tense:participles
+ասելիս	while saying / on saying	sakayan unit12 paradigm verb:ասել tense:participles
+ասելու	going to say / about to say	sakayan unit12 paradigm verb:ասել tense:participles
+ասի	[negative — 'չեմ ասի' I won't say]	sakayan unit12 paradigm verb:ասել tense:participles
+ասելով	by saying / through saying	sakayan unit12 paradigm verb:ասել tense:participles
+բանալ	to open	sakayan unit12 paradigm verb:բանալ tense:participles
+բացող	opener (irregular present-stem բաց-)	sakayan unit12 paradigm verb:բանալ tense:participles
+բացած	opened	sakayan unit12 paradigm verb:բանալ tense:participles
+բանալիս	while opening	sakayan unit12 paradigm verb:բանալ tense:participles
+բանալու	going to open / about to open	sakayan unit12 paradigm verb:բանալ tense:participles
+բանա	[negative — 'չեմ բանա' I won't open]	sakayan unit12 paradigm verb:բանալ tense:participles
+բանալով	by opening / through opening	sakayan unit12 paradigm verb:բանալ tense:participles
+բերել	to bring	sakayan unit12 paradigm verb:բերել tense:participles
+բերող	one who brings	sakayan unit12 paradigm verb:բերել tense:participles
+բերած	brought (aorist բերեցի/բերի)	sakayan unit12 paradigm verb:բերել tense:participles
+բերելիս	while bringing	sakayan unit12 paradigm verb:բերել tense:participles
+բերելու	going to bring / about to bring	sakayan unit12 paradigm verb:բերել tense:participles
+բերի	[negative — 'չեմ բերի' I won't bring]	sakayan unit12 paradigm verb:բերել tense:participles
+բերելով	by bringing / through bringing	sakayan unit12 paradigm verb:բերել tense:participles
+դառնալ	to become / to turn	sakayan unit12 paradigm verb:դառնալ tense:participles
+դարձող	one who becomes (aorist stem դարձ-)	sakayan unit12 paradigm verb:դառնալ tense:participles
+դարձած	become / turned	sakayan unit12 paradigm verb:դառնալ tense:participles
+դառնալիս	while becoming	sakayan unit12 paradigm verb:դառնալ tense:participles
+դառնալու	going to become / about to become	sakayan unit12 paradigm verb:դառնալ tense:participles
+դառնա	[negative — 'չեմ դառնա' I won't become]	sakayan unit12 paradigm verb:դառնալ tense:participles
+դառնալով	by becoming / through becoming	sakayan unit12 paradigm verb:դառնալ tense:participles
+դնել	to put / to place	sakayan unit12 paradigm verb:դնել tense:participles
+դնող	one who places	sakayan unit12 paradigm verb:դնել tense:participles
+դրած	put / placed (aorist դրեցի/դրի, stem դր-)	sakayan unit12 paradigm verb:դնել tense:participles
+դնելիս	while putting / while placing	sakayan unit12 paradigm verb:դնել tense:participles
+դնելու	going to put / about to put	sakayan unit12 paradigm verb:դնել tense:participles
+դնի	[negative — 'չեմ դնի' I won't put]	sakayan unit12 paradigm verb:դնել tense:participles
+դնելով	by putting / through placing	sakayan unit12 paradigm verb:դնել tense:participles
+ելնել	to go out / to rise	sakayan unit12 paradigm verb:ելնել tense:participles
+ելնող	one who goes out	sakayan unit12 paradigm verb:ելնել tense:participles
+ելած	gone out / risen (aorist ելա, stem ել-)	sakayan unit12 paradigm verb:ելնել tense:participles
+ելնելիս	while going out / while rising	sakayan unit12 paradigm verb:ելնել tense:participles
+ելնելու	going to go out / about to go out	sakayan unit12 paradigm verb:ելնել tense:participles
+ելնի	[negative — 'չեմ ելնի' I won't go out]	sakayan unit12 paradigm verb:ելնել tense:participles
+ելնելով	by going out / through rising	sakayan unit12 paradigm verb:ելնել tense:participles
+զարկել	to hit / to strike	sakayan unit12 paradigm verb:զարկել tense:participles
+զարկող	hitter / striker	sakayan unit12 paradigm verb:զարկել tense:participles
+զարկած	hit / struck	sakayan unit12 paradigm verb:զարկել tense:participles
+զարկելիս	while hitting / while striking	sakayan unit12 paradigm verb:զարկել tense:participles
+զարնելու	going to hit (note: irregular զարն- stem in future)	sakayan unit12 paradigm verb:զարկել tense:participles
+զարկի	[negative — 'չեմ զարկի' I won't hit]	sakayan unit12 paradigm verb:զարկել tense:participles
+զարկելով	by hitting / through striking	sakayan unit12 paradigm verb:զարկել tense:participles
+ընկնել	to fall	sakayan unit12 paradigm verb:ընկնել tense:participles
+ընկնող	one who falls	sakayan unit12 paradigm verb:ընկնել tense:participles
+ընկած	fallen (aorist ընկա, stem ընկ-)	sakayan unit12 paradigm verb:ընկնել tense:participles
+ընկնելիս	while falling	sakayan unit12 paradigm verb:ընկնել tense:participles
+ընկնելու	going to fall / about to fall	sakayan unit12 paradigm verb:ընկնել tense:participles
+ընկնի	[negative — 'չեմ ընկնի' I won't fall]	sakayan unit12 paradigm verb:ընկնել tense:participles
+ընկնելով	by falling / through falling	sakayan unit12 paradigm verb:ընկնել tense:participles
+թողնել	to leave / to allow	sakayan unit12 paradigm verb:թողնել tense:participles
+թողնող	one who leaves / allows	sakayan unit12 paradigm verb:թողնել tense:participles
+թողած	left / allowed (aorist թողեցի/թողի)	sakayan unit12 paradigm verb:թողնել tense:participles
+թողնելիս	while leaving / while allowing	sakayan unit12 paradigm verb:թողնել tense:participles
+թողնելու	going to leave / about to leave	sakayan unit12 paradigm verb:թողնել tense:participles
+թողնի	[negative — 'չեմ թողնի' I won't leave]	sakayan unit12 paradigm verb:թողնել tense:participles
+թողնելով	by leaving / through allowing	sakayan unit12 paradigm verb:թողնել tense:participles
+լալ	to cry / to weep	sakayan unit12 paradigm verb:լալ tense:participles
+լացող	crier / one who cries (stem լաց-)	sakayan unit12 paradigm verb:լալ tense:participles
+լացած	cried (aorist լացեցի/լացի)	sakayan unit12 paradigm verb:լալ tense:participles
+լալիս	while crying / while weeping	sakayan unit12 paradigm verb:լալ tense:participles
+լալու	going to cry / about to cry	sakayan unit12 paradigm verb:լալ tense:participles
+լացի	[negative — 'չեմ լացի' I won't cry]	sakayan unit12 paradigm verb:լալ tense:participles
+լալով	by crying / through crying	sakayan unit12 paradigm verb:լալ tense:participles
+լվանալ	to wash	sakayan unit12 paradigm verb:լվանալ tense:participles
+լվացող	washer / one who washes (stem լվաց-)	sakayan unit12 paradigm verb:լվանալ tense:participles
+լվացած	washed (aorist լվացի)	sakayan unit12 paradigm verb:լվանալ tense:participles
+լվանալիս	while washing	sakayan unit12 paradigm verb:լվանալ tense:participles
+լվալու	going to wash / about to wash	sakayan unit12 paradigm verb:լվանալ tense:participles
+լվանա	[negative — 'չեմ լվանա' I won't wash]	sakayan unit12 paradigm verb:լվանալ tense:participles
+լվանալով	by washing / through washing	sakayan unit12 paradigm verb:լվանալ tense:participles
+տանել	to take (away) / to lead	sakayan unit12 paradigm verb:տանել tense:participles
+տանող	one who takes (away) / leader	sakayan unit12 paradigm verb:տանել tense:participles
+տարած	taken (away) / led (aorist տարա, stem տար-)	sakayan unit12 paradigm verb:տանել tense:participles
+տանելիս	while taking / while leading	sakayan unit12 paradigm verb:տանել tense:participles
+տանելու	going to take / about to take	sakayan unit12 paradigm verb:տանել tense:participles
+տանի	[negative — 'չեմ տանի' I won't take]	sakayan unit12 paradigm verb:տանել tense:participles
+տանելով	by taking / through leading	sakayan unit12 paradigm verb:տանել tense:participles
+իմ	my	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)
+քո	your (sg/informal)	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)
+իր	his/her/its (one's own)	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)
+նրա	his/her/its (someone else's)	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)
+մեր	our	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)
+ձեր	your (pl/formal)	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)
+իրենց	their (one's own)	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)
+նրանց	their (someone else's)	sakayan unit3 paradigm verb:— tense:possessive_(Unit_3)

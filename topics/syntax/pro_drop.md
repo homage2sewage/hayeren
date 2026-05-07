@@ -82,6 +82,26 @@ sources:
       pronouns are required. Converts the Russian-L1 contrastive note
       in this topic from agent-paraphrased to book-cited.
       OCR'd at avg confidence 84 across fragments.
+  - id: 6
+    book: tioyan
+    page: 34
+    y_range: [1990, 2200]
+    verbatim_quote:
+      - "Добавьте"
+      - "как вспомогательный глагол"
+      - "превращая словосочетание в"
+      - "где нужно"
+      - "личное или указательное"
+    supports: partially-supported
+    note: |
+      tioyan exercise instruction: "Add է as auxiliary verb,
+      turning the phrase into a sentence and adding *where necessary*
+      a personal or demonstrative pronoun." The phrase *где нужно*
+      ("where necessary") implicitly acknowledges pro-drop — pronouns
+      are not always added, only when needed. Triangulates the
+      pro-drop claim from a fourth source, though the claim is
+      embedded in exercise instructions rather than stated as a rule
+      (hence `partially-supported`).
 gaps:
   - "Empty-pronoun typology: is Armenian a 'consistent' null-subject language (like Spanish, Italian) or 'partial' (like Russian)? Untreated by both sources."
   - "Topicalisation / dislocation patterns surrounding pro-drop: untreated."

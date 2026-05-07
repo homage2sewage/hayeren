@@ -76,6 +76,28 @@ sources:
       (Russian's hard/soft distinction). This passage book-grounds
       the Russian-L1 contrastive note in the body of this topic.
       OCR'd at avg confidence 87 across the 3 fragments.
+  - id: 6
+    book: tioyan
+    page: 50
+    y_range: [1100, 1330]
+    verbatim_quote:
+      - "трехчленных рядов"
+      - "звонкий — глухой — глухой придыхательный"
+      - "русском языке"
+      - "звонкий — глухой"
+      - "немецком"
+    supports: supported
+    note: |
+      tioyan's explicit Russian-language statement of the three-way
+      contrast — "the Armenian consonant system has several
+      three-member rows: voiced — voiceless — voiceless aspirated"
+      — and a comparative typology: Russian has only the
+      voiced-voiceless pair (б-п, в-ф); English and German pair
+      voiced-aspirated (b-p^h, d-t^h). This is the *cleanest single
+      cross-linguistic typological statement* in our corpus on the
+      three-way contrast — more explicit than parnasyan's
+      enumeration. Triangulates sakayan + ghamoyan + parnasyan with
+      a fourth source.
 gaps:
   - "Phonetic implementation (VOT values, aspiration duration, voicing onset) is not measured by either source."
   - "Sakayan presents the contrast for stops + 2 affricate places (5 articulations × 3 phonations); whether the alveolar (ձ/ծ/ց) and palatal (ջ/ճ/չ) affricates form a unitary class or two distinct series is not discussed."

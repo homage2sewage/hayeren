@@ -12,9 +12,30 @@ choices.
 - [x] Theory documented (`../frequency-lists.md`).
 - [x] `build_ours.py` — aggregate + tokenize + lemmatize + rank.
 - [x] `compare.py` — fetch + lemmatize Hermitdave list + diff report.
-- [x] First run: 997 distinct lemmas in ours; 360 agree with
-      Hermitdave's top-1000 (~36% agreement); 16+ genuine gaps
-      identified for deck improvement (see `out/comparison_report.md`).
+- [x] `validate_lemmas.py` — Wiktionary-based per-lemma sanity check.
+- [x] `build_deck.py` — emit unified top-1000 deck at `../cards/top_1000.tsv`
+      with translations pulled from existing card sources, plus optional
+      Wiktionary fallback (`--with-wiktionary`).
+- [x] First run after lemmatizer fixes: **1000 lemmas in ours; 100 % top-100
+      validation rate via Wiktionary** (72 valid + 9 multi-meaning + 19
+      suspicious-but-Wiktionary-confirmed; 0 not-found).
+- [x] 360 of our top-1000 agree with Hermitdave's top-1000; 16 high-
+      frequency gap-words written to `../cards/frequency/gap_additions.tsv`.
+
+## Lemmatization rules — what we fixed
+
+The lemmatizer is rule-based suffix-stripping plus a paradigm-cell
+inflected→infinitive map. Two kinds of bugs caught by the validation
+pass and fixed:
+
+- **`-ն` and `-ս` over-stripped.** They're a definite-article
+  suffix only on vowel-final stems and rarely correct in casual
+  writing — far more often part of the lemma itself (`հայերեն,
+  հայկական, ամեն, այսպես, անուն`). Removed from the strip list.
+  Slight under-aggregation of 1sg-possessive forms (`անունս` "my
+  name" vs `անուն` "name") is the right tradeoff.
+- **Stem-change nouns** (`սեր` → `սիր-` in oblique cases): hand-pinned
+  `սիրով → սեր`, etc. in `collect_inflected_to_lemma`.
 
 ## Layout
 
@@ -23,18 +44,22 @@ frequency/
 ├── README.md                  this file
 ├── build_ours.py              builds out/our_top_1000.tsv
 ├── compare.py                 builds out/comparison_report.md
+├── validate_lemmas.py         Wiktionary sanity-check on top-N lemmas
+├── build_deck.py              builds ../cards/top_1000.tsv (unified deck)
 └── out/
     ├── our_top_1000.tsv       rank | lemma | count | sources
     ├── all_lemmas.tsv         every lemma we found, ranked
     ├── build_stats.txt        per-source token/lemma counts + Zipf check
     ├── hermitdave_hy_full.txt cached external reference (6874 entries)
-    └── comparison_report.md   bucket diff + analysis
+    ├── comparison_report.md   bucket diff + analysis
+    ├── lemma_validation.tsv   per-lemma Wiktionary status (top-N)
+    └── lemma_validation.md    summary breakdown: valid / not-found / suspicious
 ```
 
 ## How to run
 
 No venv required — standard library only. Both scripts read TSV files
-from `../sakayan/out/by-unit/` and `../ghamoyan/out/`.
+from `../cards/sakayan/` and `../cards/ghamoyan/`.
 
 ```sh
 # 1. build our list

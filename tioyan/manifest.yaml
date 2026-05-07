@@ -1,0 +1,80 @@
+title: Самоучитель армянского языка / Հայերենի ինքնուսույց
+title-en: Self-Teacher of the Armenian Language
+authors:
+  - Тиоян, Сусанна (Tioyan, Susanna)
+  - Григорян, Олег (Grigoryan, Oleg)
+  - Урутян, Роберт (Urutyan, Robert)
+year: 2007
+publisher: Зангак-97 (Zangak-97), Yerevan
+pages: 393
+isbn: 978-99941-1-347-7
+
+dialect: eastern-standard
+register: prescriptive-pedagogy
+audience: russian-speakers
+contrastive-with: [russian]
+language: russian (with Armenian script and phonetic transliteration)
+
+extraction:
+  source: tioyan.pdf
+  encoding: |
+    Pure raster scan, no text layer (Adobe Acrobat 8.0 Image
+    Conversion Plug-in, 2010). Single-page scan, 393 pages. Use the
+    same OCR pipeline as parnasyan but skip the double-page split
+    step. To be set up after parnasyan's pipeline is validated.
+  jsonl: out/full.jsonl  # not yet extracted
+  md: out/full.md  # not yet extracted
+
+structure:
+  toc-extracted: pp. 386-391+ (back of book; see notes)
+  lessons: 43+ (visible in TOC), numbered "Урок 1" through "Урок 43"
+  per-lesson-pattern: |
+    Each lesson has two sections explicit in the TOC:
+      "Словообразование" — word formation (suffixes, prefixes,
+                            compound words)
+      "Грамматика" — grammar (morphology, syntax)
+    Some lessons add "Пунктуация" — punctuation.
+
+  topical-coverage-from-toc: |
+    Lesson 13 (p.92): personal pronouns (Личные местоимения).
+    Lesson 14 (p.97): pluperfect tenses, negative sentences.
+    Lesson 15 (p.103): perfect tense (прошедшее совершенное).
+    Lesson 16 (p.108): cardinal/ordinal/distributive numerals.
+    Lesson 17 (p.113): genitive case formation.
+    Lesson 18 (p.118): composite verbs; verb voice (active/passive).
+    Lesson 19 (p.124): demonstrative pronouns.
+    Lesson 21 (p.137): imperative mood.
+    Lesson 22 (p.145): irregular imperatives + punctuation
+                       (`՛` shesht, `՜` exclamation).
+    Lessons 23-28 (pp.154-182): non-finite verb forms / participles
+                       (impersonal forms of the verb).
+    Lesson 29 (p.187): resultative tenses (present + past).
+    Lesson 30 (p.193): reciprocal-reflexive pronouns.
+    Lesson 31 (p.197): determinative + negative pronouns.
+    Lesson 32 (p.202): indefinite pronouns.
+    Lesson 33 (p.208): adjectives.
+    Lessons 34-35 (pp.213-220): subjunctive (future + past).
+    Lessons 36-37 (pp.226-231): conditional (future + past).
+    Lesson 38 (p.235): mandative (future + past).
+    Lesson 39 (p.241): verb voice.
+    Lessons 40-42 (pp.247-257): interrogative + relative pronouns.
+    Lesson 43 (p.263): preposition vs postposition.
+
+notes: |
+  Comprehensive Russian-language self-teacher; broader topical
+  coverage than Parnasyan & Manukyan (1990) — has dedicated lessons
+  on every major mood, all pronoun categories, and the
+  preposition/postposition distinction. Bilingual title page
+  (Russian + Armenian).
+
+  Worth running topic-walk against the existing 6 topics; especially
+  promising for:
+  - `pro_drop` (Lesson 13: personal pronouns + Lesson 14: negation
+    interaction)
+  - `present_tense` (Lessons 14-15 cover the analytic tense system)
+  - `voiced_aspirated_alternation` (any lesson on phonology in the
+    intro)
+  - `colloquial_copula_a` (probably absent — this is prescriptive
+    pedagogy of literary norm, not of colloquial; gives a clean
+    "literary-only" data point against which ghamoyan's colloquial
+    ա-substitution is the deviation)

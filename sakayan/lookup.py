@@ -40,15 +40,16 @@ USER_AGENT = "hayeren-lookup/0.1 (personal study tool)"
 
 def _fetch(url: str, cache_key: str, ttl_days: int = 30) -> str | None:
     """Cached HTTP GET as text. Returns None on 404/missing entry.
-    Retries with exponential backoff on 429 (rate limit)."""
+    Retries with generous exponential backoff on 429 (rate limit) —
+    Wiktionary's cooldown can take 30+ seconds."""
     import time
     CACHE.mkdir(parents=True, exist_ok=True)
     cache_path = CACHE / cache_key
     if cache_path.exists():
         return cache_path.read_text(encoding="utf-8")
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    delay = 1.0
-    for attempt in range(4):
+    delays = [5, 15, 45, 90]  # cumulative ≈ 2.5 min, generous for rate-limit
+    for attempt, delay in enumerate(delays):
         try:
             with urllib.request.urlopen(req, timeout=15) as r:
                 body = r.read().decode("utf-8")
@@ -57,9 +58,8 @@ def _fetch(url: str, cache_key: str, ttl_days: int = 30) -> str | None:
         except urllib.error.HTTPError as e:
             if e.code == 404:
                 return None
-            if e.code == 429 and attempt < 3:
+            if e.code == 429 and attempt < len(delays) - 1:
                 time.sleep(delay)
-                delay *= 2
                 continue
             raise
     return None

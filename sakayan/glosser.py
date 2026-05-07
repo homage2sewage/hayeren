@@ -48,6 +48,18 @@ SUFFIXES: list[str] = sorted(
     reverse=True,
 )
 
+
+# Suffix → suffix substitutions for cases where lemma differs from a
+# simple truncation. Most common: abstract-noun `-ություն` whose genitive
+# replaces final `-ն` with `-ան` (e.g. էություն → էության).
+SUBSTITUTIONS: list[tuple[str, str]] = [
+    ("ության", "ություն"),
+    ("ությամբ", "ություն"),
+    ("ությունում", "ություն"),
+    ("ությունից", "ություն"),
+    ("ությունները", "ություն"),
+]
+
 # Match runs of Armenian letters (skip punctuation, digits, Latin words).
 ARMENIAN_TOKEN = re.compile(r"[Ա-Ֆա-ֈ]+")
 
@@ -56,6 +68,13 @@ def lemma_candidates(token: str) -> list[str]:
     """Return the token followed by article-/case-stripped variants,
     preserving order. Always tries the original form first."""
     out = [token]
+    # Suffix substitutions (handle paradigms like -ություն ↔ -ության).
+    for old, new in SUBSTITUTIONS:
+        if token.endswith(old):
+            candidate = token[: -len(old)] + new
+            if candidate not in out:
+                out.append(candidate)
+    # Plain suffix stripping for case/article endings.
     for suf in SUFFIXES:
         if token.endswith(suf) and len(token) - len(suf) >= 2:
             stem = token[: -len(suf)]
@@ -71,9 +90,11 @@ def gloss_token(token: str, max_defs: int = 3) -> dict:
     `parts` is the list of (POS, [definitions]) — useful when the token
     is genuinely ambiguous between e.g. noun and verb."""
     for i, lemma in enumerate(lemma_candidates(token)):
-        if i > 0:
-            # be polite to the API on retries (cache hits are free)
-            time.sleep(0.05)
+        # Throttle Wiktionary requests. Cache hits don't go to network so
+        # only sleep when we're actually about to fetch.
+        cache_path = lookup.CACHE / f"wiki-{lemma}.json"
+        if not cache_path.exists():
+            time.sleep(0.5)
         wikitext = lookup.fetch_wikitext(lemma)
         if not wikitext:
             continue

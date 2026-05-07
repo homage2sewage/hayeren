@@ -4,7 +4,7 @@ domain: phonology
 units: [sakayan:1]
 related: [voiced-aspirated-alternation, armenian-alphabet-phonology]
 status: draft
-attestation: multi-attested
+attestation: multi-attested   # sakayan + ghamoyan + parnasyan
 sources:
   - id: 1
     book: sakayan
@@ -58,6 +58,24 @@ sources:
       the three series ("aspiration of voiced, devoicing, and the
       reverse") under dialect/idiom influence. The system of three
       series is preserved; individual lexemes shift between them.
+  - id: 5
+    book: parnasyan
+    page: 21
+    y_range: [4140, 5300]
+    verbatim_quote:
+      - "Система согласных армянского языка отличается от русско"
+      - "глухих придыхательных"
+      - "отсутствием противопоставления согласных по твердости"
+    supports: supported
+    note: |
+      Russian-language enumeration of how Armenian's consonant
+      system differs from Russian's: presence of affricates with
+      three-way contrast, presence of aspirated voiceless row
+      (Russian has no aspiration distinction), voiced velar գ,
+      glottal aspirated հ, and absence of the palatalisation contrast
+      (Russian's hard/soft distinction). This passage book-grounds
+      the Russian-L1 contrastive note in the body of this topic.
+      OCR'd at avg confidence 87 across the 3 fragments.
 gaps:
   - "Phonetic implementation (VOT values, aspiration duration, voicing onset) is not measured by either source."
   - "Sakayan presents the contrast for stops + 2 affricate places (5 articulations × 3 phonations); whether the alveolar (ձ/ծ/ց) and palatal (ջ/ճ/չ) affricates form a unitary class or two distinct series is not discussed."
@@ -136,7 +154,13 @@ voiceless stops are unaspirated by default. So the Armenian
 voiced/voiceless distinction (բ/պ, դ/տ, գ/կ) maps cleanly onto
 Russian (б/п, д/т, г/к); the aspirated row (փ թ ք չ ց) is the
 unfamiliar category. Practice on the same minimal pairs as above —
-coming from the opposite side of the contrast.
+coming from the opposite side of the contrast. Parnasyan [#5]
+makes this contrast explicit, listing four ways Armenian's
+consonant system differs from Russian's: three-way affricates,
+aspirated voiceless row, voiced velar գ, glottal aspirated հ, and
+the absence of the palatalisation contrast (Russian's hard/soft
+distinction). The aspirated-row gap and the no-palatalisation
+point are the two that hit Russian L1 learners hardest.
 
 ## Sister phenomenon: alternation
 

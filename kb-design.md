@@ -48,9 +48,22 @@ integration plan for the layout decision):
   pedagogy, contrastive with English.
 - `ghamoyan/` — Ghamoyan, Sargsyan & Kartashyan, *Yerevan's Colloquial
   Language* (2014). 118 pp. Yerevan colloquial, descriptive
-  linguistic study, contrastive with the literary norm. Extraction
-  done; content not yet mined into `topics/` — see
-  `walks/2026-05-07-ghamoyan-integration-plan.md`.
+  linguistic study, contrastive with the literary norm. Integrated
+  into `topics/` 2026-05-07.
+- `parnasyan/` — Parnasyan & Manukyan, *Самоучитель армянского
+  языка* (Russian-language self-teacher of Armenian, Луйс, Yerevan
+  1990). 431 book pages, scanned as 215 double-page-spread images.
+  Eastern-standard, prescriptive-pedagogy, Russian-L1 contrastive.
+  OCR-extracted via tesseract (`-l rus+hye`); avg confidence 80.1.
+  Integrated into 3 topics 2026-05-07 (the 3 prescriptive-norm
+  topics — yerevan_consonant_reductions and colloquial_copula_a are
+  pure colloquial and parnasyan doesn't address them).
+- `tioyan/` — Tioyan, Grigoryan & Urutyan, *Самоучитель армянского
+  языка / Հայերենի ինքնուսույց* (Zangak-97, Yerevan 2007). 393 pp.
+  Eastern-standard, prescriptive-pedagogy, Russian-L1 contrastive.
+  More recent than parnasyan; comprehensive 43+ lesson coverage.
+  Manifest written; OCR pipeline ready (`tioyan/extract.py`); not
+  yet run.
 
 ## Storage shape
 
@@ -297,31 +310,39 @@ parent context with WebSearch enabled).
 
 ## Open / next steps
 
-**Topics under `topics/` as of 2026-05-07 (post-ghamoyan integration):**
+**Topics under `topics/` as of 2026-05-07 (post-parnasyan walk):**
 
 | topic | domain | sources | status | attestation |
 |-------|--------|---------|--------|-------------|
 | voiced_aspirated_alternation | phonology | sakayan p18,30,36,42 + ghamoyan p39 | draft | multi-attested |
-| three_way_laryngeal_contrast | phonology | sakayan p18 + ghamoyan p39 | draft | multi-attested |
-| present_tense | morphology | sakayan p36 + ghamoyan p73 | draft | multi-attested |
-| pro_drop | syntax | sakayan p36,71 + ghamoyan p79,80 | draft | multi-attested |
+| three_way_laryngeal_contrast | phonology | sakayan p18 + ghamoyan p39 + **parnasyan p21** | draft | multi-attested |
+| yerevan_consonant_reductions | phonology | ghamoyan p37,38 | draft | single-source |
+| present_tense | morphology | sakayan p36 + ghamoyan p73 + **parnasyan p30,31,32** | draft | multi-attested |
+| colloquial_copula_a | morphology | ghamoyan p73 | draft | single-source |
+| pro_drop | syntax | sakayan p36,71 + ghamoyan p79,80 + **parnasyan p49** | draft | multi-attested |
 
-All four pass `citation-check` (75/75 fragments verified — 17 of them
-from ghamoyan) and `critic-pass` phase-1 lint (0 errors / 0 warnings).
+All six pass `citation-check` (**117/117 fragments verified** — 15
+new from parnasyan) and `critic-pass` phase-1 lint
+(0 errors / 0 warnings).
 
 **Next moves:**
 
 - ~~**Active plan**: ghamoyan integration~~ — **executed 2026-05-07.**
-  Phase 0 (manifests for both books, layout decision: top-level book
-  dirs is official) — done. Phase 1 (topic walk against existing
-  4 topics) — done; consolidated walk plan at
-  `walks/2026-05-07-topic-walk-ghamoyan.md`; merged into all 4 topic
-  files; all topics now `multi-attested`. Phase 2 (discovery walk) —
-  candidate-list drafted at
-  `walks/2026-05-07-discovery-walk-ghamoyan.md`; ~10 new-topic
-  candidates queued, two recommended for first execution
-  (colloquial_copula_a, yerevan_consonant_reductions). Phase 3
-  (lexicon) — deferred per plan.
+  All three documented phases (manifests + topic walk + discovery
+  walk) complete; lexicon phase deferred. The two highest-priority
+  discovery-walk candidates have been written:
+  `topics/morphology/colloquial_copula_a.md` (the `ա↔է` register
+  marker, ghamoyan p73) and `topics/phonology/yerevan_consonant_reductions.md`
+  (cluster reductions, imperative ր-drop, ղ-drop, final լ/ս-drop,
+  loanword s-voicing — ghamoyan p37–38). Both single-source
+  (ghamoyan only); both pass citation-check and lint.
+
+- **Russian-language source acquisition**: candidate list at
+  `research/2026-05-07-russian-language-sources.md`. Top
+  recommendation: **Parnasyan & Manukyan (1990), *Самоучитель
+  армянского языка*** — explicitly Armenian-Russian contrastive.
+  Backup: Markosyan (2003/2013), *Крунк Айастани*. Acquisition
+  decision pending.
 - **Continue splitting `armenian-grammar.md`** in parallel where
   cheap. Remaining candidates:
   `topics/phonology/punctuation.md`,
@@ -438,6 +459,56 @@ from ghamoyan) and `critic-pass` phase-1 lint (0 errors / 0 warnings).
   made: book directories live at top level (drop the `books/<name>/`
   wrapper from earlier sketches; citation-check already accepts
   both, so no code change needed).
+
+- **2026-05-07 (parnasyan OCR + topic walk)** — OCR'd parnasyan
+  end-to-end (430 book pages from a 215-image double-page-spread
+  scan; tesseract `-l rus+hye --psm 4`; avg confidence 80.1; runtime
+  ~50 min). Output at `parnasyan/out/{full.jsonl, full.md}`,
+  16,886 line records. Topic-walked against the 6 existing topics —
+  walk plan at `walks/2026-05-07-topic-walk-parnasyan.md`. Three
+  topics gained parnasyan sources: three_way_laryngeal_contrast (p21
+  — Russian-contrastive enumeration of consonant-system differences),
+  present_tense (p30,31,32 — auxiliary paradigm + 3 explicit Russian
+  contrasts including "связка всегда присутствует" literary baseline),
+  pro_drop (p49 — explicit Russian-L1 contrastive claim that
+  1st/2nd-person subjects can be dropped *even in the past tense*,
+  unlike Russian). Three colloquial-only topics correctly didn't
+  gain parnasyan sources. After: 117/117 fragments verify, lint
+  clean across all 6 topics. The Russian-L1 contrastive notes in
+  the affected topics moved from agent-paraphrased to book-cited.
+
+  **OCR quality observations**: Russian-language fragments OCR at
+  90%+ confidence — citable as-is. Armenian-script fragments show
+  voiced-stop confusions (գ↔դ, etc.) typical of tesseract's
+  Armenian model, around 70-80% accuracy. Strategy: prefer
+  Russian-language quotes when available; for Armenian-script
+  citations from parnasyan, use shorter fragments and visual
+  verification.
+
+  **Layout caveat**: parnasyan.pdf is double-page-spread; each
+  PDF image-page covers two book pages side-by-side. extract.py
+  splits at the centerline before OCR. tioyan.pdf is single-page;
+  its extract.py omits the split.
+
+- **2026-05-07 (two new colloquial topics + Russian source research)**
+  — wrote the two highest-priority discovery-walk candidates as
+  topic files: `topics/morphology/colloquial_copula_a.md` (4
+  fragments verify, single-source ghamoyan) and
+  `topics/phonology/yerevan_consonant_reductions.md` (23 fragments,
+  five sub-phenomena: cluster reduction, imperative ր-drop, ղ-drop,
+  final լ/ս-drop, loanword s-voicing). Total topics: 6; total
+  citation-check fragments: 102/102 verified; lint clean (0/0/0)
+  across all 6 files.
+
+  Separately, ran web research for a Russian-language source —
+  output at `research/2026-05-07-russian-language-sources.md`. Top
+  candidate: **Parnasyan & Manukyan (1990), *Самоучитель армянского
+  языка*** (Луйс, Yerevan, 431 pp), explicitly Armenian-Russian
+  contrastive, with phonological + grammatical comparison built in.
+  Acquiring this would convert most current Russian-L1 contrastive
+  notes from agent-paraphrased to book-grounded, and would give the
+  project a third pillar (English-contrastive / Armenian-descriptive /
+  Russian-contrastive). Acquisition pending user decision.
 
 - **2026-05-07 (ghamoyan integration executed)** — full-pass
   integration of ghamoyan into the existing `topics/` tree.

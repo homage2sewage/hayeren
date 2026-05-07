@@ -1,0 +1,72 @@
+title: Самоучитель армянского языка
+title-en: Self-Teacher of the Armenian Language
+authors:
+  - Парнасян, Н. А. (Parnasyan, N. A.)
+  - Манукян, Ж. К. (Manukyan, Zh. K.)
+year: 1990
+publisher: Луйс (Luys), Yerevan
+pages: 431
+
+dialect: eastern-standard
+register: prescriptive-pedagogy
+audience: russian-speakers
+contrastive-with: [russian]
+language: russian (with Armenian script and phonetic transliteration)
+
+extraction:
+  source: parnasyan.pdf
+  encoding: |
+    Pure raster scan, no text layer (Adobe Photoshop CS2 PDF
+    Presentation, 2007). Double-page spread: each PDF page
+    (215 image-pages) shows two book pages side-by-side. Extracted
+    via OCR pipeline:
+      1. pdftoppm -r 300 → PNG per image-page
+      2. PIL split at centerline → left + right book pages
+      3. tesseract -l rus+hye --psm 4 → JSONL (one line per OCR
+         line, with bbox in image coords + confidence)
+    Russian-language prose OCR's at ~90-96% confidence; Armenian
+    script at ~70-80% (voiced/voiceless stop confusions common —
+    e.g. գ↔դ, ք↔ք). Always sanity-check Armenian-script citations
+    against the rendered PNG before promoting a topic to
+    `status: reviewed`.
+  jsonl: out/full.jsonl
+  md: out/full.md
+  pages-extracted: 430   # 215 image-pages × 2 book pages
+  ocr-confidence-field: ocr_conf  # per-line, 0-100
+
+structure:
+  preface: pp. 2 (page 1 left side of image-page 1)
+  intro-phonetic-course: ~5 lessons (introductory phonetic course)
+  main-course: 15 lessons (numbered 1-15 in the original)
+  back-matter: |
+    Russian-Armenian dictionary at the back (image-pages 213-215;
+    book pp. ~425-431).
+  toc-status: |
+    Not yet identified in extracted text — TOC location TBD; check
+    extracted full.md once OCR completes. Russian textbooks of this
+    era usually placed TOC at the back, before the dictionary.
+
+notes: |
+  Per the publisher's blurb (visible on cover/preface, image-page 1
+  right side): "Самоучитель предназначен для лиц, изучающих
+  армянский язык на основе русского языка." The book explicitly
+  contrasts Armenian with Russian throughout, with sections like
+  "В отличие от русского..." flagging structural mismatches —
+  e.g. p. 100-101 notes that Armenian 3sg pronoun նա does not
+  inflect for gender, unlike Russian он/она/оно.
+
+  This book's primary value to the project:
+  1. Russian-language prose explaining Armenian grammar — convertible
+     to citations supporting the Russian-L1 contrastive notes that
+     currently appear in every topic file as agent-paraphrased.
+  2. Russian-Armenian dictionary at the back — useful for the future
+     `lexicon/` phase.
+  3. Independent corroboration of Sakayan's literary-norm claims from
+     a different (Soviet-era Russian) tradition.
+
+caveats: |
+  Soviet-era publication (1990) — predates the post-1991 spelling
+  reform debates and modern conventions. Specific examples may show
+  Soviet-era register choices. Eastern Armenian's literary norm is
+  largely stable across that span, but watch for occasional
+  divergence.

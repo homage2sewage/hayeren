@@ -80,6 +80,51 @@ sources:
       (մեծ ա "is big") and as an auxiliary in simple/analytic
       predicates (գրում ա "[s/he] writes"). This is the single most
       recognisable register marker of Yerevan colloquial speech.
+  - id: 6
+    book: parnasyan
+    page: 30
+    y_range: [2820, 6010]
+    verbatim_quote:
+      - "ВСПОМОГАТЕЛЬНЫЙ ГЛАГОЛ"
+      - "быть (есть)"
+      - "выражают значение лица и в прошед"
+    supports: supported
+    note: |
+      parnasyan's auxiliary-verb section header + paradigm + first
+      Russian contrast. Establishes that the auxiliary "expresses
+      person even in the past tense, in contrast to Russian" — the
+      structural reason for consistent pro-drop documented in
+      pro_drop.md. OCR'd at avg confidence 90 across fragments.
+  - id: 7
+    book: parnasyan
+    page: 31
+    y_range: [460, 1100]
+    verbatim_quote:
+      - "армянский вспомогательны"
+      - "не имеет родового различия"
+    supports: supported
+    note: |
+      parnasyan's two further Russian contrasts about the auxiliary:
+      (a) Armenian aux *has* present-tense forms (Russian's null
+      copula doesn't), (b) past-tense aux doesn't distinguish gender
+      (Russian's был/была/было does). Both are Russian-L1 contrastive
+      notes converted from agent-paraphrased to book-cited.
+  - id: 8
+    book: parnasyan
+    page: 32
+    y_range: [100, 600]
+    verbatim_quote:
+      - "в армянском языке, в отличие от русского, связка"
+      - "всегда присутствует"
+      - "характерная особенность"
+    supports: supported
+    note: |
+      parnasyan's literary-norm baseline: "in Armenian, unlike
+      Russian, the copula is always present. This is a characteristic
+      feature of Armenian compound predicates." Sets the literary
+      norm against which ghamoyan's colloquial copula-elision (cited
+      from pro_drop.md and yerevan_consonant_reductions.md) is the
+      register deviation.
 gaps:
   - "Negation construction is handled in a separate Sakayan section (Unit 1's negation paradigms) — should become its own topic."
   - "Stress / prosody on the participle+auxiliary unit: not addressed by either source."
@@ -182,8 +227,8 @@ add Yerevan colloquial: `գրում ա` for "s/he writes" instead of
 **For a Russian L1**: Russian present indicative carries person/number
 on the verb itself (пишу, пишешь, пишет, …). Armenian splits the
 work — the lexical content sits in the participle (`գրում`), the
-person/number inflection in the auxiliary (`եմ ես է`). Russian
-doesn't grammaticalise the indefinite/continuous split (unlike
+person/number inflection in the auxiliary (`եմ ես է`). [#6] [#7]
+Russian doesn't grammaticalise the indefinite/continuous split (unlike
 English), so no extra mental work to map "I write" / "I am writing"
 both onto `գրում եմ`. Yerevan-colloquial `ա` for `է` has no Russian
 analogue — Russian's present-tense copula is null, not substituted —
@@ -191,6 +236,20 @@ but the phenomenon of register-specific 3rd-person forms (Russian's
 "уважительное Вы" with 3pl agreement, formal vs informal) is a
 familiar enough mental model for "different verb forms in different
 registers."
+
+Three explicit contrasts from Parnasyan worth internalising:
+
+1. The Armenian auxiliary *has* present-tense forms; Russian's
+   present-tense copula is null (`он студент`, no copula). [#7]
+2. The Armenian past-tense auxiliary doesn't distinguish gender
+   (`էր` for all of был/была/было). [#7]
+3. **The copula is always present** in Armenian compound predicates
+   — *"в армянском языке, в отличие от русского, связка всегда
+   присутствует. Это характерная особенность армянского составного
+   сказуемого."* [#8] This is the literary-norm baseline. In Yerevan
+   colloquial that baseline gets relaxed (zero-copula sentences, see
+   `topics/syntax/pro_drop.md`), so the literary↔colloquial contrast
+   becomes a sharp register marker.
 
 ## Open questions / gaps
 

@@ -109,3 +109,52 @@ Two new tags worth considering when/if we mine more of this book:
 
 Both should ride the `colloquial` umbrella tag from the verb section so
 the user can suspend/show the whole register at once.
+
+## Filler deck — first slice done
+
+`out/fillers.tsv` (32 entries) is built from the §1 list above plus a few
+high-frequency discourse markers found elsewhere in the book (notably
+`ըստ էության`, found in the appendix of common errors on p100+).
+
+Per-row format: `Armenian \t English meaning + brief usage note \t tags`.
+Three sub-tags so registers can be enabled/suspended independently:
+
+- `ghamoyan colloquial filler standard` — 21 entries. Literary
+  discourse markers (ուրեմն, ի դեպ, համենայն դեպս, ըստ էության,
+  իհարկե, ուղղակի…). Heard in formal speech and writing too.
+- `ghamoyan colloquial filler casual` — 8 entries. Hesitation/
+  intensifier fillers (եսիմ, օֆ եսիմ, տենց, բա, դե, պարզ ա…).
+- `ghamoyan colloquial filler slang` — 3 entries. Yerevan jargon
+  fillers from book p88 (լսի, խոսքի, քցենք).
+
+### Verification record (Tier 1)
+
+Each Armenian token in the TSV was passed through `sakayan/glosser.py`
+(Wiktionary lookup). Outcomes:
+
+| Status | Count | Notes |
+|--------|-------|-------|
+| ✓ found on Wiktionary, agrees with my translation | ~22 | strong evidence |
+| ✗ not in Wiktionary as a standalone entry | ~10 | mostly verb forms (կարծես, ասենք, ենթադրենք), reduced colloquials (տենց, քցենք), and multi-word idioms whose components are findable but the whole isn't (համենայն դեպս, մի խոսքով) |
+
+Where a single token wasn't on Wiktionary but the *components* were
+(e.g. `մի խոսքով` = `մի` + `խոսքով` (`խոսք` "word")), the word-by-word
+lookup confirms the literal reading even if the idiomatic meaning
+isn't an explicit Wiktionary entry. For pure colloquial reductions
+(`տենց`, `քցենք`, `բա` actually *is* on Wiktionary), the gloss in
+the TSV reflects the book's usage in context.
+
+Two-source standard met for ~22 of 32 entries. The remaining ~10 are
+documented from the book alone — flagged in the gloss column with
+phrases like "literally X" / "reduced from Y" so the user can see my
+derivation.
+
+## Open follow-ups
+
+- **Youth slang deep dive** (book Ch 3, p48). Listed in this file above;
+  should produce a `slang_yerevan` tag with maybe 30-40 entries
+  (`լոքշ, թույն, բոց, քյառթու, փոստ ա, ֆազոտ, ֆռցնել, դուխով, բքել…`
+  plus the Russian-Armenian code-switch examples). **Don't forget.**
+- Russian-calque pleonasms (§4 above) → could become a separate
+  `colloquial_calque` tag if user finds it useful for *avoiding* these
+  rather than producing them.

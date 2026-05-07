@@ -339,6 +339,38 @@ Combined with the finite-tense paradigms and possessive-adjective
 table, paradigm cards total **354** — the deck-wide all.tsv now
 contains 1452 cards.
 
+### 2026-05-07 — Filler-word deck slice from Ghamoyan Ch 4
+
+Added a new card category — colloquial filler words and discourse
+markers — at user request. These are high-frequency in real Armenian
+conversation but absent from textbook learning, so they fill a real
+gap.
+
+Source: Ghamoyan Ch 4 §1 (*մակաբույծ բառեր* "parasitic words", p87-88)
+plus a few discourse markers grepped from elsewhere in the book
+(notably `ըստ էության` from the appendix of common errors).
+
+Output: `ghamoyan/out/fillers.tsv` — 32 cards in three sub-tags:
+
+- `ghamoyan colloquial filler standard` (21) — discourse markers
+  used in any register: ուրեմն, ի դեպ, ի միջի այլոց, համենայն դեպս,
+  ըստ էության, իհարկե, ուղղակի, պարզապես, իսկապես, կարծես թե, մի
+  խոսքով, կարճ ասած, այսպես ասած, կարծում եմ, իմ կարծիքով, ասենք,
+  ենթադրենք, մի տեսակ, ի վերջո, այսպիսով, իրականում.
+- `ghamoyan colloquial filler casual` (8) — hesitation/intensifier
+  fillers: եսիմ, օֆ եսիմ, տենց, տենց բաներ, բա, դե, բանը, պարզ ա.
+- `ghamoyan colloquial filler slang` (3) — Yerevan-youth jargon
+  attention markers: լսի, խոսքի, քցենք.
+
+Verification: every Armenian token passed through
+`sakayan/glosser.py` (Wiktionary cross-check). ~22 of 32 entries got
+strong two-source agreement (Wiktionary + book context); the other
+~10 are colloquial reductions or multi-word idioms whose composing
+words are findable on Wiktionary but whose idiomatic meaning isn't —
+in the TSV gloss column those entries include a literal reading
+("literally X" / "reduced from Y") so the user can audit the
+derivation.
+
 ### 2026-05-07 — Wiktionary lookup tool
 
 User: "having a tool to lookup wiktionary + probably browse related

@@ -64,6 +64,24 @@ sources:
       zero-copula example in colloquial: "Դու` խենթ ու խելառ" ("You
       [are] crazy and silly"). Quote captures the technical term
       անհանգույց "unlinked / without copula" + the example.
+  - id: 5
+    book: parnasyan
+    page: 49
+    y_range: [800, 1600]
+    verbatim_quote:
+      - "Так как в армянском языке глагол-сказуемое всегда ука"
+      - "подлежащее при глаголе в первом"
+      - "может быть опущено и в прошедшем времени"
+      - "от русского языка"
+    supports: supported
+    note: |
+      direct Russian-language statement of pro-drop with the
+      precise Russian-L1 contrastive wedge: 1st/2nd-person subjects
+      can be dropped *even in the past tense* — unlike Russian, where
+      past tense doesn't carry person/number on the verb so subject
+      pronouns are required. Converts the Russian-L1 contrastive note
+      in this topic from agent-paraphrased to book-cited.
+      OCR'd at avg confidence 84 across fragments.
 gaps:
   - "Empty-pronoun typology: is Armenian a 'consistent' null-subject language (like Spanish, Italian) or 'partial' (like Russian)? Untreated by both sources."
   - "Topicalisation / dislocation patterns surrounding pro-drop: untreated."
@@ -171,6 +189,20 @@ matches ghamoyan's *անհանգույց ստորոգյալ* exactly. So a Russi
 already has the cognitive template for the colloquial Armenian
 pattern; what's new is its extension to verb auxiliaries
 (`Ես հիմար, դու խելացի` — auxiliary `եմ`/`ես` dropped).
+
+Parnasyan states this Armenian-vs-Russian contrast directly [#5]:
+
+> *"Так как в армянском языке глагол-сказуемое всегда указывает на
+> действующее лицо (как в настоящем, будущем, так и прошедшем
+> времени), то подлежащее при глаголе в первом и втором лицах может
+> быть опущено и в прошедшем времени (в отличие от русского
+> языка)."*
+
+("Since the Armenian predicate-verb always indicates the doer in
+present, future, *and past* tense, 1st/2nd-person subjects can be
+omitted even in the past tense — unlike Russian.") The 1st/2nd-person
+past-tense asymmetry is the precise wedge between Armenian (consistent
+pro-drop) and Russian (partial pro-drop).
 
 ## Open questions / gaps
 

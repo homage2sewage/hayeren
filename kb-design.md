@@ -19,6 +19,32 @@ what book to add next.
 
 Driven entirely from Claude Code sessions — no separate CLI.
 
+## Source-pillar strategy
+
+Each book is selected to occupy a distinct slot along three axes
+(dialect, register, L1 contrast). When books overlap on a phenomenon,
+their agreement triangulates the literary norm; when they diverge, the
+divergence is the *interesting* signal — usually a register marker or
+a Soviet-era↔modern shift the corpus surfaces automatically.
+
+| pillar | book | dialect | register | L1 framing |
+|--------|------|---------|----------|------------|
+| English-contrastive pedagogy | sakayan (2007) | eastern-standard | prescriptive | English |
+| Armenian-internal descriptive | ghamoyan (2014) | yerevan-colloquial | descriptive-linguistic | (Armenian-only) |
+| Russian-contrastive pedagogy (older) | parnasyan (1990) | eastern-standard | prescriptive | Russian |
+| Russian-contrastive pedagogy (newer) | tioyan (2007) | eastern-standard | prescriptive | Russian |
+
+The deliberate redundancy between parnasyan and tioyan — two Russian-
+contrastive textbooks bracketing the post-Soviet transition — is what
+will let `attestation: conflicting` start firing for genuine
+Russian-source disagreements (as opposed to register/dialect splits
+across the literary↔colloquial axis, which the sakayan↔ghamoyan pair
+already captures).
+
+Acquisition order has been deliberately driven by what the corpus
+already lacks, not by what's prestigious or comprehensive — see the
+research logs under `research/` for the decision threads.
+
 ## Inputs as of 2026-05-07
 
 - `sakayan/out/full.jsonl` + `full.md` — clean Unicode extraction of
@@ -244,7 +270,72 @@ output schema (`{resource, type, target_topics, license, why_relevant}`);
 a second pass merges accepted entries into `research/`. Don't
 interleave discovery and curation.
 
-### Skipped (overhyped at this scale)
+## Using the topics as AI Q&A context
+
+The topics aren't just a synthesis layer for human study — they're
+also the **curated context** for grounded AI question-answering. Five
+concrete benefits a future tutor / Q&A skill gets for free:
+
+1. **Provenance.** Every claim in a topic body has a `[#N]` reference
+   to a specific page+y_range+verbatim_quote. An AI answering from a
+   loaded topic file can cite exactly *which book and page* a claim
+   comes from. If the user asks "where does this come from?", the
+   AI quotes the source verbatim.
+2. **Register / dialect awareness.** `attestation: multi-attested` vs
+   `single-source` vs `conflicting` flags whether the literary norm,
+   Yerevan colloquial, or both register-types are involved. Bodies
+   contain explicit "literary vs colloquial" sections where it
+   matters. The AI answering from a topic file can't accidentally
+   present a colloquialism as standard, or vice versa.
+3. **L1-aware framing.** Each topic carries explicit
+   "For an English L1" and "For a Russian L1" contrastive notes,
+   most of which are now book-cited (parnasyan since 2026-05-07).
+   The AI can frame its answer per the user's L1 without
+   reinventing the contrastive analysis.
+4. **Honest "I don't know."** The `gaps:` field in each topic
+   explicitly lists what isn't known. An AI answering from a topic
+   can refuse to speculate beyond the cited claims and direct the
+   user to the open-question list — much harder to do convincingly
+   from raw training data.
+5. **Cited disagreement.** When two books cite the same phenomenon
+   differently, the topic body shows both citations side by side.
+   The AI can acknowledge "Sakayan says X, Ghamoyan says Y, the
+   difference is register" rather than collapsing to a single
+   confident answer.
+
+**How to actually use it** (today):
+
+- In a Claude Code session, the agent reads the relevant topic file
+  via `Read` when answering a question. Claude's behaviour is then
+  shaped by the topic content + frontmatter — no extra plumbing
+  needed.
+- For external use (Anthropic API, MCP server, etc.), build a
+  prompt template that loads the relevant topic file(s) into the
+  system prompt. Use the citation-check skill as a verifier on any
+  AI-generated quotes before serving them.
+- A future `tutor` skill at `.claude/skills/tutor/` could automate
+  topic selection (grep `topics/INDEX.md` + frontmatter for keywords
+  matching the question) before answering. Not yet built.
+
+**Where this shines vs. where it doesn't.** The system gives strong
+benefit for *deep* questions on grammatical phenomena and
+register/dialect distinctions — the kind of questions where AI
+training data tends to be fuzzy or biased toward majority register.
+It's *not* a substitute for vocabulary lookup or wholesale text
+generation; the wiktionary cache (`sakayan/lookup.py`) and the
+future `lexicon/` layer cover that. Topics handle phenomena;
+lexicon will handle words.
+
+**Tradeoff worth naming.** Each topic costs ~30 min of human-supervised
+work to write and verify. Coverage grows linearly with effort. For
+the system to answer most beginner-intermediate Armenian questions
+with confidence, ~30-50 topics is probably the right target — half
+that on phonology+morphology+syntax, half on lexicon entries. Until
+then, treat the system as "deep on what it covers, silent on what it
+doesn't" — and let the gap-walk output drive the next round of topic
+authoring.
+
+## Skipped (overhyped at this scale)
 
 - Vector embeddings / RAG — see decision above.
 - GraphRAG, LangGraph state machines, agent frameworks.

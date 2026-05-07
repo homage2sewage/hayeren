@@ -18,6 +18,8 @@ subdirectories — keep top level limited to this index and shared assets.
 ├── armenian-vocab-research.md     # research base: SRS, chunks, frequency
 ├── armenian-grammar.md            # linguistic notes: phonology, pronouns, verbs (to be split into topics/)
 ├── grammar-terms.md               # English/Armenian/Russian grammar-term glossary
+├── transliteration-notes.md       # Latin transliteration of Armenian: conventions + pitfalls (incl. the `ches asem` trap)
+├── frequency-lists.md             # core-vocabulary theory + Armenian sources + methodology
 ├── anki-design.md                 # card design decisions + request log
 ├── sakayan/                       # extract Eastern-Armenian textbook (Sakayan 2007)
 │   ├── README.md
@@ -36,6 +38,10 @@ subdirectories — keep top level limited to this index and shared assets.
 │   ├── extract.py
 │   ├── .venv/
 │   └── out/
+├── frequency/                     # core-vocabulary list construction + Hermitdave compare
+│   ├── README.md
+│   ├── build_ours.py / compare.py
+│   └── out/                       # our_top_1000.tsv, comparison_report.md, …
 ├── topics/                        # synthesis layer — one MD per linguistic phenomenon
 │   └── phonology/
 │       └── voiced_aspirated_alternation.md   # first topic; schema test passed
@@ -72,6 +78,10 @@ schemes) that are likely to be reused.
   Language* (2014, 118 pp). Linguistic study of spoken Yerevan Armenian
   vs literary norm — phonology, lexicon, morphology, syntax, style.
   Tools verified; content-mining deferred. See `ghamoyan/README.md`.
+- **frequency/** — core-vocabulary frequency list built from Sakayan
+  + Ghamoyan extraction, compared against Hermitdave's
+  OpenSubtitles-derived public list. Theory in `frequency-lists.md`,
+  build/compare scripts and outputs in `frequency/`.
 
 ## Cross-project facts
 
@@ -126,6 +136,27 @@ Compared to Sakayan-style custom fonts:
 When you encounter a new Armenian PDF, **try ARMSCII-8 decoding first**
 — a 5-line script test on a Latin-1-misencoded sample will tell you in
 seconds whether it's ARMSCII-8 or a custom font scheme.
+
+### Code-switching and Latin-transliterated Armenian
+
+Two phenomena that pervade real Armenian usage and break naive tooling
+(machine translation, PDF extraction heuristics, search heuristics):
+
+- **Armenian–Russian code-switching** at high rate in casual Yerevan
+  speech: Russian lexical items embedded inside Armenian morphology
+  (`տոչկեն`, `սվարկա`, `ռազբիրատ`, `լիշնի`). These are neither pure
+  Armenian nor pure Russian. Auto-translators usually pick one side
+  and silently drop or misinterpret the other.
+- **Informal Latin transliteration** of Armenian (in chat / SMS /
+  social media). No standard scheme; common conventions are loose
+  and often phonetic-not-orthographic, so colloquial register gets
+  baked into the spelling. Auto-translators usually fail to recognize
+  it as Armenian at all. **Common trap**: even careful manual
+  transliteration can produce grammatically broken Armenian if the
+  back-mapping isn't checked.
+
+See `ghamoyan/README.md` (topic 0) for examples and the worked-through
+illustration of how this trips up casual writing.
 
 ### Key tools to keep in mind
 

@@ -362,14 +362,33 @@ Output: `ghamoyan/out/fillers.tsv` — 32 cards in three sub-tags:
 - `ghamoyan colloquial filler slang` (3) — Yerevan-youth jargon
   attention markers: լսի, խոսքի, քցենք.
 
+**Card schema: 3 columns** — `Armenian \t English / Russian \t Tags`.
+The two languages are joined into a single back-of-card field with
+` / ` as separator. Each side holds 2-3 quick equivalents (no
+etymology, no Wiktionary annotations).
+
+**Why combined-language back, not separate fields:** the user's
+intuition (which lines up with how cross-language semantic
+triangulation is supposed to work) — for fillers/discourse markers
+the English and Russian equivalents often *disambiguate each other*
+faster than either alone. English "well" is overloaded (greeting,
+hesitation, OK-then…); seeing it next to Russian "ну, давай" tells
+you which sense the Armenian particle is doing. Holding one
+translation and mentally fetching the other is slower than seeing
+both at once.
+
+Anki import: AnkiDroid → File → Import → tab delimiter → Field 1
+= Armenian, Field 2 = Translations (en/ru combined), Field 3 = Tags.
+Note type needs two text fields.
+
 Verification: every Armenian token passed through
 `sakayan/glosser.py` (Wiktionary cross-check). ~22 of 32 entries got
 strong two-source agreement (Wiktionary + book context); the other
 ~10 are colloquial reductions or multi-word idioms whose composing
 words are findable on Wiktionary but whose idiomatic meaning isn't —
-in the TSV gloss column those entries include a literal reading
-("literally X" / "reduced from Y") so the user can audit the
-derivation.
+the verification record is in `ghamoyan/ch4-pleonasms.md`, not in
+the TSV cells (kept terse for card-display purposes). Russian
+translations are author-supplied; not independently verified.
 
 ### 2026-05-07 — Wiktionary lookup tool
 

@@ -112,11 +112,23 @@ the user can suspend/show the whole register at once.
 
 ## Filler deck — first slice done
 
-`out/fillers.tsv` (32 entries) is built from the §1 list above plus a few
-high-frequency discourse markers found elsewhere in the book (notably
-`ըստ էության`, found in the appendix of common errors on p100+).
+`out/fillers.tsv` (32 entries). Per-row format:
 
-Per-row format: `Armenian \t English meaning + brief usage note \t tags`.
+```
+Armenian \t  English (2-3 words) / Russian (2-3 words)  \t  tags
+```
+
+**Single back-of-card field** containing both languages, separated by
+` / `. The two-language gestalt is intentional: for filler/discourse
+markers especially, the English and Russian equivalents often
+disambiguate each other (English "well" vs. Russian "ну" vs. "ладно"
+vs. "давай"; the pair tells you which sense of "well" the Armenian
+filler is doing). Seeing both at once is faster to internalize than
+holding one and looking up the other.
+
+Concise on purpose — no etymology, no Wiktionary citations in the cells
+(those live in this file's verification record below).
+
 Three sub-tags so registers can be enabled/suspended independently:
 
 - `ghamoyan colloquial filler standard` — 21 entries. Literary
@@ -127,6 +139,17 @@ Three sub-tags so registers can be enabled/suspended independently:
 - `ghamoyan colloquial filler slang` — 3 entries. Yerevan jargon
   fillers from book p88 (լսի, խոսքի, քցենք).
 
+### Anki import note
+
+Anki note type for these cards needs **2 fields**: Armenian /
+Translations. Tags column maps to Anki's tag field. With AnkiDroid:
+File → Import → set delimiter to Tab → map Field 1=Armenian,
+Field 2=Translations, Field 3=Tags.
+
+The Translations field holds both English and Russian, separated by
+` / `. The Anki card template will show both together — that's
+intentional (see "Two-language gestalt" rationale above).
+
 ### Verification record (Tier 1)
 
 Each Armenian token in the TSV was passed through `sakayan/glosser.py`
@@ -135,19 +158,24 @@ Each Armenian token in the TSV was passed through `sakayan/glosser.py`
 | Status | Count | Notes |
 |--------|-------|-------|
 | ✓ found on Wiktionary, agrees with my translation | ~22 | strong evidence |
-| ✗ not in Wiktionary as a standalone entry | ~10 | mostly verb forms (կարծես, ասենք, ենթադրենք), reduced colloquials (տենց, քցենք), and multi-word idioms whose components are findable but the whole isn't (համենայն դեպս, մի խոսքով) |
+| ✗ not in Wiktionary as a standalone entry | ~10 | mostly verb forms (կարծես, ասենք, ենթադրենք), reduced colloquials (տենց, քցենք), multi-word idioms whose components are findable but the whole isn't (համենայն դեպս, մի խոսքով) |
 
-Where a single token wasn't on Wiktionary but the *components* were
-(e.g. `մի խոսքով` = `մի` + `խոսքով` (`խոսք` "word")), the word-by-word
-lookup confirms the literal reading even if the idiomatic meaning
-isn't an explicit Wiktionary entry. For pure colloquial reductions
-(`տենց`, `քցենք`, `բա` actually *is* on Wiktionary), the gloss in
-the TSV reflects the book's usage in context.
+Sample of the strong-agreement findings (verbatim from glosser):
 
-Two-source standard met for ~22 of 32 entries. The remaining ~10 are
-documented from the book alone — flagged in the gloss column with
-phrases like "literally X" / "reduced from Y" so the user can see my
-derivation.
+- `եսիմ` → Wiktionary "I don't know; who knows? how should I know?"
+- `բա` → Wiktionary "what about (something not considered); exclamation
+  of approval/surprise; of course"
+- `դե` → Wiktionary "well"
+- `իհարկե` → Wiktionary "of course, certainly, sure"
+- `ուղղակի` → Wiktionary "directly, simply, plainly, just"
+- `ըստ` + `էություն` → "according to" + "essence" → idiomatic
+  "essentially / in essence"
+
+For colloquial reductions and multi-word idioms not on Wiktionary
+(`տենց` = `այդպես`, `քցենք` = `գցել` 1pl subj), the gloss is from the
+book's context plus the literal reading — author judgment, not a
+two-source claim. Russian translations are my own; not Wiktionary-
+verified.
 
 ## Open follow-ups
 

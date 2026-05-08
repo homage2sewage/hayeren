@@ -408,22 +408,27 @@ parent context with WebSearch enabled).
 | voiced_aspirated_alternation | phonology | sakayan + ghamoyan | draft | multi-attested |
 | three_way_laryngeal_contrast | phonology | sakayan + ghamoyan + parnasyan + tioyan | draft | multi-attested |
 | yerevan_consonant_reductions | phonology | ghamoyan only | draft | single-source |
-| **no_palatalisation** | phonology | parnasyan only | draft | single-source |
+| no_palatalisation | phonology | parnasyan only | draft | single-source |
 | present_tense | morphology | sakayan + ghamoyan + parnasyan | draft | multi-attested |
+| **aorist** | morphology | sakayan only | draft | single-source |
+| **perfect_tenses** | morphology | sakayan only | draft | single-source |
+| **future_tenses** | morphology | sakayan only | draft | single-source |
+| **subjunctive_mood** | morphology | sakayan only | draft | single-source |
 | colloquial_copula_a | morphology | ghamoyan only | draft | single-source |
 | negation | morphology | sakayan + ghamoyan + parnasyan + tioyan | draft | multi-attested |
 | verb_classes | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
 | participles | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
 | irregular_verbs | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
-| **determinate_article** | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
-| **auxiliary_e** | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| determinate_article | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| auxiliary_e | morphology | sakayan + parnasyan + tioyan | draft | multi-attested |
+| **case_system** | morphology | sakayan + parnasyan | draft | multi-attested |
 | pro_drop | syntax | sakayan + ghamoyan + parnasyan + tioyan | draft | multi-attested |
 | code_switching_with_russian | lexicon | ghamoyan only | draft | single-source |
 | yerevan_slang | lexicon | ghamoyan only | draft | single-source |
 | idioms_phrasal | lexicon | ghamoyan only | draft | single-source |
 | intimate_register | pragmatics | ghamoyan only | draft | single-source |
 
-**Stats**: **17 topics**. **355/355** verbatim fragments verified.
+**Stats**: **22 topics**. **420/420** verbatim fragments verified.
 0 errors / 0 warnings across critic-pass lint. All basic-grammar
 topics from `armenian-grammar.md` are now split, plus 4 lexicon-and-
 pragmatics topics from ghamoyan's Ch 3 / Ch 5 / Appendix 2 deep-read.
@@ -568,6 +573,38 @@ glossary), `frequency-lists.md`, `anki-design.md`,
   made: book directories live at top level (drop the `books/<name>/`
   wrapper from earlier sketches; citation-check already accepts
   both, so no code change needed).
+
+- **2026-05-07 (5 grammar-system topics — closing the
+  systematic-grammar gap)** — wrote the major remaining tense /
+  mood / case topics:
+  - `topics/morphology/aorist.md` (13 fragments, sakayan p99-100) —
+    *the only synthetic tense* in Armenian; aorist stem also drives
+    perfect/resultative/past-participle.
+  - `topics/morphology/perfect_tenses.md` (15 fragments, sakayan
+    p121) — perfect + pluperfect; past participle + auxiliary in
+    present/past form.
+  - `topics/morphology/future_tenses.md` (12 fragments, sakayan
+    p149-150) — simple future + future imperfect; future participle
+    `-ելու/-ալու` + auxiliary.
+  - `topics/morphology/subjunctive_mood.md` (9 fragments, sakayan
+    p174-175) — synthetic mood, future + past paradigms; input to
+    hypothetical/conditional/mandative.
+  - `topics/morphology/case_system.md` (16 fragments, sakayan p102 +
+    parnasyan p101) — overview of all 7 cases with diagnostic
+    questions; biggest grammatical-system addition for English-L1,
+    biggest cross-system difference for Russian-L1 (7 vs 6 cases,
+    with locative + ablative as Armenian-specific).
+
+  **State after**: **22 topics**, **420/420 fragments verify**,
+  lint clean. Domain coverage: phonology (4), morphology (13),
+  syntax (1), lexicon (3), pragmatics (1). The systematic-grammar
+  backbone is now in place.
+
+  **Remaining gaps** (smaller now): per-case topic files for
+  paradigmatic detail (genitive, dative, ablative, instrumental,
+  locative — 5 more); the derived moods (hypothetical, conditional,
+  mandative); resultative tenses; the imperative + prohibitive (`մի՛`).
+  Each is much smaller than the basic-grammar work just completed.
 
 - **2026-05-07 (3 discovery-walk topics written + `հլը`
   acquisition plan)** — executed the highest-priority candidates

@@ -14,7 +14,9 @@ Pipeline:
 3. For each top-1000 lemma, pick best translation:
      a) Direct vocab / filler / gap entry (with translation from card).
      b) Paradigm-tag verb-infinitive entry (typical English: "to X").
-     c) Wiktionary fallback via `sakayan/glosser.py`.
+     c) Local Wiktionary-dump dictionary (kaikki.org) via
+        `dictionary.py`. No live API calls — the dump is downloaded
+        once, compacted by `build_dictionary.py`, queried offline.
 4. Emit `../cards/top_1000.tsv`:
      Armenian \t English / Russian \t tags  (with rank in tags)
 
@@ -41,6 +43,7 @@ FREQUENCY_CARDS = CARDS / "frequency"
 
 # Same tokenizer / lemmatizer / known-lemma machinery as build_ours.py
 import build_ours  # noqa: E402
+import dictionary  # noqa: E402
 
 
 # ---------- helpers ----------
@@ -122,16 +125,102 @@ def index_card_translations() -> dict[str, list[dict]]:
 # ---------- main ----------
 
 
-def best_translation(lemma: str, index: dict[str, list[dict]]) -> dict | None:
-    """Pick best translation entry. Sort key — lower is better:
+# Hand-curated overrides for high-frequency particles where Wiktionary's
+# first POS section gives a misleading or overly-narrow translation
+# (e.g. Wiktionary returns "nobody" for ոչ, "a little" for մի — both
+# correct as collocational phrase-translations but wrong for the bare
+# lemma). These take priority over any source.
+HAND_OVERRIDES: dict[str, str] = {
+    "ոչ":     "no, not / нет, не",
+    "մի":     "one, a; don't! / один, а; не (запрет)",
+    "ու":     "and / и",
+    "որ":     "that, which, who / что, который",
+    "ինչ":    "what / что",
+    "ինչու":  "why / почему",
+    "որտեղ":  "where / где",
+    "երբ":    "when / когда",
+    "հա":     "yeah, yes / да, ага",
+    "չէ":     "no, isn't (it?) / нет, не так ли",
+    "այո":    "yes / да",
+    "այստեղ": "here / здесь, тут",
+    "այնտեղ": "there / там",
+    "այս":    "this / этот",
+    "այն":    "that / тот",
+    "այդ":    "that / этот, тот",
+    "սա":     "this (one) / это",
+    "դա":     "that (one) / то",
+    "նա":     "he, she / он, она",
+    "ես":     "I / я",
+    "դու":    "you (sg) / ты",
+    "մենք":   "we / мы",
+    "դուք":   "you (pl/formal) / вы",
+    "նրանք":  "they / они",
+    "ինձ":    "me / меня, мне",
+    "քեզ":    "you (sg, obj) / тебя, тебе",
+    "նրան":   "him, her / его, ему",
+    "մեզ":    "us / нас, нам",
+    "ձեզ":    "you (pl/formal, obj) / вас, вам",
+    "նրանց":  "them / их, им",
+    "իմ":     "my / мой",
+    "քո":     "your (sg) / твой",
+    "նրա":    "his, her / его, её",
+    "մեր":    "our / наш",
+    "ձեր":    "your (pl/formal) / ваш",
+    "բա":     "well, what about / ну, а как же",
+    "դե":     "well, come on / ну, давай",
+    "հենց":   "exactly, just / именно, как раз",
+    "ուրեմն": "so, then / значит, итак",
+    "իսկ":    "but, and (contrast) / а, же",
+    "բայց":   "but / но",
+    "կամ":    "or / или",
+    "ինչպես": "how, as / как",
+    "շատ":    "very, much, many / очень, много",
+    "քիչ":    "little, few / мало",
+    "շնորհակալ": "thankful / благодарный",
+    "խնդրեմ": "please; you're welcome / пожалуйста",
+    "բարև":   "hello / привет",
+    "կարող":  "able, can / способный, может",
+    "դուրս":  "out, outside / снаружи, наружу",
+    "շուտ":   "soon, quickly, early / скоро, быстро, рано",
+    "իր":     "his/her (own, reflexive) / его/её (свой)",
+    "ինքն":   "he/she himself / он/она сам(а)",
+    "ինքը":   "he/she (emphatic) / он/она (сам)",
+    "դրա":    "of that / того",
+    "և":      "and / и",
+    "նաև":    "also / также",
+    "անգամ":  "time, instance; even / раз; даже",
+    "հենց":   "exactly, just / именно, как раз",
+    "բոլոր":  "all, every / все",
+    "որպես":  "as, like / как, в качестве",
+    "միայն":  "only / только",
+    "հիմա":   "now / сейчас",
+    "այսպես": "thus, like this / так, вот так",
+    "այդպես": "thus, like that / так, вот так",
+    "ինչպես": "how, as / как",
+    "հայաստան": "Armenia / Армения",
+    "եվրոպա": "Europe / Европа",
+    "ամերիկա": "America / Америка",
+    "ռուսաստան": "Russia / Россия",
+    "դեպ":    "[fragment of դեպք 'case']",
+    "շաբաթ":  "week; Saturday / неделя; суббота",
+    "տուն":   "house, home / дом",
+    "ընկեր":  "friend / друг",
+    "տարի":   "year / год",
+    "ամեն":   "every / каждый",
+    "որոշ":   "some, certain / некоторый",
+    "ուրիշ":  "other, different / другой",
+}
 
-    1. single-word entries before multi-word entries (so `մի` doesn't
-       inherit `մի խոսքով`'s "in a word" gloss)
-    2. exact-match raw_armenian == lemma before non-exact
-    3. source priority — vocab and gap/filler give the cleanest
-       glosses, paradigms are last-resort because we lose nuance
+
+def best_translation(lemma: str, index: dict[str, list[dict]]) -> dict | None:
+    """Pick best translation entry — but only from single-word card
+    sources. Multi-word entries (`մի քիչ` "a little", `ոչ ոք`
+    "nobody", `ստեղծել է` "has created") would otherwise leak their
+    phrase-level meaning onto the bare first token (`մի, ոչ, ստեղծել`).
+    Returns None if no single-word match — caller falls through to
+    Wiktionary.
     """
-    entries = index.get(lemma, [])
+    entries = [e for e in index.get(lemma, []) if e["single_word"]]
     if not entries:
         return None
     source_priority = {
@@ -143,7 +232,6 @@ def best_translation(lemma: str, index: dict[str, list[dict]]) -> dict | None:
 
     def sort_key(e: dict) -> tuple:
         return (
-            0 if e["single_word"] else 1,
             0 if e["raw_armenian"].strip().lower() == lemma else 1,
             source_priority.get(e["source"], 99),
         )
@@ -151,24 +239,46 @@ def best_translation(lemma: str, index: dict[str, list[dict]]) -> dict | None:
     return min(entries, key=sort_key)
 
 
-def wiktionary_lookup(lemma: str) -> str:
-    """Fetch first 1-3 definitions from Wiktionary via glosser.
-    Returns empty string on cache miss + rate limit."""
-    sys.path.insert(0, str(ROOT / "sakayan"))
-    import glosser  # noqa: E402
-    try:
-        result = glosser.gloss_token(lemma)
-    except Exception:
-        return ""
-    defs = result.get("definitions", [])
-    if not defs:
-        return ""
-    # Take up to 2 definitions, semicolon-joined, capped length.
-    short = "; ".join(defs[:2])
-    return short[:120]
+def dictionary_lookup(lemma: str) -> str:
+    """Best English gloss from the local Wiktionary dump (kaikki.org).
+    No network calls. Returns "" if not in the dump.
+
+    Replaces the live-API path that previously got us rate-limited.
+    The dump is built one-time by `build_dictionary.py` from the
+    `data/armenian.jsonl` download; re-run that script to refresh."""
+    return dictionary.lookup(lemma)
 
 
-def build(limit: int = 1000, with_wiktionary: bool = False) -> None:
+# Proper nouns kept on the deck (first-and-foremost Armenian words):
+# countries, regions, landmarks, ethnonyms — i.e. concepts an Armenian
+# learner needs to be able to read and write. Personal given names
+# don't qualify: someone called `Արամ` is a person, not a vocabulary
+# concept.  Mirrors `validate_deck.KEEP_NAMES` — keep them in sync.
+KEEP_NAMES = {
+    "հայաստան", "հայ", "հայերեն", "հայկական",
+    "երևան", "արարատ", "սևան", "կոտայք", "շիրակ",
+    "գեղարքունիք", "լոռի", "սյունիք", "տավուշ", "վայոց",
+    "եվրոպա", "ռուսաստան", "ամերիկա", "մոսկվա",
+    "գերմանիա", "հունաստան", "ֆրանսիա", "իտալիա",
+    "չինաստան", "ճապոնիա", "թուրքիա", "վրաստան",
+    "ադրբեջան", "իրան",
+}
+
+
+def _is_personal_name(lemma: str) -> bool:
+    """True if the dictionary classifies this lemma as a name only AND
+    it isn't on the geography/landmark allow-list."""
+    if "_" in lemma:
+        return False
+    if lemma.lower() in KEEP_NAMES:
+        return False
+    entries = dictionary.lookup_full(lemma)
+    if not entries:
+        return False
+    return all(pos.lower() == "name" for pos, _ in entries)
+
+
+def build(limit: int = 1000, with_dictionary: bool = True) -> None:
     top_path = HERE / "out" / "our_top_1000.tsv"
     out_path = CARDS / "top_1000.tsv"
 
@@ -178,49 +288,74 @@ def build(limit: int = 1000, with_wiktionary: bool = False) -> None:
 
     rows_out: list[list[str]] = []
     stats = {"vocab": 0, "filler": 0, "gap": 0, "paradigm": 0,
-             "wiktionary": 0, "no-translation": 0}
+             "dictionary": 0, "no-translation": 0}
+    skipped_names = 0
 
     with top_path.open(encoding="utf-8") as f:
-        for row in csv.reader(f, delimiter="\t"):
-            if len(row) < 4:
-                continue
-            rank, lemma, count, _src = row
-            rank_n = int(rank)
-            if rank_n > limit:
-                break
+        all_input_rows = [r for r in csv.reader(f, delimiter="\t") if len(r) >= 4]
 
-            translation = ""
-            source = ""
-            entry = best_translation(lemma, index)
-            if entry:
-                translation = entry["translation"]
-                source = entry["source"]
-                if source == "sakayan-vocab":
-                    stats["vocab"] += 1
-                elif source == "ghamoyan-filler":
-                    stats["filler"] += 1
-                elif source == "frequency-gap":
-                    stats["gap"] += 1
-                elif source == "sakayan-paradigm":
-                    stats["paradigm"] += 1
-            elif with_wiktionary:
-                translation = wiktionary_lookup(lemma)
-                if translation:
-                    source = "wiktionary"
-                    stats["wiktionary"] += 1
-                else:
-                    source = "—"
-                    stats["no-translation"] += 1
-            else:
-                source = "—"
-                stats["no-translation"] += 1
+    rank_n = 0
+    for row in all_input_rows:
+        _orig_rank, lemma, count, _src = row
+        if rank_n >= limit:
+            break
 
+        # Filter personal names. Per user policy: keep proper nouns
+        # only when they're "first and foremost an Armenian word"
+        # (countries, regions, landmarks). Personal given names
+        # don't qualify and shouldn't take a slot in the top-1000.
+        if _is_personal_name(lemma):
+            skipped_names += 1
+            continue
+
+        rank_n += 1
+
+        translation = ""
+        source = ""
+        # Hand-curated override has priority — high-frequency
+        # particles where Wiktionary's first-gloss is misleading.
+        if lemma in HAND_OVERRIDES:
+            translation = HAND_OVERRIDES[lemma]
+            source = "hand-override"
+            stats.setdefault("hand-override", 0)
+            stats["hand-override"] += 1
             tags = f"frequency top-1000 rank-{rank_n:04d} src-{source}"
             rows_out.append([lemma, translation, tags])
-
             if rank_n <= 10 or rank_n % 50 == 0:
                 print(f"  rank {rank_n:4d}  {lemma:25s}  [{source}]  "
                       f"{translation[:60]}", file=sys.stderr, flush=True)
+            continue
+
+        entry = best_translation(lemma, index)
+        if entry:
+            translation = entry["translation"]
+            source = entry["source"]
+            if source == "sakayan-vocab":
+                stats["vocab"] += 1
+            elif source == "ghamoyan-filler":
+                stats["filler"] += 1
+            elif source == "frequency-gap":
+                stats["gap"] += 1
+            elif source == "sakayan-paradigm":
+                stats["paradigm"] += 1
+        elif with_dictionary:
+            translation = dictionary_lookup(lemma)
+            if translation:
+                source = "dictionary"
+                stats["dictionary"] += 1
+            else:
+                source = "—"
+                stats["no-translation"] += 1
+        else:
+            source = "—"
+            stats["no-translation"] += 1
+
+        tags = f"frequency top-1000 rank-{rank_n:04d} src-{source}"
+        rows_out.append([lemma, translation, tags])
+
+        if rank_n <= 10 or rank_n % 50 == 0:
+            print(f"  rank {rank_n:4d}  {lemma:25s}  [{source}]  "
+                  f"{translation[:60]}", file=sys.stderr, flush=True)
 
     with out_path.open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f, delimiter="\t", lineterminator="\n")
@@ -228,6 +363,9 @@ def build(limit: int = 1000, with_wiktionary: bool = False) -> None:
             w.writerow(r)
 
     print(f"\nWrote {len(rows_out)} cards → {out_path}", file=sys.stderr)
+    if skipped_names:
+        print(f"Filtered {skipped_names} personal-name lemma(s) "
+              f"(see KEEP_NAMES allow-list)", file=sys.stderr)
     print("Translation sources:", file=sys.stderr)
     for src, n in stats.items():
         pct = 100 * n / len(rows_out) if rows_out else 0
@@ -238,11 +376,10 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--limit", type=int, default=1000)
-    ap.add_argument("--with-wiktionary", action="store_true",
-                    help="fall back to Wiktionary for lemmas without a card "
-                         "translation (slow, rate-limited; cached afterwards)")
+    ap.add_argument("--no-dictionary", action="store_true",
+                    help="skip the local Wiktionary-dump dictionary fallback")
     args = ap.parse_args()
-    build(args.limit, with_wiktionary=args.with_wiktionary)
+    build(args.limit, with_dictionary=not args.no_dictionary)
 
 
 if __name__ == "__main__":

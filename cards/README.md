@@ -44,6 +44,21 @@ Two natural workflows:
    decks. Works better if you're following Sakayan unit-by-unit and
    want the textbook's pedagogical sequence.
 
+## Caveats for `top_1000.tsv`
+
+- The corpus is small and textbook-biased (~3.4K tokens from Sakayan +
+  Ghamoyan), so the top-1000 lemmas reflect *what's in our books*, not
+  the broad Armenian language. Compare against `frequency/out/comparison_report.md`
+  for the diff against the OpenSubtitles-derived Hermitdave list — that
+  shows what the textbook is missing.
+- About 50% of cards have translations from existing card sources; the
+  rest depend on Wiktionary fallback (English-only, definitions of
+  varying length). Wiktionary entries for short particles often miss
+  the colloquial sense (e.g., `ա` as 3sg copula) — see
+  `armenian-grammar.md` for the linguistic context.
+- Some entries will have empty translations where neither card-source
+  nor Wiktionary covered them. These need manual fill.
+
 ## Schema for `top_1000.tsv`
 
 ```

@@ -10,15 +10,27 @@ choices.
 ## Status
 
 - [x] Theory documented (`../frequency-lists.md`).
-- [x] `build_ours.py` — aggregate + tokenize + lemmatize + rank.
+- [x] `build_ours.py` — aggregate + tokenize + lemmatize + rank, with
+      MWU merging (`մի քիչ` → `մի_քիչ`) and dictionary-aware suffix
+      stripping that prefers the strip yielding a known headword.
 - [x] `compare.py` — fetch + lemmatize Hermitdave list + diff report.
 - [x] `validate_lemmas.py` — Wiktionary-based per-lemma sanity check.
-- [x] `build_deck.py` — emit unified top-1000 deck at `../cards/top_1000.tsv`
-      with translations pulled from existing card sources, plus optional
-      Wiktionary fallback (`--with-wiktionary`).
-- [x] First run after lemmatizer fixes: **1000 lemmas in ours; 100 % top-100
-      validation rate via Wiktionary** (72 valid + 9 multi-meaning + 19
-      suspicious-but-Wiktionary-confirmed; 0 not-found).
+- [x] `build_dictionary.py` + `data/armenian_dict.tsv` — one-time
+      compaction of the kaikki.org Armenian Wiktionary dump
+      (~22K entries → 1.3 MB TSV). Replaces live Wiktionary API
+      calls (which got rate-limited).
+- [x] `dictionary.py` — offline lookup module with noise-gloss
+      filtering (alphabet-letter descriptions, paradigm-cell prose
+      like "dative singular of X").
+- [x] `build_deck.py` — emit unified top-1000 deck at
+      `../cards/top_1000.tsv` with translations pulled from existing
+      card sources, then the local dictionary as fallback. No
+      network calls.
+- [x] `validate_deck.py` — Phase 1 mechanical-lint pass. Categories:
+      `empty-translation`, `noise-translation`, `false-friend`,
+      `truncated-lemma`, `inflected-leak`, `paradigm-leak`,
+      `proper-noun-foreign`, `mwu-leak`, `duplicate-translation`,
+      `eu-ligature`. See `walks/2026-05-07-deck-validation-plan.md`.
 - [x] 360 of our top-1000 agree with Hermitdave's top-1000; 16 high-
       frequency gap-words written to `../cards/frequency/gap_additions.tsv`.
 
@@ -46,6 +58,12 @@ frequency/
 ├── compare.py                 builds out/comparison_report.md
 ├── validate_lemmas.py         Wiktionary sanity-check on top-N lemmas
 ├── build_deck.py              builds ../cards/top_1000.tsv (unified deck)
+├── build_dictionary.py        compacts data/armenian.jsonl → TSV
+├── dictionary.py              offline lookup module (kaikki.org dump)
+├── validate_deck.py           mechanical-lint pass on cards/top_1000.tsv
+├── data/
+│   ├── armenian.jsonl         kaikki.org dump (212 MB, gitignored)
+│   └── armenian_dict.tsv      compacted lookup TSV (~1.3 MB)
 └── out/
     ├── our_top_1000.tsv       rank | lemma | count | sources
     ├── all_lemmas.tsv         every lemma we found, ranked
@@ -53,15 +71,22 @@ frequency/
     ├── hermitdave_hy_full.txt cached external reference (6874 entries)
     ├── comparison_report.md   bucket diff + analysis
     ├── lemma_validation.tsv   per-lemma Wiktionary status (top-N)
-    └── lemma_validation.md    summary breakdown: valid / not-found / suspicious
+    ├── lemma_validation.md    summary breakdown: valid / not-found / suspicious
+    ├── deck_validation.tsv    one row per finding (severity, rank, …)
+    └── deck_validation.md     grouped human summary
 ```
 
 ## How to run
 
-No venv required — standard library only. Both scripts read TSV files
+No venv required — standard library only. Scripts read TSV files
 from `../cards/sakayan/` and `../cards/ghamoyan/`.
 
 ```sh
+# 0. one-time: download + compact the Wiktionary dump
+curl -sL https://kaikki.org/dictionary/Armenian/kaikki.org-dictionary-Armenian.jsonl \
+     -o data/armenian.jsonl
+python3 build_dictionary.py
+
 # 1. build our list
 python3 build_ours.py
 
@@ -71,6 +96,10 @@ curl -sL https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/cont
 
 # 3. produce comparison report
 python3 compare.py
+
+# 4. build the unified deck and validate it
+python3 build_deck.py
+python3 validate_deck.py
 ```
 
 ## What's in the comparison report

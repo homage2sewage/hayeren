@@ -50,18 +50,83 @@ OUT = HERE / "out"
 # `Քանի՞` → `Քանի՞` (literally Քանի + ՞ + space) breaks across the ՞.
 INTRAWORD_PUNCT = re.compile(r"[՚-՟]")
 
-# Armenian letter range plus the ev-ligature U+0587.
-ARMENIAN_TOKEN = re.compile(r"[Ա-Ֆա-ֆև]+")
+# Armenian letter range plus the ev-ligature U+0587. Also allow `_` so
+# multi-word units (MWUs) merged into single tokens by the MWU pass
+# survive the tokenizer.
+ARMENIAN_TOKEN = re.compile(r"[Ա-Ֆա-ֆև_]+")
 
 # Strip phonetic-hint annotations like ` [phonetic]` and parenthetical
 # usage notes like ` (sg/informal)` from a cell before tokenizing.
 ANNOTATION_RE = re.compile(r"\s*[\[\(].*?[\]\)]")
 
 
+# Multi-word units that should NOT be split during tokenization. Each
+# pair is treated as a single lemma in the frequency list. Joiner is
+# `_` because it survives our regex character class.
+#
+# Sources for inclusion:
+# - high-frequency phrasal idioms from Sakayan dialogues (`մի քիչ`,
+#   `ոչ ոք`, `դուր գալ`)
+# - discourse markers from Ghamoyan Ch 4 §1 (`ի դեպ`, `համենայն դեպս`,
+#   `ի վերջո`, `ի միջի այլոց`, `մի խոսքով`, `կարճ ասած`,
+#   `այսպես ասած`, `կարծես թե`, `մի տեսակ`, `ըստ էության`,
+#   `տենց բաներ`, `օֆ եսիմ`, `պարզ ա`)
+# - common greetings (`բարև ձեզ`, `բարի լույս`, `բարի երեկո`,
+#   `բարի գիշեր`)
+# - quantifiers / time (`մի անգամ`, `մի օր`, `մի շարք`, `ամեն ինչ`,
+#   `ամեն մարդ`, `ամեն օր`)
+MWUS: list[str] = [
+    "մի քիչ",
+    "ոչ ոք",
+    "ոչ մի",
+    "դուր գալ",
+    "ի դեպ",
+    "համենայն դեպս",
+    "ի վերջո",
+    "ի միջի այլոց",
+    "մի խոսքով",
+    "կարճ ասած",
+    "այսպես ասած",
+    "կարծես թե",
+    "մի տեսակ",
+    "ըստ էության",
+    "տենց բաներ",
+    "օֆ եսիմ",
+    "պարզ ա",
+    "բարև ձեզ",
+    "բարի լույս",
+    "բարի երեկո",
+    "բարի գիշեր",
+    "մի անգամ",
+    "մի օր",
+    "մի շարք",
+    "ամեն ինչ",
+    "ամեն մարդ",
+    "ամեն օր",
+    "շատ լավ",
+    "շատ քիչ",
+    "շնորհակալ եմ",
+    "շնորհավոր տարի",
+]
+
+_MWU_RE = re.compile(
+    "|".join(re.escape(m) for m in sorted(MWUS, key=len, reverse=True))
+)
+
+
+def _merge_mwus(text: str) -> str:
+    return _MWU_RE.sub(lambda m: m.group(0).replace(" ", "_"), text)
+
+
 def tokenize(text: str) -> list[str]:
     text = ANNOTATION_RE.sub("", text)
     text = INTRAWORD_PUNCT.sub("", text)
-    return ARMENIAN_TOKEN.findall(text)
+    text = _merge_mwus(text)
+    tokens = ARMENIAN_TOKEN.findall(text)
+    # Normalize the spelled-out conjunction `եվ`/`Եվ` → ligature `և`.
+    # Both forms are correct Armenian orthography but should fold to
+    # one lemma in the deck; modern usage prefers the ligature.
+    return ["և" if t.lower() == "եվ" else t for t in tokens]
 
 
 # ---------- lemmatization (suffix-strip, same as sakayan/glosser.py) ----------
@@ -75,16 +140,16 @@ SUFFIXES: list[str] = sorted(
         # plural + case + article combinations
         "երից", "ներից", "ներով", "ներում", "ների", "ներ",
         # case + article (singular). Notes:
-        #   `-ն` and `-ս` removed entirely — they're a definite article
-        #     only after vowel-final stems (rare in modern colloquial),
-        #     and far more often they're part of the lemma itself
-        #     (հայերեն, հայկական, տարեկան, ամեն, այսպես, անուն…).
-        #     Stripping them caused systematic over-stripping bugs in
-        #     validation. Slight under-aggregation of 1sg-possessive
-        #     forms (`անունս` "my name" vs `անուն` "name") is a smaller
-        #     cost than producing 5+ broken stems in the top-100.
+        #   `-ն`, `-ս`, `-դ` all removed — they're definite-article /
+        #     possessive markers only after vowel-final stems (rare in
+        #     modern colloquial), and far more often part of the lemma
+        #     itself (հայերեն, հայկական, տարեկան, ամեն, այսպես, անուն,
+        #     երիտասարդ…). Stripping them caused systematic
+        #     over-stripping bugs in validation. Slight under-
+        #     aggregation of possessive forms (`անունս` "my name" vs
+        #     `անուն` "name") is the right tradeoff.
         #   `-ում` removed — see SUBSTITUTIONS for proper handling.
-        "ից", "ով", "ին", "ի", "ը", "դ",
+        "ից", "ով", "ին", "ի", "ը",
     ],
     key=len,
     reverse=True,
@@ -105,6 +170,13 @@ SUBSTITUTIONS: list[tuple[str, str]] = [
     ("ությունը", "ություն"),
     ("ությամբ", "ություն"),
     ("ության", "ություն"),
+    # a-stem oblique (`Ամերիկա` → `Ամերիկայից`, `Ամերիկայի`):
+    # the glide `յ` between vowel-final stem and case ending must be
+    # dropped together with the case marker.
+    ("այից", "ա"),
+    ("այով", "ա"),
+    ("այում", "ա"),
+    ("այի", "ա"),
     # verb form → infinitive (default to `-ել` class)
     ("ում", "ել"),
     ("ած", "ել"),
@@ -136,21 +208,63 @@ def lemmatize(
     # would otherwise return them unchanged, skipping the mapping.
     if inflected_to_lemma and token in inflected_to_lemma:
         return inflected_to_lemma[token]
+    # Multi-word units already merged via `_` are atomic; do not strip
+    # suffixes (they're case-marked phrases like `ի դեպ`, `ըստ էության`
+    # that survive as fixed expressions).
+    if "_" in token:
+        return token
     if len(token) < 3:
         return token
 
+    # If the token itself is a dictionary headword, it's already a
+    # lemma — don't strip. This catches `ինչպիսի`, `ուսուցչուհի`,
+    # `միասին`, etc. that the suffix list would otherwise truncate
+    # to non-words. Skip when no dictionary is available (graceful
+    # degradation to plain rule-based stripping).
+    try:
+        d = _dict_headwords()
+    except Exception:
+        d = None
+    if d and token.lower() in d:
+        return token
+
     candidate = None
+    matched_substitution = None
     for old, new in SUBSTITUTIONS:
         if token.endswith(old):
             candidate = token[: -len(old)] + new
+            matched_substitution = old
             break
     if candidate is None:
+        # Dictionary-aware suffix strip: prefer the strip that yields a
+        # known headword. Falls back to the first match (longest, due
+        # to SUFFIXES sort) if no strip is dictionary-confirmed. This
+        # rescues cases like `ինչպիսին → ինչպիսի` (-ն, in dict) over
+        # `ինչպիս` (-ին, not in dict).
+        first_match = None
         for suf in SUFFIXES:
             if token.endswith(suf) and len(token) - len(suf) >= 2:
-                candidate = token[: -len(suf)]
-                break
+                cand = token[: -len(suf)]
+                if d and cand.lower() in d:
+                    candidate = cand
+                    break
+                if first_match is None:
+                    first_match = cand
+        if candidate is None:
+            candidate = first_match
     if candidate is None:
         candidate = token
+
+    # Gate the -ող and -ած substitutions: they're correct for verbal
+    # participles (`գրող`/`գրած` → `գրել`) but wrong for adjectives or
+    # agent nouns that share the suffix without being -ել verbs
+    # (`կարող` "able" → would give `կարել` "Karelian / to sew", a
+    # false match). Only accept the substitution if `candidate` is a
+    # known lemma (lives in vocab/paradigm/filler/gap sources) — else
+    # fall back to the original token.
+    if known_lemmas and matched_substitution in ("ող", "ած"):
+        if candidate not in known_lemmas:
+            candidate = token
 
     if known_lemmas and candidate not in known_lemmas:
         if candidate.endswith("ել"):
@@ -161,7 +275,81 @@ def lemmatize(
             alt = candidate[:-2] + "ել"
             if alt in known_lemmas:
                 return alt
+
+    # Dictionary-aware possessive / definite-article strip. If the
+    # candidate isn't itself a dictionary headword but candidate[:-1]
+    # *is* (and the dropped char is `-ս/-դ/-ն`), the trailing letter
+    # is almost certainly possessive (`անունս` "my name") or
+    # definite-article (`տղան` "the boy"), and the lemma should fold
+    # to the bare form. We do this AFTER the suffix-strip pass so
+    # `երիտասարդ` (5+ chars, dictionary headword) isn't touched.
+    if len(candidate) >= 4 and candidate[-1] in ("ս", "դ", "ն"):
+        if d is not None and candidate.lower() not in d:
+            stripped = candidate[:-1]
+            if stripped.lower() in d:
+                return stripped
+
+    # Rescue under-strip: if the candidate is a non-headword but
+    # `candidate + 'ի'` is a headword, the suffix-strip overshot a
+    # genitive marker we should have kept. This rescues cases like
+    # `ինչպիսին → ինչպիս → ինչպիսի` and `այսպիսին → այսպիս →
+    # այսպիսի` where `-ին` strip was tried before noticing the
+    # underlying lemma already ends in `-ի`.
+    if d is not None and candidate.lower() not in d:
+        cand_i = candidate.lower() + "ի"
+        if cand_i in d:
+            return candidate + "ի"
+
+    # Generic paradigm-cell fallback. If the candidate isn't a known
+    # headword but ends in a verb-paradigm tail (`-ենք` 1pl present /
+    # subjunctive, `-եք` 2pl imperative / present, `-ինք` 1pl past)
+    # AND the stem + `-ել` / `-ալ` / `-նել` / `-վել` is a dict
+    # headword, fold to the infinitive. Catches `սկսենք → սկսել`,
+    # `տեսեք → տեսնել`, `բերեք → բերել`, etc.
+    if d is not None and candidate.lower() not in d:
+        for tail in ("վենք", "վեք", "ենք", "եք", "ինք"):
+            if candidate.endswith(tail) and len(candidate) - len(tail) >= 2:
+                stem = candidate[: -len(tail)]
+                for inf_tail in ("ել", "ալ", "նել", "վել"):
+                    cand_inf = stem.lower() + inf_tail
+                    if cand_inf in d:
+                        return stem + inf_tail
+                break
     return candidate
+
+
+_DICT_HEADWORDS_CACHE: set[str] | None = None
+
+
+def _dict_headwords() -> set[str]:
+    """Real-lemma view onto `dictionary.load_dict()`. Filters out
+    entries whose ONLY senses are paradigm-cell prose (e.g. kaikki
+    stores `Հայաստանի` as its own entry with sense "dative singular
+    of Հայաստան" — that's not a lemma we want lemmatization to
+    short-circuit on)."""
+    global _DICT_HEADWORDS_CACHE
+    if _DICT_HEADWORDS_CACHE is not None:
+        return _DICT_HEADWORDS_CACHE
+    try:
+        import dictionary
+        d = dictionary.load_dict()
+        real: set[str] = set()
+        for word, entries in d.items():
+            for _pos, glosses_str in entries:
+                # If any sense survives the noise filter, treat as
+                # a real lemma. Reuse `dictionary._is_noise` so the
+                # filter rules stay in one place.
+                for g in glosses_str.split(" | "):
+                    g = g.strip()
+                    if g and not dictionary._is_noise(g):
+                        real.add(word)
+                        break
+                if word in real:
+                    break
+        _DICT_HEADWORDS_CACHE = real
+    except Exception:
+        _DICT_HEADWORDS_CACHE = set()
+    return _DICT_HEADWORDS_CACHE
 
 
 def collect_known_lemmas(sources: dict[str, list[str]]) -> set[str]:
@@ -226,6 +414,62 @@ def collect_inflected_to_lemma() -> dict[str, str]:
     mapping.setdefault("սիրուց", "սեր")
     mapping.setdefault("սիրում", "սեր")
     mapping.setdefault("սիրեր", "սեր")  # plural
+    # Kinship-term oblique stems. These have radical stem changes in
+    # the genitive that no rule-based stripper can recover from
+    # (`եղբայր → եղբոր`, `քույր → քրոջ`, `հայր → հոր`, `մայր → մոր`,
+    # `դուստր → դստեր`). Hand-pin every common case and possessive
+    # form. Note: kaikki stores the oblique stem as its own entry
+    # (`եղբոր (genitive of եղբայր)`), but it's not the lemma we
+    # want for deck purposes.
+    for inflected, lemma in [
+        ("եղբայր", "եղբայր"),
+        ("եղբոր", "եղբայր"),
+        ("եղբորս", "եղբայր"),
+        ("եղբորդ", "եղբայր"),
+        ("եղբորից", "եղբայր"),
+        ("եղբորով", "եղբայր"),
+        ("քույր", "քույր"),
+        ("քրոջ", "քույր"),
+        ("քրոջս", "քույր"),
+        ("քրոջդ", "քույր"),
+        ("քրոջն", "քույր"),
+        ("քրոջից", "քույր"),
+        ("քրոջով", "քույր"),
+        ("հայր", "հայր"),
+        ("հոր", "հայր"),
+        ("հորս", "հայր"),
+        ("հորդ", "հայր"),
+        ("մայր", "մայր"),
+        ("մոր", "մայր"),
+        ("մորս", "մայր"),
+        ("մորդ", "մայր"),
+        # vowel-syncope nouns (`բժիշկ → բժշկ-` in oblique cases)
+        ("բժիշկ", "բժիշկ"),
+        ("բժշկի", "բժիշկ"),
+        ("բժշկից", "բժիշկ"),
+        ("բժշկով", "բժիշկ"),
+        # ով → "who" oblique stem `ում`
+        ("ումից", "ով"),
+        ("ումով", "ով"),
+        # `կողքիս` "by my side" — locative + 1sg-poss, lemma `կողք`.
+        # kaikki mistakenly glosses this as "Colchis"; hand-pin
+        # to override.
+        ("կողքիս", "կողք"),
+        ("կողքից", "կողք"),
+        ("կողքին", "կողք"),
+        # `տես` 2sg-imperative of `տեսնել`; kaikki has neither.
+        ("տես", "տեսնել"),
+        ("տեսեք", "տեսնել"),
+        ("տեսնենք", "տեսնել"),
+        # `գիտել` paradigm cells that lack their own dict entries
+        ("գիտեմ", "գիտել"),
+        ("գիտես", "գիտել"),
+        ("գիտի", "գիտել"),
+        ("գիտենք", "գիտել"),
+        ("գիտեք", "գիտել"),
+        ("գիտեն", "գիտել"),
+    ]:
+        mapping.setdefault(inflected, lemma)
     return mapping
 
 
@@ -297,10 +541,17 @@ def main() -> None:
         }
 
     # Filter — minimum-sane lemma length, and drop pure-digit / pure-
-    # punctuation residues.
+    # punctuation residues. Also skip-list known extraction artifacts
+    # — `իկ`, `ուկ` are diminutive-suffix fragments where unit09_vocab
+    # rows got truncated (`քամիկ → իկ`, `տաքուկ → ուկ`); they ended
+    # up as deck rows with wrong "wind" / "warm" translations. The
+    # underlying TSV needs an upstream fix; until then, suppress.
+    EXTRACTION_BUG_FRAGMENTS = {"իկ", "ուկ"}
     counts = Counter({
         lemma: n for lemma, n in counts.items()
-        if len(lemma) >= 2 and ARMENIAN_TOKEN.fullmatch(lemma)
+        if len(lemma) >= 2
+        and ARMENIAN_TOKEN.fullmatch(lemma)
+        and lemma not in EXTRACTION_BUG_FRAGMENTS
     })
 
     ranked = counts.most_common()

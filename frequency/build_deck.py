@@ -262,10 +262,40 @@ HAND_OVERRIDES: dict[str, str] = {
     "ուրիշ":  "other, different / другой",
     "ով":     "who / кто",
     "արի":    "come! (imp. of գալ) / иди!",
-    "արա":    "hey, dude (vocative); do! (imp. of անել, e.g. մի՛ արա 'don't!') / эй, чувак; делай! (как в 'мил арá' = не делай)",
+    "արա":    "hey, dude (voc.); do! (imp. of անել; մի՛ արա = don't) / эй, чувак; делай!",
     "դուր":   "liking (only in 'դուր է գալիս' = it pleases / нравится)",
-    "տարեկան": "annual; -years-old (with numerals) / годовой; -летний (с числит.)",
-    "թողնել":  "to leave; to allow, let (colloq form: թողել) / оставить; разрешать (разг. թողել)",
+    "տարեկան": "annual; -years-old / годовой; -летний",
+    "թողնել":  "to leave, allow (colloq: թողել) / оставить, разрешать",
+    # `(language)` parenthetical is kaikki/sakayan scaffolding; the
+    # -երեն suffix already encodes "language" in Armenian.
+    "հայերեն":   "Armenian / армянский",
+    "անգլերեն":  "English / английский",
+    "ֆրանսերեն": "French / французский",
+    "գերմաներեն": "German / немецкий",
+    # Replace dictionary-prose glosses ("Nth-person singular ...") with
+    # actual card-usable translations.
+    "կա":      "(there) is, exists / есть, имеется",
+    "կարդում": "(am/is) reading (pres. ptcp of կարդալ) / читаю(-ет) (наст.)",
+    "գնա":     "go! (imp. of գնալ) / иди!",
+    "ասա":     "say! (imp. of ասել) / скажи!",
+    "բեր":     "bring! (imp. of բերել) / принеси!",
+    "ի_միջի_այլոց": "by the way / кстати",
+    "տվեց":    "gave (3sg aor of տալ) / дал(-а)",
+    # Verbose kaikki-prose glosses pruned to 2-3 senses.
+    "զբաղվել":   "to be busy with, occupy oneself / заниматься",
+    "ահա":       "here, behold / вот, гляди",
+    "ներկայանալ": "to appear, present oneself / появиться, представиться",
+    "գրասեղան":  "writing desk, desk / письменный стол",
+    "անշուշտ":   "certainly, undoubtedly / конечно, безусловно",
+    "աշխատել":   "to work / работать",
+    "կարող":     "able, can; capable / способный, может",
+    "հեռախոս":   "telephone, phone / телефон",
+    "ազգանուն":  "surname / фамилия",
+    # "alternative form of X" — replace with the actual meaning.
+    "տաս":     "ten (var. of տասը) / десять",
+    "սառը":    "cold (var. of սառն, before consonants) / холодный",
+    "չափս":    "size, measure (var. of չափ) / размер",
+    "քցել":    "to throw, drop (colloq var. of գցել) / бросить, ронять",
 }
 
 
@@ -340,14 +370,19 @@ def annotated_lemma(lemma: str, phonetic: dict[str, str]) -> str:
     from the spelling, else just `lemma`. The respelling uses
     Armenian script — same convention as `sakayan/phonetics.py`.
 
-    The function preserves whatever case the input lemma carries
-    (top-1000 entries are lowercased at intake) and only emits the
-    bracket when the respelling itself differs from the lemma."""
+    Multi-word units carry an underscore as the build-pipeline
+    joiner (`մի_քիչ`); converted to a regular space here so the
+    Anki card displays naturally as `մի քիչ`. HAND_OVERRIDES /
+    phonetic-respelling lookups still key on the underscored form
+    (that's the canonical pipeline identity), so the conversion
+    is strictly a presentation step.
+    """
     key = lemma.lower()
     respell = phonetic.get(key)
+    display = lemma.replace("_", " ")
     if not respell or respell == key:
-        return lemma
-    return f"{lemma} [{respell}]"
+        return display
+    return f"{display} [{respell}]"
 
 
 def build(limit: int = 1000, with_dictionary: bool = True) -> None:

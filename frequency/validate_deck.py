@@ -348,6 +348,63 @@ def _is_armenian(ch: str) -> bool:
     return 0x0530 <= cp <= 0x058F or 0xFB13 <= cp <= 0xFB17
 
 
+# Editorial-quality patterns: glosses that read like a dictionary
+# entry rather than a flashcard answer. Each is a known shape that
+# slipped past the noise filters in `dictionary.py` because it
+# wasn't on the original blocklist.
+_PROSE_GLOSS_PATTERNS = [
+    re.compile(r"\b(?:first|second|third)-person\s+(?:singular|plural)\b",
+               re.IGNORECASE),
+    re.compile(r"\b(?:present|past|future)\s+participle\s+of\b", re.IGNORECASE),
+    re.compile(r"\bimperative\s+of\b", re.IGNORECASE),
+    re.compile(r"\b(?:aorist|infinitive)\s+of\b", re.IGNORECASE),
+    re.compile(r"\balternative\s+(?:form|spelling)\s+of\b", re.IGNORECASE),
+]
+
+
+def check_prose_gloss(rows: list[Row], findings: list[Finding]) -> None:
+    """Flag glosses that read as dictionary descriptions of a word's
+    grammatical role rather than as translations a learner can put
+    on the back of a flashcard. Symptom of a kaikki sense that
+    should be replaced with a HAND_OVERRIDE.
+    """
+    for lemma, tr, tags in rows:
+        for pat in _PROSE_GLOSS_PATTERNS:
+            if pat.search(tr):
+                _emit(findings, "warning", rank_of(tags), lemma, tr,
+                      "prose-gloss",
+                      f"reads as dictionary prose (matches /{pat.pattern}/) "
+                      f"— add a HAND_OVERRIDE with a card-shaped translation")
+                break
+
+
+def check_verbose_gloss(rows: list[Row], findings: list[Finding]) -> None:
+    """Glosses longer than 60 chars (single-language) or 90 chars
+    (en/ru pair) tend to be kaikki sense-stacks ('to do, be busy
+    with; be occupied with, be engaged in; …') rather than card
+    answers. Flag for trim.
+    """
+    for lemma, tr, tags in rows:
+        cap = 90 if " / " in tr else 60
+        if len(tr) > cap:
+            _emit(findings, "info", rank_of(tags), lemma, tr,
+                  "verbose-gloss",
+                  f"gloss is {len(tr)} chars (cap {cap}); consider "
+                  f"trimming to 1-3 senses")
+
+
+def check_redundant_language_parenthetical(
+        rows: list[Row], findings: list[Finding]) -> None:
+    """For lemmas ending in -երեն (the 'language' suffix), a trailing
+    `(language)` in the gloss is redundant scaffolding. Flag so it
+    can be trimmed."""
+    for lemma, tr, tags in rows:
+        if lemma.endswith("երեն") and "(language)" in tr.lower():
+            _emit(findings, "warning", rank_of(tags), lemma, tr,
+                  "redundant-language-parenthetical",
+                  "lemma ends in -երեն (= 'language'); '(language)' in gloss is redundant")
+
+
 def check_script_purity(rows: list[Row], findings: list[Finding]) -> None:
     """Lemma column must be pure Armenian (plus the allowed
     non-Armenian punctuation set). Flag any character outside that
@@ -482,6 +539,9 @@ CHECKS = [
     check_dictionary_ambiguity,
     check_golden_glosses,
     check_script_purity,
+    check_prose_gloss,
+    check_verbose_gloss,
+    check_redundant_language_parenthetical,
 ]
 
 

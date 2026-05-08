@@ -123,6 +123,58 @@ That's citation-grounded answering. Without
 personal insult — which it currently doesn't — even a "good"
 model is just guessing with vibes.
 
+## The smoking gun: the answer was already in the KB
+
+After this comparison, an audit of the workspace revealed that
+the pivotal disagreement (what does `խոտ` mean as slang?) was
+**already resolved in our citation-checked topic graph**:
+
+> `topics/lexicon/yerevan_slang.md` line 114:
+> `| խոտ | "grass" | "naive / clueless person" |`
+> citing **ghamoyan p48**: *"խոտ (անհասկացող, չափազանց միամիտ)"*
+> = "khot (clueless, excessively naive)"
+
+This is the canonical citation-grounded answer. None of the four
+LLMs (three external + my own first pass) found it. Why:
+
+- **Three external LLMs** ran in empty conversations with no
+  workspace access — couldn't have grepped the KB, had to guess
+  from pre-training. Architectural failure: no retrieval layer.
+- **My first pass** *did* have workspace access but didn't grep
+  `topics/`. I treated the prompt as a "translate and explain"
+  task, not a "look up in our KB" task. Habitual failure: the
+  pre-training prior was the first move, not the fallback.
+
+Both failure modes are documented in `llm-workflow.md` § "Where
+this came from" and § "Distrust LLM rationale that names no
+examples." This tweet-comparison case is now the worked-example
+exhibit for both.
+
+The fix at the project level:
+
+1. **Habitual** — `CLAUDE.md` § "Before answering an Armenian-
+   language question" now codifies the grep-first reflex.
+2. **Architectural** — a retrieval / orchestration layer for the
+   topic graph remains an open project goal (see
+   `kb-design.md`'s agent-flow design; not yet implemented).
+
+## KB coverage map for this tweet
+
+Token-by-token audit of what the KB had / didn't have at the
+time of the four-LLM comparison:
+
+| token | KB coverage | citation |
+|-------|-------------|----------|
+| `խոտ` (slang) | **had** | `topics/lexicon/yerevan_slang.md` line 114, ghamoyan p48 |
+| `մարդ → [մարթ]` | **had** | `topics/phonology/voiced_aspirated_alternation.md`, sakayan + ghamoyan |
+| `պալիտիկ` (lexeme) | pattern only, lexeme not specifically | code_switching pattern in `topics/lexicon/code_switching_with_russian.md` |
+| `էսքան, հա, լավ` (discourse) | register-principle only | `topics/pragmatics/intimate_register.md` |
+| `ըլնի / ըլնել` | **gap** at the time | bararan.am evidence supplied 2026-05-09 |
+| `մի հատ էլ` (idiom) | **gap** | not in `topics/lexicon/idioms_phrasal.md` |
+
+Action items #1–#4 below close some of these gaps directly;
+#5–#6 record the meta-finding.
+
 ## Action items spawned
 
 1. **Add `խոտ` as a slang-insult entry** to

@@ -47,12 +47,84 @@ schema decision, after writing it:
   failure case becomes either a HAND_OVERRIDES entry / golden-
   set anchor / extension to the runtime validator.
 
+**Two framings, two passes.** Run the critic agent (or a manual
+review) in both:
+
+1. *Structural* — "does the rule pick the right answer? are the
+   bytes correct? does it round-trip?" Catches content bugs.
+2. *Editorial* — "read this as the end user (a learner, not a
+   pipeline). Does the output read naturally? Does it look like
+   a flashcard / a paragraph / a citation? What would you flag?"
+   Catches shape bugs that structural checks systematically miss.
+
+The 2026-05-09 deck cleanup is the canonical case: 0 structural
+errors but six classes of editorial bugs (dictionary-prose
+glosses, kaikki sense-stacks, underscore-MWUs, redundant
+`(language)`, inflected leaks). The fix loop is in
+`llm-workflow.md` §§ 9–10 and `frequency/validate_deck.py` §
+`check_prose_gloss / check_verbose_gloss /
+check_redundant_language_parenthetical`.
+
 This generalises beyond `frequency/`: same pattern for OCR
 pipelines (`sakayan/extract.py`, `parnasyan/extract.py`,
 `tioyan/extract.py`), citation-checking heuristics
 (`.claude/skills/citation-check/check.py`), schema rules in
 `kb-design.md`, transliteration logic in
 `transliteration-notes.md`, etc.
+
+## Before answering an Armenian-language question
+
+Default reflex when the user asks about a specific Armenian word,
+phrase, or grammar phenomenon: **grep the KB before answering**.
+The pre-training prior is the *fallback*, not the first move.
+
+The fast path — automated retrieval:
+
+```sh
+python3 frequency/query_kb.py "<armenian text>"
+```
+
+`query_kb.py` is the deterministic KB-grounding layer: it
+tokenises + lemmatises the input, greps `topics/`, the four book
+JSONLs, and the project notes, and emits a Markdown bundle with
+matched-topic excerpts, book passages with page+y-range, and an
+explicit *Gaps* section listing query-lemmas with no coverage.
+That's the bundle you ground an answer in — anything outside it
+is pre-training prior, not citation. Run this *first* on any
+question targeting a specific Armenian word/phrase.
+
+Manual fallback (if the script can't help — e.g. lemma is too
+short, or you want to check inflected forms directly):
+
+1. **Topic graph.** `grep -rE "<content-word>" topics/` — every
+   topic is a citation-checked synthesis. If a topic covers the
+   phenomenon, ground the answer in it.
+2. **Source corpus.** `grep -nE "<content-word>" \
+   {sakayan,ghamoyan,parnasyan,tioyan}/out/full.jsonl` — the raw
+   extractions. Even if no topic exists, the books may have a
+   primary citation usable as evidence.
+3. **Project notes.** `armenian-grammar.md`, `transliteration-
+   notes.md`, `grammar-terms.md` — broader synthesis docs.
+4. **Cards.** `cards/top_1000.tsv`, `cards/sakayan/*.tsv` — for
+   high-frequency lemmas, the deck has hand-vetted glosses.
+
+Then answer with:
+
+- **Citations attached** to each glossed claim (`per
+  topics/lexicon/yerevan_slang.md, ghamoyan p48 [#3]`).
+- **Confidence graded**, not uniform-high. Distinguish "well-
+  cited" / "single-source" / "no topic entry — guess from prior."
+- **Gaps named explicitly.** If no source covers a claim, say so;
+  don't paper over with confident pre-training prose.
+- **Topic-file links** so the user can follow up.
+
+Why: the canonical case is the 2026-05-09 Pashinyan-tweet
+comparison (`research/2026-05-09-tweet-llm-comparison.md`) where
+four LLMs (including me) confidently produced four different
+glosses for `խոտ` while the correct citation
+("naive / clueless person," ghamoyan p48) was sitting in
+`topics/lexicon/yerevan_slang.md` line 114. Nobody looked. The
+habitual fix is in this rule. Reach for grep, not for prior.
 
 ## When the user reports a wrong output
 

@@ -1,7 +1,7 @@
 # Deck validation report
 
 - Deck: `cards/top_1000.tsv` (839 rows)
-- Findings: **79** (0 errors, 22 warnings)
+- Findings: **77** (0 errors, 20 warnings)
 
 ## By category
 
@@ -10,7 +10,6 @@
 | `ambiguous-sense` | info | 57 |
 | `duplicate-translation` | warning | 18 |
 | `golden-missing` | warning | 2 |
-| `mwu-leak` | warning | 2 |
 
 ## `ambiguous-sense`
 
@@ -55,7 +54,7 @@
 - **# 131** `ուժեղ (#131), ամուր (#538)` → `strong` — 2 lemmas map to identical gloss
 - **# 174** `նորից (#174), կրկին (#582)` → `again` — 2 lemmas map to identical gloss
 - **# 187** `մյուս (#187), այլ (#479)` → `other` — 2 lemmas map to identical gloss
-- **# 198** `վերջապես [վերչապես] (#198), ի_վերջո (#281)` → `finally` — 2 lemmas map to identical gloss
+- **# 198** `վերջապես [վերչապես] (#198), ի վերջո (#281)` → `finally` — 2 lemmas map to identical gloss
 - **# 208** `ցանկանալ (#208), ուզենալ (#555)` → `to wish` — 2 lemmas map to identical gloss
 - **# 233** `երեկո (#233), երեկոյան (#443)` → `evening` — 2 lemmas map to identical gloss
 - **# 248** `կլինի (#248), հեշտ (#543)` → `it will be easy` — 2 lemmas map to identical gloss
@@ -71,8 +70,3 @@
 
 - **#  -1** `ես` → `` — in golden set but absent from deck; expected one of: i, я
 - **#  -1** `վերցնել` → `` — in golden set but absent from deck; expected one of: pick up, take, брать
-
-## `mwu-leak`
-
-- **#  -1** `մի_քիչ` → `` — both `մի_քիչ` and components ['մի', 'քիչ'] appear — review whether all occurrences merged
-- **#  -1** `դուր_գալ` → `` — both `դուր_գալ` and components ['դուր', 'գալ'] appear — review whether all occurrences merged

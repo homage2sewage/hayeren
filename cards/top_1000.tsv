@@ -19,13 +19,13 @@
 ասել	to say	frequency top-1000 rank-0019 src-sakayan-vocab
 ինձ	me / меня, мне	frequency top-1000 rank-0020 src-hand-override
 նստել	to sit down	frequency top-1000 rank-0021 src-sakayan-paradigm
-հայերեն	Armenian (language)	frequency top-1000 rank-0022 src-sakayan-vocab
+հայերեն	Armenian / армянский	frequency top-1000 rank-0022 src-hand-override
 անել	to do	frequency top-1000 rank-0023 src-sakayan-vocab
 տեսնել	to see	frequency top-1000 rank-0024 src-sakayan-vocab
 չէ	no, isn't (it?) / нет, не так ли	frequency top-1000 rank-0025 src-hand-override
 սա	this (one) / это	frequency top-1000 rank-0026 src-hand-override
 ուզել	to want, wish, desire	frequency top-1000 rank-0027 src-dictionary
-կարող	able, can / способный, может	frequency top-1000 rank-0028 src-hand-override
+կարող	able, can; capable / способный, может	frequency top-1000 rank-0028 src-hand-override
 այստեղ	here / здесь, тут	frequency top-1000 rank-0029 src-hand-override
 այս	this / этот	frequency top-1000 rank-0030 src-hand-override
 նոր	new	frequency top-1000 rank-0031 src-sakayan-vocab
@@ -47,9 +47,9 @@
 թե	that	frequency top-1000 rank-0048 src-dictionary
 տալ	to give	frequency top-1000 rank-0049 src-sakayan-paradigm
 բժիշկ	doctor, physician	frequency top-1000 rank-0050 src-sakayan-vocab
-տարեկան	annual; -years-old (with numerals) / годовой; -летний (с числит.)	frequency top-1000 rank-0051 src-hand-override
+տարեկան	annual; -years-old / годовой; -летний	frequency top-1000 rank-0051 src-hand-override
 քեզ	you (sg, obj) / тебя, тебе	frequency top-1000 rank-0052 src-hand-override
-կա	third-person singular present indicative of կամ	frequency top-1000 rank-0053 src-dictionary
+կա	(there) is, exists / есть, имеется	frequency top-1000 rank-0053 src-hand-override
 եթե	if	frequency top-1000 rank-0054 src-sakayan-vocab
 ամառ	summer	frequency top-1000 rank-0055 src-sakayan-vocab
 հիանալի	wonderful	frequency top-1000 rank-0056 src-sakayan-vocab
@@ -75,11 +75,11 @@
 բանալ	to open	frequency top-1000 rank-0076 src-sakayan-paradigm
 ելնել	to go out / to rise	frequency top-1000 rank-0077 src-sakayan-paradigm
 զարկել	to hit / to strike	frequency top-1000 rank-0078 src-sakayan-paradigm
-թողնել	to leave; to allow, let (colloq form: թողել) / оставить; разрешать (разг. թողել)	frequency top-1000 rank-0079 src-hand-override
+թողնել	to leave, allow (colloq: թողել) / оставить, разрешать	frequency top-1000 rank-0079 src-hand-override
 լալ	to cry / to weep	frequency top-1000 rank-0080 src-sakayan-paradigm
 լվանալ	to wash	frequency top-1000 rank-0081 src-sakayan-paradigm
 հայկական	Armenian (adjective)	frequency top-1000 rank-0082 src-sakayan-vocab
-մի_քիչ	a little	frequency top-1000 rank-0083 src-dictionary
+մի քիչ	a little	frequency top-1000 rank-0083 src-dictionary
 հարցնել	to ask	frequency top-1000 rank-0084 src-sakayan-vocab
 մնալ	to remain, stay	frequency top-1000 rank-0085 src-sakayan-vocab
 հիմա	now / сейчас	frequency top-1000 rank-0086 src-hand-override
@@ -89,10 +89,10 @@
 տաք	warm	frequency top-1000 rank-0090 src-sakayan-vocab
 արի	come! (imp. of գալ) / иди!	frequency top-1000 rank-0091 src-hand-override
 որտեղ	where / где	frequency top-1000 rank-0092 src-hand-override
-ազգանուն	surname, family name, last name	frequency top-1000 rank-0093 src-dictionary
+ազգանուն	surname / фамилия	frequency top-1000 rank-0093 src-hand-override
 շնորհակալ	thankful / благодарный	frequency top-1000 rank-0094 src-hand-override
 դու	you (sg) / ты	frequency top-1000 rank-0095 src-hand-override
-ահա	an interjection used to draw attention to something or someone; lo, look, behold	frequency top-1000 rank-0096 src-dictionary
+ահա	here, behold / вот, гляди	frequency top-1000 rank-0096 src-hand-override
 կին	woman	frequency top-1000 rank-0097 src-dictionary
 դուր	liking (only in 'դուր է գալիս' = it pleases / нравится)	frequency top-1000 rank-0099 src-hand-override
 ավելի	more, beyond	frequency top-1000 rank-0100 src-dictionary
@@ -131,7 +131,7 @@
 գյուղ	village	frequency top-1000 rank-0134 src-sakayan-vocab
 հասցե	address	frequency top-1000 rank-0136 src-dictionary
 տասը	ten	frequency top-1000 rank-0137 src-dictionary
-հեռախոս	telephone, phone	frequency top-1000 rank-0138 src-dictionary
+հեռախոս	telephone, phone / телефон	frequency top-1000 rank-0138 src-hand-override
 տասներկու	twelve	frequency top-1000 rank-0139 src-dictionary
 երեսուն	thirty	frequency top-1000 rank-0140 src-dictionary
 դժվար	hard, difficult, challenging	frequency top-1000 rank-0141 src-dictionary
@@ -205,7 +205,7 @@
 ապրես	attaboy!, well done!	frequency top-1000 rank-0214 src-dictionary
 բոլոր	all, every / все	frequency top-1000 rank-0215 src-hand-override
 իհարկե	of course / конечно, разумеется	frequency top-1000 rank-0216 src-ghamoyan-filler
-անշուշտ	undoubtedly, without doubt, certainly, surely	frequency top-1000 rank-0217 src-dictionary
+անշուշտ	certainly, undoubtedly / конечно, безусловно	frequency top-1000 rank-0217 src-hand-override
 կարելի	possible	frequency top-1000 rank-0218 src-dictionary
 սառույց	ice	frequency top-1000 rank-0219 src-dictionary
 տղա	boy	frequency top-1000 rank-0220 src-dictionary
@@ -214,7 +214,7 @@
 մասին	definite dative singular of մաս	frequency top-1000 rank-0223 src-dictionary
 ուրեմն	so, then / значит, итак	frequency top-1000 rank-0224 src-hand-override
 ուղիղ	straight, direct	frequency top-1000 rank-0225 src-dictionary
-տաս	alternative form of տասը	frequency top-1000 rank-0226 src-dictionary
+տաս	ten (var. of տասը) / десять	frequency top-1000 rank-0226 src-hand-override
 իսկապես	really, indeed / действительно, правда	frequency top-1000 rank-0228 src-ghamoyan-filler
 հավաքույթ	gathering, meeting, rally	frequency top-1000 rank-0229 src-dictionary
 եղանակ	weather	frequency top-1000 rank-0230 src-dictionary
@@ -265,7 +265,7 @@
 արև	sun	frequency top-1000 rank-0278 src-sakayan-vocab
 համբուրել [համփուրել]	to kiss	frequency top-1000 rank-0279 src-sakayan-vocab
 սիրուն	pretty	frequency top-1000 rank-0280 src-sakayan-vocab
-ի_վերջո	finally	frequency top-1000 rank-0281 src-dictionary
+ի վերջո	finally	frequency top-1000 rank-0281 src-dictionary
 բացվել	to open up	frequency top-1000 rank-0282 src-sakayan-vocab
 քաղաք	city	frequency top-1000 rank-0283 src-sakayan-vocab
 քսան	twenty	frequency top-1000 rank-0284 src-dictionary
@@ -273,22 +273,22 @@
 քաղաքացի	citizen	frequency top-1000 rank-0286 src-dictionary
 ռուսերեն	Russian	frequency top-1000 rank-0287 src-dictionary
 այդ [այտ]	that / этот, тот	frequency top-1000 rank-0288 src-hand-override
-կարդում	present participle I of կարդալ	frequency top-1000 rank-0289 src-dictionary
+կարդում	(am/is) reading (pres. ptcp of կարդալ) / читаю(-ет) (наст.)	frequency top-1000 rank-0289 src-hand-override
 երևան	Yerevan	frequency top-1000 rank-0290 src-dictionary
 հարյուր	hundred	frequency top-1000 rank-0292 src-dictionary
-զբաղվել	to do, be busy with; be occupied with, be engaged in; engage in; concern oneself	frequency top-1000 rank-0294 src-dictionary
+զբաղվել	to be busy with, occupy oneself / заниматься	frequency top-1000 rank-0294 src-hand-override
 ուսանող	university student	frequency top-1000 rank-0295 src-dictionary
 ուսումնասիրել	to research, to study, to examine	frequency top-1000 rank-0296 src-dictionary
 գրականություն	literature	frequency top-1000 rank-0297 src-dictionary
 հինգ	five	frequency top-1000 rank-0299 src-dictionary
-աշխատել	to work; to work ; to toil, to labour	frequency top-1000 rank-0303 src-dictionary
+աշխատել	to work / работать	frequency top-1000 rank-0303 src-hand-override
 ահ	fear, fright; dread, terror; anxiety	frequency top-1000 rank-0304 src-dictionary
 հայ	Armenian	frequency top-1000 rank-0305 src-dictionary
 խոսում	simultaneous converb of խոսել	frequency top-1000 rank-0306 src-dictionary
 բնավ	never, not at all, not ever	frequency top-1000 rank-0307 src-dictionary
 քերականություն	grammar	frequency top-1000 rank-0308 src-dictionary
 շաբաթը [շափաթը]	definite nominative singular of շաբաթ	frequency top-1000 rank-0310 src-dictionary
-գրասեղան	writing desk, writing table, desk, bureau, secretary	frequency top-1000 rank-0311 src-dictionary
+գրասեղան	writing desk, desk / письменный стол	frequency top-1000 rank-0311 src-hand-override
 աթոռ	chair	frequency top-1000 rank-0312 src-dictionary
 գրիչ	pen	frequency top-1000 rank-0315 src-dictionary
 ռետին	eraser, rubber	frequency top-1000 rank-0316 src-dictionary
@@ -300,7 +300,7 @@
 հաշվիչ	counting	frequency top-1000 rank-0323 src-dictionary
 համեցեք	come!	frequency top-1000 rank-0325 src-dictionary
 ջուր	water	frequency top-1000 rank-0326 src-dictionary
-սառը	alternative form of սառն , used before consonants	frequency top-1000 rank-0327 src-dictionary
+սառը	cold (var. of սառն, before consonants) / холодный	frequency top-1000 rank-0327 src-hand-override
 պաղպաղակ	ice cream	frequency top-1000 rank-0329 src-dictionary
 հաց	bread	frequency top-1000 rank-0330 src-dictionary
 միշտ	always	frequency top-1000 rank-0331 src-dictionary
@@ -337,13 +337,13 @@
 կողք	side, flank	frequency top-1000 rank-0376 src-dictionary
 գիրքը	definite nominative singular of գիրք	frequency top-1000 rank-0379 src-dictionary
 բաց	open, not closed	frequency top-1000 rank-0380 src-dictionary
-արա	hey, dude (vocative); do! (imp. of անել, e.g. մի՛ արա 'don't!') / эй, чувак; делай! (как в 'мил арá' = не делай)	frequency top-1000 rank-0381 src-hand-override
+արա	hey, dude (voc.); do! (imp. of անել; մի՛ արա = don't) / эй, чувак; делай!	frequency top-1000 rank-0381 src-hand-override
 ձախ	left; left-hand	frequency top-1000 rank-0383 src-dictionary
 համակարգիչ [համակարքիչ]	computer	frequency top-1000 rank-0384 src-dictionary
 ջերմություն	heat, warmth	frequency top-1000 rank-0387 src-dictionary
 գուցե	maybe, perhaps	frequency top-1000 rank-0388 src-dictionary
 հազել	to immolate, offer up, sacrifice to idols	frequency top-1000 rank-0389 src-dictionary
-գնա	second-person singular imperative of գնալ	frequency top-1000 rank-0391 src-dictionary
+գնա	go! (imp. of գնալ) / иди!	frequency top-1000 rank-0391 src-hand-override
 կոկորդ	throat	frequency top-1000 rank-0393 src-dictionary
 փոր	belly, abdomen	frequency top-1000 rank-0395 src-dictionary
 ցավ	pain, ache	frequency top-1000 rank-0396 src-dictionary
@@ -372,7 +372,7 @@
 խոնավ	damp, humid, moist	frequency top-1000 rank-0434 src-dictionary
 գրասենյակ	office	frequency top-1000 rank-0435 src-dictionary
 անձրևանոց	raincoat	frequency top-1000 rank-0437 src-dictionary
-ասա	second-person singular imperative of ասել	frequency top-1000 rank-0438 src-dictionary
+ասա	say! (imp. of ասել) / скажи!	frequency top-1000 rank-0438 src-hand-override
 ուրբաթ [ուրփաթ]	Friday	frequency top-1000 rank-0439 src-dictionary
 հրավիրել	to invite	frequency top-1000 rank-0440 src-dictionary
 հաճույք	pleasure	frequency top-1000 rank-0441 src-dictionary
@@ -384,7 +384,7 @@
 այդքան [այտքան]	that much	frequency top-1000 rank-0449 src-dictionary
 որևէ	any	frequency top-1000 rank-0451 src-dictionary
 օգնել [օքնել]	to help, to assist, to aid	frequency top-1000 rank-0452 src-dictionary
-շնորհակալ_եմ	thank you	frequency top-1000 rank-0453 src-dictionary
+շնորհակալ եմ	thank you	frequency top-1000 rank-0453 src-dictionary
 անպայման	absolute, unconditional	frequency top-1000 rank-0454 src-dictionary
 նախ	first, in the first place, firstly	frequency top-1000 rank-0458 src-dictionary
 հաջորդ [հաջորթ]	next, following, subsequent	frequency top-1000 rank-0459 src-dictionary
@@ -399,9 +399,9 @@
 միլիոն	million	frequency top-1000 rank-0472 src-sakayan-vocab
 բնակիչ	inhabitant	frequency top-1000 rank-0473 src-sakayan-vocab
 խոսել	to speak	frequency top-1000 rank-0475 src-sakayan-vocab
-անգլերեն	English (language)	frequency top-1000 rank-0476 src-sakayan-vocab
-ֆրանսերեն	French (language)	frequency top-1000 rank-0477 src-sakayan-vocab
-գերմաներեն	German (language)	frequency top-1000 rank-0478 src-sakayan-vocab
+անգլերեն	English / английский	frequency top-1000 rank-0476 src-hand-override
+ֆրանսերեն	French / французский	frequency top-1000 rank-0477 src-hand-override
+գերմաներեն	German / немецкий	frequency top-1000 rank-0478 src-hand-override
 այլ	other	frequency top-1000 rank-0479 src-sakayan-vocab
 հնդեվրոպական	Indo-European	frequency top-1000 rank-0480 src-sakayan-vocab
 թվական	date, year	frequency top-1000 rank-0481 src-sakayan-vocab
@@ -453,7 +453,7 @@
 ժամանակ	time, period / время	frequency top-1000 rank-0532 src-frequency-gap
 քանդել	to untie	frequency top-1000 rank-0533 src-sakayan-vocab
 շյուղ	twig	frequency top-1000 rank-0534 src-sakayan-vocab
-տվեց	gave	frequency top-1000 rank-0535 src-sakayan-vocab
+տվեց	gave (3sg aor of տալ) / дал(-а)	frequency top-1000 rank-0535 src-hand-override
 հեշտություն	easiness, ease	frequency top-1000 rank-0536 src-dictionary
 առանձին	separate, single	frequency top-1000 rank-0537 src-sakayan-vocab
 ամուր	strong	frequency top-1000 rank-0538 src-sakayan-vocab
@@ -471,7 +471,7 @@
 հիանալ	to admire	frequency top-1000 rank-0551 src-sakayan-vocab
 զգեստ	dress	frequency top-1000 rank-0552 src-sakayan-vocab
 կոշիկ	shoe	frequency top-1000 rank-0553 src-sakayan-vocab
-դուր_գալ	to be pleasant, to be enjoyable	frequency top-1000 rank-0554 src-dictionary
+դուր գալ	to be pleasant, to be enjoyable	frequency top-1000 rank-0554 src-dictionary
 ուզենալ	to wish	frequency top-1000 rank-0555 src-sakayan-vocab
 չէր	negative form of էր	frequency top-1000 rank-0556 src-dictionary
 հագնել [հաքնել]	to wear	frequency top-1000 rank-0557 src-sakayan-vocab
@@ -763,7 +763,7 @@
 ցույց	demonstration, manifestation, rally	frequency top-1000 rank-0875 src-dictionary
 ցուցափեղկ	shop window	frequency top-1000 rank-0876 src-dictionary
 կապույտ	blue	frequency top-1000 rank-0877 src-dictionary
-չափս	alternative form of չափ	frequency top-1000 rank-0878 src-dictionary
+չափս	size, measure (var. of չափ) / размер	frequency top-1000 rank-0878 src-hand-override
 մինչև	as far as, till, until, to	frequency top-1000 rank-0879 src-dictionary
 գնել	to buy, to purchase	frequency top-1000 rank-0880 src-dictionary
 թերթ	petal	frequency top-1000 rank-0886 src-dictionary
@@ -783,7 +783,7 @@
 տպավորիչ	impressive	frequency top-1000 rank-0903 src-dictionary
 մեծամիտ	bigheaded, arrogant, conceited, proud	frequency top-1000 rank-0905 src-dictionary
 արտաքին	outward, external, outer	frequency top-1000 rank-0907 src-dictionary
-ներկայանալ	to appear, to come forward, to present itself; to offer, to arise	frequency top-1000 rank-0909 src-dictionary
+ներկայանալ	to appear, present oneself / появиться, представиться	frequency top-1000 rank-0909 src-hand-override
 տարիք	age	frequency top-1000 rank-0911 src-dictionary
 ծաղիկները	definite nominative plural of ծաղիկ	frequency top-1000 rank-0915 src-dictionary
 պատուհան	window	frequency top-1000 rank-0918 src-dictionary
@@ -808,7 +808,7 @@
 տարեդարձ	anniversary	frequency top-1000 rank-0948 src-dictionary
 անակնկալ	unexpected, unforeseen, sudden	frequency top-1000 rank-0949 src-dictionary
 երաժշտություն	music	frequency top-1000 rank-0951 src-dictionary
-բեր	second-person singular imperative of բերել	frequency top-1000 rank-0952 src-dictionary
+բեր	bring! (imp. of բերել) / принеси!	frequency top-1000 rank-0952 src-hand-override
 ամենայն	all, entire	frequency top-1000 rank-0953 src-dictionary
 նախընտրել	to prefer, to give preference to, to favor	frequency top-1000 rank-0955 src-dictionary
 գաղափար	idea	frequency top-1000 rank-0956 src-dictionary
@@ -822,13 +822,13 @@
 ռուսաստան	Russia / Россия	frequency top-1000 rank-0967 src-hand-override
 քո	your (sg) / твой	frequency top-1000 rank-0968 src-hand-override
 այսպիսի	such; such a; of this kind; like this	frequency top-1000 rank-0969 src-dictionary
-ի_դեպ	by the way	frequency top-1000 rank-0970 src-dictionary
-ի_միջի_այլոց	alternative spelling of իմիջիայլոց	frequency top-1000 rank-0971 src-dictionary
-ըստ_էության	in essence, essentially, basically	frequency top-1000 rank-0973 src-dictionary
+ի դեպ	by the way	frequency top-1000 rank-0970 src-dictionary
+ի միջի այլոց	by the way / кстати	frequency top-1000 rank-0971 src-hand-override
+ըստ էության	in essence, essentially, basically	frequency top-1000 rank-0973 src-dictionary
 իրականում	actually, in reality / на самом деле	frequency top-1000 rank-0974 src-ghamoyan-filler
 ուղղակի	just, simply / просто, прямо	frequency top-1000 rank-0975 src-ghamoyan-filler
 պարզապես	simply, just / просто	frequency top-1000 rank-0976 src-ghamoyan-filler
-կարճ_ասած	long story short	frequency top-1000 rank-0979 src-dictionary
+կարճ ասած	long story short	frequency top-1000 rank-0979 src-dictionary
 ենթադրել	to suppose, assume, presume	frequency top-1000 rank-0981 src-dictionary
 եսիմ	dunno, who knows / не знаю, фиг знает	frequency top-1000 rank-0983 src-ghamoyan-filler
 տենց	like that / так, вот так	frequency top-1000 rank-0985 src-ghamoyan-filler
@@ -836,4 +836,4 @@
 դե	well, come on / ну, давай	frequency top-1000 rank-0988 src-hand-override
 բանը	the thing is / дело в том, штука в том	frequency top-1000 rank-0989 src-ghamoyan-filler
 խոսք	speech	frequency top-1000 rank-0992 src-dictionary
-քցել	alternative form of գցել	frequency top-1000 rank-0993 src-dictionary
+քցել	to throw, drop (colloq var. of գցել) / бросить, ронять	frequency top-1000 rank-0993 src-hand-override

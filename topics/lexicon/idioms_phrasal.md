@@ -84,6 +84,7 @@ gaps:
   - "Etymology of body-part idioms (eye, hand, tongue, mouth, dog) — pan-cultural metaphor patterns (eye = vigilance, hand = generosity, tongue = speech) — but Armenian-specific extensions need investigation."
   - "Cross-translation: many Armenian idioms have direct Russian or English analogues (`Շան բախտ ունի` is roughly the *opposite* of English 'lucky dog'); a comparative idiom dictionary would be useful but doesn't exist in this corpus."
   - "Curses + blessings (p46: `Հերդ էլ անիծած` 'cursed be your father', `Ապրի արևդ` 'long live your sun') are a distinct sub-category not covered here. Could become its own topic."
+  - "Quantifier-counter phrasal `մի հատ էլ` 'and one more / on top of that' is real-world attested in colloquial speech (see `research/2026-05-09-tweet-llm-comparison.md`: *մի հատ էլ պալիտիկ*) but **not** found in our extracted ghamoyan/sakayan/parnasyan/tioyan JSONLs as the specific idiomatic phrase. ghamoyan p25 / p53 / p65 use `մի հատ` with a noun (literal 'one piece') but not the `+ էլ` 'on top of that' idiomatic chain. Topic gap; needs either a new corpus or hand-curation marked as project-attested-only."
 ---
 
 # Idioms and phrasal expressions in Yerevan colloquial speech

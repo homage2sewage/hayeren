@@ -132,6 +132,23 @@ The bare-insertion pattern is especially common for **adverbials and
 discourse particles** (`կառոչի, ուժե, դավայ, կանկռետնի`) — short
 high-frequency items that don't need to inflect.
 
+## Project-attested examples beyond the ghamoyan corpus
+
+Real-world Yerevan internet usage (Twitter / social media reply,
+2026-05; reproduced in `research/2026-05-09-tweet-llm-
+comparison.md`):
+
+> *հա լավ էսքան խոտ մարդ ըլնի մի հատ էլ պալիտիկ 🤭😅*
+
+`պալիտիկ` here is a Russian-loan colloquial spelling of
+*политика* "politics," used as a register-marker (a
+mockingly-casual stand-in for the literary
+**քաղաքականություն**). Pattern-conformant with the lexemes
+documented from ghamoyan p48 below — bare-insertion, no Armenian
+inflection. Not book-attested as a specific lexeme; included
+here as the canonical real-world test case the topic should be
+able to gloss.
+
 ## Documented examples (ghamoyan p48)
 
 Real teen-speech transcriptions: [#1]

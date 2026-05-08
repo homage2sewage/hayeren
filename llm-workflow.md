@@ -97,6 +97,70 @@ excellent at the former and unreliable at the latter — the
 workflow has to compensate by routing every proposed heuristic
 through a confrontation with data before it gets committed.
 
+### 9. Two validation axes: structural and editorial
+
+A pipeline can produce structurally-correct output that's still
+**unusable** at the human-facing layer. Both axes need explicit
+coverage:
+
+- **Structural correctness** — does the data exist? is the
+  citation real? does the lemma round-trip through the
+  dictionary? does the schema validate? are bytes literal? These
+  are easy to specify as rules and easy to automate.
+- **Editorial quality** — does the gloss read like a flashcard
+  answer (not a dictionary description of a word's grammatical
+  role)? does the lemma display as a learner would write it (no
+  build-pipeline `_` joiners)? are sense-stacks pruned to 1–3
+  options? are redundant scaffoldings (`(language)` after
+  `հայերեն`) removed? These are qualitative and *easy to skip*
+  because they look subjective. They aren't — once a pattern is
+  caught, it codifies into a structural rule (see
+  `frequency/validate_deck.py` § `check_prose_gloss`,
+  `check_verbose_gloss`, `check_redundant_language_parenthetical`).
+
+The 2026-05-09 deck-stability surprise: structural checks went
+green (0 errors / 0 confusables / 17 of 17 fragments verified)
+while a 5-minute human read of the deck surfaced six classes of
+unnatural pattern (dictionary-prose, verbose kaikki sense-stacks,
+underscore-MWUs, redundant `(language)`, inflected leaks, sake-
+of-completeness duplicates). The structural axis was a strict
+subset of the bug surface; editorial issues fell outside scope by
+default, not by deliberation.
+
+**How to apply:**
+
+- After every pipeline stage that emits human-facing output, *read
+  a sample as the user will*. Cards: top-25 + 50 random + bottom-25
+  in a TSV viewer. Topic bodies: render the markdown. OCR pages:
+  open 10 random pages alongside the source bitmap.
+- When a pattern annoys you on the read, name it. *That* shape is
+  the basis for a new editorial-axis `check_*` function.
+- Treat editorial-axis warnings the same as structural ones in
+  the validator: they're not "stylistic preferences," they're
+  bugs in the user-facing layer.
+
+### 10. Critic-agent framing matters
+
+When using a critic agent (Principle #5) to review heuristic
+output, the prompt frame *changes what the agent finds*:
+
+- **Implementer frame** ("does this rule pick the right answer?"):
+  catches content bugs, mis-rankings, false-friends.
+- **Editorial-reviewer frame** ("you are a flashcard reviewer;
+  read this as a learner; flag what wouldn't pass your eye"):
+  catches shape bugs, prose-glosses, redundancies, awkward
+  phrasings, register mismatches.
+
+A single critic-agent invocation tends to lock onto the framing
+in its prompt. If you want both axes covered, run the agent twice
+with the two framings, or compose them in one prompt with explicit
+"two passes: structural then editorial."
+
+This generalises beyond decks. Topic-file critic-passes can be
+run in either frame: the structural framing catches schema
+violations, the editorial framing catches "this paragraph is
+verbose / unfocused / overlaps another topic."
+
 ## Workflow integration in this repo
 
 Concrete touchpoints — things that already exist or are cheap to

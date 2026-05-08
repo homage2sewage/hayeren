@@ -63,7 +63,7 @@ warning	119	հին (#119), ծեր (#720)	old	duplicate-translation	2 lemmas map 
 warning	131	ուժեղ (#131), ամուր (#538)	strong	duplicate-translation	2 lemmas map to identical gloss
 warning	174	նորից (#174), կրկին (#582)	again	duplicate-translation	2 lemmas map to identical gloss
 warning	187	մյուս (#187), այլ (#479)	other	duplicate-translation	2 lemmas map to identical gloss
-warning	198	վերջապես [վերչապես] (#198), ի_վերջո (#281)	finally	duplicate-translation	2 lemmas map to identical gloss
+warning	198	վերջապես [վերչապես] (#198), ի վերջո (#281)	finally	duplicate-translation	2 lemmas map to identical gloss
 warning	208	ցանկանալ (#208), ուզենալ (#555)	to wish	duplicate-translation	2 lemmas map to identical gloss
 warning	233	երեկո (#233), երեկոյան (#443)	evening	duplicate-translation	2 lemmas map to identical gloss
 warning	248	կլինի (#248), հեշտ (#543)	it will be easy	duplicate-translation	2 lemmas map to identical gloss
@@ -76,5 +76,3 @@ warning	761	հով (#761), քամի (#929)	wind	duplicate-translation	2 lemmas m
 warning	900	ելույթ (#900), խոսք (#992)	speech	duplicate-translation	2 lemmas map to identical gloss
 warning	-1	ես		golden-missing	in golden set but absent from deck; expected one of: i, я
 warning	-1	վերցնել		golden-missing	in golden set but absent from deck; expected one of: pick up, take, брать
-warning	-1	մի_քիչ		mwu-leak	both `մի_քիչ` and components ['մի', 'քիչ'] appear — review whether all occurrences merged
-warning	-1	դուր_գալ		mwu-leak	both `դուր_գալ` and components ['դուր', 'գալ'] appear — review whether all occurrences merged

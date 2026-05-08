@@ -1,0 +1,101 @@
+rank	lemma	count	status	notes
+1	կարդալ	94	valid	to read; to recite from memory
+2	գրել	73	valid	to write
+3	ինչ	68	multi-meaning	what? (interrogative pronoun); what (indefinite pronoun)
+4	ես	66	suspicious-but-found	[very short (≤2 chars)] ego, the self; եմ (2 s pres)
+5	ունենալ	63	valid	to have, to possess, to dispose; to own, to hold
+6	եմ	60	suspicious-but-found	[very short (≤2 chars)] I am
+7	եք	38	suspicious-but-found	[very short (≤2 chars)] եմ (2 p pres)
+8	մի	36	suspicious-but-found	[very short (≤2 chars)] one; don't!
+9	նստել	32	valid	to sit, to sit down, to take a seat; to sink, to subside
+10	լինել	31	valid	to be, to exist; to happen
+11	իսկ	30	valid	while, and, but; even
+12	հոգնել	30	valid	to become tired, exhausted
+13	այո	28	valid	yes
+14	շատ	26	valid	a lot of, many, much; very
+15	են	25	suspicious-but-found	[very short (≤2 chars)] եմ (3 p pres)
+16	բայց	24	valid	but, yet; though, however
+17	գալ	23	valid	to come; to arrive
+18	ոչ	23	suspicious-but-found	[very short (≤2 chars)] no; not; no
+19	ձեր	23	valid	դու (gen p)
+20	գիտենալ	22	valid	to know
+21	էլ	20	suspicious-but-found	[very short (≤2 chars)] also, too; any more
+22	որ	19	multi-meaning	[very short (≤2 chars)] who, which, that (relative pronoun); that
+23	սեր	18	valid	love; affection, caring
+24	ու	17	suspicious-but-found	[very short (≤2 chars)] and; The 34th letter of Armenian alphabet according to Reformed Orthography. Represents close back rounded vowel: . Transliterated as ''u (sometimes as ow'').
+25	ասել	17	valid	to say; to tell
+26	կարել	17	valid	Karelian; to sew
+27	ինձ	16	valid	me
+28	հայերեն	15	valid	Armenian; Armenian
+29	նոր	15	valid	new; fresh; just, just now; not long ago, recently
+30	անել	15	valid	to do
+31	չէ	15	suspicious-but-found	[very short (≤2 chars)] է (neg form); no
+32	սա	15	suspicious-but-found	[very short (≤2 chars)] this
+33	ուզել	14	valid	to want, wish, desire; to ask, ask for, request
+34	այստեղ	13	valid	here
+35	գնալ	13	valid	to go; to go away, to leave, to depart
+36	այս	12	valid	evil spirit; this
+37	այսօր	11	valid	today; today
+38	տանել	11	valid	to carry; to carry away or off, to take away; to lead; to tolerate, to endure, to stand, to brook
+39	համար	11	multi-meaning	number; size
+40	բարև	11	valid	greeting, salute; salutation; hello!, hi!
+41	խնդրեմ	11	valid	please; you're welcome, don't mention it, no problem
+42	էր	11	suspicious-but-found	[very short (≤2 chars)] եմ (3 s impf)
+43	քան	10	valid	than
+44	դառնալ	10	valid	to become; to turn into; to return, to come back
+45	օր	10	suspicious-but-found	[very short (≤2 chars)] day
+46	թե	10	suspicious-but-found	[very short (≤2 chars)] that; or
+47	բերել	10	valid	to bring, to fetch
+48	երբ	10	valid	when; while
+49	տեսնել	10	valid	to see; to notice; to look at, to examine; to meet, to come across
+50	ձեզ	10	valid	you
+51	ժամ	10	valid	hour; time
+52	լավ	9	valid	good; good, fine, OK
+53	քիչ	9	multi-meaning	the little; few
+54	հիանալ	9	valid	to admire, to marvel at
+55	ինչու	9	valid	why
+56	տարեկան	9	multi-meaning	rye; yearling piglet
+57	քեզ	9	valid	you (objective form, singular, informal)
+58	կա	9	suspicious-but-found	[very short (≤2 chars)] կամ (3 s pres indc)
+59	եթե	8	suspicious-but-found	[ends in bare vowel 'ե', likely truncated] if
+60	ամառ	8	valid	summer
+61	գեղեցիկ	8	valid	beautiful; handsome; beautifully
+62	տալ	8	valid	sister-in-law; to give
+63	դեռ	8	valid	still, yet
+64	ուր	8	valid	where
+65	առնել	8	valid	to take; to buy, to purchase
+66	ընկնել	8	valid	to fall; to fall, to, drop, to decrease
+67	դնել	8	valid	to put, to lay; to impose, to inflict
+68	շնորհակալ	8	valid	grateful, thankful
+69	այնտեղ	8	valid	there
+70	բան	8	valid	thing; work, business
+71	րոպե	8	suspicious-but-found	[ends in bare vowel 'ե', likely truncated] minute; unspecified short time, moment
+72	փոքր	7	valid	small, little; younger, junior
+73	նրան	7	multi-meaning	dagger; dirk
+74	հետ	7	valid	back; with
+75	մեկ	7	valid	someone, somebody; one
+76	դուր	7	multi-meaning	chisel; flat, level
+77	մեծ	7	multi-meaning	leader, chief, elder; big, large
+78	բժիշկ	7	valid	doctor, physician
+79	ուրիշ	7	valid	other, different; another
+80	մեր	7	valid	մենք (gen s)
+81	հավանել	7	valid	to agree, to accept; to like
+82	էի	7	suspicious-but-found	[very short (≤2 chars)] եմ (1 s impf)
+83	ուտել	7	valid	to eat; to corrode
+84	բանալ	7	valid	to open
+85	ելնել	7	valid	to go out (of); to leave; to exit; to mount, ascend, climb
+86	զարկել	7	valid	to strike, hit, knock, tap
+87	թողնել	7	valid	to leave; to let, to allow
+88	լալ	7	valid	dumb, mute person; to weep, to cry
+89	լվանալ	7	valid	to wash; to wash away, to remove
+90	հայկական	6	valid	Armenian
+91	հարցնել	6	valid	to ask (somebody about something); to inquire (of somebody, about, after, for something); to ask (for), to want (to see); to desire to speak (to)
+92	ամեն	6	valid	each, every; all
+93	մնալ	6	valid	to stay, to remain
+94	անուն	6	valid	name; given name, first name
+95	հիմա	6	suspicious-but-found	[ends in bare vowel 'ա', likely truncated] the present; now, at present, at this moment in time
+96	այսպես	6	valid	so, this way, thus
+97	տաք	6	multi-meaning	heat; warm weather, warm days
+98	բար	6	valid	the fruit of trees; the first fruit of trees
+99	բոլոր	6	valid	all
+100	ար	6	suspicious-but-found	[very short (≤2 chars)] are

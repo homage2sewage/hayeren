@@ -1,0 +1,16 @@
+Per-source token / lemma counts
+============================================================
+  sakayan_vocab              cells=   606  tokens=    666  unique_lemmas=   530
+  sakayan_dialogue           cells=   290  tokens=   1432  unique_lemmas=   578
+  sakayan_paradigms          cells=   354  tokens=    438  unique_lemmas=    33
+  sakayan_chunks             cells=   202  tokens=    749  unique_lemmas=   366
+  ghamoyan_fillers           cells=    32  tokens=     34  unique_lemmas=    34
+
+Total tokens (all sources): 3319
+Total distinct lemmas:      996
+Top-1000 covers ranks 1..1000 of 996
+  top-  10 covers     907 tokens ( 27.3% of corpus)
+  top-  50 covers    1454 tokens ( 43.8% of corpus)
+  top- 100 covers    1802 tokens ( 54.3% of corpus)
+  top- 500 covers    2803 tokens ( 84.5% of corpus)
+  top-1000 covers    3299 tokens ( 99.4% of corpus)

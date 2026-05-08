@@ -4,6 +4,82 @@ How to construct an *N*-most-useful-words list for a learner: what the
 literature says, what's available for Armenian, what choices to make
 for our deck.
 
+> **Scope note.** This document is the **research / theory** base. The
+> *running build pipeline* (scripts, data layout, regenerate
+> commands, validators) lives in [`frequency/README.md`](frequency/README.md)
+> and the *Anki-importable outputs* live in
+> [`cards/README.md`](cards/README.md). Read those if you want to
+> rebuild the deck or understand how a card got there. Read this
+> file for the *why* behind the choices the pipeline makes.
+
+## Objectives
+
+What the deck is meant to achieve, in priority order:
+
+1. **High-leverage starter vocabulary for a Russian-speaking
+   learner of Eastern Armenian** — Yerevan-colloquial-leaning, since
+   the user's primary goal is understanding spoken Armenian.
+2. **Citation-honest provenance** — every card traces to a source:
+   sakayan textbook (vocab table or paradigm), ghamoyan colloquial
+   study (filler / slang / register), hand-curated gap-additions
+   from the Hermitdave OpenSubtitles diff, or the local Wiktionary
+   dump. The card's `tags` field carries the source so the trail
+   is auditable.
+3. **Empirically validated heuristics** — every priority / sort /
+   filter rule (POS-priority, language-name skip, MWU detection,
+   …) confronts its input population *before* shipping. The
+   golden-set in `frequency/golden_glosses.tsv` is the durable
+   form of those audits. See `llm-workflow.md` and
+   `.claude/skills/challenge-rule/` for the rationale.
+4. **Russian-language gloss in addition to English** for words
+   where the Russian formulation disambiguates faster than the
+   English one (function words, particles, register-marked items,
+   colloquial fillers).
+5. **Phonetic respelling** on cards whose pronunciation deviates
+   from spelling on a contrast-bearing consonant (voiced ↔
+   unaspirated ↔ aspirated) — e.g. `ընդունել [ընթունել]`. Uses
+   sakayan's transliteration as ground truth.
+6. **Frequency-ranked top-1000** — Nation's first-tier coverage
+   (~78% of running text) is the quantitative anchor. The deck
+   matches Pinhok-deck-class size for external comparison.
+
+The first three are the **non-negotiable** properties; 4–6 are the
+present implementation choices and are revisitable as the corpus
+or learner profile changes.
+
+## What sources contribute
+
+| source | role | volume | format |
+|--------|------|--------|--------|
+| **sakayan** (Sahakyan 2007, *Eastern Armenian for the English-Speaking World*) | textbook lemmas + paradigm cells + dialogue Armenian | ~1450 cards | sakayan/unit*_vocab.tsv, dialogue, paradigms |
+| **ghamoyan** (Ghamoyan et al. 2014, *Yerevan's Colloquial Language*) | conversational fillers + slang + colloquial register markers; corpus contribution to the frequency list | ~32 fillers + ~3K tokens of mined examples | `cards/ghamoyan/fillers.tsv`, `topics/lexicon/yerevan_slang.md`, `topics/pragmatics/intimate_register.md` |
+| **frequency-gap** (Hermitdave-derived) | high-frequency conversational items missing from sakayan | ~16 hand-curated entries | `cards/frequency/gap_additions.tsv` |
+| **kaikki.org Wiktionary** | offline dictionary fallback for lemmas without a card-level translation | ~22K dictionary entries | `frequency/data/armenian_dict.tsv` |
+| **HAND_OVERRIDES** | safety valve for high-frequency particles / pronouns / function words where Wiktionary's first gloss is misleading | ~75 entries | inline in `frequency/build_deck.py` |
+
+Ghamoyan plays a larger role than its filler-card count suggests —
+it's the **only colloquial-register source** in the corpus.
+Without it, the deck would be 100% literary-Sakayan and miss the
+register the user wants to understand. Specifically:
+
+- Filler set (`բա, դե, հենց, ուրեմն, …`) lifts colloquial discourse
+  markers into the deck that Sakayan's textbook prose doesn't
+  isolate.
+- Register-marked vocab and slang feed both the deck and the
+  topic-graph (`topics/lexicon/yerevan_slang.md`,
+  `topics/lexicon/code_switching_with_russian.md`,
+  `topics/pragmatics/intimate_register.md`).
+- Phonological / morphological observations from ghamoyan
+  (`ա` for `է`, ղ-drop, voiced↔aspirated bidirectional shifts)
+  feed into the phonetic-respelling heuristic and the topic
+  graph rather than the cards directly.
+
+When a future *spoken-Yerevan* corpus becomes available (EANC
+colloquial sub-corpus, transcribed YouTube/podcast data, etc.),
+ghamoyan's role here will narrow back to its slang/register
+specialty; for now it's load-bearing for everything register-
+related.
+
 ## The theoretical question
 
 When you build a flashcard deck for a language learner, which words

@@ -21,6 +21,7 @@ subdirectories — keep top level limited to this index and shared assets.
 ├── transliteration-notes.md       # Latin transliteration of Armenian: conventions + pitfalls (incl. the `ches asem` trap)
 ├── frequency-lists.md             # core-vocabulary theory + Armenian sources + methodology
 ├── anki-design.md                 # card design decisions + request log
+├── llm-workflow.md                # LLM-assisted-coding hygiene: how to catch bad heuristics before they ship
 ├── sakayan/                       # extract Eastern-Armenian textbook (Sakayan 2007)
 │   ├── README.md
 │   ├── dora_sahakyan.pdf

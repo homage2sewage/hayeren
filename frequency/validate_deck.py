@@ -319,6 +319,64 @@ def _strip_annot(lemma: str) -> str:
     return _ANNOT_RE.sub("", lemma).strip()
 
 
+# Visual-confusable codepoints we've actually hit in LLM output. Each
+# entry maps a wrong codepoint to the Armenian letter it visually
+# matches. Extend when a new confusable surfaces.
+_ARMENIAN_CONFUSABLES = {
+    "м": ("մ", "Cyrillic em U+043C ↔ Armenian men U+0574"),
+    "о": ("ո", "Cyrillic o U+043E ↔ Armenian vo U+0578"),
+    "λ": ("լ", "Greek lambda U+03BB ↔ Armenian liwn U+056C"),
+    "a": ("ա", "Latin a U+0061 ↔ Armenian ayb U+0561"),
+    "o": ("ո", "Latin o U+006F ↔ Armenian vo U+0578"),
+    "p": ("ք",  "Latin p U+0070 looks like Armenian քե (no exact match)"),
+    "n": ("ո", "Latin n U+006E ↔ Armenian vo (visual; rare)"),
+    "h": ("հ", "Latin h U+0068 ↔ Armenian ho U+0570"),
+    "y": ("ց", "Latin y U+0079 ↔ Armenian tso (visual)"),
+    "u": ("ս", "Latin u U+0075 ↔ Armenian se (visual)"),
+}
+
+# Allowed non-Armenian characters in the lemma column: spaces (MWUs),
+# bracket-pair for the phonetic-respelling annotation, underscore
+# (build-pipeline MWU joiner), hyphen (compound markers), apostrophe
+# variants (Armenian intra-word punctuation U+055A-U+055F is in the
+# Armenian block already and passes naturally).
+_ALLOWED_NON_ARMENIAN = set(" -[]_")
+
+
+def _is_armenian(ch: str) -> bool:
+    cp = ord(ch)
+    return 0x0530 <= cp <= 0x058F or 0xFB13 <= cp <= 0xFB17
+
+
+def check_script_purity(rows: list[Row], findings: list[Finding]) -> None:
+    """Lemma column must be pure Armenian (plus the allowed
+    non-Armenian punctuation set). Flag any character outside that
+    set, with extra prominence for known visual-confusables —
+    the LLM-generation bug where Cyrillic `м` or Greek `λ` substitutes
+    for the visually-identical Armenian letter.
+
+    The check sits at the cards layer, but the same idea extends
+    naturally to topic-file Armenian text. citation-check already
+    catches confusables in `verbatim_quote` (byte-level); this
+    check covers card lemmas which aren't byte-anchored to a
+    source.
+    """
+    for lemma, tr, tags in rows:
+        for ch in lemma:
+            if _is_armenian(ch) or ch in _ALLOWED_NON_ARMENIAN:
+                continue
+            if ch in _ARMENIAN_CONFUSABLES:
+                expected, hint = _ARMENIAN_CONFUSABLES[ch]
+                _emit(findings, "error", rank_of(tags), lemma, tr,
+                      "script-confusable",
+                      f"{ch!r} → expected {expected!r}; {hint}")
+            else:
+                _emit(findings, "warning", rank_of(tags), lemma, tr,
+                      "non-armenian-in-lemma",
+                      f"unexpected char {ch!r} (U+{ord(ch):04X})")
+            break  # one finding per lemma is enough
+
+
 def check_dictionary_ambiguity(rows: list[Row], findings: list[Finding]) -> None:
     """For dictionary-sourced cards where kaikki lists 2+ POS
     senses, surface a one-line review item showing the picked gloss
@@ -423,6 +481,7 @@ CHECKS = [
     check_eu_ligature,
     check_dictionary_ambiguity,
     check_golden_glosses,
+    check_script_purity,
 ]
 
 

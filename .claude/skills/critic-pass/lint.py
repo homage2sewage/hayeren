@@ -139,7 +139,81 @@ def lint(md_path: Path) -> list[Finding]:
             if not str(g).strip():
                 findings.append(Finding("warning", f"gaps[{i}]", "empty gap"))
 
+    # Script-purity: scan for visual-confusable codepoints in any
+    # Armenian-token in the body. The bug we're guarding against:
+    # LLM generation can substitute Cyrillic `м` for Armenian `մ`,
+    # Greek `λ` for Armenian `լ`, etc. citation-check catches these
+    # in `verbatim_quote` (byte-level), but free-form body text and
+    # frontmatter `note:` fields are not byte-anchored.
+    findings.extend(_check_script_purity(fm, body))
+
     return findings
+
+
+# Codepoints we've actually hit as confusables in LLM output, plus the
+# Armenian letter each one masquerades as. Extend when new bugs surface.
+_CONFUSABLES = {
+    "м": ("մ", "Cyrillic em U+043C ↔ Armenian men U+0574"),
+    "о": ("ո", "Cyrillic o U+043E ↔ Armenian vo U+0578"),
+    "λ": ("լ", "Greek lambda U+03BB ↔ Armenian liwn U+056C"),
+    "a": ("ա", "Latin a U+0061 ↔ Armenian ayb U+0561"),
+    "o": ("ո", "Latin o U+006F ↔ Armenian vo U+0578"),
+}
+
+
+def _is_armenian_char(ch: str) -> bool:
+    cp = ord(ch)
+    return 0x0530 <= cp <= 0x058F or 0xFB13 <= cp <= 0xFB17
+
+
+# Flag a confusable codepoint only when at least one of its nearest
+# *alphabetic* neighbors is Armenian. That's the pattern of the bug
+# we're catching — a Cyrillic `м` or Greek `λ` dropped into Armenian
+# script. Pure Latin/Cyrillic words elsewhere in body prose
+# (`dog/շուն` glosses, Russian explanatory phrases) are unaffected
+# because their neighbors are same-script.
+
+
+def _check_script_purity(fm: dict, body: str) -> list:
+    """Flag a confusable codepoint only when the *word* it sits in
+    is dominantly Armenian. Word = maximal run of `isalpha` chars.
+    This catches `λվանալ` (1 Greek + 5 Armenian = Armenian word
+    with confusable) and `мարդ` (1 Cyrillic + 3 Armenian) but
+    leaves `dog`, `to`, English commentary adjacent to Armenian
+    citations alone — the common case in our topic prose.
+    """
+    out = []
+
+    def scan(text: str, where: str) -> None:
+        n = len(text)
+        for j, ch in enumerate(text):
+            if ch not in _CONFUSABLES:
+                continue
+            li = j
+            while li > 0 and text[li - 1].isalpha():
+                li -= 1
+            ri = j
+            while ri < n - 1 and text[ri + 1].isalpha():
+                ri += 1
+            word = text[li:ri + 1]
+            arm = sum(1 for c in word if _is_armenian_char(c))
+            if arm * 2 <= len(word):
+                continue  # not Armenian-dominant; the confusable
+                          # is in a Latin / Cyrillic / mixed word
+            expected, hint = _CONFUSABLES[ch]
+            out.append(Finding(
+                "error", where,
+                f"script-confusable {ch!r} in Armenian word "
+                f"{word!r}: expected {expected!r} ({hint})"
+            ))
+
+    scan(body, "body")
+    for i, src in enumerate(fm.get("sources", []) or []):
+        if isinstance(src, dict):
+            note = str(src.get("note", ""))
+            if note:
+                scan(note, f"sources[{i}].note")
+    return out
 
 
 def main() -> int:

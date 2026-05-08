@@ -428,6 +428,18 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
             source = "—"
             stats["no-translation"] += 1
 
+        if not translation.strip():
+            # Skip empty-gloss rows entirely — they're either
+            # lemmatizer leaks (ուսանողներն, գրքեր), unfiltered
+            # surnames (պալյան, սարյան), spelled-out numerals
+            # (հիսունութ), or stems no source covers. Keeping
+            # them makes the deck noisy without educational value.
+            # The original rank is preserved on emitted rows so
+            # rank-NNNN still reflects frequency-list position.
+            stats.setdefault("skipped-empty", 0)
+            stats["skipped-empty"] += 1
+            continue
+
         tags = f"frequency top-1000 rank-{rank_n:04d} src-{source}"
         rows_out.append([annotated_lemma(lemma, phonetic), translation, tags])
 

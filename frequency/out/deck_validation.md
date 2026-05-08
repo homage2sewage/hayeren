@@ -1,7 +1,7 @@
 # Deck validation report
 
-- Deck: `cards/top_1000.tsv` (993 rows)
-- Findings: **237** (0 errors, 180 warnings)
+- Deck: `cards/top_1000.tsv` (839 rows)
+- Findings: **79** (0 errors, 22 warnings)
 
 ## By category
 
@@ -9,9 +9,8 @@
 | --- | --- | --- |
 | `ambiguous-sense` | info | 57 |
 | `duplicate-translation` | warning | 18 |
-| `empty-translation` | warning | 154 |
 | `golden-missing` | warning | 2 |
-| `mwu-leak` | warning | 6 |
+| `mwu-leak` | warning | 2 |
 
 ## `ambiguous-sense`
 
@@ -68,40 +67,6 @@
 - **# 761** `հով (#761), քամի (#929)` → `wind` — 2 lemmas map to identical gloss
 - **# 900** `ելույթ (#900), խոսք (#992)` → `speech` — 2 lemmas map to identical gloss
 
-## `empty-translation`
-
-- **#  34** `գիտել` → `` — no card source or local dict entry covered this lemma
-- **#  98** `գնանք` → `` — no card source or local dict entry covered this lemma
-- **# 117** `կարոյ` → `` — no card source or local dict entry covered this lemma
-- **# 135** `որն` → `` — no card source or local dict entry covered this lemma
-- **# 145** `քննեմ` → `` — no card source or local dict entry covered this lemma
-- **# 151** `պալյան` → `` — no card source or local dict entry covered this lemma
-- **# 154** `ծանոթացնեմ` → `` — no card source or local dict entry covered this lemma
-- **# 182** `մի_օր` → `` — no card source or local dict entry covered this lemma
-- **# 211** `սարյան` → `` — no card source or local dict entry covered this lemma
-- **# 227** `գրվել` → `` — no card source or local dict entry covered this lemma
-- **# 238** `քաղաքել` → `` — no card source or local dict entry covered this lemma
-- **# 251** `իրավաց` → `` — no card source or local dict entry covered this lemma
-- **# 258** `երկր` → `` — no card source or local dict entry covered this lemma
-- **# 291** `պարոնյան` → `` — no card source or local dict entry covered this lemma
-- **# 293** `հիսունութ` → `` — no card source or local dict entry covered this lemma
-- **# 298** `մալյան` → `` — no card source or local dict entry covered this lemma
-- **# 300** `կոմիտաս` → `` — no card source or local dict entry covered this lemma
-- **# 301** `քսանութ` → `` — no card source or local dict entry covered this lemma
-- **# 302** `հիսունմեկ` → `` — no card source or local dict entry covered this lemma
-- **# 309** `տառեր` → `` — no card source or local dict entry covered this lemma
-- **# 313** `գրքեր` → `` — no card source or local dict entry covered this lemma
-- **# 314** `տետրեր` → `` — no card source or local dict entry covered this lemma
-- **# 317** `ուսանողներն` → `` — no card source or local dict entry covered this lemma
-- **# 324** `կտաք` → `` — no card source or local dict entry covered this lemma
-- **# 328** `չարժե` → `` — no card source or local dict entry covered this lemma
-- **# 335** `կլցնես` → `` — no card source or local dict entry covered this lemma
-- **# 342** `նշանածն` → `` — no card source or local dict entry covered this lemma
-- **# 343** `կողքիններ` → `` — no card source or local dict entry covered this lemma
-- **# 345** `ծնողներիդ [ծնողներիտ]` → `` — no card source or local dict entry covered this lemma
-- **# 349** `կարծեմ` → `` — no card source or local dict entry covered this lemma
-- … and 124 more
-
 ## `golden-missing`
 
 - **#  -1** `ես` → `` — in golden set but absent from deck; expected one of: i, я
@@ -111,7 +76,3 @@
 
 - **#  -1** `մի_քիչ` → `` — both `մի_քիչ` and components ['մի', 'քիչ'] appear — review whether all occurrences merged
 - **#  -1** `դուր_գալ` → `` — both `դուր_գալ` and components ['դուր', 'գալ'] appear — review whether all occurrences merged
-- **#  -1** `կարծես_թե` → `` — both `կարծես_թե` and components ['կարծես', 'թե'] appear — review whether all occurrences merged
-- **#  -1** `մի_տեսակ` → `` — both `մի_տեսակ` and components ['մի', 'տեսակ'] appear — review whether all occurrences merged
-- **#  -1** `մի_օր` → `` — both `մի_օր` and components ['մի', 'օր'] appear — review whether all occurrences merged
-- **#  -1** `ամեն_ինչ` → `` — both `ամեն_ինչ` and components ['ամեն', 'ինչ'] appear — review whether all occurrences merged

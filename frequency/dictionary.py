@@ -79,6 +79,33 @@ def _is_noise(gloss: str) -> bool:
     return False
 
 
+# A frequency-ranked Armenian word can't be high-frequency *because*
+# of an obscure-language sense — words like `բաց` are top-1000
+# because they mean "open," not because the same string happens to
+# be wiktionary's name for a Caucasian minority language. So if a
+# noun gloss matches the `X (language)` shape AND the word has any
+# non-language sense in another POS section, skip the language
+# gloss and fall through. Words whose only senses are language-
+# names (հայերեն, անգլերեն) keep them.
+_LANGUAGE_GLOSS = re.compile(
+    r"^(?:[A-Z][a-z\-]+(?:\s[A-Z][a-z\-]+)?\s*\(language\)|"
+    r"[A-Z][a-z\-]+,\s+a\s+(?:minority|regional|extinct)?\s*language\b)",
+)
+
+
+def _looks_like_language_name(gloss: str) -> bool:
+    return bool(_LANGUAGE_GLOSS.match(gloss))
+
+
+def _has_non_language_sense(entries: list[tuple[str, str]]) -> bool:
+    for _pos, glosses_str in entries:
+        for g in glosses_str.split(" | "):
+            g = g.strip()
+            if g and not _is_noise(g) and not _looks_like_language_name(g):
+                return True
+    return False
+
+
 def lookup(word: str) -> str:
     """Best single English gloss. Picks the first non-noise gloss from
     the first non-name part-of-speech entry. Returns "" on miss.
@@ -93,26 +120,33 @@ def lookup(word: str) -> str:
         entries = d.get(key.replace("_", " "), [])
     if not entries:
         return ""
-    # Prefer Verb / Noun / Adjective / Adverb / Pronoun / Particle /
-    # Conjunction / Interjection / Determiner over `name`.
-    pos_priority = {
-        "verb": 0, "noun": 1, "adj": 2, "adv": 3, "pron": 4,
-        "particle": 5, "conj": 6, "intj": 7, "det": 8, "prep": 9,
-        "phrase": 10, "name": 90, "letter": 99,
-    }
+    # Preserve kaikki's natural POS order — Wiktionary lists the
+    # primary sense first, and an arbitrary verb>noun>adj priority
+    # mistranslates words whose primary sense is non-noun (e.g.
+    # `տարեկան` whose three POS entries are adj "annual" / adv
+    # "yearly" / noun "rye"; with noun-priority we'd surface "rye").
+    # Only deprioritize entries that are rarely the useful gloss:
+    # personal/place `name` and alphabet-`letter` descriptions.
+    # Python's `sorted` is stable, so equal-priority entries keep
+    # their kaikki order.
+    pos_priority = {"name": 90, "letter": 99}
 
     def sort_key(e: tuple[str, str]) -> int:
         return pos_priority.get(e[0].lower(), 50)
 
+    skip_language = _has_non_language_sense(entries)
     for pos, glosses_str in sorted(entries, key=sort_key):
         for g in glosses_str.split(" | "):
             g = g.strip()
-            if g and not _is_noise(g):
-                # Trim parenthetical clutter to keep the gloss short.
-                # Keep main meaning before any "(disambiguation)" tail.
-                short = re.sub(r"\s*\([^)]*\)\s*", " ", g).strip()
-                if short:
-                    return short[:80]
+            if not g or _is_noise(g):
+                continue
+            if skip_language and _looks_like_language_name(g):
+                continue
+            # Trim parenthetical clutter to keep the gloss short.
+            # Keep main meaning before any "(disambiguation)" tail.
+            short = re.sub(r"\s*\([^)]*\)\s*", " ", g).strip()
+            if short:
+                return short[:80]
     return ""
 
 

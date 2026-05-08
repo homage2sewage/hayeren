@@ -1,0 +1,50 @@
+# Golden glosses for `cards/top_1000.tsv` regression-testing.
+#
+# Format:  lemma <TAB> expected_substring [<TAB> alternative_substring …]
+#
+# A row passes if the deck's gloss for `lemma` contains AT LEAST ONE
+# of the listed substrings (case-insensitive). Multiple substrings
+# on the same row are alternatives — so we can accept either an
+# English or Russian form, or accept a few near-synonyms.
+#
+# Add a row when:
+#   - You catch and fix a wrong gloss (so kaikki refreshes can't
+#     resurrect it).
+#   - A frequent lemma's gloss is non-obvious and you want to lock
+#     it in (e.g. արի -> "come!", not "valiant").
+#
+# Keep this list small and high-signal — golden-set bloat == false
+# alarms when senses legitimately shift.
+
+# --- Cases caught during 2026-05-09 dictionary POS-priority audit ---
+տարեկան	annual	-year-old	летний
+բաց	open	открыт
+մեկ	one	один
+թե	that	if	or
+ով	who	кто
+արի	come	иди
+արա	dude	делай!	хеу	чувак
+դուր	liking	нрав
+ապրես	well done	attaboy	молод
+ուղիղ	straight	direct	прям
+բարև	hello	привет	здрав
+շնորհակալ	thank	благод
+
+# --- Common high-frequency lemmas (anchor sanity checks) ---
+ես	i	я
+դու	you	ты
+նա	he	she	он	она
+մենք	we	мы
+իմ	my	мой
+քո	your	тво
+լինել	to be	быть
+ունենալ	to have	иметь
+կարդալ	to read	читать
+գրել	to write	писать
+գալ	to come	приходить
+ասել	to say	сказать
+թողնել	leave	allow	let	оставить
+տանել	take	carry	lead	нес	вест
+առնել	take	buy	купить	брать
+բերել	bring	принес
+վերցնել	pick up	take	брать

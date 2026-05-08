@@ -309,6 +309,106 @@ def check_eu_ligature(rows: list[Row], findings: list[Finding]) -> None:
                   "should be merged into `և` (single ligature character)")
 
 
+# Lemma cells in cards/top_1000.tsv may carry a phonetic-respelling
+# annotation: `արդեն [արթեն]`. Strip it before dictionary lookup —
+# the dictionary keys on the orthographic lemma alone.
+_ANNOT_RE = re.compile(r"\s*\[[^\]]*\]\s*$")
+
+
+def _strip_annot(lemma: str) -> str:
+    return _ANNOT_RE.sub("", lemma).strip()
+
+
+def check_dictionary_ambiguity(rows: list[Row], findings: list[Finding]) -> None:
+    """For dictionary-sourced cards where kaikki lists 2+ POS
+    senses, surface a one-line review item showing the picked gloss
+    alongside competing senses. Catches "rye" / "valiant" / "Bats"-
+    type misranks where another sense is the actually-frequent one.
+
+    Severity `info` — never gates CI, just human review fodder.
+    """
+    for lemma, tr, tags in rows:
+        if "src-dictionary" not in tags:
+            continue
+        key = _strip_annot(lemma).lower()
+        entries = dictionary.lookup_full(key)
+        if len(entries) < 2:
+            continue
+        # Skip entries where the only "competition" is name/letter,
+        # which we already deprioritize structurally.
+        real_entries = [e for e in entries
+                        if e[0].lower() not in ("name", "letter")]
+        if len(real_entries) < 2:
+            continue
+        competing = []
+        for pos, glosses_str in real_entries:
+            first = glosses_str.split(" | ")[0].strip()
+            competing.append(f"[{pos}] {first[:50]}")
+        _emit(findings, "info", rank_of(tags), lemma, tr,
+              "ambiguous-sense",
+              f"{len(real_entries)} POS senses; "
+              f"competing: {' / '.join(competing)}")
+
+
+# ---- golden-glosses test ---------------------------------------------------
+
+GOLDEN_PATH = HERE / "golden_glosses.tsv"
+
+
+def load_golden() -> dict[str, list[str]]:
+    """Read `golden_glosses.tsv` if present.
+
+    Format (tab-separated):
+        lemma <TAB> expected_substring [<TAB> expected_substring …]
+
+    A row passes if at least one expected substring is contained
+    (case-insensitive) in the deck's gloss for that lemma. Multiple
+    substrings on a row are alternatives, not all-required."""
+    golden: dict[str, list[str]] = {}
+    if not GOLDEN_PATH.exists():
+        return golden
+    with GOLDEN_PATH.open(encoding="utf-8") as f:
+        for raw in f:
+            raw = raw.rstrip("\n")
+            if not raw or raw.startswith("#"):
+                continue
+            parts = raw.split("\t")
+            if len(parts) < 2:
+                continue
+            lemma = parts[0].strip().lower()
+            alts = [p.strip().lower() for p in parts[1:] if p.strip()]
+            if lemma and alts:
+                golden[lemma] = alts
+    return golden
+
+
+def check_golden_glosses(rows: list[Row], findings: list[Finding]) -> None:
+    """For each lemma listed in `golden_glosses.tsv`, confirm the
+    deck's gloss contains at least one expected substring. Catches
+    regressions when kaikki re-orders senses on a wiktionary refresh
+    or when a HAND_OVERRIDES entry is removed."""
+    golden = load_golden()
+    if not golden:
+        return
+    deck: dict[str, tuple[str, str]] = {}
+    for lemma, tr, tags in rows:
+        deck[_strip_annot(lemma).lower()] = (tr, tags)
+    for lemma, alts in golden.items():
+        if lemma not in deck:
+            _emit(findings, "warning", -1, lemma, "",
+                  "golden-missing",
+                  f"in golden set but absent from deck; expected one of: "
+                  f"{', '.join(alts)}")
+            continue
+        tr, tags = deck[lemma]
+        tr_lower = tr.lower()
+        if not any(alt in tr_lower for alt in alts):
+            _emit(findings, "error", rank_of(tags), lemma, tr,
+                  "golden-mismatch",
+                  f"gloss does not contain any expected substring: "
+                  f"{', '.join(alts)}")
+
+
 # ---- driver ---------------------------------------------------------------
 
 CHECKS = [
@@ -321,6 +421,8 @@ CHECKS = [
     check_proper_noun,
     check_duplicate_translation,
     check_eu_ligature,
+    check_dictionary_ambiguity,
+    check_golden_glosses,
 ]
 
 

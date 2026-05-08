@@ -52,6 +52,57 @@ import dictionary  # noqa: E402
 _ANNOTATION = re.compile(r"\s*[\[\(].*?[\]\)]")
 _INTRAWORD_PUNCT = re.compile(r"[՚-՟]")
 
+# Pattern for phonetic-respelling annotations attached to Armenian
+# headwords in already-built sakayan card files: "Արամ [phonetic]".
+# The bracket contains an Armenian re-spelling using the actual
+# pronounced consonants (e.g. ընդունել → ընթունել), produced by
+# `sakayan/phonetics.py` against Sakayan's own transliteration column.
+_PHONETIC_ANNOT = re.compile(r"([Ա-Ֆա-ֈ՚-՟]+)\s*\[([Ա-Ֆա-ֈ՚-՟]+)\]")
+
+
+def index_phonetic_respellings() -> dict[str, str]:
+    """Scan all already-built sakayan TSVs and harvest the
+    `lemma → respelling` map. Sakayan unit-vocab + dialogue files
+    have the annotations baked in by `sakayan/make_anki.py` (which
+    runs `phonetics.annotate` against Sakayan's transliteration).
+    Each annotation we surface here is therefore book-cited.
+
+    Skips `all.tsv` (concat of the per-unit files — would
+    double-count) and `paradigms.tsv` (no transliteration column;
+    no annotations present anyway).
+
+    Returns lowercased lemma → lowercased respelling. Caller
+    preserves original case from the input lemma.
+    """
+    hits: dict[str, str] = {}
+    for path in sorted(SAKAYAN_CARDS.glob("*.tsv")):
+        if path.name == "all.tsv":
+            continue
+        with path.open(encoding="utf-8") as f:
+            for row in csv.reader(f, delimiter="\t"):
+                for cell in row:
+                    for m in _PHONETIC_ANNOT.finditer(cell):
+                        a, b = m.group(1).lower(), m.group(2).lower()
+                        if a != b:
+                            # First-seen wins — vocab files come first
+                            # in sorted order.
+                            hits.setdefault(a, b)
+    return hits
+
+
+# Hand-curated additions for documented voiced↔aspirated alternations
+# that don't show up in sakayan TSVs (because the lemma is paradigm-
+# only or hand-override only, with no transliteration column to
+# annotate). Sources: armenian-grammar.md § "After extracting all 11
+# units we have evidence the alternation is" + topics/phonology/
+# voiced_aspirated_alternation.md. Keep this list narrow — only add
+# entries that are textually attested in those notes.
+PHONETIC_OVERRIDES: dict[str, str] = {
+    "շաբաթ":   "շափաթ",
+    "հոգնում": "հոքնում",
+    "հոգնել":  "հոքնել",
+}
+
 
 def armenian_tokens(cell: str) -> list[str]:
     """All Armenian tokens in a card cell, with annotations stripped.
@@ -209,6 +260,12 @@ HAND_OVERRIDES: dict[str, str] = {
     "ամեն":   "every / каждый",
     "որոշ":   "some, certain / некоторый",
     "ուրիշ":  "other, different / другой",
+    "ով":     "who / кто",
+    "արի":    "come! (imp. of գալ) / иди!",
+    "արա":    "hey, dude (vocative); do! (imp. of անել, e.g. մի՛ արա 'don't!') / эй, чувак; делай! (как в 'мил арá' = не делай)",
+    "դուր":   "liking (only in 'դուր է գալիս' = it pleases / нравится)",
+    "տարեկան": "annual; -years-old (with numerals) / годовой; -летний (с числит.)",
+    "թողնել":  "to leave; to allow, let (colloq form: թողել) / оставить; разрешать (разг. թողել)",
 }
 
 
@@ -278,12 +335,33 @@ def _is_personal_name(lemma: str) -> bool:
     return all(pos.lower() == "name" for pos, _ in entries)
 
 
+def annotated_lemma(lemma: str, phonetic: dict[str, str]) -> str:
+    """Return `lemma [phonetic]` when the pronounced form differs
+    from the spelling, else just `lemma`. The respelling uses
+    Armenian script — same convention as `sakayan/phonetics.py`.
+
+    The function preserves whatever case the input lemma carries
+    (top-1000 entries are lowercased at intake) and only emits the
+    bracket when the respelling itself differs from the lemma."""
+    key = lemma.lower()
+    respell = phonetic.get(key)
+    if not respell or respell == key:
+        return lemma
+    return f"{lemma} [{respell}]"
+
+
 def build(limit: int = 1000, with_dictionary: bool = True) -> None:
     top_path = HERE / "out" / "our_top_1000.tsv"
     out_path = CARDS / "top_1000.tsv"
 
     index = index_card_translations()
     print(f"Indexed {len(index)} unique-lemma translation sources",
+          file=sys.stderr, flush=True)
+
+    phonetic = index_phonetic_respellings()
+    phonetic.update(PHONETIC_OVERRIDES)
+    print(f"Indexed {len(phonetic)} phonetic respellings "
+          f"({len(PHONETIC_OVERRIDES)} hand-curated)",
           file=sys.stderr, flush=True)
 
     rows_out: list[list[str]] = []
@@ -320,7 +398,7 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
             stats.setdefault("hand-override", 0)
             stats["hand-override"] += 1
             tags = f"frequency top-1000 rank-{rank_n:04d} src-{source}"
-            rows_out.append([lemma, translation, tags])
+            rows_out.append([annotated_lemma(lemma, phonetic), translation, tags])
             if rank_n <= 10 or rank_n % 50 == 0:
                 print(f"  rank {rank_n:4d}  {lemma:25s}  [{source}]  "
                       f"{translation[:60]}", file=sys.stderr, flush=True)
@@ -351,7 +429,7 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
             stats["no-translation"] += 1
 
         tags = f"frequency top-1000 rank-{rank_n:04d} src-{source}"
-        rows_out.append([lemma, translation, tags])
+        rows_out.append([annotated_lemma(lemma, phonetic), translation, tags])
 
         if rank_n <= 10 or rank_n % 50 == 0:
             print(f"  rank {rank_n:4d}  {lemma:25s}  [{source}]  "

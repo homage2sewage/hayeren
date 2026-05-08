@@ -62,8 +62,24 @@ Two natural workflows:
 ## Schema for `top_1000.tsv`
 
 ```
-Armenian \t  English / Russian (where available)  \t  tags
+Armenian [phonetic-respell] \t  English / Russian (where available)  \t  tags
 ```
+
+The phonetic-respell bracket is only present when the actual
+pronunciation deviates from the orthography on one of the contrast-
+bearing consonants (voiced ↔ unaspirated ↔ aspirated stops and
+affricates). The respelling is in Armenian script — substitute the
+letter you actually pronounce. E.g. `կարդալ [կարտալ]` "to read"
+shows that the spelled `դ` is pronounced as `տ` (unaspirated t).
+Lemmas pronounced as spelled get no bracket.
+
+Source: respellings are harvested from `sakayan/unit*_vocab.tsv` /
+`sakayan/unit*_dialogue*.tsv` (which carry the annotations baked in
+by `sakayan/make_anki.py` against Sakayan's own transliteration
+column), supplemented by a small hand-curated table in
+`../frequency/build_deck.py` (`PHONETIC_OVERRIDES`) for paradigm-
+or override-only lemmas documented in `armenian-grammar.md` /
+`topics/phonology/voiced_aspirated_alternation.md`.
 
 Tags include `frequency top-1000 rank-NNNN src-<origin>` where
 `<origin>` is one of:

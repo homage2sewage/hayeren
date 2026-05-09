@@ -1,0 +1,47 @@
+**LLM Workflow Analysis** (from `llm-workflow.md`, `CLAUDE.md`, and supporting files)
+
+The repo's LLM workflow is a **highly disciplined, paranoia-driven system** designed to combat the typical failure modes of LLM-assisted work: plausible-sounding but incorrect heuristics, hallucinations, and silent bugs that only surface later. The owner calls it "**hayeren vs ai death match**" for a reason — it's an explicit battle against AI unreliability while still leveraging it heavily.
+
+### Core Philosophy
+- **Main problem targeted**: LLMs (and prompted humans) love inventing rules/priorities/fallbacks based on "sounds right" reasoning. These often fail on real data, especially in edge cases or language-specific quirks (e.g., multi-POS lemmas, legacy encodings, dialect/register differences).
+- **Solution**: Shift from *"Does this rule sound authoritative?"* to **"Does the rule's actual output match desired outcomes on real data?"** Every heuristic must be **empirically confronted** before shipping.
+
+### Key Principles (from llm-workflow.md)
+1. **Adversarial-case prompts** — For any new rule: "Name 10 inputs where this would produce the wrong output."
+2. **Output-first, rule-last** — Define desired outputs on sample data *first*, then derive the minimal rule that achieves it.
+3. **Mandatory baseline comparison** — Every heuristic must beat the trivial baseline (do nothing / trust source order). If not, discard it.
+4. **Golden tests** — User-found or audit-discovered errors become permanent entries in `golden_glosses.tsv` (or equivalents). Future changes are regression-tested against them.
+5. **Critic-agent / second-pass** — Use a separate agent (different prompt framing) to critique the rule: "Find weaknesses / where it fails."
+6. **Distrust rationale without examples** — Reject claims like "It's standard to prioritise X" unless backed by concrete data or sources.
+7. **Constrain to data** — Prefer LLM outputs as tables/TSV/JSON over prose rules.
+8. **Dogfood & process improvement** — Every wrong output triggers not just a fix, but a new guard (golden entry, validator, etc.).
+
+### Challenge Protocol (Mandatory for Heuristics)
+When introducing any priority/sort/filter/re-ranking rule:
+1. Sample the relevant population (e.g., multi-POS lemmas for dictionary lookups).
+2. Generate outputs with the proposed rule.
+3. Identify counterexamples (manually or via critic).
+4. Add failing cases to golden sets.
+5. Compare vs. baseline — must be strictly better.
+6. Commit only after all steps.
+
+This applies across domains: frequency lists, Anki deck building, OCR/extraction pipelines, topic graph schema, transliteration, etc.
+
+### Implementation in the Repo
+- **Validators**: `frequency/validate_deck.py` (noise patterns, ambiguity flagging, golden gloss checks, etc.).
+- **Skills folder** (`.claude/skills/`): Pre-built tools like `challenge-rule`, `citation-check` (verifies verbatim quotes against JSONL extracts), `critic-pass` (schema/lint).
+- **Topic/KB system** (`kb-design.md`): Heavy emphasis on **mechanical citation verification**. Every claim links to `verbatim_quote` from source PDFs → automated checks catch hallucinations.
+- **Workflow patterns**: Plan-then-act (walks in `walks/`), orchestrator-worker agents, evaluator-optimizer loops.
+
+### Strengths
+- Extremely robust against common LLM pitfalls.
+- Turns errors into durable improvements (regression-proofing).
+- Scales to messy real-world language data (legacy fonts, code-switching, multi-source contradictions).
+- Produces high-confidence outputs suitable for Anki decks and knowledge base.
+
+### Trade-offs
+- **High friction** — Adds significant overhead to every non-trivial change. Not suitable for quick-and-dirty projects.
+- **Human in the loop** is still essential (audits, golden sets, final reviews).
+- Overkill for simple tasks, but the doc explicitly says to apply judgment based on "blast radius."
+
+**Overall verdict**: This is one of the most mature, production-grade LLM workflows I've seen for a solo knowledge project. It treats the LLM as a powerful but unreliable junior engineer that needs strict code review, testing, and adversarial validation — exactly the right mindset for building reliable language materials where hallucinations would waste the user's study time. The repo essentially documents how to "program" with LLMs defensively.

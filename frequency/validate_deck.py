@@ -348,33 +348,56 @@ def _is_armenian(ch: str) -> bool:
     return 0x0530 <= cp <= 0x058F or 0xFB13 <= cp <= 0xFB17
 
 
-# Editorial-quality patterns: glosses that read like a dictionary
-# entry rather than a flashcard answer. Each is a known shape that
-# slipped past the noise filters in `dictionary.py` because it
-# wasn't on the original blocklist.
-_PROSE_GLOSS_PATTERNS = [
-    re.compile(r"\b(?:first|second|third)-person\s+(?:singular|plural)\b",
-               re.IGNORECASE),
-    re.compile(r"\b(?:present|past|future)\s+participle\s+of\b", re.IGNORECASE),
-    re.compile(r"\bimperative\s+of\b", re.IGNORECASE),
-    re.compile(r"\b(?:aorist|infinitive)\s+of\b", re.IGNORECASE),
+# Editorial-quality: glosses that *describe* an inflected form
+# instead of *translating* it. Earlier version was a whitelist of
+# specific descriptor words (Nth-person, imperative of, …) and
+# missed every shape not on the list (imperfective converb,
+# definite dative plural, negative form, resultative participle).
+# Replaced with a structural detector that catches the underlying
+# shape: any prose ending with `… of <Armenian word>`. That's the
+# kaikki-style "X form/sense of Y" template, regardless of which
+# X is used.
+#
+# Backstop list of explicit shapes, in case kaikki produces prose
+# that doesn't end with the Armenian-word reference (e.g. "in
+# combination with numerals").
+_PROSE_OF_ARMENIAN = re.compile(
+    # Optional `(romanization)` after the Armenian word; kaikki cross-
+    # references look like `… of լինել (linel)`. Without the
+    # optional group, the structural detector misses every prose
+    # gloss with a romanization suffix.
+    r"\bof\s+[Ա-Ֆա-ֆ]+\s*(?:\([^)]+\))?\s*[.,;:!?]?\s*$"
+)
+_PROSE_FALLBACK_PATTERNS = [
     re.compile(r"\balternative\s+(?:form|spelling)\s+of\b", re.IGNORECASE),
+    re.compile(r"\bin\s+combination\s+with\s+numerals\b", re.IGNORECASE),
+    re.compile(r"\bused\s+(?:to\s+)?(?:before|after|in)\s+(?:vowels|consonants|words)\b",
+               re.IGNORECASE),
 ]
 
 
 def check_prose_gloss(rows: list[Row], findings: list[Finding]) -> None:
-    """Flag glosses that read as dictionary descriptions of a word's
-    grammatical role rather than as translations a learner can put
-    on the back of a flashcard. Symptom of a kaikki sense that
-    should be replaced with a HAND_OVERRIDE.
+    """Flag glosses that describe a word's grammatical role rather
+    than translate it. Two layers:
+    1. Structural: gloss ends with `of <Armenian word>` — the
+       canonical "X form of Y" template.
+    2. Backstop: a small list of explicit phrasings that don't
+       reference an Armenian word but are still descriptive prose.
+    Each finding suggests a HAND_OVERRIDE.
     """
     for lemma, tr, tags in rows:
-        for pat in _PROSE_GLOSS_PATTERNS:
+        if _PROSE_OF_ARMENIAN.search(tr):
+            _emit(findings, "warning", rank_of(tags), lemma, tr,
+                  "prose-gloss",
+                  "gloss describes the form ('… of <lemma>') rather than "
+                  "translates it — add a HAND_OVERRIDE")
+            continue
+        for pat in _PROSE_FALLBACK_PATTERNS:
             if pat.search(tr):
                 _emit(findings, "warning", rank_of(tags), lemma, tr,
                       "prose-gloss",
                       f"reads as dictionary prose (matches /{pat.pattern}/) "
-                      f"— add a HAND_OVERRIDE with a card-shaped translation")
+                      f"— add a HAND_OVERRIDE")
                 break
 
 

@@ -263,7 +263,15 @@ HAND_OVERRIDES: dict[str, str] = {
     "ով":     "who / кто",
     "արի":    "come! (imp. of գալ) / иди!",
     "արա":    "hey, dude (voc.); do! (imp. of անել; մի՛ արա = don't) / эй, чувак; делай!",
-    "դուր":   "liking (only in 'դուր է գալիս' = it pleases / нравится)",
+    # `դուր` ranks top-1000 because the lemmatiser counts the first
+    # half of the verbal idiom `դուր գալ` as a separate token —
+    # auxiliaries (եմ, ես, է, …) interpolate between the two halves
+    # so the MWU regex doesn't catch inflected forms (`դուր է գալիս`,
+    # `դուր եկավ`, `դուր է եկել`). The bare lemma is treated here
+    # as a stand-in for the full idiomatic verb-phrase. See
+    # DISPLAY_OVERRIDES below: the Armenian column is rewritten to
+    # show `դուր գալ` so the learner sees the whole phrase.
+    "դուր":   "to please, be liked (dative-experiencer: X-ին դուր է գալիս Y) / нравиться",
     "տարեկան": "annual; -years-old / годовой; -летний",
     "թողնել":  "to leave, allow (colloq: թողել) / оставить, разрешать",
     # `(language)` parenthetical is kaikki/sakayan scaffolding; the
@@ -296,6 +304,80 @@ HAND_OVERRIDES: dict[str, str] = {
     "սառը":    "cold (var. of սառն, before consonants) / холодный",
     "չափս":    "size, measure (var. of չափ) / размер",
     "քցել":    "to throw, drop (colloq var. of գցել) / бросить, ронять",
+    # Inflected forms with idiomatic standalone meaning — translate
+    # the actual sense, not the grammatical description.
+    "մասին":    "about, concerning (postposition) / о, про",
+    "չկա":      "(there) isn't, doesn't exist / нет, не имеется",
+    "չէր":      "wasn't / не был(-а)",
+    "նշանված":  "engaged (to be married); marked / помолвленный; отмеченный",
+    "սկսվել":   "to begin, start (intr.) / начинаться",
+    "զարմացնել": "to amaze, surprise (someone) / удивить, поразить",
+    "հագել":    "to put on, wear (var. of հագնել) / надеть, одеть",
+    # Negative copula forms (չ + էի/էիր/էր/էինք/էիք/էին) — distinct
+    # high-frequency forms each carrying person/number, idiomatic
+    # in spoken Armenian.
+    "չէի":      "wasn't (1sg) / не был(-а)",
+    "չէիր":     "weren't (2sg) / ты не был(-а)",
+    "չէին":     "weren't (3pl) / не были",
+    "չէիք":     "weren't (2pl/formal) / вы не были",
+    "չէինք":    "weren't (1pl) / мы не были",
+    # Mediopassive verbs — distinct from their active counterparts.
+    "կոչվել":   "to be called, be named / называться",
+    "կիրառվել": "to be applied, used / применяться",
+    "գտնվել":   "to be located, be found / находиться",
+    "ծնվել":    "to be born / родиться",
+    "կառուցվել": "to be built / строиться",
+    # Causative — also distinct from base verb.
+    "դարձնել":   "to make, turn (sth) into / превратить, делать",
+    "ներկայացնել": "to present, introduce / представить, представлять",
+    # Resultative participle used as adjective.
+    "կապված":    "tied, connected; related to / связанный, привязанный",
+    # Diminutive — distinct lexical item.
+    "թիթեռնիկ":  "little butterfly / бабочка (уменьш.)",
+    # Adverb derived from adjective (locative form).
+    "հիմնականում": "mainly, basically / в основном, главным образом",
+    # Colloquial / dialectal — high-frequency variants.
+    "էն":        "that (colloq dialectal of այն) / то (разг.)",
+    "տուր":      "give! (imp. of տալ) / дай!",
+    # Fixed expression — at-home reading is idiomatic.
+    "տանը":      "at home (def. dat. of տուն) / дома",
+    # Trim verbose dictionary gloss.
+    "ուսումնական": "academic, school (related) / учебный, школьный",
+    "պարզել":     "to clarify, clean, purify / прояснить, очистить",
+}
+
+
+# Inflected forms whose lemma is already on the deck (or whose
+# standalone sense is just "the X" / "(to) the Xs" with no
+# pedagogical value beyond what the lemma carries). Skip these so
+# the slot goes to a lemma that contributes new content.
+SKIP_LEMMAS: set[str] = {
+    # Lemma already on deck — these are redundant inflected forms.
+    "հասկանում",   # imperfective converb of հասկանալ (rank 523)
+    "խոսում",      # simultaneous converb of խոսել (rank 475)
+    "մեկը",        # def. nom. sg. of մեկ (rank 87)
+    "ծաղիկները",   # def. nom. pl. of ծաղիկ (rank 767)
+    "ձմռանը",      # def. dat. sg. of ձմեռ (rank 109)
+    "շաբաթը",      # def. nom. sg. of շաբաթ (rank 460)
+    # Lemma not on deck but the inflected form has no standalone
+    # value — would just clutter ("the book", "to the clouds").
+    "գիրքը",       # def. nom. sg. of գիրք
+    "ամպերին",     # def. dat. pl. of ամպ
+    # New skips after the corpus expansion (sakayan + ghamoyan
+    # JSONL added) surfaced more inflected duplicates.
+    "լինում",      # imperfective participle of լինել
+    "եղել",        # past participle of լինել
+    "ուտում",      # imperfective participle of ուտել
+    "կերել",       # past participle of ուտել
+    "գործում",     # imperfective converb of գործել
+    "լինեի",       # 1sg subj/optative of լինել
+    "խոսքը",       # def. nom. sg. of խոսք
+    "խոսքն",       # def. variant of խոսք
+    "խոսքին",      # def. dat. sg. of խոսք
+    "գլուխը",      # def. nom. sg. of գլուխ
+    "միտքը",       # def. nom. sg. of միտք
+    "ինք",         # W. Arm. / colloq variant of ինքը
+    "ել",          # rare, ambiguous (could be ելք or "and-too")
 }
 
 
@@ -365,6 +447,19 @@ def _is_personal_name(lemma: str) -> bool:
     return all(pos.lower() == "name" for pos, _ in entries)
 
 
+# Display-form overrides for cases where the frequency-list lemma
+# is NOT the right surface to show on the card. The MWU regex in
+# `build_ours.py` doesn't catch inflected verbal phrases where an
+# auxiliary interpolates (`դուր է գալիս`, `քուն ա գալիս`), so
+# their bare-noun first half ranks top-1000 separately. We display
+# the full phrase to the learner; HAND_OVERRIDES still keys on the
+# bare-noun lemma for lookup. Add an entry only when the lemma
+# alone is *misleading* as a card headword.
+DISPLAY_OVERRIDES: dict[str, str] = {
+    "դուր":   "դուր գալ",
+}
+
+
 def annotated_lemma(lemma: str, phonetic: dict[str, str]) -> str:
     """Return `lemma [phonetic]` when the pronounced form differs
     from the spelling, else just `lemma`. The respelling uses
@@ -376,10 +471,13 @@ def annotated_lemma(lemma: str, phonetic: dict[str, str]) -> str:
     phonetic-respelling lookups still key on the underscored form
     (that's the canonical pipeline identity), so the conversion
     is strictly a presentation step.
+
+    DISPLAY_OVERRIDES (above) rewrites the Armenian surface for
+    misleading-bare-lemma cases like `դուր → դուր գալ`.
     """
     key = lemma.lower()
     respell = phonetic.get(key)
-    display = lemma.replace("_", " ")
+    display = DISPLAY_OVERRIDES.get(key, lemma).replace("_", " ")
     if not respell or respell == key:
         return display
     return f"{display} [{respell}]"
@@ -410,7 +508,12 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
     rank_n = 0
     for row in all_input_rows:
         _orig_rank, lemma, count, _src = row
-        if rank_n >= limit:
+        # `limit` is the cap on *emitted* cards, not on ranks
+        # processed. Break when we've already written that many
+        # rows; pre-filter skips and skipped-empty entries don't
+        # count against it. Lets a top-1500 input pool drain to
+        # exactly --limit successful cards.
+        if len(rows_out) >= limit:
             break
 
         # Filter personal names. Per user policy: keep proper nouns
@@ -419,6 +522,14 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
         # don't qualify and shouldn't take a slot in the top-1000.
         if _is_personal_name(lemma):
             skipped_names += 1
+            continue
+
+        # Filter inflected forms whose lemma is already on deck or
+        # whose standalone sense is purely grammatical ("the X").
+        # See SKIP_LEMMAS above.
+        if lemma in SKIP_LEMMAS:
+            stats.setdefault("skipped-inflected", 0)
+            stats["skipped-inflected"] += 1
             continue
 
         rank_n += 1

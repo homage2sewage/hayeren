@@ -1,0 +1,79 @@
+iI'll dig into the LLM/agent workflow specifically. The key file mentioned was `kb-design.md`, plus `.claude/skills/`.Excellent — this is the meat of the project. Let me give you a real analysis of the LLM workflow.
+
+## The core bet
+
+The whole architecture is built on one explicit thesis: **"Move from 'AI explains Armenian based on its training data' to 'answers grounded in cited textbook passages.'"** Every design decision flows from that. The owner has clearly decided LLMs are too unreliable on a low-resource language like Armenian to be trusted as a knowledge source — but they're useful as a *labor multiplier* over a knowledge base the human controls.
+
+That reframing — LLM as orchestrated worker, not oracle — is what makes this interesting.
+
+## The harness, concretely
+
+The workflow has six artifact types with different mutability rules: raw extractions (immutable, written by tools), book manifests (rare human edits), topics (the synthesis layer, agent-writable), lexicon entries, walks (append-only plan files), and external research. Each lives in a directory with a strict citation contract.
+
+The agent never edits topics directly. It writes a **walk file** first — a markdown plan with proposed diffs in `walks/YYYY-MM-DD-<kind>-<book>.md`. The human reads, accepts or rejects, and a second pass commits. This is "plan-then-act" with checkpoints, the same pattern Anthropic's own engineering posts advocate. No silent edits, full audit trail, ~10-second human review per diff.
+
+Three walk types decompose work via orchestrator-worker: a **topic walk** spawns one subagent per book to scan for a phenomenon, a **discovery walk** spawns one per chapter of a new book to find uncovered content, and a **gap walk** scores each topic for completeness.
+
+## The mechanically verifiable citation — the strongest idea here
+
+This is the part worth stealing. Every claim in a topic carries frontmatter like:
+
+```
+sources:
+  - id: 1
+    book: sakayan
+    page: 18
+    y_range: [300, 320]
+    verbatim_quote: "The EA three-part consonant system consists of one voiced stop"
+    supports: supported
+```
+
+A separate verifier — `.claude/skills/citation-check/check.py` — re-greps the raw extraction's JSONL, stitches spans within the y_range, and asserts every quote actually exists at the cited locus. Hallucinated citations get caught **mechanically**, not by another LLM.
+
+The gloss-vs-bytes lesson buried in the change log is the tell that this works: on the very first run the script caught the *human author's* confusion between the linguistic gloss `[§ntʰunel]` and the literal JSONL bytes `[§nt` + `unel]` (the aspiration mark is rendered as glyph layout, not Unicode). A pure LLM verifier would likely have rationalized that mismatch away. Grep doesn't.
+
+The 420/420 fragments-verified stat at the bottom of the change log is the load-bearing number for the whole project.
+
+## Two orthogonal confidence axes
+
+This is subtle and well-thought-out:
+
+- **`supports:` (per-source)** uses the SemanticCite four-class taxonomy from the November 2025 arXiv paper — supported / partially-supported / unsupported / uncertain. Mechanically verified.
+- **`attestation:` (topic-level)** is single-source / multi-attested / **conflicting**. Conflicting is treated as the *interesting* signal — it surfaces register splits (literary vs colloquial) and Soviet-era vs modern shifts.
+
+The four-book selection is engineered to make `conflicting` fire meaningfully: Sakayan (2007 English-contrastive) vs Ghamoyan (2014 Yerevan-colloquial) splits the literary↔colloquial axis; Parnasyan (1990) vs Tioyan (2007) brackets the post-Soviet transition on the Russian-contrastive axis. Disagreement between these books is data, not noise.
+
+## What they explicitly skipped
+
+Worth noting because it's contrarian to current fashion: **no vector DB, no RAG, no LangGraph, no agent framework.** The reasoning is sharp — at <10k docs, markdown plus grep plus YAML frontmatter outperforms retrieval, and the human can read the index. They've written down a falsification condition: "Revisit only if grep+frontmatter measurably fails." That's better discipline than most production RAG systems have.
+
+## The two skills that exist
+
+- `citation-check` — Python script, walks up to find project root, NFC-normalizes Armenian script before matching, supports both string and fragment-list quotes. Caught a real bug on first invocation.
+- `critic-pass` — three-phase: phase 1 mechanical lint (frontmatter schema, `[#N]` body refs, attestation/source-count consistency), phase 2 delegates to citation-check, phase 3 is an 8-item agent-side editorial rubric (provenance, examples format, gap specificity, attestation honesty, "vibes vigilance", L1 contrastive coverage, prose arc).
+
+Phase 3 is the only place an LLM gets evaluative authority, and even there it's bounded by an explicit rubric.
+
+## The honest-gap demo
+
+The most telling artifact in the whole change log is the `հլը` test — a query about a colloquial particle. Result: zero topic mentions, one ambiguous mention in Ghamoyan as "distorted language" without a definition, zero Wiktionary hits. The system **honestly returned "I don't know"** and the gap got logged for future lexicon work, with a research plan for Acharyan's etymological dictionary plus the EANC corpus.
+
+That's the whole point of the architecture. Most RAG systems would have hallucinated a confident wrong answer; this one is structurally incapable of doing so because there's no source to cite.
+
+## What I'd push back on
+
+A few things that look fragile:
+
+The system is **entirely single-author**. There's no review by a second human, no reconciliation when the author and the citation-check disagree on a fragment. The gloss-vs-bytes catch worked because the script had a more rigid model than the human. But for prose claims about meaning — where the LLM helps draft topic bodies — there's no second-pair-of-eyes mechanism. The 8-item phase-3 rubric does some of this work, but an LLM grading another LLM's interpretation of a textbook is still an LLM in the loop.
+
+**Coverage scales linearly with effort.** The author admits ~30 minutes per topic and targets 30-50 topics for "deep on what it covers, silent on what it doesn't." That's 15-25 hours of authoring before the system is broadly useful as a tutor. The lexicon layer ('hayl' word entries) hasn't started; that's where the volume problem really hits.
+
+**The harness is itself a moving target.** The change log shows the schema being refined live (`id:` field added, fragment lists added, gloss-vs-bytes rule clarified) on the same day the first topic was written. That's healthy iteration but means earlier topics may need re-verification when conventions shift. No version field on topics yet.
+
+**Subagent web access is broken** and noted as such — WebSearch is blocked from `general-purpose` subagents but works in parent context. Until that's fixed, discovery walks that need external lookup have to be run from the parent, which couples the orchestrator to work that should be parallel.
+
+## What's genuinely novel here
+
+Most "AI knowledge base" projects either (a) trust the LLM to retrieve and synthesize (RAG), or (b) treat the human as the writer and the LLM as a copy editor. This one has a third stance: **the LLM proposes structured edits to a citation graph, and a deterministic verifier rejects anything that doesn't ground out in raw bytes.** The human's job is to design the verifier and review accepted diffs, not to write prose.
+
+That's closer to how compilers work than to how chatbots work, and it's probably the right shape for any domain where the LLM's training data is thin or biased — which is the entire long tail of human knowledge. The Armenian language is just the test case.

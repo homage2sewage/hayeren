@@ -1,0 +1,59 @@
+Good question to push on. The change log and design doc are persuasive, but they're written by the architect — they advertise the strengths. Here's what I see as actually weak, ordered roughly by how much it would bite in practice.
+
+## The verifier only checks what's easy to check
+
+Citation-check verifies that a string of bytes appears in a JSONL span at a given page and y-range. That's it. It does **not** verify:
+
+- That the quote actually *supports* the claim it's attached to. The `supports: supported` field is set by whoever wrote the topic — usually the LLM, sometimes the human reviewing the LLM's diff. A quote can exist verbatim at the right page and still be cherry-picked, taken out of context, or claim-mismatched. The mechanical layer can't tell the difference between honest and dishonest grounding.
+- That the *body prose* of the topic accurately summarizes the cited sources. The verifier checks frontmatter quotes; the actual paragraphs explaining the phenomenon to a reader are unverified prose, written by an LLM, reviewed by one human in ~10 seconds.
+- That the *interpretation* in the `note:` field is correct. Notes like "vocab line; nt^h transliteration witnesses դ→թ. Sakayan does not state the rule." are doing real epistemic work — they're inferring an unstated rule from a transliteration pattern. That's a linguistic argument, not a lookup. Nothing checks it.
+
+So the "mechanical" verification layer is narrower than it sounds. It catches hallucinated citations, which is real and valuable. It does not catch hallucinated *reasoning over real citations*, which is the failure mode LLMs are actually worst at.
+
+## "I don't know" only fires when literally nothing is cited
+
+The հլը demo is presented as proof the system handles gaps honestly. But that's the easy case — zero hits across all four books and Wiktionary. The hard case is when a book has *one ambiguous mention* and the LLM has strong priors. Ghamoyan's "distorted language" entry on `հլա` is exactly that situation. A future tutor skill loading that topic could very plausibly stitch the one weak citation together with training-data priors and produce a confident-sounding answer that's mostly hallucinated. There's no mechanism to detect "the cited sources are too thin to support the claim being made" — only "no source at all."
+
+The `attestation: single-source` flag is the closest thing, but it's a topic-level metadata field, not an enforcement mechanism. The LLM is trusted to soften its claims when attestation is weak. LLMs are bad at that, and there's no test for it.
+
+## Schema drift on a single-author project
+
+The change log shows the schema being modified on the same day topics are being written against it: `id:` field added, fragment lists introduced, the gloss-vs-bytes rule clarified after first run. That's healthy iteration *now*, with 22 topics, all written by one person. It becomes a problem when:
+
+- An older topic was written under an earlier convention and the verifier passes it (because verbatim_quote was a string, which the new code still accepts) but a future critic-pass rubric expects fragment lists. There's no schema version field on topics.
+- The author returns to the project after a 6-month break and has forgotten which conventions were in force when. The kb-design.md change log helps, but it's prose, not a migration tool.
+- A second contributor ever joins. The conventions live partly in kb-design.md, partly in the citation-check Python source, partly in the critic-pass rubric, partly in the author's head. There's no single source of truth for "what is a valid topic file."
+
+This is technical debt that compounds quickly with project age.
+
+## The harness conflates "what the LLM sees" with "what is true"
+
+The doc says the harness is "`topics/INDEX.md` + per-topic frontmatter + `.claude/skills/`." When the LLM answers a question, it loads relevant topic files into context. That's clean for the topics that exist — but the LLM has no way to know what topics *don't* exist. It can't distinguish "Armenian doesn't do X" from "this KB hasn't covered X yet."
+
+The author tries to handle this with the `gaps:` field on each topic, but gaps are also LLM-authored and only enumerate known unknowns within covered topics. The unknown unknowns — entire phenomena no topic addresses — are silent. A future tutor skill grepping `topics/INDEX.md` for keywords will simply miss queries that fall outside the covered domain, with no signal that it's missing them. The honest answer "this KB doesn't cover that area" requires a meta-layer that doesn't exist yet.
+
+## OCR quality is hidden behind aggregate confidence
+
+The Parnasyan extraction reports "avg confidence 80.1" — but the change log immediately notes Armenian script OCRs at 70-80% with voiced-stop confusions (գ↔դ), while Russian fragments hit 90%+. The mitigation strategy is "prefer Russian-language quotes when available; for Armenian-script citations, use shorter fragments and visual verification."
+
+That mitigation is a human discipline, not a mechanical check. A future LLM citing a Parnasyan Armenian-script fragment that happens to verify against the (also-OCR'd) JSONL will pass citation-check trivially — both source and target have the same OCR error. The verifier proves the topic matches the extraction; it doesn't prove the extraction matches the book. For OCR'd sources especially, "verbatim quote verified" is a weaker claim than it reads.
+
+## Walks are append-only, but topics aren't
+
+Walks/ is described as append-only — good for audit. Topics are mutable, edited atomically by the agent. The `walks/2026-05-07-*.md` plan files document what *was supposed to* change, but there's no enforcement that what landed in topics matches the accepted plan. A reviewer skimming a 10-topic walk diff in ~10 seconds is doing approximate review. Drift between walk plan and committed topic is undetectable after the fact unless you diff carefully.
+
+## Linguistic-domain organization assumes the right ontology
+
+The author chose linguistic-domain organization (phonology/morphology/syntax/pragmatics) over pedagogy/unit organization. Reasonable for a linguistics-aware learner. But it bakes in a particular theory of where phenomena live. `colloquial_copula_a` is filed under morphology — it's also a phonological reduction, a register marker, and a pragmatic signal. Putting it in one folder means the others won't find it via folder-walks. The `related:` frontmatter field is supposed to handle cross-cutting links, but it's manually maintained, LLM-suggested, and unverified.
+
+## The fundamental review bottleneck
+
+The Karpathy-cited claim is "trust shifts from line-by-line review to plan-and-spec review" with "loops stay small — agent proposes a topic diff, human accepts in ~10 seconds." That's the throughput model the entire workflow depends on.
+
+But ~10 seconds isn't enough time to review a topic diff for the things that actually fail: subtle interpretive errors, misframed contrastive notes, register confusions, a citation that exists at the right page but doesn't say what the body claims it says. It's enough time to glance at structure and trust the verifier. Which is fine for the structural failure modes the verifier catches and bad for the semantic ones it doesn't.
+
+The author is a competent linguist who probably *does* catch these in practice, by reading carefully. But the *workflow* doesn't require it; it just hopes for it. Scaled to a less-careful author, or to the same author at the end of a tired session, the failure modes all migrate into "verified-but-wrong" territory.
+
+---
+
+If I had to summarize the meta-criticism: **the system is excellent at preventing fabrication of citations and weak at preventing fabrication of reasoning over real citations.** That's a real improvement over naive RAG, but it's not the bulletproof grounding the design doc rhetoric implies. The honest framing would be "mechanically grounded provenance, plus human-paced review of synthesis" — and the human-paced review is the actual rate limit on quality, not the verifier.

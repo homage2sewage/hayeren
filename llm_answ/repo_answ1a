@@ -1,0 +1,42 @@
+**Downsides of the repo's LLM patterns** (based on `llm-workflow.md`, `CLAUDE.md`, `kb-design.md`, and overall structure):
+
+### 1. **High Process Overhead & Slow Velocity**
+- The mandatory "challenge protocol" (sample population → generate outputs → find counterexamples → golden anchors → baseline comparison) adds significant friction to every non-trivial heuristic.
+- This is excellent for quality but makes even modest improvements feel heavyweight. Simple changes that would take minutes in a normal workflow can balloon into multi-step audits.
+- The author acknowledges this by saying to scale with "blast radius," but in practice it encourages conservatism.
+
+### 2. **Heavy Human-in-the-Loop Requirement**
+- Despite heavy LLM usage, the workflow still demands substantial human effort for:
+  - Manual counterexample spotting
+  - Auditing golden sets
+  - Reviewing critic-agent output
+  - Deciding when to override vs. generalize
+- This reduces the "AI does the work" leverage compared to more trusting workflows. It's more "AI as extremely capable but dangerous intern that needs strict supervision."
+
+### 3. **Risk of Over-Engineering / Analysis Paralysis**
+- The paranoia about plausible-but-wrong heuristics can lead to spending disproportionate time on rules that have marginal real-world impact.
+- Golden sets and validators can grow into maintenance burdens themselves.
+- Strong preference for mechanical checks and golden tests may discourage useful but hard-to-validate heuristics (e.g., stylistic or pedagogical decisions in Anki cards).
+
+### 4. **Context & Prompt Engineering Tax**
+- Maintaining `.claude/skills/`, critic agents, citation-check tools, and detailed docs (`llm-workflow.md`, `kb-design.md`, etc.) creates its own overhead.
+- Every new domain (frequency, topics, OCR pipelines, transliteration) needs parallel validation infrastructure.
+- This makes the repo feel more like a "defensive LLM engineering project" than a pure language-learning resource.
+
+### 5. **Scalability Limits**
+- Works well for a focused solo project (Armenian from a handful of textbooks), but would become painful at larger scale (dozens of languages, massive corpora, collaborative work).
+- Golden sets and manual audits don't scale linearly.
+- The emphasis on verbatim citations and mechanical verification is powerful but labor-intensive when adding new books.
+
+### 6. **Potential for False Security**
+- Even with all these guards, subtle failures can still slip through (especially in areas not fully covered by validators).
+- Over-reliance on the process might reduce raw human vigilance in some cases.
+- The workflow is tuned specifically to combat LLM hallucinations on heuristics — it doesn't solve other LLM weaknesses as effectively (creative synthesis, aesthetic judgments, etc.).
+
+### 7. **Dogfooding Dependency**
+- The system improves mainly through "user-found" errors (i.e., the owner studying their own Anki decks). If dogfooding slows down, the feedback loop weakens.
+
+**Summary**:  
+The patterns are exceptionally strong at producing **reliable, high-quality outputs** in a domain where errors are costly (language learning materials). They represent mature, production-grade defensive LLM usage.  
+
+The main trade-off is **velocity vs. correctness**. This workflow prioritizes correctness almost to an extreme — ideal for this owner's goals, but it would feel exhausting or unnecessarily slow for many other projects. It's the linguistic equivalent of "paranoid enterprise software practices" applied to personal knowledge work.

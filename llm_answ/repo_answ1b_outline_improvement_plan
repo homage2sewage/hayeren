@@ -1,0 +1,68 @@
+**Improvement Plan for the Repo’s LLM Workflow**
+
+This plan aims to **reduce the downsides** (high friction, slow velocity, heavy human involvement, over-engineering, maintenance burden) while **preserving the core strength**: extremely low tolerance for plausible-but-wrong heuristics in language materials.
+
+### Phase 0: Quick Wins (1–2 days)
+1. **Explicit Tiered Application**  
+   Formalize the “blast radius” guidance already in the docs into a clear decision matrix:
+   - **Tier 1 (Full Protocol)**: High-impact (affects thousands of cards, core lookup logic, published decks, topic schema).
+   - **Tier 2 (Light Protocol)**: Medium (affects one book extraction, small validator addition) — sample 20–50 items + critic only.
+   - **Tier 3 (Minimal)**: One-off cleanups, stylistic filters, pure refactors — skip most steps.
+
+2. **Automate Sampling & Baseline Diffs**  
+   Add helper scripts (e.g., `tools/challenge_sampler.py`) that:
+   - Take a heuristic function + population filter.
+   - Auto-generate sample TSVs with baseline + proposed outputs side-by-side.
+   - Highlight diffs for human review.
+
+3. **Golden Set Management**  
+   - Add a simple dashboard script: `validate_deck.py --summary` showing golden count per category, age of entries, etc.
+   - Periodically review and generalize old goldens into broader patterns/validators.
+
+### Phase 1: Velocity Boosters (1–2 weeks)
+4. **Better Tooling for Critics & Validation**
+   - Expand `.claude/skills/` with more reusable skills (e.g., `editorial-review`, `blast-radius-assess`).
+   - Create a unified `llm-review` command that runs the appropriate protocol based on a config comment in the code.
+
+5. **Parallel Human + LLM Review**  
+   - Introduce “human-first sampling”: After a heuristic change, auto-open a small random sample in a TSV/Markdown viewer for quick human scan *before* deep LLM critic passes. This catches editorial issues faster.
+
+6. **Caching & Regression Suites**  
+   - Build a lightweight regression test suite that runs the full validator + golden checks on cached deck snapshots. Only trigger full challenge protocol on changes that actually modify outputs.
+
+### Phase 2: Reduce Human Burden (Ongoing)
+7. **Stronger Editorial Validators**  
+   Turn recurring editorial complaints into deterministic checks faster (e.g., more `check_*` functions in `validate_deck.py`). This moves quality from manual reads to automated gates.
+
+8. **Active Learning / Prioritization**  
+   Weight golden sets and validator focus toward high-frequency lemmas and high-usage topics. Not every rare edge case needs equal paranoia.
+
+9. **LLM Self-Improvement Loop**  
+   Periodically feed recent failure cases (with context) back into a “meta-critic” prompt to improve future agent performance and reduce repeat errors.
+
+### Phase 3: Scalability & Sustainability
+10. **Modular Validation Framework**  
+    Extract the validation patterns into a small reusable Python package (internal for now) so new domains (new books, new topics) get validation scaffolding automatically.
+
+11. **Documentation & Onboarding**  
+    - Create a one-page “LLM Workflow Cheat Sheet” with decision tree + templates.
+    - Add usage examples for each tier.
+
+12. **Metrics & Reflection**  
+    Track simple metrics: time spent per heuristic change, number of user-found bugs per release, golden set growth rate. Review quarterly and adjust friction levels.
+
+### Recommended Priorities (First 30 Days)
+- Implement Tiered Protocol + sampling helpers (biggest velocity gain).
+- Automate more editorial checks.
+- Clean up and dashboard the golden sets.
+- Write the cheat sheet.
+
+### Expected Outcomes
+- **Velocity**: 30–60% reduction in overhead for medium/low-impact changes.
+- **Quality**: Maintained or improved (fewer false negatives from fatigue).
+- **Sustainability**: Lower burnout risk, easier to add new content/domains.
+- **Future-proofing**: Easier to open-source or collaborate later.
+
+This plan keeps the “paranoid but correct” philosophy while making the system less exhausting. It evolves the workflow from “strict manual ritual” toward “smart, tiered, increasingly automated defense.” 
+
+Would you like me to expand any section (e.g., specific script ideas, tier matrix, or how to implement the sampling tool)?

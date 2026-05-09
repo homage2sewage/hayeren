@@ -487,6 +487,43 @@ def read_tsv_column(path: Path, col: int) -> list[str]:
     return out
 
 
+def _is_armenian_text(text: str, thresh: float = 0.5) -> bool:
+    """True when at least `thresh` of the alphabetic characters in
+    `text` are in the Armenian unicode block. Used to filter raw
+    JSONL extractions: sakayan's PDF carries large stretches of
+    English prose alongside the Armenian content; we want only
+    the Armenian cells in the frequency corpus.
+    """
+    if not text or not text.strip():
+        return False
+    arm = sum(1 for c in text if 0x0530 <= ord(c) <= 0x058F)
+    letters = sum(1 for c in text if c.isalpha())
+    return letters > 0 and arm / letters >= thresh
+
+
+def _load_jsonl_armenian(path) -> list[str]:
+    """Return Armenian-text cells from a `<book>/out/full.jsonl`.
+    Each cell is one JSONL entry's text. Skips cells whose alpha
+    characters are <50% Armenian (so English instructional prose
+    in sakayan and Russian explanatory prose in parnasyan/tioyan
+    don't pollute the frequency counts).
+    """
+    import json
+    out: list[str] = []
+    if not path.exists():
+        return out
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            try:
+                e = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            t = e.get("text", "")
+            if _is_armenian_text(t):
+                out.append(t)
+    return out
+
+
 def collect_sources() -> dict[str, list[str]]:
     """Return {source_name: [armenian_text_strings]}."""
     sources: dict[str, list[str]] = {}
@@ -509,6 +546,17 @@ def collect_sources() -> dict[str, list[str]]:
     )
     sources["ghamoyan_fillers"] = read_tsv_column(
         GHAMOYAN_CARDS / "fillers.tsv", 0
+    )
+
+    # Raw JSONL extractions — the underlying corpus, not just the
+    # already-curated card content. Vastly expands the lemma pool
+    # (sakayan unit prose, exercises; ghamoyan five chapters).
+    # The Armenian-text filter drops English/Russian prose cells.
+    sources["sakayan_jsonl"] = _load_jsonl_armenian(
+        ROOT / "sakayan" / "out" / "full.jsonl"
+    )
+    sources["ghamoyan_jsonl"] = _load_jsonl_armenian(
+        ROOT / "ghamoyan" / "out" / "full.jsonl"
     )
     return sources
 
@@ -555,7 +603,13 @@ def main() -> None:
     })
 
     ranked = counts.most_common()
-    top_1000 = ranked[:1000]
+    # Buffer beyond 1000: deck-build skips ~17% of these (no
+    # translation source / inflected duplicates / personal names).
+    # Emitting top-1500 lets `build_deck.py --limit 1000` actually
+    # reach 1000 emitted cards. Lemmas at ranks 1001-1500 still
+    # have count ≥ 8 in the current corpus — well above hapax
+    # noise.
+    top_1000 = ranked[:1500]
 
     # Write top-1000 with provenance and rank.
     top_path = OUT / "our_top_1000.tsv"

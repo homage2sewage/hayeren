@@ -139,6 +139,35 @@ default, not by deliberation.
   the validator: they're not "stylistic preferences," they're
   bugs in the user-facing layer.
 
+### 11. The validator is itself a heuristic — audit it recursively
+
+The same trap applies to the validator. A `check_*` function that
+flags "bad outputs" is itself a heuristic that decides what counts
+as bad — and whitelists of known-bad shapes systematically miss
+new shapes that follow the same underlying pattern.
+
+The 2026-05-09 `check_prose_gloss` is the canonical case. v1 was a
+whitelist of explicit descriptors (`Nth-person`, `imperative of`,
+`participle of`, …) and seemed to clear the deck. v2, after a
+user-found bug, replaced the whitelist with a structural detector
+(`… of <Armenian word>$`) and surfaced 15 leaks v1 had missed
+(`mediopassive of`, `definite dative plural of`, `resultative
+participle of`, `negative form of`, `simultaneous converb of`,
+…). All 15 followed the same underlying shape v1 had encoded
+case-by-case.
+
+**The recursive rule:** when adding a `check_*`, run it against
+the full target population *before* declaring it complete — not
+just against the cases that motivated writing it. The challenge
+protocol applies to checks, not just to producers. If the check
+catches only the cases you already knew about, the check is too
+narrow.
+
+**Whitelist vs structural detector** — when the bug class shares
+an underlying shape (`X form of Y`, `<empty> + word`, `<lemma> +
+sigil`), the structural detector is durable. Whitelists rot the
+moment kaikki / OCR / source-data produces a new descriptor word.
+
 ### 10. Critic-agent framing matters
 
 When using a critic agent (Principle #5) to review heuristic
@@ -256,6 +285,13 @@ with line count. Use judgment:
 
 If a change blends a refactor and a heuristic, treat the heuristic
 as the gating part.
+
+## Implementation roadmaps
+
+- `research/2026-05-09-answer-pipeline-roadmap.md` — citation-
+  grounded Q&A pipeline (`query_kb.py` → `answer-q` skill →
+  `verify_citations.py`). Status snapshot, phase plan, decision
+  triggers for embeddings + content-validation tightening.
 
 ## Worked examples
 

@@ -19,9 +19,15 @@ subdirectories — keep top level limited to this index and shared assets.
 ├── armenian-grammar.md            # linguistic notes: phonology, pronouns, verbs (to be split into topics/)
 ├── grammar-terms.md               # English/Armenian/Russian grammar-term glossary
 ├── transliteration-notes.md       # Latin transliteration of Armenian: conventions + pitfalls (incl. the `ches asem` trap)
+├── cyrillic-transliteration-notes.md  # Russian-Cyrillic transliteration: popular orthographic vs textbook phonetic conventions
 ├── frequency-lists.md             # core-vocabulary theory + Armenian sources + methodology
 ├── anki-design.md                 # card design decisions + request log
 ├── llm-workflow.md                # LLM-assisted-coding hygiene: how to catch bad heuristics before they ship
+├── errors/                        # structured LLM-failure log (append-only, indexed)
+│   ├── README.md                  # schema + tiered logging rule + categories
+│   ├── INDEX.md                   # auto-generated chronological index
+│   ├── BY-CATEGORY.md             # auto-generated grouped index
+│   └── YYYY-MM-DD-NNN-*.md        # one error per file
 ├── sakayan/                       # extract Eastern-Armenian textbook (Sakayan 2007)
 │   ├── README.md
 │   ├── dora_sahakyan.pdf

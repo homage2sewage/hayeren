@@ -1,0 +1,34 @@
+name: acharyan
+title: Հայերեն Արմատական Բառարան
+title_translit: Hayeren Armatakan Bararan
+title_en: Armenian Etymological Dictionary
+author: Hrachya Acharyan (Հրաչյա Աճառյան)
+author_armenian: Հր. Աճառյան
+publisher: Yerevan State University Press (Երևանի համալսարանի հրատարակչություն)
+year_range: [1971, 1979]
+volumes: 4
+language: hye
+script: Armenian (with foreign-script etymons)
+domain: etymology
+register: literary
+register_note: |
+  Classical and literary Armenian only. Modern colloquial particles
+  (հլը, etc.) may not be covered if they lack classical attestation.
+source: Internet Archive scans + ABBYY OCR
+source_urls:
+  - https://archive.org/details/Hrarm1
+  - https://archive.org/details/Hrarm2
+  - https://archive.org/details/Hrarm3
+  - https://archive.org/details/Hrarm4
+copyright: public domain (Soviet-era academic publication)
+extraction:
+  type: text_layer
+  ocr_engine: ABBYY FineReader 11.0
+  ocr_dpi: 600
+  quality: variable; Armenian-script entries readable; foreign-script
+    etymons largely mis-recognised
+  files:
+    - vol1.txt  # Vol I  (Ա-)
+    - vol2.txt  # Vol II (Բ-Թ)
+    - vol3.txt  # Vol III (Ժ-Ղ)
+    - vol4.txt  # Vol IV (Մ-Ֆ)

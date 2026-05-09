@@ -55,15 +55,27 @@ def load_dict() -> dict[str, list[tuple[str, str]]]:
 # Patterns that suggest a gloss isn't a useful translation:
 #   morphology-only entries: "եմ (2 s pres)", "դու (gen p)"
 #   alphabet-letter descriptions: "The 11th letter of Armenian alphabet…"
-#   pure inflection-of references with no semantic content
+#   "X form/case/etc. of Y" prose, regardless of which descriptor X is
+#
+# The "of <Armenian-word>" structural detector is the durable form
+# of the prose-gloss filter — earlier whitelist enumerations
+# (Nth-person, imperative, participle, …) kept missing new shapes
+# (resultative participle, mediopassive, simultaneous converb,
+# definite dative plural, …). The structural detector catches the
+# shape itself; see `validate_deck.check_prose_gloss` for the deck-
+# level mirror of this rule.
 _NOISE_PATTERNS = [
     re.compile(r"^[Ա-Ֆա-ֆև]+\s*\([^)]+\)$"),  # `եմ (2 s pres)`
     re.compile(r"letter of (Armenian|the) alphabet", re.IGNORECASE),
     re.compile(r"^The \d+(st|nd|rd|th) letter", re.IGNORECASE),
     re.compile(r"^inflection of "),
-    # kaikki paradigm-cell prose that isn't a real translation:
-    #   "dative singular of Հայաստան", "nominative plural of …",
-    #   "genitive singular second-person possessive of …", etc.
+    # Structural "X of <Armenian word>" prose-gloss detector.
+    # The Armenian word may carry a trailing romanization
+    # `… of լինել (linel)` — kaikki uses these for cross-reference.
+    re.compile(r"\bof\s+[Ա-Ֆա-ֆ]+\s*(?:\([^)]+\))?\s*[.,;:!?]?\s*$"),
+    re.compile(r"\balternative\s+(?:form|spelling)\s+of\b", re.IGNORECASE),
+    # Case-prefixed paradigm-cell prose:
+    #   "dative singular of Հայաստան", "nominative plural of …".
     re.compile(
         r"^(?:nominative|accusative|dative|genitive|ablative|"
         r"instrumental|locative|vocative)\b",

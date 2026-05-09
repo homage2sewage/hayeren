@@ -10,6 +10,19 @@ conversationally. Distinct from:
   pronunciation guidance.
 - The **Russian transliteration** Parnasyan and Tioyan use in their
   bracketed forms (`[на]` for `նա`). Linguistic, designed for L1=RU.
+  See `cyrillic-transliteration-notes.md` for full coverage of
+  Cyrillic transliteration (popular orthographic vs textbook
+  phonetic conventions).
+
+Note that the Latin / Cyrillic split mirrors a register split
+that exists *within each script*. For Latin: there's the
+**popular chat-style** (most of this doc), the **textbook
+phonetic** (Sakayan's Armtrans column with `Œ` for aspiration
+and `§` for schwa — see `topics/phonology/epenthetic_schwa.md`
+for how that font-rendering works), and **scholarly** (ISO 9985,
+Hübschmann — rarely used). Same three-register frame as the
+Cyrillic doc. This file covers the popular Latin register; the
+others are referenced where relevant.
 - Any standardised **scientific transliteration** (Hübschmann, ISO
   9985, etc.). None is in popular use for chat.
 
@@ -139,12 +152,43 @@ exist in the literary form.
 Heuristic: when you see an "impossible" Latin consonant cluster, try
 inserting a schwa.
 
+The flip side — *epenthetic* schwas inserted by speakers in
+words like `փոքր [pʰokʰər]`, `տժվժիկ [təʒəvʒik]` where no
+schwa is written but one is required for pronunciation — is
+the same phonological rule operating in the opposite
+direction. See `topics/phonology/epenthetic_schwa.md` for the
+rule (where schwas appear, environments, sakayan/parnasyan/
+tioyan attestations). When *back*-transliterating informal
+Latin like `mkrtchyan`, the schwas the writer dropped are the
+same schwas a Cyrillic-popular reader would have to insert
+themselves; the rule is bidirectional.
+
 ### Pitfall 4: similar-looking glyphs and unicode confusables
 
 - `ք` vs Latin `q`, but Latin `q` is rare in transliteration so this
   is usually OK
 - `ե` vs Greek `ε` — rarely confused
 - `ɡ`/`g` ambiguous between `գ` and `ղ` (the latter often as `gh`)
+
+### Pitfall 4b: aspirated/unaspirated collapse — same shape as Cyrillic
+
+Latin chat-style spelling collapses Armenian's three-way
+laryngeal contrast to two-way (voiced / voiceless), in the
+*same shape* the Russian-Cyrillic popular convention does:
+
+- `t` ambiguous between `տ` (unaspirated) and `թ` (aspirated)
+- `p` ambiguous between `պ` (unaspirated) and `փ` (aspirated)
+- `k` ambiguous between `կ` (unaspirated) and `ք` (aspirated)
+  (where `q` isn't used)
+- `ts` ambiguous between `ծ` and `ց`
+- `ch` ambiguous between `ճ` and `չ`
+
+Same losses as `Туманян/*Tunamean` (Russian) → `Tumanyan` (Latin):
+both surface forms can't tell you whether the underlying letter
+was aspirated or unaspirated. Same back-transliteration
+ambiguity; same need to fall back on word-knowledge or context.
+See `cyrillic-transliteration-notes.md` § "Information losses"
+for the full parallel.
 
 ### Pitfall 5: code-switched tokens
 

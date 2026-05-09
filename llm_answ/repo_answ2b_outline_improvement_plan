@@ -1,0 +1,87 @@
+## Improvement plan
+
+Ordered by leverage — biggest gap-to-fix ratio first. Each item names the failure mode it addresses (from the previous critique), the concrete artifact to produce, and a sanity check for whether it's working.
+
+### 1. Close the "verified citation, fabricated reasoning" gap
+
+**Failure mode.** Citation-check proves bytes exist at a locus. It does not prove the cited bytes support the claim, or that the body prose summarizes the sources accurately.
+
+**Add a claim-grounding pass.** A new skill, `.claude/skills/claim-check/`, that operates on each `[#N]` reference in topic body prose. For each claim sentence, build a prompt of the form `{claim}, supported by {verbatim_quote + ±200 chars context}, supports value = ?`. Run it through a fresh LLM context with no other priors and have it return one of the four SemanticCite classes. If the LLM's verdict diverges from the human-set `supports:` field on more than 5% of claims in a topic, flag the topic for review. This is "LLM as critic of LLM" — weaker than mechanical, but it catches the gross misalignments. The 5% threshold is the budget for the cases where the human author's interpretation is genuinely better than the critic's.
+
+**Add prose-summary check.** For each topic, take the body prose paragraphs and ask a fresh LLM to extract the propositional claims. Diff against the `[#N]` reference set. Body prose making claims with no `[#N]` is a structural bug — every load-bearing sentence should be either citable or explicitly flagged as inference. Add a `[#inferred]` marker for the latter so the rule is enforceable rather than aspirational.
+
+**Working signal.** First run will probably catch 5-15 mismatches across the 22 existing topics. Anything in single digits after a clean-up pass is healthy.
+
+### 2. Add a "thin attestation" guardrail at query time
+
+**Failure mode.** The system honestly says "I don't know" when zero sources are cited. It does not honestly say "the cited sources are too thin to support a confident claim."
+
+**Promote attestation from metadata to runtime constraint.** The future tutor skill (currently sketched, not built) should have a hard rule: when answering from a topic with `attestation: single-source` *and* the question asks about a generalization rather than a specific cited fact, the answer must lead with the attestation status and refuse to extrapolate. Bake this into the skill's SKILL.md as a system-prompt-level instruction, not as a hope.
+
+**Add a `confidence_floor:` field per topic.** Values: `descriptive` (only describe what's cited), `cautious_generalization` (multi-attested phenomena where extrapolation is reasonable), `pedagogical` (well-established enough to teach as fact). Default `descriptive`. The tutor skill enforces it — descriptive topics get hedged answers regardless of how confident the LLM feels.
+
+**Working signal.** Run the հլը-style honest-gap test on five more single-source topics. Each should produce a hedged answer that names the source explicitly and refuses to generalize.
+
+### 3. Schema versioning before you need it
+
+**Failure mode.** Schema drift is invisible. Old topics may pass current verifiers while violating current conventions.
+
+**Add `schema_version:` to topic frontmatter.** Start at `1`. Bump every time the schema changes. Citation-check and critic-pass both warn (not fail) when they encounter an older version. Add a `migrations/` directory with a script per version bump that mechanically rewrites old topics to the new convention where possible, or flags them for human attention where not.
+
+**Lock the conventions in one place.** Right now the rules live partly in `kb-design.md` prose, partly in `check.py`, partly in `lint.py`, partly in the change log. Create `topics/SCHEMA.md` as the *single source of truth* — a machine-readable spec (or at least a tightly-structured human-readable one). Citation-check and critic-pass read it on startup. kb-design.md links to it instead of duplicating it.
+
+**Working signal.** A linter run on day-old topics still passes after a schema change without anyone touching the topic files manually.
+
+### 4. Surface the unknown unknowns
+
+**Failure mode.** A tutor grepping `topics/INDEX.md` for keywords will silently miss questions outside covered domains. Gaps within topics are tracked; gaps *between* topics are not.
+
+**Build a domain-coverage map.** Take a canonical Armenian grammar reference (Dum-Tragut would be the gold standard, but a free resource like the Wikipedia "Eastern Armenian grammar" article or the relevant chapters of Acharyan are fine starters). Extract its table of contents — every grammatical phenomenon it lists. Match against `topics/INDEX.md`. The unmatched entries are the unknown unknowns. Commit them to `topics/COVERAGE.md` as an ordered list with status: `not_started` / `in_progress` / `topic_exists`. Re-run on each new book added.
+
+**Use it at query time.** Tutor skill, on receiving a question, first does keyword match against `COVERAGE.md` *as well as* `topics/INDEX.md`. A match in COVERAGE.md but not INDEX.md returns "this KB doesn't cover that yet — here's what we know is missing." That's the structurally honest answer for unknown unknowns, much stronger than relying on the LLM to recognize its own ignorance.
+
+**Working signal.** Pick 20 grammar questions from a beginner Armenian textbook the project doesn't currently use. The system should correctly route each to one of: covered topic, known gap, or "not in scope yet" — with no false positives in the first two categories.
+
+### 5. OCR-source citation discipline
+
+**Failure mode.** Parnasyan and Tioyan are OCR'd. Citation-check verifies that a topic quote matches the OCR'd JSONL — but if both have the same OCR error, the check passes and the citation is wrong.
+
+**Tier sources by extraction trust.** Add `extraction_quality:` to each book's manifest: `unicode_native` (Wiktionary), `clean_extraction` (Sakayan after font decode, Ghamoyan after ARMSCII-8), `ocr_high_confidence` (Russian fragments from Parnasyan/Tioyan), `ocr_armenian_script` (Armenian fragments from same). Citation-check warns when a fragment's source tier is `ocr_armenian_script`, requiring either (a) a manual `verified: true` flag set after visual check against the original PDF, or (b) downgrading the topic's `attestation:` regardless of source count.
+
+**Spot-check protocol.** For every new OCR'd topic, randomly sample 10% of Armenian-script fragments and visually verify them against the source PDF. Record the audit in `walks/audit-YYYY-MM-DD-<book>.md`. If the audit finds an error rate above 5%, that book's entire Armenian-script citation tier needs re-checking before any new topics use it.
+
+**Working signal.** First Parnasyan audit. If it finds zero errors in 10 random fragments, the OCR is better than the change log's confidence number suggests. If it finds 1-2, the discipline is doing real work. If it finds 3+, the project has been silently citing wrong text and Tioyan needs to be paused before extraction.
+
+### 6. Defragment review fatigue
+
+**Failure mode.** Plan-and-spec review at ~10 seconds per diff is fast enough to miss interpretive errors. The author probably catches them anyway because they're conscientious; the workflow doesn't enforce it.
+
+**Two-pass review with role separation.** Pass 1: structural (does it lint, do the citations verify, does the schema match). Pass 2 ≥ 24h later: semantic (does the body prose make sense, are the contrastive notes right, are the gaps honest). The 24-hour gap is the cheap mechanism — same brain, fresh context, catches things the in-the-moment review missed. Mark each topic with `reviewed_structural: <date>` and `reviewed_semantic: <date>`; the latter gates `status: stable`.
+
+**Sample-based deep review.** For every five topics that pass structural review, pick one at random for a 30-minute deep read against the original sources. Log findings in `walks/deep-review-YYYY-MM-DD.md`. This is the only thing that catches systemic failure modes — patterns of error the author makes consistently and can't see in the moment.
+
+**Working signal.** First deep-review walk finds at least one issue. If it finds zero, either the author is unusually careful (possible) or they're reviewing too superficially (also possible) — repeat in two weeks before drawing conclusions.
+
+### 7. Make walks-to-topics traceable
+
+**Failure mode.** Walks are append-only plans. Topics are mutable. There's no enforcement that committed topics match accepted plans.
+
+**Add commit-message convention.** Every topic-modifying commit references the walk file and the section within it: `topics/morphology/case_system.md: from walks/2026-05-07-discovery-walk-russian.md §3.2`. A pre-commit hook (or just a critic-pass extension) checks that the walk file exists and contains a section matching the cited reference.
+
+**Diff at merge time.** When closing a walk, run a script that diffs each topic in its current state against the walk's proposed diffs. Anything that drifted gets flagged in the walk's closeout note. Drift isn't necessarily wrong — sometimes the human catches a problem mid-execution — but it should be visible.
+
+### 8. Cross-cutting topic links
+
+**Failure mode.** Linguistic-domain organization is a single ontology. `colloquial_copula_a` is filed under morphology but is also phonology and pragmatics. The `related:` field is manual and unverified.
+
+**Add tag-based secondary indexing.** Each topic gets a `tags:` field with multiple non-hierarchical labels: `[register-marker, copula, 3sg, yerevan-colloquial, reduction]`. Build `topics/TAGS.md` automatically by aggregating tags across all topics. Tutor skill queries match against tags as well as primary domain.
+
+**Bidirectional related-link enforcement.** If topic A lists topic B in `related:`, lint requires B to list A. Mechanical, easy, prevents the related graph from quietly going stale.
+
+---
+
+## Sequencing
+
+If I had to bet on what to do first, second, third: **(2) confidence floors → (4) coverage map → (1) claim-grounding pass.** That order because (2) and (4) are cheap, ship the biggest tutor-quality wins, and don't require new LLM eval infrastructure; (1) is the most ambitious and probably surfaces the most actual errors but is also the most likely to need iteration on the eval prompt before it's trustworthy. The OCR audit (5) should run before any new Tioyan topics are written, regardless of where it falls in the priority list — that's a contamination-prevention measure, not an improvement per se. Schema versioning (3) is technical debt that gets cheaper to pay now than in six months; do it whenever there's a low-energy day.
+
+The unifying theme: **move enforcement from author discipline into mechanical or semi-mechanical checks, so the system's correctness doesn't depend on the author being conscientious in every ten-second review.** The current architecture is excellent at the first half of that work — citation provenance — and basically punts on the second half. These additions don't change the architecture; they extend the verifier surface to cover more of the failure modes that currently rely on hope.

@@ -64,6 +64,21 @@ sources:
       The example list is bidirectional — ընկեր-ընգեր (voiceless→voiced,
       opposite of Sakayan's direction); գդալ-քթալ (voiced→aspirated,
       Sakayan's direction). Quote stitched across ghamoyan p39 spans.
+  - id: 6
+    book: tioyan
+    page: 38
+    y_range: [200, 260]
+    verbatim_quote:
+      - "զեղչ"
+      - "զէխչ"
+      - "скидка"
+    supports: supported
+    note: |
+      tioyan attests `զեղչ [զէխչ]` "discount" — direct evidence
+      of ղ → /χ/ (= խ) before voiceless չ. Same cluster-devoicing
+      mechanism that drives the ղջ cluster cases (parnasyan p346
+      [ахчик], [амбохч]) — supports the broader-than-lexical-root
+      reading of ղ devoicing. The Russian gloss is "скидка."
 gaps:
   - "Sakayan does not state the alternation as a rule. Ghamoyan attributes the broader class of shifts to dialect/idiom influence but doesn't characterize the conditioning environment phonetically. Whether any of the shifts are environment-sensitive (vs purely lexical) remains open."
   - "No frequency data — what proportion of voiced-stop tokens actually alternate in running text?"
@@ -114,6 +129,84 @@ yet citation-checked**:
 - **գ → ք**: օգնական → [օքնական], հագուստ → [հաքուստ], անգամ → [անքամ], հոգնում → [հոքնում]
 - **ձ → ց**: փորձարկում → [փորցարկում]
 - **ջ → չ**: վերջապես → [վերչապես], առողջություն → [առողչություն]
+
+### Note on **ջ → չ** specifically — root-level lexicalization
+
+A 2026-05-09 audit of sakayan's own transliterations across
+`cards/sakayan/*.tsv` found **systematic ջ → չ devoicing within
+specific roots**, not just the two examples above. Every
+`վերջ-`-stem derivative (վերջապես, վերջերս, վերջնական, վերջին),
+every `առաջ-`-stem derivative (առաջ, առաջը, առաջին,
+առաջարկել), the `մեջ-`-stem (մեջք), and the `քույր`-genitive
+form (քրոջս) all surface with չ in sakayan's IPA-style
+transliteration column.
+
+Counterexample on record: **հաջորդ → [հաջորթ]** — the
+`հաջ-`-stem keeps ջ voiced; only դ devoices.
+
+Conclusion: ջ → չ is a **lexical-root regularity** (the
+devoicing is consistent *within* the relevant roots and across
+all their derivatives) but **not a phonological rule** —
+synchronic environment doesn't predict whether a given root's
+ջ devoices. The split is per-root and must be memorised.
+
+Practical effect on the deck: `frequency/build_deck.py`'s
+`PHONETIC_OVERRIDES` carries the bare roots and sakayan-
+unattested derivatives of these four families that don't have
+their own annotation in the source TSVs.
+
+### Note on the **ղջ** cluster — broader cluster devoicing
+
+A separate mechanism applies wherever the cluster ղջ appears:
+**both consonants devoice**, ղ → /χ/ and ջ → /tʃʰ/. Parnasyan
+p346 transliterates `աղջիկ` "girl" as **[ахчик]** and `ամբողջ`
+"whole/entire" as **[амбохч]** — both members of the cluster
+shifted to voiceless. Sakayan's own convention is to mark only
+the ჯ → չ part in the respell (`առողջություն → առողչություն`,
+unit-11 vocab); the ղ shift is real but isn't separately
+notated in the Armenian-script respell column.
+
+Coverage in the deck (`frequency/build_deck.py
+PHONETIC_OVERRIDES`): աղջիկ → [աղչիկ], ողջ → [ողչ], ամբողջ →
+[ամբողչ]. Same root family `առողջ-` is sakayan-attested via
+`առողջություն`. Unlike the lexical-root regularity for մեջ-,
+վերջ-, առաջ-, this cluster-devoicing mechanism is more general
+(phonologically conditioned by the cluster), and adding new
+ղջ-containing lemmas in the future is safe to extrapolate.
+
+### Note on ղ → խ in voiceless clusters generally
+
+The ղջ → խչ pattern above is one instance of a wider rule:
+**ղ devoices to /χ/ (= խ) when adjacent to a voiceless
+consonant**. Direct attestation from tioyan p38 [#6]:
+*զեղչ [զէխչ]* "discount" — ղ before չ surfaces as խ. The
+same phenomenon drives the ղջ-cluster cases (ղ + ջ → χ + č).
+
+In Armenian script the surface of devoiced /ղ/ is /χ/, the
+sound spelled խ. Sakayan's convention does not separately
+notate this in respells (e.g. `առողջություն → առողչություն`
+keeps the ղ in the bracket); we follow that convention to
+keep respells one-character-at-a-time on the contrast-
+affricate row. The ղ → խ shift is real but encoded in this
+documentation rather than in the bracketed deck respell.
+
+**`պղպեղ` "pepper"** — cluster `պղպ` not directly in our
+corpus, but Wiktionary's pronunciation `/pəχpéʁ/`
+([en.wiktionary.org/wiki/պղպեղ](https://en.wiktionary.org/wiki/%D5%BA%D5%B2%D5%BA%D5%A5%D5%B2))
+confirms the same cluster-devoicing rule: the *first* ղ
+(between two voiceless պ's) surfaces as `/χ/` (= խ); the
+*second* ղ (word-final after stressed vowel) stays voiced
+`/ʁ/`. Armenian-script respell would be `պխպեղ` — only the
+first ղ shifts. Wiktionary is *not* a citation-checked source
+in this workspace's sense (we ground citations in book JSONLs,
+not external lookups), so this is recorded as an external
+data-point pending a book-source attestation.
+
+The bidirectional ղ behaviour in `պղպեղ` (one position
+devoices, the other doesn't) is a clean illustration that
+ղ-devoicing is **environment-conditioned**, not lexicalized
+per-root: same ղ in same word, different position, different
+outcome.
 
 ## Wider scope in colloquial speech (Ghamoyan)
 

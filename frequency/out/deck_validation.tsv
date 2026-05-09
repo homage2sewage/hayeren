@@ -1,20 +1,15 @@
 severity	rank	lemma	translation	category	hint
-info	23	մեջ	the inside	ambiguous-sense	2 POS senses; competing: [noun] the inside / [postp] in, inside
-info	26	թե	that	ambiguous-sense	2 POS senses; competing: [conj] that / [particle] serves as an interrogative particle
-info	32	համար	number	ambiguous-sense	2 POS senses; competing: [noun] number / [postp] for
-info	34	պետք	needed, required	ambiguous-sense	2 POS senses; competing: [adj] needed, required / [noun] need, requirement
-info	41	հետ	back	ambiguous-sense	2 POS senses; competing: [adv] back / [postp] with
-info	43	մեկ	one	ambiguous-sense	2 POS senses; competing: [num] one / [pron] someone, somebody
-info	66	օրինակ	for example, for instance, e.g.	ambiguous-sense	2 POS senses; competing: [adv] for example, for instance, e.g. / [noun] example
+warning	26	թե	that	ambiguous-sense	2 POS senses; competing: [conj] that / [particle] serves as an interrogative particle
+warning	34	պետք	needed, required	ambiguous-sense	2 POS senses; competing: [adj] needed, required / [noun] need, requirement
+warning	43	մեկ	one	ambiguous-sense	2 POS senses; competing: [num] one / [pron] someone, somebody
 info	79	առաջ [առաչ]	forward	ambiguous-sense	3 POS senses; competing: [adv] forward / [noun] front part; front, anterior / [postp] before
 info	91	հայ	Armenian	ambiguous-sense	2 POS senses; competing: [adj] Armenian / [noun] Armenian
 info	94	կողմ	around, at about	ambiguous-sense	2 POS senses; competing: [adv] around, at about / [noun] side; direction
-info	106	առաջին	first, earliest	ambiguous-sense	2 POS senses; competing: [adj] first, earliest / [num] first
+info	106	առաջին [առաչին]	first, earliest	ambiguous-sense	2 POS senses; competing: [adj] first, earliest / [num] first
 info	114	նման	similar, like, resembling	ambiguous-sense	2 POS senses; competing: [adj] similar, like, resembling / [postp] like, as, such as
 info	118	գնում	purchase	ambiguous-sense	2 POS senses; competing: [noun] purchase (act) / [verb] imperfective converb of գնել (gnel)
 info	120	սխալ	wrong, incorrect	ambiguous-sense	2 POS senses; competing: [adj] wrong, incorrect / [noun] mistake, error
 info	124	ալ	scarlet, bright red	ambiguous-sense	2 POS senses; competing: [adj] scarlet, bright red / [adv] Western Armenian form of էլ (ēl)
-info	150	հազար	lettuce, Lactuca	ambiguous-sense	2 POS senses; competing: [noun] lettuce, Lactuca / [num] thousand
 info	155	տվյալ	given, present, this	ambiguous-sense	2 POS senses; competing: [adj] given, present, this / [noun] that which is given
 info	159	վեր	more than	ambiguous-sense	4 POS senses; competing: [adj] more than / [adv] up / [noun] upside, upper part / [postp] higher than
 info	175	ճիշտ	right, correct	ambiguous-sense	2 POS senses; competing: [adj] right, correct / [noun] truth
@@ -60,7 +55,7 @@ info	518	բավական	enough, sufficient	ambiguous-sense	2 POS senses; competi
 info	527	բարով	with pleasure, with love, willingly	ambiguous-sense	2 POS senses; competing: [adv] with pleasure, with love, willingly / [intj] hello!, hi! (addressed to a single familiar person
 info	536	պակաս	incomplete; missing; insufficient	ambiguous-sense	2 POS senses; competing: [adj] incomplete; missing; insufficient / [noun] lack, want; shortage, deficit; absence
 info	544	գոյական	existing, that exists	ambiguous-sense	2 POS senses; competing: [adj] existing, that exists / [noun] noun, substantive
-info	545	միջին	middle	ambiguous-sense	2 POS senses; competing: [adj] middle / [noun] definite dative singular of մեջ (meǰ)
+info	545	միջին [միչին]	middle	ambiguous-sense	2 POS senses; competing: [adj] middle / [noun] definite dative singular of մեջ (meǰ)
 info	562	երրորդ [երրորթ]	thirdly	ambiguous-sense	3 POS senses; competing: [adv] thirdly / [noun] the third part / [num] third
 info	567	սև	black	ambiguous-sense	2 POS senses; competing: [adj] black / [noun] black
 info	575	արժեք	value, worth, cost, price	ambiguous-sense	2 POS senses; competing: [noun] value, worth, cost, price / [verb] second-person plural present of արժել (aržel)
@@ -106,7 +101,7 @@ info	966	վախ	an exclamation of pain or grief	ambiguous-sense	2 POS senses; co
 info	972	խորթ	unrelated, step-	ambiguous-sense	2 POS senses; competing: [adj] unrelated, step- / [noun] young man
 info	974	ընդարձակ	expansive, wide, broad, spacious	ambiguous-sense	2 POS senses; competing: [adj] expansive, wide, broad, spacious / [adv] intricately
 info	976	չար	evil, wicked	ambiguous-sense	2 POS senses; competing: [adj] evil, wicked / [noun] evil
-info	983	վերջ	end, ending, finish	ambiguous-sense	2 POS senses; competing: [noun] end, ending, finish / [postp] after
+info	983	վերջ [վերչ]	end, ending, finish	ambiguous-sense	2 POS senses; competing: [noun] end, ending, finish / [postp] after
 info	989	համաձայն	in agreement , concordant	ambiguous-sense	3 POS senses; competing: [adj] in agreement (with), concordant (with) / [adv] in accord, in harmony / [postp] according to; in accordance with
 info	1001	ծակ	having a hole, perforated, holed	ambiguous-sense	2 POS senses; competing: [adj] having a hole, perforated, holed / [noun] hole; opening; aperture
 info	1003	հիմար	stupid, foolish, idiotic, moronic	ambiguous-sense	2 POS senses; competing: [adj] stupid, foolish, idiotic, moronic / [noun] fool, idiot, moron
@@ -132,9 +127,6 @@ info	1190	դեղին	yellow	ambiguous-sense	2 POS senses; competing: [adj] yello
 info	1208	լուռ	silent, not talking	ambiguous-sense	2 POS senses; competing: [adj] silent, not talking / [adv] silently
 info	1212	վստահ	sure, certain, confident	ambiguous-sense	2 POS senses; competing: [adj] sure, certain, confident / [adv] boldly, confidently
 warning	9	այլ (#9), մյուս (#96)	other	duplicate-translation	2 lemmas map to identical gloss
-warning	23	մեջ (#23), ներս (#312)	the inside	duplicate-translation	2 lemmas map to identical gloss
-warning	32	համար (#32), թիվ (#448)	number	duplicate-translation	2 lemmas map to identical gloss
-warning	41	հետ (#41), մեջք [մեչք] (#742)	back	duplicate-translation	2 lemmas map to identical gloss
 warning	89	հայոց (#89), հայ (#91)	armenian	duplicate-translation	2 lemmas map to identical gloss
 warning	100	գիտենալ (#100), իմանալ (#986)	to know	duplicate-translation	2 lemmas map to identical gloss
 warning	144	փոքր (#144), փոքրիկ (#474)	small	duplicate-translation	2 lemmas map to identical gloss

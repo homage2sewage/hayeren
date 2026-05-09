@@ -59,6 +59,14 @@ _INTRAWORD_PUNCT = re.compile(r"[՚-՟]")
 # `sakayan/phonetics.py` against Sakayan's own transliteration column.
 _PHONETIC_ANNOT = re.compile(r"([Ա-Ֆա-ֈ՚-՟]+)\s*\[([Ա-Ֆա-ֈ՚-՟]+)\]")
 
+# Armenian intra-word punctuation that the source text may carry in
+# the *spelled* form but not in the lemma key — `՞` (question stress
+# mark) is the common one (`Առաջի՞ն` for `Առաջին`). Strip these
+# before storing the index key so dictionary-form lemma lookups
+# match. The respelled form on the right side of `[…]` doesn't
+# normally carry these.
+_INTRAWORD_PUNCT_STRIP = re.compile(r"[՚-՟]")
+
 
 def index_phonetic_respellings() -> dict[str, str]:
     """Scan all already-built sakayan TSVs and harvest the
@@ -82,8 +90,11 @@ def index_phonetic_respellings() -> dict[str, str]:
             for row in csv.reader(f, delimiter="\t"):
                 for cell in row:
                     for m in _PHONETIC_ANNOT.finditer(cell):
-                        a, b = m.group(1).lower(), m.group(2).lower()
-                        if a != b:
+                        a = _INTRAWORD_PUNCT_STRIP.sub(
+                            "", m.group(1)).lower()
+                        b = _INTRAWORD_PUNCT_STRIP.sub(
+                            "", m.group(2)).lower()
+                        if a and a != b:
                             # First-seen wins — vocab files come first
                             # in sorted order.
                             hits.setdefault(a, b)
@@ -101,6 +112,32 @@ PHONETIC_OVERRIDES: dict[str, str] = {
     "շաբաթ":   "շափաթ",
     "հոգնում": "հոքնում",
     "հոգնել":  "հոքնել",
+    # ջ → չ — sakayan transliterations attest this devoicing
+    # systematically within specific lexicalized roots
+    # (վերջ-, առաջ-, մեջ-, առողջ-). Bare-root and additional
+    # derivatives below are inferred from the same root pattern.
+    # Counterexample on record: հաջորդ [հաջորթ] keeps ջ voiced
+    # — so this is *lexical-root regularity*, not a phonological
+    # rule. See topics/phonology/voiced_aspirated_alternation.md
+    # and errors/2026-05-09-005 lineage.
+    "մեջ":     "մեչ",
+    "վերջ":    "վերչ",         # bare root; derivatives all attest չ
+    "միջոց":   "միչոց",         # միջ- stem (extension of մեջ-)
+    "միջև":    "միչև",
+    "միջին":   "միչին",
+    "միջազգային": "միչազգային",
+    "անմիջապես":  "անմիչապես",
+    # ղջ cluster — both consonants devoice (ղ → χ, ջ → չ).
+    # Parnasyan p346 attests `աղջիկ [ахчик]`, `ամբողջ [амбохч]`.
+    # Different mechanism from the lexical-root regularity above:
+    # this is cluster devoicing, applies wherever the ղջ cluster
+    # appears. We mark only the ჯ → չ change in the respell
+    # (matching sakayan's convention in `առողջություն →
+    # առողչություն`); the ղ surface devoicing is documented in
+    # the topic file but not encoded here.
+    "աղջիկ":   "աղչիկ",
+    "ողջ":     "ողչ",
+    "ամբողջ":  "ամբողչ",
 }
 
 
@@ -233,7 +270,7 @@ HAND_OVERRIDES: dict[str, str] = {
     "կարող":  "able, can / способный, может",
     "դուրս":  "out, outside / снаружи, наружу",
     "շուտ":   "soon, quickly, early / скоро, быстро, рано",
-    "իր":     "his/her (own, reflexive) / его/её (свой)",
+    "իր":     "his/her own (reflexive); thing, item / его/её (свой); вещь",
     "ինքն":   "he/she himself / он/она сам(а)",
     "ինքը":   "he/she (emphatic) / он/она (сам)",
     "դրա":    "of that / того",
@@ -344,6 +381,16 @@ HAND_OVERRIDES: dict[str, str] = {
     # Trim verbose dictionary gloss.
     "ուսումնական": "academic, school (related) / учебный, школьный",
     "պարզել":     "to clarify, clean, purify / прояснить, очистить",
+    # Postposition is the dominant sense; "the inside" is rare.
+    "մեջ":        "in, inside; among (postposition) / в, внутри; среди",
+    # Both senses: noun "example" + adverbial "for example".
+    "օրինակ":     "example; for example (also: օրինակի համար) / пример; например",
+    # Numeral, not the rare "lettuce" noun sense kaikki listed first.
+    "հազար":      "thousand / тысяча",
+    # Postposition senses are dominant for high-frequency
+    # function-word lemmas; kaikki lists noun first.
+    "համար":      "for (postposition); number / для (послелог); номер",
+    "հետ":        "with (postposition); back (noun) / с (послелог); назад",
 }
 
 

@@ -1,34 +1,29 @@
 # Deck validation report
 
 - Deck: `cards/top_1000.tsv` (1000 rows)
-- Findings: **157** (0 errors, 25 warnings)
+- Findings: **149** (0 errors, 25 warnings)
 
 ## By category
 
 | category | severity | count |
 | --- | --- | --- |
-| `ambiguous-sense` | info | 132 |
-| `duplicate-translation` | warning | 23 |
+| `ambiguous-sense` | warning | 127 |
+| `duplicate-translation` | warning | 20 |
 | `golden-missing` | warning | 2 |
 
 ## `ambiguous-sense`
 
-- **#  23** `մեջ` → `the inside` — 2 POS senses; competing: [noun] the inside / [postp] in, inside
 - **#  26** `թե` → `that` — 2 POS senses; competing: [conj] that / [particle] serves as an interrogative particle
-- **#  32** `համար` → `number` — 2 POS senses; competing: [noun] number / [postp] for
 - **#  34** `պետք` → `needed, required` — 2 POS senses; competing: [adj] needed, required / [noun] need, requirement
-- **#  41** `հետ` → `back` — 2 POS senses; competing: [adv] back / [postp] with
 - **#  43** `մեկ` → `one` — 2 POS senses; competing: [num] one / [pron] someone, somebody
-- **#  66** `օրինակ` → `for example, for instance, e.g.` — 2 POS senses; competing: [adv] for example, for instance, e.g. / [noun] example
 - **#  79** `առաջ [առաչ]` → `forward` — 3 POS senses; competing: [adv] forward / [noun] front part; front, anterior / [postp] before
 - **#  91** `հայ` → `Armenian` — 2 POS senses; competing: [adj] Armenian / [noun] Armenian
 - **#  94** `կողմ` → `around, at about` — 2 POS senses; competing: [adv] around, at about / [noun] side; direction
-- **# 106** `առաջին` → `first, earliest` — 2 POS senses; competing: [adj] first, earliest / [num] first
+- **# 106** `առաջին [առաչին]` → `first, earliest` — 2 POS senses; competing: [adj] first, earliest / [num] first
 - **# 114** `նման` → `similar, like, resembling` — 2 POS senses; competing: [adj] similar, like, resembling / [postp] like, as, such as
 - **# 118** `գնում` → `purchase` — 2 POS senses; competing: [noun] purchase (act) / [verb] imperfective converb of գնել (gnel)
 - **# 120** `սխալ` → `wrong, incorrect` — 2 POS senses; competing: [adj] wrong, incorrect / [noun] mistake, error
 - **# 124** `ալ` → `scarlet, bright red` — 2 POS senses; competing: [adj] scarlet, bright red / [adv] Western Armenian form of էլ (ēl)
-- **# 150** `հազար` → `lettuce, Lactuca` — 2 POS senses; competing: [noun] lettuce, Lactuca / [num] thousand
 - **# 155** `տվյալ` → `given, present, this` — 2 POS senses; competing: [adj] given, present, this / [noun] that which is given
 - **# 159** `վեր` → `more than` — 4 POS senses; competing: [adj] more than / [adv] up / [noun] upside, upper part / [postp] higher than
 - **# 175** `ճիշտ` → `right, correct` — 2 POS senses; competing: [adj] right, correct / [noun] truth
@@ -43,14 +38,16 @@
 - **# 288** `դժվար` → `hard, difficult, challenging` — 2 POS senses; competing: [adj] hard, difficult, challenging / [adv] with difficulty
 - **# 290** `հիվանդ` → `sick, ill, diseased` — 2 POS senses; competing: [adj] sick, ill, diseased / [noun] patient, person who receives treatment
 - **# 293** `նկատմամբ` → `towards, regarding, concerning` — 2 POS senses; competing: [noun] instrumental singular of նկատում (nkatum) / [postp] towards, regarding, concerning
-- … and 102 more
+- **# 312** `ներս` → `the inside` — 2 POS senses; competing: [noun] the inside / [postp] in, inside
+- **# 316** `անց` → `passage, pass, passageway` — 2 POS senses; competing: [noun] passage, pass, passageway / [postp] after; past
+- **# 317** `բաց` → `open, not closed` — 2 POS senses; competing: [adj] open, not closed / [noun] Bats (language)
+- **# 320** `ընթացքում` → `during` — 2 POS senses; competing: [adv] during / [noun] locative singular of ընթացք (əntʻacʻkʻ)
+- **# 324** `հեռու` → `far, distant, remote` — 3 POS senses; competing: [adj] far, distant, remote / [adv] far / [noun] distance
+- … and 97 more
 
 ## `duplicate-translation`
 
 - **#   9** `այլ (#9), մյուս (#96)` → `other` — 2 lemmas map to identical gloss
-- **#  23** `մեջ (#23), ներս (#312)` → `the inside` — 2 lemmas map to identical gloss
-- **#  32** `համար (#32), թիվ (#448)` → `number` — 2 lemmas map to identical gloss
-- **#  41** `հետ (#41), մեջք [մեչք] (#742)` → `back` — 2 lemmas map to identical gloss
 - **#  89** `հայոց (#89), հայ (#91)` → `armenian` — 2 lemmas map to identical gloss
 - **# 100** `գիտենալ (#100), իմանալ (#986)` → `to know` — 2 lemmas map to identical gloss
 - **# 144** `փոքր (#144), փոքրիկ (#474)` → `small` — 2 lemmas map to identical gloss

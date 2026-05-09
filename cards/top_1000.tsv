@@ -16,10 +16,10 @@
 շատ	very, much, many / очень, много	frequency top-1000 rank-0017 src-hand-override
 էլ	too, also	frequency top-1000 rank-0018 src-sakayan-vocab
 ոչ	no, not / нет, не	frequency top-1000 rank-0019 src-hand-override
-իր	his/her (own, reflexive) / его/её (свой)	frequency top-1000 rank-0020 src-hand-override
+իր	his/her own (reflexive); thing, item / его/её (свой); вещь	frequency top-1000 rank-0020 src-hand-override
 խոսակցական	colloquial	frequency top-1000 rank-0021 src-dictionary
 այն	that / тот	frequency top-1000 rank-0022 src-hand-override
-մեջ	the inside	frequency top-1000 rank-0023 src-dictionary
+մեջ [մեչ]	in, inside; among (postposition) / в, внутри; среди	frequency top-1000 rank-0023 src-hand-override
 տալ	to give	frequency top-1000 rank-0024 src-sakayan-paradigm
 կամ	or / или	frequency top-1000 rank-0025 src-hand-override
 թե	that	frequency top-1000 rank-0026 src-dictionary
@@ -28,7 +28,7 @@
 իսկ	but, and (contrast) / а, же	frequency top-1000 rank-0029 src-hand-override
 խոսք	speech	frequency top-1000 rank-0030 src-dictionary
 նաև	also / также	frequency top-1000 rank-0031 src-hand-override
-համար	number	frequency top-1000 rank-0032 src-dictionary
+համար	for (postposition); number / для (послелог); номер	frequency top-1000 rank-0032 src-hand-override
 պետք	needed, required	frequency top-1000 rank-0034 src-dictionary
 դու	you (sg) / ты	frequency top-1000 rank-0035 src-hand-override
 երբ [երփ]	when / когда	frequency top-1000 rank-0036 src-hand-override
@@ -36,7 +36,7 @@
 բայց	but / но	frequency top-1000 rank-0038 src-hand-override
 երևան	Yerevan	frequency top-1000 rank-0039 src-dictionary
 մերի	woods, forest	frequency top-1000 rank-0040 src-dictionary
-հետ	back	frequency top-1000 rank-0041 src-dictionary
+հետ	with (postposition); back (noun) / с (послелог); назад	frequency top-1000 rank-0041 src-hand-override
 ասել	to say	frequency top-1000 rank-0042 src-sakayan-vocab
 մեկ	one	frequency top-1000 rank-0043 src-dictionary
 անել	to do	frequency top-1000 rank-0044 src-sakayan-vocab
@@ -60,7 +60,7 @@
 ով	who / кто	frequency top-1000 rank-0063 src-hand-override
 ուտել	to eat	frequency top-1000 rank-0064 src-sakayan-paradigm
 իմ	my / мой	frequency top-1000 rank-0065 src-hand-override
-օրինակ	for example, for instance, e.g.	frequency top-1000 rank-0066 src-dictionary
+օրինակ	example; for example (also: օրինակի համար) / пример; например	frequency top-1000 rank-0066 src-hand-override
 նրանց	them / их, им	frequency top-1000 rank-0067 src-hand-override
 սեր	love (noun) / любовь	frequency top-1000 rank-0068 src-frequency-gap
 գրական	literary	frequency top-1000 rank-0069 src-dictionary
@@ -99,7 +99,7 @@
 չէր	wasn't / не был(-а)	frequency top-1000 rank-0103 src-hand-override
 հայաստան	Armenia / Армения	frequency top-1000 rank-0104 src-hand-override
 մայր	mother	frequency top-1000 rank-0105 src-sakayan-vocab
-առաջին	first, earliest	frequency top-1000 rank-0106 src-dictionary
+առաջին [առաչին]	first, earliest	frequency top-1000 rank-0106 src-dictionary
 անուն	name	frequency top-1000 rank-0107 src-sakayan-vocab
 կա	(there) is, exists / есть, имеется	frequency top-1000 rank-0108 src-hand-override
 տեղ	place, location, locality, position	frequency top-1000 rank-0109 src-dictionary
@@ -109,7 +109,7 @@
 երբեմն	sometimes, occasionally	frequency top-1000 rank-0113 src-dictionary
 նման	similar, like, resembling	frequency top-1000 rank-0114 src-dictionary
 քո	your (sg) / твой	frequency top-1000 rank-0115 src-hand-override
-միջոց	means, method	frequency top-1000 rank-0116 src-dictionary
+միջոց [միչոց]	means, method	frequency top-1000 rank-0116 src-dictionary
 տարի	year / год	frequency top-1000 rank-0117 src-hand-override
 գնում	purchase	frequency top-1000 rank-0118 src-dictionary
 ում	whom	frequency top-1000 rank-0119 src-dictionary
@@ -140,7 +140,7 @@
 հասարակական	social; public; common	frequency top-1000 rank-0147 src-dictionary
 արդեն [արթեն]	already	frequency top-1000 rank-0148 src-sakayan-vocab
 ուրիշ	other, different / другой	frequency top-1000 rank-0149 src-hand-override
-հազար	lettuce, Lactuca	frequency top-1000 rank-0150 src-dictionary
+հազար	thousand / тысяча	frequency top-1000 rank-0150 src-hand-override
 մինչև	as far as, till, until, to	frequency top-1000 rank-0151 src-dictionary
 կրթություն	education	frequency top-1000 rank-0152 src-dictionary
 գլուխ	head	frequency top-1000 rank-0153 src-sakayan-vocab
@@ -201,7 +201,7 @@
 ռուսերեն	Russian	frequency top-1000 rank-0218 src-dictionary
 լալ	to cry / to weep	frequency top-1000 rank-0219 src-sakayan-paradigm
 տիկին	Mrs., madam	frequency top-1000 rank-0220 src-sakayan-vocab
-աղջիկ	girl	frequency top-1000 rank-0221 src-sakayan-vocab
+աղջիկ [աղչիկ]	girl	frequency top-1000 rank-0221 src-sakayan-vocab
 երկար	long	frequency top-1000 rank-0222 src-dictionary
 արտահայտություն	expression	frequency top-1000 rank-0224 src-dictionary
 բանավոր	oral, verbal	frequency top-1000 rank-0225 src-dictionary
@@ -216,7 +216,7 @@
 հիմնականում	mainly, basically / в основном, главным образом	frequency top-1000 rank-0238 src-hand-override
 հին	old	frequency top-1000 rank-0240 src-sakayan-vocab
 մնալ	to remain, stay	frequency top-1000 rank-0241 src-sakayan-vocab
-ամբողջ	entire	frequency top-1000 rank-0242 src-sakayan-vocab
+ամբողջ [ամբողչ]	entire	frequency top-1000 rank-0242 src-sakayan-vocab
 դուռ	door	frequency top-1000 rank-0244 src-dictionary
 կոչվել	to be called, be named / называться	frequency top-1000 rank-0246 src-hand-override
 յուրաքանչյուր	each, every	frequency top-1000 rank-0247 src-dictionary
@@ -303,7 +303,7 @@
 ուրախ	happy, glad, cheerful	frequency top-1000 rank-0335 src-dictionary
 չէիր	weren't (2sg) / ты не был(-а)	frequency top-1000 rank-0336 src-hand-override
 ևս	more, more than	frequency top-1000 rank-0338 src-dictionary
-միջև	among, between	frequency top-1000 rank-0339 src-dictionary
+միջև [միչև]	among, between	frequency top-1000 rank-0339 src-dictionary
 պատճառով	by reason of, because of	frequency top-1000 rank-0340 src-dictionary
 հանդես	festival, celebrations, festivities	frequency top-1000 rank-0341 src-dictionary
 դարձնել	to make, turn (sth) into / превратить, делать	frequency top-1000 rank-0342 src-hand-override
@@ -481,7 +481,7 @@
 հասնել	to reach	frequency top-1000 rank-0541 src-dictionary
 կենտրոն	center	frequency top-1000 rank-0542 src-dictionary
 գոյական	existing, that exists	frequency top-1000 rank-0544 src-dictionary
-միջին	middle	frequency top-1000 rank-0545 src-dictionary
+միջին [միչին]	middle	frequency top-1000 rank-0545 src-dictionary
 իշխան	prince, ruler, ishkhan	frequency top-1000 rank-0546 src-dictionary
 բաղաձայն	consonant	frequency top-1000 rank-0547 src-dictionary
 հնարավորություն	chance	frequency top-1000 rank-0550 src-sakayan-vocab
@@ -570,7 +570,7 @@
 ինքը	he/she (emphatic) / он/она (сам)	frequency top-1000 rank-0649 src-hand-override
 ծագում	origin	frequency top-1000 rank-0650 src-dictionary
 ներկայացնել	to present, introduce / представить, представлять	frequency top-1000 rank-0651 src-hand-override
-միջազգային	international	frequency top-1000 rank-0652 src-dictionary
+միջազգային [միչազգային]	international	frequency top-1000 rank-0652 src-dictionary
 հանգամանք	circumstance	frequency top-1000 rank-0653 src-dictionary
 համապատասխան	appropriate, proper	frequency top-1000 rank-0654 src-dictionary
 միաժամանակ	at the same time	frequency top-1000 rank-0655 src-dictionary
@@ -766,7 +766,7 @@
 ծիծաղել	to laugh	frequency top-1000 rank-0899 src-dictionary
 տխուր	sad, melancholy, sorrowful	frequency top-1000 rank-0900 src-dictionary
 չոր	dry	frequency top-1000 rank-0901 src-dictionary
-անմիջապես	immediately, instantly, promptly, right away	frequency top-1000 rank-0902 src-dictionary
+անմիջապես [անմիչապես]	immediately, instantly, promptly, right away	frequency top-1000 rank-0902 src-dictionary
 արդյոք	whether, really?, is it possible?	frequency top-1000 rank-0903 src-dictionary
 կապված	tied, connected; related to / связанный, привязанный	frequency top-1000 rank-0904 src-hand-override
 ներկա	present	frequency top-1000 rank-0905 src-dictionary
@@ -822,7 +822,7 @@
 ցերեկ	daytime, day, morning or afternoon	frequency top-1000 rank-0977 src-dictionary
 յան	side	frequency top-1000 rank-0978 src-dictionary
 մայիս	May	frequency top-1000 rank-0981 src-dictionary
-վերջ	end, ending, finish	frequency top-1000 rank-0983 src-dictionary
+վերջ [վերչ]	end, ending, finish	frequency top-1000 rank-0983 src-dictionary
 թանկ	dear	frequency top-1000 rank-0984 src-dictionary
 կառք	carriage, coach	frequency top-1000 rank-0985 src-dictionary
 իմանալ	to know	frequency top-1000 rank-0986 src-dictionary
@@ -986,7 +986,7 @@
 մեկնել	to depart, to leave, to go	frequency top-1000 rank-1194 src-dictionary
 մոսկվա	Moscow	frequency top-1000 rank-1195 src-dictionary
 իրան	torso, trunk, body	frequency top-1000 rank-1196 src-dictionary
-ողջ	alive, whole, all / живой, целый	frequency top-1000 rank-1197 src-frequency-gap
+ողջ [ողչ]	alive, whole, all / живой, целый	frequency top-1000 rank-1197 src-frequency-gap
 կտրել	to cut	frequency top-1000 rank-1198 src-dictionary
 հանդեպ	facing, opposite, across from	frequency top-1000 rank-1199 src-dictionary
 ուղարկել	to send, to dispatch, to transmit	frequency top-1000 rank-1200 src-dictionary

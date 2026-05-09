@@ -178,6 +178,42 @@ non-trivial. Notes from `ghamoyan/README.md` Topic 0:
 - **Latin-transliterated Armenian** mixed with Latin-transliterated
   Russian: most painful case. See `transliteration-notes.md`.
 
+## Script choice as register marker (the boundary case)
+
+Code-switching at the *script* level is its own phenomenon,
+distinct from lexical code-switching documented above:
+
+- **Russian-loan word in Armenian script** (`տոչկեն, սվարկա,
+  ռազբիրատ`): the standard pattern this topic covers. The
+  speaker has assimilated the loan into Armenian morphology
+  and writes it with Armenian letters.
+- **Armenian word in Cyrillic** (`Вардавар, Мкртчян`):
+  the popular-orthographic Cyrillic convention documented in
+  `cyrillic-transliteration-notes.md`. Used for proper nouns
+  in Russian-language contexts (signs, news, Wikipedia titles)
+  and dish names on cafe menus. This is **not** code-switching
+  in the linguistic sense — it's *transliteration*, the same
+  underlying Armenian word in a different script.
+- **Cyrillic word in Armenian phonology / morphology**: when a
+  speaker writes a Russian word in Cyrillic *inside* an
+  Armenian-script utterance — `Թանկ արժե, մոթ да!` (just an
+  example). This is closer to written code-switching proper.
+  Rarely seen in formal text; common in chat / social media.
+
+The first two are the most frequent in real corpora. Don't
+confuse Cyrillic-Armenian transliteration (script borrowing
+of identity) with Russian-Armenian code-switching (language
+mixing).
+
+When back-transliterating mixed input, the Cyrillic-doc's
+**three-register identification** (popular orthographic /
+textbook phonetic / scholarly) helps decide which type of
+script-switch you're looking at: a textbook bracketed
+`[т‘эшвар]` is pronunciation guide for an Armenian word; a
+plain `Вардавар` in a Russian sentence is identity-preserving
+transliteration; both are different from `տոչկեն` in
+Armenian text (an actual code-switched lexeme).
+
 ## What this topic is *not*
 
 - **Russian-language pedagogical examples in textbooks** (parnasyan,

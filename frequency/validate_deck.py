@@ -460,10 +460,15 @@ def check_script_purity(rows: list[Row], findings: list[Finding]) -> None:
 def check_dictionary_ambiguity(rows: list[Row], findings: list[Finding]) -> None:
     """For dictionary-sourced cards where kaikki lists 2+ POS
     senses, surface a one-line review item showing the picked gloss
-    alongside competing senses. Catches "rye" / "valiant" / "Bats"-
-    type misranks where another sense is the actually-frequent one.
+    alongside competing senses. Catches "rye" / "valiant" / "Bats" /
+    "lettuce vs thousand"-type misranks where another sense is the
+    actually-frequent one.
 
-    Severity `info` — never gates CI, just human review fodder.
+    Severity gradient: top-50 ranks are `warning` (very likely a
+    misrank if 2+ senses; the `հազար → "lettuce"` recurrence in
+    `errors/2026-05-09-005-hazar-numeral-misrank.md` motivated
+    promoting these). Lower ranks remain `info` — review fodder
+    rather than a gate.
     """
     for lemma, tr, tags in rows:
         if "src-dictionary" not in tags:
@@ -482,7 +487,9 @@ def check_dictionary_ambiguity(rows: list[Row], findings: list[Finding]) -> None
         for pos, glosses_str in real_entries:
             first = glosses_str.split(" | ")[0].strip()
             competing.append(f"[{pos}] {first[:50]}")
-        _emit(findings, "info", rank_of(tags), lemma, tr,
+        rank = rank_of(tags)
+        severity = "warning" if 0 < rank <= 50 else "info"
+        _emit(findings, severity, rank, lemma, tr,
               "ambiguous-sense",
               f"{len(real_entries)} POS senses; "
               f"competing: {' / '.join(competing)}")

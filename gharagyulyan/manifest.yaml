@@ -1,0 +1,29 @@
+name: gharagyulyan
+title: Ժամանակակից հայերենի ուղղախոսությունը
+title_translit: Zhamanakakits hayereni ughghakhosutyunə
+title_en: Modern Armenian Orthoepy
+title_ru: Орфоэпия современного армянского языка
+author: Tereza Gharagyulyan (Թերեզա Ղարագյուլյան)
+author_armenian: Թ. Ղարագյուլյան
+author_russian: Тереза Карагулян
+publisher: Armenian SSR Academy of Sciences (Հայկական ՍՍՀ ԳԱ հրատարակչություն)
+institute: Acharyan Institute of Language (Հր. Աճառյանի անվան լեզվի ինստիտուտ)
+year: 1974
+language: hye
+script: Armenian
+domain: phonology
+sub_domain: orthoepy (prescriptive pronunciation)
+register: literary (with documented deviations)
+source: Pan-Armenian Digital Library
+source_url: https://arar.sci.am/Content/362355/GHARAGYULYAN_TEREZA_Jamanakakic_hajereni_ughghaxosutjuny.pdf
+copyright: public domain (Soviet-era academic publication)
+extraction:
+  type: text_layer
+  ocr_engine: null  # PDF carries embedded text
+  quality: clean for body prose; some encoding artifacts on
+    title-page mixed Armenian/Russian text and decorative covers
+  files:
+    - gharagyulyan_orthoepy.pdf
+acquired_via: research/2026-05-09-ghamoyan-bibliography-survey.md
+priority_in_survey: tier-3 (acquired ahead of tier-2 Bediryan
+  because orthoepy fits topic-graph gaps more directly)

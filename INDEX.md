@@ -56,9 +56,15 @@ subdirectories — keep top level limited to this index and shared assets.
 │   ├── ghamoyan/fillers.tsv
 │   └── frequency/gap_additions.tsv
 ├── topics/                        # synthesis layer — one MD per linguistic phenomenon
-│   └── phonology/
-│       └── voiced_aspirated_alternation.md   # first topic; schema test passed
-└── (future siblings: anki/, dictionary/, lexicon/, walks/, research/, ...)
+│   ├── phonology/                 # voiced-aspirated alternation, schwa, laryngeal contrast, …
+│   ├── morphology/                # verb classes, aorist, perfect, articles, negation, …
+│   ├── syntax/                    # pro-drop, dative-experiencer, …
+│   ├── lexicon/                   # code-switching, slang, idioms, expressives
+│   └── pragmatics/                # intimate register
+├── walks/                         # dated "walk through book X for phenomenon Y" notes
+├── research/                      # dated investigation notes
+│   └── 2026-05-09-answer-pipeline-roadmap.md   # ⭐ current status of the citation-grounded answer pipeline (Phases 1-5+)
+└── (future siblings: anki/, dictionary/, lexicon/, ...)
 ```
 
 Four reading paths into this workspace:

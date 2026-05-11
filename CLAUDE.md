@@ -126,6 +126,21 @@ glosses for `խոտ` while the correct citation
 `topics/lexicon/yerevan_slang.md` line 114. Nobody looked. The
 habitual fix is in this rule. Reach for grep, not for prior.
 
+### Automation: this rule is hook-enforced
+
+`.claude/hooks/armenian_autoground.py` runs on every
+`UserPromptSubmit` event. When the user's prompt contains any
+Armenian character (U+0530–U+058F), it invokes
+`frequency/query_kb.py` automatically and injects the resulting
+bundle as a system-reminder *before* the model sees the prompt.
+You'll see a `<system-reminder>` block titled "Armenian content
+detected" — that's the bundle. Ground the answer in it.
+
+To skip the auto-grounding for a specific prompt (e.g. while
+editing a topic file that contains Armenian fragments), prefix
+the prompt with `#nogrep`. The hook is registered in
+`.claude/settings.json` (committed) and survives reinstall.
+
 ## When the user reports a wrong output
 
 Always two-step, never one:

@@ -391,6 +391,77 @@ HAND_OVERRIDES: dict[str, str] = {
     # function-word lemmas; kaikki lists noun first.
     "համար":      "for (postposition); number / для (послелог); номер",
     "հետ":        "with (postposition); back (noun) / с (послелог); назад",
+    # Vocabulary that the source frequency list has in top-1000 but
+    # which the offline kaikki dictionary doesn't cover. Without
+    # these, the build_deck.py "skipped-empty" filter would silently
+    # drop them. Glosses vetted by sub-agent (2026-05-14 session).
+    "առօրյա":     "everyday, daily routine / повседневный, будни",
+    "արտահայտել": "to express / выражать",
+    "կիրառություն": "use, application / применение",
+    "գործածություն": "use, usage / употребление",
+    "ոճական":     "stylistic / стилистический",
+    # `դուր` is the bare form of `դուր գալ` "to please/be liked" —
+    # see `topics/syntax/dative_experiencer.md`. Kaikki returns
+    # "flat, level" which is etymologically related but wrong sense
+    # for the contemporary high-frequency reading.
+    "դուր":       "(in դուր գալ) to please, to be liked / (դուր գալ) нравиться",
+    "պայմանավորված": "conditioned by, due to / обусловленный",
+    "միավոր":     "unit / единица",
+    "այլև":       "also, moreover / также, к тому же",
+    "հուզված":    "agitated, moved, emotional / взволнованный",
+    "ժողովրդախոսակցական": "vernacular, colloquial / народно-разговорный",
+    "նշանակություն": "meaning, significance / значение",
+    "միջնակարգ":  "secondary (school) / средний (о школе)",
+    "հանրակրթական": "general-education, public-school / общеобразовательный",
+    "հանրույթ":   "community / сообщество",
+    "հասկացություն": "concept, notion / понятие",
+    "շարահյուսական": "syntactic / синтаксический",
+    "գործառական": "functional / функциональный",
+    "իրադրություն": "situation / ситуация, обстановка",
+    "արտահայտչական": "expressive (of expression) / выразительный",
+    "հուզական":   "emotional / эмоциональный",
+    "միևնույն":   "the very same / тот же самый",
+    "նորմ":       "norm / норма",
+    "հաճախականություն": "frequency / частотность",
+    "դժվարություն": "difficulty / трудность",
+    "առանձնահատկություն": "peculiarity, distinctive feature / особенность",
+    "վերաբերմունք": "attitude / отношение",
+    "զբաղմունք":  "occupation, pastime / занятие",
+    # Discourse particle (more frequent than the verbal 2sg of
+    # `կարծել` "to think"); pedagogically "as if/seemingly" wins.
+    "կարծես":     "as if, seemingly / как будто, кажется",
+    "երանգավորել": "to tint, shade, give a tone / оттенять, придавать оттенок",
+    # Disambiguation: `թվել` = "to seem" (most common) vs. rare
+    # "to number/enumerate" homonym; default to the high-frequency
+    # sense.
+    "թվել":       "to seem / казаться",
+    # ⚠ blocker fixes from 2026-05-14 editorial pass — sub-agent
+    # flagged " / " misused as comma-separator (deck schema reserves
+    # " / " for English-Russian pairs).
+    "առնել":      "to take, to buy / брать, покупать",
+    "զարկել":     "to hit, to strike / ударить, бить",
+    "ենթակա":     "subject (grammatical); subordinate / подлежащее; подчинённый",
+    # ⚙ suggestion fixes — sense-priority + gloss-naturalness.
+    "առաջ":       "before, ago; forward / до, тому назад; вперёд",
+    "նպաստել":    "to contribute, to foster / способствовать, содействовать",
+    "փնտրել":     "to look for, to search / искать",
+    "անծանոթ":    "unfamiliar; stranger / незнакомый; незнакомец",
+    "վերաբերել":  "to concern, to relate to / касаться, относиться",
+    "հան":        "grandma, granny (colloq.) / бабушка (разг.)",
+    "նշանակել":   "to mean / значить, обозначать",
+    # MWUs (multi-word units): the build_ours.py pipeline merges
+    # high-frequency phrases into single underscored "lemmas".
+    # `best_translation` rejects multi-word card-source entries to
+    # prevent phrase-meaning leaking onto bare first tokens, so
+    # MWUs need to land via HAND_OVERRIDES. `annotated_lemma`
+    # converts the underscore to a space for the card display
+    # (`մի_քիչ` → `մի քիչ`), but the lookup key here stays
+    # underscored — that's the canonical pipeline identity.
+    "մի_քիչ":     "a little, a bit / немного, чуть-чуть",
+    "ոչ_միայն":   "not only / не только",
+    "մի_շարք":    "a series, a number of / ряд, несколько",
+    "ամեն_ինչ":   "everything / всё",
+    "մի_օր":      "one day, someday / однажды, как-то раз",
 }
 
 
@@ -425,6 +496,106 @@ SKIP_LEMMAS: set[str] = {
     "միտքը",       # def. nom. sg. of միտք
     "ինք",         # W. Arm. / colloq variant of ինքը
     "ել",          # rare, ambiguous (could be ելք or "and-too")
+    # 2026-05-14 additions: vetted by sub-agent. Three buckets:
+    #
+    # (a) inflected forms / variants of lemmas already in deck.
+    "բառեր",       # pl of բառ
+    "բառերն",      # def pl of բառ
+    "դրանց",       # gen-dat pl of դա/դրանք
+    "դրան",        # dat sg of դա
+    "սրան",        # dat sg of սա
+    "ասաց",        # 3sg aor of ասել
+    "ձևեր",        # pl of ձև
+    "մարդկանց",    # gen-dat pl of մարդ
+    "մարդիկ",      # nom pl of մարդ
+    "մարդու",      # gen-dat sg of մարդ
+    "մարդուն",     # dat-def sg of մարդ
+    "իրեն",        # dat/acc reflexive of ինքը
+    "գործածվել",   # passive infinitive of գործածել
+    "գործածվող",   # present participle of գործածել
+    "կարդել",      # variant/inflected of կարդալ
+    "տան",         # gen-dat sg of տուն
+    "որն",         # def form of որը
+    "եկել",        # perfect participle of գալ
+    "եկան",        # 3pl aor of գալ
+    "եկեք",        # 2pl imp of գալ
+    "գնաց",        # 3sg aor of գնալ
+    "գնանք",       # 1pl subj of գնալ
+    "գնացել",      # perfect participle of գնալ
+    "հայեր",       # pl of հայ
+    "տեսել",       # perfect participle of տեսնել
+    "տեսա",        # 1sg aor of տեսնել
+    "խաղել",       # variant/inflected of խաղալ
+    "խաղա",        # 2sg imp of խաղալ
+    "խաղացել",     # perfect participle of խաղալ
+    "աչքեր",       # pl of աչք
+    "սկսեց",       # 3sg aor of սկսել
+    "որդիներ",     # pl of որդի
+    "դրել",        # perfect/variant of դնել
+    "դրվել",       # passive infinitive of դնել
+    "հյուրեր",     # pl of հյուր
+    "հարցեր",      # pl of հարց
+    "հարցրեց",     # 3sg aor of հարցնել
+    "հարցումներ",  # pl of հարցում
+    "շատեր",       # substantivized pl of շատ
+    "մասեր",       # pl of մաս
+    "կապեր",       # pl of կապ
+    "արտահայտվել", # passive infinitive of արտահայտել
+    "առանձնահատկություններ", # pl of առանձնահատկություն
+    "զգել",        # variant/inflected of զգալ
+    "գրվել",       # passive infinitive of գրել
+    "երեխաներ",    # pl of երեխա
+    "օրեր",        # pl of օր
+    "ծրագրեր",     # pl of ծրագիր
+    "գործեր",      # pl of գործ
+    "դարեր",       # pl of դար
+    "համարվել",    # passive infinitive of համարել
+    "նախադասություններ", # pl of նախադասություն
+    "գրքեր",       # pl of գիրք
+    "ծառեր",       # pl of ծառ
+    "կանայք",      # suppletive nom pl of կին
+    "կանանց",      # gen-dat pl of կին
+    "արեց",        # 3sg aor of անել
+    "արել",        # perfect participle of անել
+    "սիրո",        # gen sg of սեր
+    "տարբերվել",   # passive infinitive of տարբերել
+    "ունեցել",     # perfect participle of ունենալ
+    "ինն",         # def form of ինը
+    "գիտել",       # present-stem variant of գիտենալ
+    "զարգացման",   # gen of զարգացում
+    "հաղորդակցման", # gen of հաղորդակցում
+    # (b) OCR / lemmatizer noise — bare suffixes, truncated stems,
+    # spurious `-ել` appended to nouns.
+    "լեզվել",      # spurious -ել on լեզու
+    "խոսքել",      # spurious -ել on խոսք
+    "դեպքել",      # spurious -ել on դեպք
+    "երևանել",     # spurious -ել on Երևան
+    "հայաստանել",  # spurious -ել on Հայաստան
+    "քաղաքել",     # spurious -ել on քաղաք
+    "դպրոցներել",  # spurious -ել on դպրոցներ
+    "շրջանել",     # spurious -ել on շրջան
+    "ոլորտել",     # spurious -ել on ոլորտ
+    "ացած",        # bare participle suffix
+    "բառայ",       # truncation of բառային
+    "ժարգոնայ",    # truncation of ժարգոնային
+    "իմաստայ",     # truncation of իմաստային
+    "ություն",     # bare noun suffix
+    "թյուն",       # bare noun suffix fragment
+    "խմբ",         # truncated stem of խումբ
+    "ձեռ",         # truncated stem of ձեռք
+    "սրտ",         # truncated stem of սիրտ
+    "նկատ",        # truncated stem of նկատել
+    "խոս",         # truncated stem of խոսել/խոսք
+    "լինե",        # truncated stem of լինել
+    "կլին",        # truncated future stem of լինել
+    "գրք",         # truncated stem of գիրք
+    "անհարկ",      # truncation of անհարկի
+    # (c) Surnames / proper-noun fragments not caught by
+    # `_is_personal_name` (which targets given names).
+    "սաքայան",     # Sakayan (surname)
+    "սարյան",      # Saryan (surname)
+    "մաշտոց",      # Mashtots (historical figure)
+    "երեվան",      # misspelled Երևան without ՛
 }
 
 
@@ -639,6 +810,52 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
         if rank_n <= 10 or rank_n % 50 == 0:
             print(f"  rank {rank_n:4d}  {lemma:25s}  [{source}]  "
                   f"{translation[:60]}", file=sys.stderr, flush=True)
+
+    # Force-inject pass: add pedagogically-essential basic
+    # vocabulary that the corpus-driven frequency list misses or
+    # under-ranks. See `cards/frequency/core_inject.tsv`.
+    #
+    # Dedup key is the underscore-joined token list, so MWUs like
+    # `դուր_գալ` (file form) match the deck's displayed `դուր գալ`
+    # (space-separated after `annotated_lemma`).
+    def _lemma_key(cell: str) -> str:
+        return "_".join(armenian_tokens(cell))
+
+    inject_path = FREQUENCY_CARDS / "core_inject.tsv"
+    existing_lemmas = {_lemma_key(r[0]) for r in rows_out}
+    injected = 0
+    if inject_path.exists():
+        with inject_path.open(encoding="utf-8") as f:
+            for line in f:
+                if not line.strip() or line.lstrip().startswith("#"):
+                    continue
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) < 2:
+                    continue
+                # Use the raw column (preserves underscores for
+                # MWUs) as the canonical lemma identity.
+                lemma = parts[0].strip()
+                if not lemma:
+                    continue
+                key = _lemma_key(lemma) or lemma
+                gloss = parts[1].strip()
+                if not gloss:
+                    continue
+                if key in existing_lemmas:
+                    # Already organically in the deck — inject is
+                    # only for ones that didn't make the rank-based
+                    # cut.
+                    continue
+                tags = "frequency core-inject src-core-inject"
+                rows_out.append([annotated_lemma(lemma, phonetic),
+                                 gloss, tags])
+                existing_lemmas.add(key)
+                injected += 1
+        if injected:
+            stats.setdefault("core-inject", 0)
+            stats["core-inject"] = injected
+            print(f"  injected {injected} core-vocab rows from "
+                  f"{inject_path.name}", file=sys.stderr, flush=True)
 
     with out_path.open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f, delimiter="\t", lineterminator="\n")

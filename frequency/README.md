@@ -31,6 +31,16 @@ choices.
       `truncated-lemma`, `inflected-leak`, `paradigm-leak`,
       `proper-noun-foreign`, `mwu-leak`, `duplicate-translation`,
       `eu-ligature`. See `walks/2026-05-07-deck-validation-plan.md`.
+- [x] **Phase 3 editorial pass** — agent-driven learner-pov critic
+      at `.claude/skills/deck-editorial-pass/`. Samples N rows,
+      spawns a sub-agent with the editorial rubric, returns
+      structured findings (⚠/⚙/ℹ). Catches the bugs that
+      structural lint systematically misses (sense-priority,
+      gloss naturalness, register mismatch, ambiguous
+      sense-stacks). Run after `validate_deck.py` is green; before
+      shipping a build. Two-step rule: ⚠ → `HAND_OVERRIDES` +
+      `golden_glosses.tsv` anchor; ⚙ → at least the anchor. See
+      `CLAUDE.md` § "Card decks" and the skill's own `SKILL.md`.
 - [x] 360 of our top-1000 agree with Hermitdave's top-1000; 16 high-
       frequency gap-words written to `../cards/frequency/gap_additions.tsv`.
 

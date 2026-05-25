@@ -1,0 +1,136 @@
+# Basic vocabulary force-injected into the deck.
+#
+# Format (TSV): lemma<TAB>gloss<TAB>tags
+#
+# Entries here bypass the frequency-list filter — they're added
+# to cards/top_1000.tsv regardless of source-rank. Use this file
+# for pedagogically-essential vocabulary that the corpus-driven
+# frequency list misses or under-ranks (spatial deixis, motion
+# imperatives, basic body parts, etc.). Per the 2026-05-14 audit:
+# `ես` (1sg "I") wasn't in the source frequency list because
+# Armenian is pro-drop — but it's fundamental for a beginner deck.
+#
+# Glosses follow the deck schema: <english> / <russian> when both
+# present, otherwise just english.
+#
+# Conventionally, an entry already present in the main deck (with
+# rank-NNNN frequency tag) takes priority — the inject pass only
+# adds rows that don't already exist. So entries here are also a
+# safety-net for "if the corpus rebuild ever drops this, it stays
+# in the deck."
+#
+# Tags column should at minimum be `frequency core-inject` so the
+# row is filterable / distinguishable in the Anki output.
+
+# === pronouns (suppressed by Armenian pro-drop in written corpora) ===
+ես	I / я	frequency core-inject
+
+# === spatial deixis ===
+աջ	right (direction) / правый, направо	frequency core-inject
+վերև	up, above / вверх, наверху	frequency core-inject
+ներքև	down, below / вниз, внизу	frequency core-inject
+վար	down, downward / вниз	frequency core-inject
+հետև	behind, back / сзади, позади	frequency core-inject
+մեջտեղ	middle, in the middle / середина, посередине	frequency core-inject
+կողք	side, beside / бок, рядом	frequency core-inject
+դուրս	out, outside / наружу, снаружи	frequency core-inject
+ներս	in, inside / внутрь, внутри	frequency core-inject
+
+# === motion / handling verbs ===
+տեղափոխել	to move (relocate), transfer / переместить, перенести	frequency core-inject
+շարժել	to move (set in motion) / двигать	frequency core-inject
+շարժվել	to move (intr.) / двигаться	frequency core-inject
+հրել	to push / толкать	frequency core-inject
+շրջել	to turn, flip / поворачивать, переворачивать	frequency core-inject
+պտտել	to rotate, spin / вращать, крутить	frequency core-inject
+գցել	to drop, throw / уронить, бросить	frequency core-inject
+ընկնել	to fall / падать	frequency core-inject
+բռնել	to hold, catch / держать, ловить	frequency core-inject
+դիպչել	to touch / трогать, касаться	frequency core-inject
+
+# === daily-life nouns ===
+բաժակ	cup, glass / чашка, стакан	frequency core-inject
+ափսե	plate / тарелка	frequency core-inject
+դանակ	knife / нож	frequency core-inject
+գդալ	spoon / ложка	frequency core-inject
+պատառաքաղ	fork / вилка	frequency core-inject
+բանալի	key / ключ	frequency core-inject
+մահճակալ	bed / кровать	frequency core-inject
+սրբիչ	towel / полотенце	frequency core-inject
+օճառ	soap / мыло	frequency core-inject
+լամպ	lamp / лампа	frequency core-inject
+կոճակ	button / пуговица, кнопка	frequency core-inject
+հատակ	floor / пол	frequency core-inject
+առաստաղ	ceiling / потолок	frequency core-inject
+խոհանոց	kitchen / кухня	frequency core-inject
+լոգարան	bathroom / ванная	frequency core-inject
+
+# === body parts ===
+մազ	hair / волосы	frequency core-inject
+քիթ	nose / нос	frequency core-inject
+ատամ	tooth / зуб	frequency core-inject
+շուրթ	lip / губа	frequency core-inject
+մաշկ	skin / кожа	frequency core-inject
+վիզ	neck / шея	frequency core-inject
+ուս	shoulder / плечо	frequency core-inject
+թև	arm, wing / рука (от плеча), крыло	frequency core-inject
+արմունկ	elbow / локоть	frequency core-inject
+ծունկ	knee / колено	frequency core-inject
+կուրծք	chest, breast / грудь	frequency core-inject
+ստամոքս	stomach / желудок	frequency core-inject
+այտ	cheek / щека	frequency core-inject
+
+# === daily verbs ===
+օգտագործել	to use / использовать	frequency core-inject
+մոռանալ	to forget / забывать	frequency core-inject
+կորցնել	to lose / терять	frequency core-inject
+քնել	to sleep / спать	frequency core-inject
+արթնանալ	to wake up / просыпаться	frequency core-inject
+հանգստանալ	to rest / отдыхать	frequency core-inject
+
+# === adjectives ===
+սառը	cold / холодный	frequency core-inject
+հեշտ	easy / лёгкий, легко	frequency core-inject
+դանդաղ	slow / медленный	frequency core-inject
+քաղցր	sweet / сладкий	frequency core-inject
+դառը	bitter / горький	frequency core-inject
+աղի	salty / солёный	frequency core-inject
+կծու	spicy, sharp / острый	frequency core-inject
+թարմ	fresh / свежий	frequency core-inject
+կեղտոտ	dirty / грязный	frequency core-inject
+դատարկ	empty / пустой	frequency core-inject
+ծանր	heavy / тяжёлый	frequency core-inject
+թեթև	light (weight) / лёгкий	frequency core-inject
+
+# === colors (gaps not in deck) ===
+դեղին	yellow / жёлтый	frequency core-inject
+շագանակագույն	brown / коричневый	frequency core-inject
+մոխրագույն	gray / серый	frequency core-inject
+նարնջագույն	orange / оранжевый	frequency core-inject
+մանուշակագույն	purple / фиолетовый	frequency core-inject
+վարդագույն	pink / розовый	frequency core-inject
+
+# === time words ===
+շուտով	soon / скоро	frequency core-inject
+հազվադեպ	rarely / редко	frequency core-inject
+կեսօր	noon, midday / полдень	frequency core-inject
+կեսգիշեր	midnight / полночь	frequency core-inject
+
+# === greetings / politeness / discourse ===
+ողջույն	hello, greetings / привет	frequency core-inject
+ցտեսություն	goodbye / до свидания	frequency core-inject
+ներողություն	sorry, excuse me / извините	frequency core-inject
+ապրես	well done, bravo / молодец	frequency core-inject
+
+# === MWUs (multi-word units) below source-rank-1000 ===
+# These multi-word phrases are in the source list (ranks 1007-1456)
+# but below the cap where the main build loop drains. Injecting them
+# explicitly. The underscore in column 1 is the canonical lemma
+# identity (matches build_ours.py's MWU merge); `annotated_lemma`
+# displays as a space-separated phrase on the card.
+ոչ_մի	no, none, not a single / ни один, никакой	frequency core-inject
+շնորհակալ_եմ	thank you / спасибо	frequency core-inject
+ոչ_ոք	nobody, no one / никто	frequency core-inject
+# `դուր_գալ` is the dative-experiencer construction documented in
+# topics/syntax/dative_experiencer.md — central to A1 deck.
+դուր_գալ	to please, to be liked / нравиться	frequency core-inject

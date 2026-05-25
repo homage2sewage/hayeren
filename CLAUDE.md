@@ -141,6 +141,35 @@ editing a topic file that contains Armenian fragments), prefix
 the prompt with `#nogrep`. The hook is registered in
 `.claude/settings.json` (committed) and survives reinstall.
 
+### Automation: same check on the response side (Stop hook)
+
+`.claude/hooks/armenian_self_check.py` runs on every `Stop`
+event (i.e. when the model finishes a draft response). It
+mirrors the auto-grounding hook in the opposite direction: if
+the draft response contains substantive Armenian-language
+content (≥ 20 Armenian characters), it runs
+`frequency/query_kb.py` on the Armenian-bearing lines and, if
+the bundle has substantive corpus matches, **blocks** the
+response with the bundle as feedback. The model then re-emits
+with the bundle in context and has to reconcile any claims
+that disagree with corpus evidence.
+
+This closes the gap that motivated 7+ failure-log entries over
+the 2026-05-09 → 2026-05-26 stretch (see
+`errors/INDEX.md`): the model would assert structurally-
+plausible-sounding Armenian analysis without checking the
+corpus, and the operator had to manually push back. The
+self-check hook automates the push-back.
+
+To skip the self-check for a specific response, include the
+literal token `#nocheck` in the response prose. The hook also
+has an anti-loop guard via the payload's `stop_hook_active`
+field — it fires at most once per turn. Activations are logged
+to `.claude/logs/armenian_self_check.jsonl` for measurement.
+
+See `research/2026-05-26-pre-emit-verification-automation.md`
+for the design rationale (options A-D considered; this is A).
+
 ## When the user reports a wrong output
 
 Always two-step, never one:
@@ -178,6 +207,20 @@ that's a signal to extend the validator, not just patch the data.
 - Run `frequency/validate_deck.py` after every
   `frequency/build_deck.py`. Inspect `info`-severity
   `ambiguous-sense` rows for fresh misranks.
+- **Editorial pass**: after the structural validator is
+  green, run the `deck-editorial-pass` skill
+  (`.claude/skills/deck-editorial-pass/`) for the
+  agent-side critic that catches the residue structural
+  checks miss (sense-priority misorder, gloss naturalness,
+  register mismatch, ambiguous sense-stacks that pass the
+  length cap). Pattern: sample N rows → spawn
+  `general-purpose` Agent with `PROMPT.md` → triage
+  findings. **Two-step rule applies to findings**:
+  ⚠ blocker → add `HAND_OVERRIDES` entry **and**
+  `frequency/golden_glosses.tsv` anchor (the fix + the
+  guard); ⚙ suggestion → at least the golden-set anchor
+  if accepted. The 2026-05-09 deck-cleanup case is the
+  canonical motivation; this skill packages the loop.
 
 ### OCR / extraction pipelines
 

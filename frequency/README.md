@@ -30,7 +30,19 @@ choices.
       `empty-translation`, `noise-translation`, `false-friend`,
       `truncated-lemma`, `inflected-leak`, `paradigm-leak`,
       `proper-noun-foreign`, `mwu-leak`, `duplicate-translation`,
-      `eu-ligature`. See `walks/2026-05-07-deck-validation-plan.md`.
+      `eu-ligature`, `ambiguous-sense`, `script-purity`,
+      `prose-gloss`, `verbose-gloss`, `golden-mismatch`, plus the
+      2026-06-03 additions `missing-russian` (top-300 Russian
+      coverage), `reserved-slash` (` / ` misused as an English
+      comma), `morpheme-noise` (a bare suffix that escaped
+      `SKIP_LEMMAS`). See `walks/2026-05-07-deck-validation-plan.md`.
+- [x] **Russian-augmentation layer** — `russian_glosses.tsv` +
+      `build_deck.load_russian_glosses()`. Back-fills Russian onto
+      English-only cards (top-300 + function words). A *translation*
+      layer (prior, not corpus-cited); appended only where the gloss
+      has no Cyrillic yet. See `CLAUDE.md` § "Card decks" and
+      `llm-workflow.md` § "The homograph trap" for the sense-bug
+      class the 2026-06-03 review surfaced.
 - [x] **Phase 3 editorial pass** — agent-driven learner-pov critic
       at `.claude/skills/deck-editorial-pass/`. Samples N rows,
       spawns a sub-agent with the editorial rubric, returns

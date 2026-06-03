@@ -204,9 +204,34 @@ that's a signal to extend the validator, not just patch the data.
 - HAND_OVERRIDES are the safety valve when kaikki's natural
   order misranks a sense (`արի`, `արա`, `դուր`, …). Add an
   override AND a golden-set entry — never just one or the other.
+- **Homograph trap.** The most insidious deck bug: a high-
+  frequency grammatical/colloquial token spelled like a rare
+  literary headword, so kaikki returns the rare sense (often the
+  *only* sense → invisible to ambiguity flagging). `մերի`
+  "woods" (gen of `մերը`), `ներ` "sister-in-law" (the `-ներ`
+  plural suffix), `գնում` "purchase" (converb of `գնալ`), `դեմ`
+  "front part" (postp "against"). Confirm in the **corpus**, not
+  the dictionary; then `SKIP_LEMMAS` if it's a form of a deck
+  lemma / noise, or `HAND_OVERRIDES` if it's the wrong sense.
+  Full drill + case list: `llm-workflow.md` § "The homograph
+  trap".
+- **Russian-augmentation layer.** Deck schema is
+  `English / Russian` (` / ` is *reserved* for that boundary —
+  never an English comma). Russian for English-only cards lives
+  in `cards/frequency/russian_glosses.tsv` (a *translation*
+  layer, prior not corpus-cited); `build_deck.py` appends
+  ` / <ru>` only when the gloss has no Cyrillic yet, so
+  hand-overrides that already carry Russian are untouched.
+  Coverage target = top-300 + function words/pronouns, tracked by
+  `check_missing_russian`. Embed short examples for function
+  words inside the gloss (`ներս` → "in, inside (ներս մտնել — to
+  enter)").
 - Run `frequency/validate_deck.py` after every
   `frequency/build_deck.py`. Inspect `info`-severity
-  `ambiguous-sense` rows for fresh misranks.
+  `ambiguous-sense` rows for fresh misranks. Newer checks:
+  `missing-russian` (coverage), `reserved-slash` (` / ` misused
+  as an English comma), `morpheme-noise` (a bare suffix slipped
+  past `SKIP_LEMMAS`).
 - **Editorial pass**: after the structural validator is
   green, run the `deck-editorial-pass` skill
   (`.claude/skills/deck-editorial-pass/`) for the
@@ -231,6 +256,43 @@ that's a signal to extend the validator, not just patch the data.
   spot-check 5–10 random pages against the rendered PDF.
 - ARMSCII-8 decoder (ghamoyan): never trust the auto-decoded
   output without comparing against the source page bitmap.
+
+### Song / lyric processing (`songs/`)
+
+- Armenian songs (esp. hip-hop / rap) are processed under
+  `songs/` — one Markdown file per song. **Read
+  `songs/README.md` first** for the routine; it is the
+  song-domain analogue of the topic-graph workflow.
+- A song file is a **provenance document**, not just a gloss
+  table: it records the latest final translation **and** how
+  each meaning was obtained (cited vs. prior), the
+  transcription source + its caveats, confidence per line, and
+  a verification log.
+- The seven-step routine (acquire+attribute text → normalize
+  colloquial spelling → KB-ground the lexicon via
+  `query_kb.py` + `grep ghamoyan` → translate per-line graded →
+  verify at granularity with critic agents → record provenance →
+  **whole-song pass over the assembled file**) mirrors the
+  grounding discipline in § "Before answering an Armenian-language
+  question." Lyrics from a lyric video / Musixmatch are a
+  **transcription**, never authoritative — flag uncertain lines
+  `low`.
+- **Mandatory citation re-audit (step 7).** Drafting subagents
+  reliably fabricate plausible-but-wrong citations — the repo's
+  canonical failure mode. After assembling the file, `grep` every
+  cited page against the corpus (the song-domain analogue of
+  `citation-check`). The 2026-06-01 *Myus Angam* whole-song pass
+  caught six wrong citations that section-by-section review missed.
+  This is the two-step rule applied to songs: the fix is the
+  audit, the guard is making it a routine step.
+- The **critic-agent pattern** applies to *meaning*: spawn
+  separate agents per verse (or per low-confidence line) framed
+  "is this gloss correct? where would it be wrong?" and
+  reconcile findings into the file's Verification log.
+- Slang glosses get a citation (`ghamoyan` p-N,
+  `topics/lexicon/yerevan_slang.md`) where attested; Russian-
+  origin slang and idioms not in corpus are marked **prior**.
+- Canonical worked example: `songs/dav-vnas-myus-angam.md`.
 
 ### Transliteration
 

@@ -92,7 +92,18 @@ Tags include `frequency top-1000 rank-NNNN src-<origin>` where
 - `—` (em dash) — no translation found; needs manual fill
 
 Cards from `ghamoyan-filler`, `frequency-gap`, and (some) hand-curated
-sources have English/Russian combined; others are English-only.
+sources have English/Russian combined. English-only cards are
+back-filled with Russian from `frequency/russian_glosses.tsv` (a
+translation layer — prior, not corpus-cited) by `build_deck.py`, which
+appends ` / <ru>` only when the gloss has no Cyrillic yet. Coverage
+target is the top-300 + function words/pronouns (tracked by
+`check_missing_russian`); rarer content nouns may remain English-only.
+
+> The ` / ` in column 2 is **reserved** for the English↔Russian
+> boundary. Multiple English senses are comma/`;`-separated, never
+> slash-separated (`check_reserved_slash` enforces this). Function
+> words may carry a short example inside the gloss, e.g.
+> `ներս  in, inside (ներս մտնել — to enter) / внутрь, внутри`.
 
 ## Card schemas (varies by source)
 

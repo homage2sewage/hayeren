@@ -293,6 +293,61 @@ as the gating part.
   `verify_citations.py`). Status snapshot, phase plan, decision
   triggers for embeddings + content-validation tightening.
 
+## The homograph trap
+
+A specific, recurring deck-builder failure worth its own name. The
+frequency list ranks *surface tokens*; the kaikki dictionary is keyed
+by *headword*. When a high-frequency grammatical or colloquial token
+is spelled the same as a rare literary headword, kaikki hands back the
+rare sense — often as the *only* sense — and the builder ships it.
+
+Canonical cases (2026-06-03 user card review):
+
+- `մերի` (rank ~39, 194 corpus hits) → kaikki "woods, forest". The
+  token is actually the genitive of the substantivized possessive
+  `մերը` ("ours") plus tokenizer spill from `Ամերիկա`. **Removed.**
+- `ներ` (rank ~191) → kaikki "sister-in-law". The token is the plural
+  suffix `-ներ`, mis-tokenized from the grammar book (`ԴՄ-ներ`,
+  "`-ներ` հոգնակերտ մասնիկ"). **Removed.**
+- `ալ` → kaikki led "scarlet"; it is the Western-Armenian/dialectal
+  form of `էլ` ("also"). kaikki's *own* second sense said so.
+- `գնում` (rank ~114) → kaikki "purchase" (noun). The token is the
+  imperfective converb of `գնալ`/`գնել` ("going/buying"); corpus is
+  all verbal (`գնում ենք`). **Removed** (both base verbs already on
+  deck) — the same treatment as other converb leaks in `SKIP_LEMMAS`.
+- `դեմ` "front part" → postposition "against"; `տակ` "bottom" →
+  postposition "under"; `ներս` "the inside" → postposition "inside";
+  `կողմ` "around, at about" → noun "side". Postpositions glossed with
+  their rare bare-noun sense.
+
+Why it evades the structural validator: the wrong gloss is a real,
+well-formed dictionary entry — it round-trips, cites, and passes every
+byte-level check. **A single-sense kaikki entry that is the wrong
+(rare) sense is invisible to ambiguity flagging**, because there's no
+second sense to flag against.
+
+The tells, and the drill:
+
+1. **High rank + concrete-rare-noun gloss** on a token that "feels"
+   grammatical (pronoun/postposition/particle/converb) is the smell.
+2. **Confirm in the corpus, not the dictionary.** `grep` the token in
+   `{sakayan,ghamoyan}/out/full.jsonl`: if real usage is verbal or
+   grammatical, the dictionary noun is a homograph.
+3. **Decide:** is the token a *form of a lemma already on deck*
+   (converb, definite-form, possessive-genitive)? → `SKIP_LEMMAS`. Is
+   it a real word with the wrong sense picked? → `HAND_OVERRIDES` with
+   the right sense. Is it tokenizer/metalinguistic noise? → `SKIP` +
+   `MORPHEME_NOISE` guard.
+4. **Guard it.** Golden anchor for every re-gloss; `SKIP_LEMMAS` entry
+   + `check_morpheme_noise` for every removal. The sweep is cheap to
+   re-run: the Russian-augmentation subagents double as a homograph
+   sweep (translating a gloss forces reading it, which surfaces the
+   wrong ones).
+
+This is the deck-domain twin of the `խոտ` lexicon case below: the
+structural layers (here: the dictionary lookup) are confidently wrong
+exactly where corpus grounding is the only fix.
+
 ## Worked examples
 
 Real cases that illustrate the failure mode in action and what

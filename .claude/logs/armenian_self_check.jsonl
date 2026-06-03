@@ -2,3 +2,21 @@
 {"ts": "2026-05-26T02:58:40", "stop_hook_active": false, "response_chars": 232, "armenian_chars": 40, "action": "block", "bundle": "# KB-grounding bundle\n\n## Query\n\n```\nIn Armenian, the verb ներել means 'to forgive'. The aorist subjunctive 2pl form is ներեցեք. Compare to the կ-future indicative 2pl: կներեք. Both are used as polite apology forms. Example from Sakayan p136: Կներես, ինձ դուր չի գալիս։\n```\n\n## Lemmas extracted\n\n| to"}
 {"ts": "2026-05-26T02:59:00", "stop_hook_active": true, "response_chars": 139, "armenian_chars": 19, "action": "skip", "bundle": ""}
 {"ts": "2026-05-26T03:00:18", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-05-28T20:26:54", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-05-28T20:37:16", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T19:12:16", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T19:14:37", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T19:19:38", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T19:23:32", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T19:27:35", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T20:01:54", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T20:39:58", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T20:41:24", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T20:50:08", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T21:39:37", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T21:43:54", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T22:00:30", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T22:08:11", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-01T22:40:22", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-02T17:59:18", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}
+{"ts": "2026-06-03T03:42:03", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip", "bundle": ""}

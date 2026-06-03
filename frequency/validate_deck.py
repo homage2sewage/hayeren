@@ -177,8 +177,18 @@ def check_false_friend(rows: list[Row], findings: list[Finding]) -> None:
 
 
 def check_truncated(rows: list[Row], findings: list[Finding]) -> None:
-    """Lemma not in dict, but dict has lemma+`ի` or lemma+`ություն`,
-    suggesting we cut off a derivational suffix."""
+    """Lemma not in dict, but dict has lemma+`ի`, suggesting we cut
+    off an inflectional suffix from a word whose citation form ends
+    in `-ի` (e.g. `ուղի`, `գինի`, `բանալի`).
+
+    NOTE: we deliberately do NOT test the `-ություն` tail. The
+    lemmatizer (build_ours.py:169-172) only *normalizes* inflected
+    `-ություն` forms back to `-ություն`; it never strips `-ություն`
+    down to a bare stem. So a deck lemma can never be a `-ություն`
+    truncation artifact. Adding the tail only produces false
+    positives on legitimate base/abstract-noun derivational pairs
+    (`միավոր`/`միավորություն`, `պայմանավորված`/`պայմանավորվածություն`)
+    where the base happens to be absent from the kaikki dump."""
     d = dictionary.load_dict()
     for lemma, tr, tags in rows:
         if "_" in lemma or len(lemma) < 3:
@@ -186,7 +196,7 @@ def check_truncated(rows: list[Row], findings: list[Finding]) -> None:
         if lemma.lower() in d:
             continue
         # Don't double-count proper-noun cases (handled separately).
-        for tail in ("ի", "ություն"):
+        for tail in ("ի",):
             cand = lemma.lower() + tail
             if cand in d:
                 _emit(findings, "error", rank_of(tags), lemma, tr,
@@ -554,6 +564,75 @@ def check_golden_glosses(rows: list[Row], findings: list[Finding]) -> None:
                   f"{', '.join(alts)}")
 
 
+_CYRILLIC_RE = re.compile(r"[А-Яа-яЁё]")
+
+# Grammatical morphemes / suffix tokens that must NEVER appear as
+# standalone cards. They reach the frequency list as tokenizer spill
+# or metalinguistic mentions in the grammar books (e.g. the plural
+# `-ներ` discussed as "-ներ հոգնակերտ մասնիկ"), and kaikki happily
+# glosses them as rare literary homographs. build_deck.SKIP_LEMMAS
+# drops them; this check is the regression guard — if a SKIP is ever
+# removed, the noise card resurfaces and this fires. Extend together
+# with SKIP_LEMMAS.
+MORPHEME_NOISE = {
+    "ներ",   # plural suffix -ներ (kaikki: "sister-in-law")
+    "երի",   # gen of plural -եր
+    "ին",    # dative/definite tail
+    "ություն",  # bare abstract-noun suffix
+    "մերի",  # gen of substantivized possessive մերը (kaikki: "woods")
+    "մեկն",  # definite nom. sg. of մեկ (kaikki: rare adv "upright")
+}
+
+# How deep the "every card should ideally carry a Russian gloss"
+# expectation runs. Per the 2026-06-03 review the committed coverage
+# target is the top-300 plus function words; below that, English-only
+# is acceptable, so we don't want to drown the report in info rows.
+RUSSIAN_COVERAGE_RANK = 300
+
+
+def check_missing_russian(rows: list[Row], findings: list[Finding]) -> None:
+    """Coverage tracker (info): a top-RUSSIAN_COVERAGE_RANK card whose
+    gloss has no Cyrillic. The deck schema is `English / Russian`; the
+    Russian half disambiguates senses (esp. for function words) and is
+    a committed coverage target for the high-frequency core. Populate
+    via cards/frequency/russian_glosses.tsv. Info-severity by design —
+    it measures a gap, it doesn't block."""
+    for lemma, tr, tags in rows:
+        rank = rank_of(tags)
+        if rank == -1 or rank > RUSSIAN_COVERAGE_RANK:
+            continue
+        if not _CYRILLIC_RE.search(tr):
+            _emit(findings, "info", rank, _strip_annot(lemma), tr,
+                  "missing-russian",
+                  "top-300 card has no Russian gloss; add a row to "
+                  "russian_glosses.tsv")
+
+
+def check_reserved_slash(rows: list[Row], findings: list[Finding]) -> None:
+    """The deck reserves ` / ` strictly for the English/Russian
+    boundary. A gloss that contains ` / ` but NO Cyrillic anywhere is
+    misusing the slash as an English comma-separator (e.g. the
+    `to cry / to weep` bug). That also breaks the Russian-augmentation
+    layer, which skips such rows rather than appending a third part."""
+    for lemma, tr, tags in rows:
+        if " / " in tr and not _CYRILLIC_RE.search(tr):
+            _emit(findings, "warning", rank_of(tags), _strip_annot(lemma),
+                  tr, "reserved-slash",
+                  "` / ` is reserved for the EN/RU boundary; use a comma "
+                  "between English senses")
+
+
+def check_morpheme_noise(rows: list[Row], findings: list[Finding]) -> None:
+    """Regression guard: a bare grammatical morpheme surfaced as a
+    card (see MORPHEME_NOISE). Means a SKIP_LEMMAS entry was dropped."""
+    for lemma, tr, tags in rows:
+        if _strip_annot(lemma) in MORPHEME_NOISE:
+            _emit(findings, "error", rank_of(tags), _strip_annot(lemma),
+                  tr, "morpheme-noise",
+                  "bare grammatical morpheme / tokenizer spill — should "
+                  "be in build_deck.SKIP_LEMMAS, not a card")
+
+
 # ---- driver ---------------------------------------------------------------
 
 CHECKS = [
@@ -572,6 +651,9 @@ CHECKS = [
     check_prose_gloss,
     check_verbose_gloss,
     check_redundant_language_parenthetical,
+    check_missing_russian,
+    check_reserved_slash,
+    check_morpheme_noise,
 ]
 
 

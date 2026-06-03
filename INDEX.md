@@ -61,6 +61,9 @@ subdirectories — keep top level limited to this index and shared assets.
 │   ├── syntax/                    # pro-drop, dative-experiencer, …
 │   ├── lexicon/                   # code-switching, slang, idioms, expressives
 │   └── pragmatics/                # intimate register
+├── songs/                         # lyric translation + provenance (Armenian hip-hop etc.)
+│   ├── README.md                  # the per-song processing routine
+│   └── <artist>-<slug>.md         # one provenance-documented translation per song
 ├── walks/                         # dated "walk through book X for phenomenon Y" notes
 ├── research/                      # dated investigation notes
 │   └── 2026-05-09-answer-pipeline-roadmap.md   # ⭐ current status of the citation-grounded answer pipeline (Phases 1-5+)

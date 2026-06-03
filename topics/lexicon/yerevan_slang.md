@@ -3,6 +3,8 @@ topic: Yerevan slang and jargon
 domain: lexicon
 units: [ghamoyan:3]
 related: [code-switching-with-russian, idioms-phrasal]
+known_failure_modes:
+  - errors/2026-06-01-001-song-subagent-fabricated-citations.md
 status: draft
 attestation: single-source
 sources:

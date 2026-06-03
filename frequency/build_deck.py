@@ -382,14 +382,14 @@ HAND_OVERRIDES: dict[str, str] = {
     "ուսումնական": "academic, school (related) / учебный, школьный",
     "պարզել":     "to clarify, clean, purify / прояснить, очистить",
     # Postposition is the dominant sense; "the inside" is rare.
-    "մեջ":        "in, inside; among (postposition) / в, внутри; среди",
+    "մեջ":        "in, inside (տան մեջ — in the house); among / в, внутри; среди",
     # Both senses: noun "example" + adverbial "for example".
     "օրինակ":     "example; for example (also: օրինակի համար) / пример; например",
     # Numeral, not the rare "lettuce" noun sense kaikki listed first.
     "հազար":      "thousand / тысяча",
     # Postposition senses are dominant for high-frequency
     # function-word lemmas; kaikki lists noun first.
-    "համար":      "for (postposition); number / для (послелог); номер",
+    "համար":      "for (ինձ համար — for me); number / для (послелог); номер",
     "հետ":        "with (postposition); back (noun) / с (послелог); назад",
     # Vocabulary that the source frequency list has in top-1000 but
     # which the offline kaikki dictionary doesn't cover. Without
@@ -418,7 +418,7 @@ HAND_OVERRIDES: dict[str, str] = {
     "շարահյուսական": "syntactic / синтаксический",
     "գործառական": "functional / функциональный",
     "իրադրություն": "situation / ситуация, обстановка",
-    "արտահայտչական": "expressive (of expression) / выразительный",
+    "արտահայտչական": "expressive / выразительный",
     "հուզական":   "emotional / эмоциональный",
     "միևնույն":   "the very same / тот же самый",
     "նորմ":       "norm / норма",
@@ -462,6 +462,75 @@ HAND_OVERRIDES: dict[str, str] = {
     "մի_շարք":    "a series, a number of / ряд, несколько",
     "ամեն_ինչ":   "everything / всё",
     "մի_օր":      "one day, someday / однажды, как-то раз",
+    # ⚠ blocker fixes from 2026-06-01 editorial pass — kaikki's
+    # natural sense order picked a marked/wrong sense over the
+    # learner-useful one. Each fix has a golden_glosses.tsv anchor.
+    # `գոյական` is a grammar term ("noun" the word-class) — kaikki
+    # led with the adjective "existing".
+    "գոյական":    "noun (grammatical term) / существительное",
+    # Ordinal, not the adverb "fifthly" that kaikki led with.
+    "հինգերորդ":  "fifth / пятый",
+    # kaikki's "outer member, limb" is an odd lead; the everyday
+    # senses are member (of a group/body) and limb.
+    "անդամ":      "member; limb / член; конечность",
+    # Jussive particle — see topics/morphology/jussive_thogh_subjunctive.md.
+    # Russian пусть. "let (him/it…)" is the core sense; sakayan gave
+    # the bare "may, let".
+    "թող":        "let (him/it/them); may / пусть",
+    # ⚙ suggestion fixes — sense-priority over kaikki's lead sense.
+    # տեսություն's dominant sense is "theory"; kaikki led "survey;
+    # roundup".
+    "տեսություն": "theory; survey / теория; обзор",
+    # հարցում's modern dominant sense is "survey, poll"; kaikki's
+    # "formal address" is odd.
+    "հարցում":    "survey, poll; inquiry / опрос; запрос",
+    # Contrastive conjunction "whereas" dominates the temporal
+    # "meanwhile" kaikki led with.
+    "մինչդեռ":    "whereas, while / тогда как, в то время как",
+    # Reorder: core sense is "until/till", not "as far as".
+    "մինչև":      "until, till; up to / до, вплоть до",
+    # Trim kaikki's 4-synonym stacks to the learner-useful lead.
+    "սովորաբար":  "usually / обычно",
+    "ձգտում":     "aspiration, striving / стремление",
+    # ── 2026-06-03 user card-review pass ──────────────────────────
+    # Homograph-trap sense fixes, pronoun citation forms, Russian
+    # added, short embedded examples for function words. kaikki's
+    # lead (or only) sense was the rare/wrong one for these high-
+    # frequency tokens. Each has a golden_glosses.tsv anchor.
+    "թե":         "that; whether; or / что; ли; или",
+    "խոսք":       "word; speech, talk / слово; речь",
+    "տարբեր":     "different, various / разный, различный",
+    "իրենք":      "they (themselves) / они (сами)",
+    # Genitive/dative of իրենք — citation note like նրա/նրան.
+    "իրենց":      "their; them (gen/dat of իրենք) / их, им",
+    "կողմ":       "side, direction; party / сторона; направление",
+    "սեփական":    "own, one's own; private / собственный; частный",
+    # Syncretic gen/dat/acc of ով (animate): "whose / to whom / whom".
+    "ում":       "whom; whose; to whom (gen/dat/acc of ով) / кому, чей, кого",
+    # kaikki picked the rare adj "scarlet"; corpus + kaikki's own adv
+    # sense show this is the Western-Armenian/dialectal form of էл.
+    "ալ":         "also, too (W. Arm. / dialectal, = էл) / тоже, и",
+    "իմաստ":      "sense, meaning / смысл, значение",
+    "սակայն":     "however, but, yet / однако, но",
+    "դրանք":      "those; they (inanimate) / те; они",
+    "երևույթ":    "phenomenon; appearance (բնական երևույթ) / явление",
+    "տվյալ":      "given, this; data (pl. տվյալներ) / данный; данные",
+    # kaikki led the adj "more than"; core sense is the adverb "up".
+    "վեր":        "up, upward; upper part / вверх; верх",
+    "անվանի":     "famous, renowned / знаменитый, именитый",
+    "փոխարեն":    "instead of (իմ փոխարեն — instead of me) / вместо",
+    # Second wave — homograph traps surfaced by the Russian-
+    # augmentation sweep: postpositions glossed as bare nouns, plus
+    # the ` / `-as-comma bug. Each has a golden anchor.
+    "դեմ":        "against; opposite (postposition) / против",
+    "տակ":        "under, beneath (postposition); bottom / под; низ",
+    "ներս":       "in, inside (ներս մտնել — to enter) / внутрь, внутри",
+    "հավանել":    "to like, to approve; to agree / нравиться, одобрять",
+    "լսել":       "to hear, to listen; to obey / слышать, слушать; слушаться",
+    # ` / ` was misused as an English comma-separator (the deck
+    # reserves ` / ` strictly for the English/Russian boundary).
+    "լալ":        "to cry, to weep / плакать, рыдать",
+    "ելնել":      "to go out, to rise / выходить, подниматься",
 }
 
 
@@ -488,12 +557,28 @@ SKIP_LEMMAS: set[str] = {
     "ուտում",      # imperfective participle of ուտել
     "կերել",       # past participle of ուտել
     "գործում",     # imperfective converb of գործել
+    "գնում",       # imperfective converb of գնալ (rank 132) /
+                   # գնել (rank 959), both in deck; kaikki glossed it
+                   # the rare noun "purchase" (homograph trap, rank 114)
     "լինեի",       # 1sg subj/optative of լինել
     "խոսքը",       # def. nom. sg. of խոսք
     "խոսքն",       # def. variant of խոսք
     "խոսքին",      # def. dat. sg. of խոսք
     "գլուխը",      # def. nom. sg. of գլուխ
     "միտքը",       # def. nom. sg. of միտք
+    # 2026-06-03 homograph-trap / corpus-noise removals (user card
+    # review). High-frequency tokens whose ONLY kaikki sense is a
+    # rare literary noun — the token is actually a grammatical form
+    # or tokenizer spill, NEVER the dictionary headword. See
+    # llm-workflow.md § "Homograph trap" and check_morpheme_noise.
+    "մերի",        # gen of substantivized possessive մերը ("ours")
+                   # + tokenizer spill from Ամերիկա; kaikki glossed
+                   # it the rare noun "woods, forest" at rank ~39.
+    "ներ",         # the plural suffix -ներ, mis-tokenized from the
+                   # ghamoyan grammar book (ԴՄ-ներ); kaikki: the
+                   # rare noun "sister-in-law".
+    "մեկն",        # definite nom. sg. of մեկ (rank 42, in deck);
+                   # kaikki's rare adverb "upright" is the wrong sense.
     "ինք",         # W. Arm. / colloq variant of ինքը
     "ել",          # rare, ambiguous (could be ելք or "and-too")
     # 2026-05-14 additions: vetted by sub-agent. Three buckets:
@@ -663,6 +748,36 @@ def _is_personal_name(lemma: str) -> bool:
     if not entries:
         return False
     return all(pos.lower() == "name" for pos, _ in entries)
+
+
+_HAS_CYRILLIC = re.compile(r"[А-Яа-яЁё]")
+
+
+def load_russian_glosses() -> dict[str, str]:
+    """Lemma → Russian gloss, from cards/frequency/russian_glosses.tsv.
+
+    This is a *translation* layer, NOT a corpus-cited one: the Russian
+    is human/LLM prior (translation of the English gloss), so it lives
+    in its own file with a clear header rather than mixing into
+    HAND_OVERRIDES. build_deck appends ` / <ru>` to a card only when
+    its English gloss has no Cyrillic yet, so a hand-override that
+    already carries Russian is never double-glossed. Keys are bare /
+    underscored lemmas (MWUs use `_`). `#` lines are comments."""
+    path = FREQUENCY_CARDS / "russian_glosses.tsv"
+    out: dict[str, str] = {}
+    if not path.exists():
+        return out
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            if not line.strip() or line.lstrip().startswith("#"):
+                continue
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) < 2:
+                continue
+            key, ru = parts[0].strip(), parts[1].strip()
+            if key and ru:
+                out[key] = ru
+    return out
 
 
 # Display-form overrides for cases where the frequency-list lemma
@@ -856,6 +971,28 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
             stats["core-inject"] = injected
             print(f"  injected {injected} core-vocab rows from "
                   f"{inject_path.name}", file=sys.stderr, flush=True)
+
+    # Russian-augmentation layer: append ` / <ru>` to any card whose
+    # English gloss still lacks Cyrillic and whose lemma has an entry
+    # in russian_glosses.tsv. Runs last so core-injected cards are
+    # covered too. Translation layer (prior) — see load_russian_glosses.
+    ru_map = load_russian_glosses()
+    if ru_map:
+        ru_added = 0
+        for r in rows_out:
+            key = _lemma_key(r[0]) or r[0]
+            # Skip if Russian already present, or if the gloss already
+            # contains the reserved ` / ` separator (a malformed EN/EN
+            # gloss — appending would make a 3-part gloss; let the
+            # validator flag those instead of compounding them).
+            if (key in ru_map and not _HAS_CYRILLIC.search(r[1])
+                    and " / " not in r[1]):
+                r[1] = f"{r[1]} / {ru_map[key]}"
+                ru_added += 1
+        if ru_added:
+            stats["russian-augmented"] = ru_added
+            print(f"  augmented {ru_added} cards with Russian glosses "
+                  f"from russian_glosses.tsv", file=sys.stderr, flush=True)
 
     with out_path.open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f, delimiter="\t", lineterminator="\n")

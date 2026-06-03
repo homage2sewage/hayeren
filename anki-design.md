@@ -367,6 +367,28 @@ The two languages are joined into a single back-of-card field with
 ` / ` as separator. Each side holds 2-3 quick equivalents (no
 etymology, no Wiktionary annotations).
 
+> **` / ` is reserved.** It marks the English↔Russian boundary and
+> nothing else. Separate multiple English senses with commas or `;`
+> — never ` / ` (the `to cry / to weep` bug). `check_reserved_slash`
+> in `validate_deck.py` enforces this; the Russian-augmentation layer
+> also refuses to touch a row that already contains ` / `.
+
+**Embedded examples.** Function words (postpositions, particles) and
+abstract nouns are hard to learn from a bare gloss, so a short
+in-gloss example is allowed, kept terse and on the English side:
+`մեջ` → "in, inside (տան մեջ — in the house); among", `փոխարեն` →
+"instead of (իմ փոխարեն — instead of me)". Decided 2026-06-03 over a
+4th column, to avoid touching every TSV consumer. Watch the
+`verbose-gloss` cap (90 chars for an en/ru pair).
+
+**Russian coverage.** Cards from English-only sources (kaikki,
+sakayan-vocab) get Russian back-filled from
+`cards/frequency/russian_glosses.tsv` — a *translation* layer (prior,
+not corpus-cited), applied by `build_deck.py` only where the gloss has
+no Cyrillic yet. Committed coverage target: top-300 + function
+words/pronouns (tracked by `check_missing_russian`); rarer content
+nouns may stay English-only.
+
 **Why combined-language back, not separate fields:** the user's
 intuition (which lines up with how cross-language semantic
 triangulation is supposed to work) — for fillers/discourse markers

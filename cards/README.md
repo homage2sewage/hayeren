@@ -62,11 +62,15 @@ Two natural workflows:
 ## Schema for `top_1000.tsv`
 
 ```
-Armenian [phonetic-respell] \t  <HTML: English / Russian>  \t  frequency <category>
+<HTML: Armenian [phonetic-respell]> \t  <HTML: English / Russian>  \t  frequency <category>
 ```
 
-The gloss column is **Anki HTML** (since 2026-06-03): English bold,
-Russian muted gray on a new line (`<br>`), embedded examples italic.
+**Both** the Armenian (front) and gloss (back) columns are **Anki
+HTML**. Front: the lemma **bold**, the `[phonetic-respell]` small and
+muted gray on the same line (`<b>կարդալ</b> <span
+style='color:#888;font-size:0.8em'>[կարտալ]</span>`). Back: English
+bold, Russian muted gray on a new line (`<br>`), embedded examples
+italic.
 **Import into Anki with "Allow HTML in fields" enabled.** The tag
 column is just `frequency top-1000` / `frequency core-inject` /
 `frequency phrasal-verb` — rank and source were dropped from the card

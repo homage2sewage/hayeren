@@ -148,7 +148,9 @@ def read_deck(path: Path = DECK_PATH) -> list[Row]:
         for r in csv.reader(f, delimiter="\t"):
             if len(r) < 3:
                 continue
-            lemma, gloss, tags = r[0], plain_gloss(r[1]), r[2]
+            # Both the lemma (front) and gloss (back) columns are now
+            # Anki HTML; strip back to plain text for keying + checks.
+            lemma, gloss, tags = plain_gloss(r[0]), plain_gloss(r[1]), r[2]
             # Reconstruct rank/src into the tags string so the existing
             # rank_of()/`src-…` checks keep working unchanged.
             if lemma in meta:

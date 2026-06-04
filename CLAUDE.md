@@ -226,15 +226,17 @@ that's a signal to extend the validator, not just patch the data.
   `check_missing_russian`. Embed short examples for function
   words inside the gloss (`ներս` → "in, inside (ներս մտնել — to
   enter)").
-- **Output is HTML (2026-06-03).** Authoring stays plain
-  `English / Russian`; `build_deck.render_gloss` emits tasteful
-  Anki HTML at write time — English bold, Russian gray
+- **Output is HTML (2026-06-03).** Both columns are Anki HTML.
+  Authoring stays plain; `render_gloss` + `render_lemma` emit it at
+  write time. Gloss: English bold, Russian gray
   (`<span style='color:#888'>`), examples italic, EN/RU split on
-  `<br>`. Import with **"Allow HTML in fields" enabled**. Single-
-  quoted attrs only (the CSV writer would quote-escape `"`).
-  `render_gloss` splits on the *last* ` / ` (English may contain a
-  parenthetical slash). The validator strips HTML via
-  `plain_gloss()` before its text checks.
+  `<br>`. Front: lemma bold, `[respell]` small gray on the same line.
+  Import with **"Allow HTML in fields" enabled**. Single-quoted attrs
+  only (the CSV writer would quote-escape `"`). `render_gloss` splits
+  on the *last* ` / ` (English may contain a parenthetical slash).
+  The validator strips HTML from *both* columns via `plain_gloss()`
+  before its checks; the `deck_meta.tsv` sidecar is keyed by the
+  plain lemma.
 - **Tags are `frequency top-1000` / `core-inject` /
   `phrasal-verb`** — rank and src dropped from the card per user
   request. They live in the `frequency/out/deck_meta.tsv` sidecar,

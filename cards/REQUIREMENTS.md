@@ -18,10 +18,13 @@ are the implementation and the automated guards.
 ## 2. Card schema
 
 - Three tab-separated columns: **Armenian** · **gloss** · **tags**.
-- **Armenian column**: the lemma (citation form). May carry a
-  `[phonetic-respell]` annotation in Armenian script when pronunciation
-  deviates from spelling (`կարդալ [կարտալ]`). No bracket if no
-  deviation.
+- **Armenian column**: the lemma (citation form), rendered as Anki
+  **HTML** — lemma **bold**, the optional `[phonetic-respell]` small
+  and muted gray on the same line. The respell is Armenian script and
+  appears only when pronunciation deviates from spelling
+  (`կարդալ [կարտալ]`). No bracket if no deviation. The plain lemma
+  remains the internal key (sidecar, validator) — HTML is emit-time
+  only.
 - **Gloss column**: rendered as **Anki HTML** — English **bold**,
   Russian muted gray, on separate lines (`<br>`); embedded examples
   italic. Import with "Allow HTML in fields" enabled. Authoring is

@@ -875,6 +875,21 @@ def _fmt_english(en: str) -> str:
     return " ".join(out)
 
 
+def render_lemma(annotated: str) -> str:
+    """Render the Armenian front column to Anki HTML: the lemma bold,
+    the optional `[phonetic-respell]` small and muted gray on the same
+    line (`կարդալ [կարտալ]` → bold `կարդալ`, gray `[կարտալ]`). Mirrors
+    `render_gloss`; authoring/keys stay plain, this runs at emit time.
+    The validator strips it back via `plain_gloss`."""
+    m = re.match(r"^(.*?)\s*(\[[^\]]*\])$", annotated)
+    if m:
+        base, resp = m.group(1), m.group(2)
+        return (f"<b>{_esc(base)}</b> "
+                f"<span style='color:#888;font-size:0.8em'>{_esc(resp)}"
+                f"</span>")
+    return f"<b>{_esc(annotated)}</b>"
+
+
 def render_gloss(plain: str) -> str:
     """Render a plain `English / Russian` gloss to tasteful Anki HTML:
     English bold, Russian in muted gray on a new line, examples italic.
@@ -1130,7 +1145,9 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
             # Display tag = first two internal tokens: `frequency
             # <category>` (top-1000 / core-inject / phrasal-verb).
             display_tag = " ".join(tags.split()[:2])
-            w.writerow([lemma, render_gloss(plain), display_tag])
+            # Sidecar keeps the PLAIN lemma as key; the card gets HTML.
+            w.writerow([render_lemma(lemma), render_gloss(plain),
+                        display_tag])
 
     print(f"\nWrote {len(rows_out)} cards → {out_path}", file=sys.stderr)
     if skipped_names:

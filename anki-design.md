@@ -367,10 +367,11 @@ The two languages are joined into a single back-of-card field with
 ` / ` as separator. Each side holds 2-3 quick equivalents (no
 etymology, no Wiktionary annotations).
 
-> **HTML formatting (2026-06-03, `top_1000.tsv`).** The back field is
-> now rendered as Anki HTML: English **bold**, Russian muted gray, the
-> two on separate lines (`<br>`), embedded examples italic. Import
-> with **"Allow HTML in fields" enabled**. Authoring stays plain
+> **HTML formatting (2026-06-03, `top_1000.tsv`).** Both fields are
+> Anki HTML. Back: English **bold**, Russian muted gray, on separate
+> lines (`<br>`), examples italic. Front: lemma **bold**, the
+> `[phonetic-respell]` small + muted gray on the same line
+> (`render_lemma`). Import with **"Allow HTML in fields" enabled**. Authoring stays plain
 > `English / Russian` — `build_deck.render_gloss` does the rendering,
 > and the validator strips it back to plain text for its checks.
 > `build_deck` splits on the *last* ` / ` so an English parenthetical

@@ -35,7 +35,19 @@ choices.
       2026-06-03 additions `missing-russian` (top-300 Russian
       coverage), `reserved-slash` (` / ` misused as an English
       comma), `morpheme-noise` (a bare suffix that escaped
-      `SKIP_LEMMAS`). See `walks/2026-05-07-deck-validation-plan.md`.
+      `SKIP_LEMMAS`), `mixed-script-gloss` (Armenian+Cyrillic in one
+      gloss token), `duplicate-override-key` (an AST guard: a dict
+      key duplicated in build_deck.py silently shadows). The deck
+      file is now Anki **HTML**; the validator strips it via
+      `plain_gloss()` and recovers rank/src from the
+      `out/deck_meta.tsv` sidecar (the card tag is just
+      `frequency <category>`). See
+      `walks/2026-05-07-deck-validation-plan.md`.
+- [x] **Phrasal / light-verb cards** — `cards/frequency/phrasal_verbs.tsv`,
+      mined from the parnasyan + tioyan textbook corpora
+      (corpus-grounded, Russian from the books' own glosses),
+      injected with tag `frequency phrasal-verb`. Covers `դուր գալ`,
+      `հարց տալ`, `տեղի ունենալ`, `դատ բանալ`, … (item 4/5). Grows freely.
 - [x] **Russian-augmentation layer** — `russian_glosses.tsv` +
       `build_deck.load_russian_glosses()`. Back-fills Russian onto
       English-only cards (top-300 + function words). A *translation*

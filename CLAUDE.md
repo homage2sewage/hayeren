@@ -215,7 +215,7 @@ that's a signal to extend the validator, not just patch the data.
   lemma / noise, or `HAND_OVERRIDES` if it's the wrong sense.
   Full drill + case list: `llm-workflow.md` § "The homograph
   trap".
-- **Russian-augmentation layer.** Deck schema is
+- **Russian-augmentation layer.** Authoring schema is
   `English / Russian` (` / ` is *reserved* for that boundary —
   never an English comma). Russian for English-only cards lives
   in `cards/frequency/russian_glosses.tsv` (a *translation*
@@ -226,12 +226,35 @@ that's a signal to extend the validator, not just patch the data.
   `check_missing_russian`. Embed short examples for function
   words inside the gloss (`ներս` → "in, inside (ներս մտնել — to
   enter)").
+- **Output is HTML (2026-06-03).** Authoring stays plain
+  `English / Russian`; `build_deck.render_gloss` emits tasteful
+  Anki HTML at write time — English bold, Russian gray
+  (`<span style='color:#888'>`), examples italic, EN/RU split on
+  `<br>`. Import with **"Allow HTML in fields" enabled**. Single-
+  quoted attrs only (the CSV writer would quote-escape `"`).
+  `render_gloss` splits on the *last* ` / ` (English may contain a
+  parenthetical slash). The validator strips HTML via
+  `plain_gloss()` before its text checks.
+- **Tags are `frequency top-1000` / `core-inject` /
+  `phrasal-verb`** — rank and src dropped from the card per user
+  request. They live in the `frequency/out/deck_meta.tsv` sidecar,
+  which the validator loads so its rank/`src-`-aware checks still
+  work. Don't put `rank-NNNN` back on the card.
+- **Numbers are digits** (`մեկ`→`1`, `հինգերորդ`→`5th`) via
+  `NUMBER_DIGITS`; digit-only glosses are exempt from
+  `check_missing_russian`.
+- **Phrasal / light-verb cards** live in
+  `cards/frequency/phrasal_verbs.tsv` (mined from the textbook
+  corpora, corpus-grounded), injected with tag
+  `frequency phrasal-verb`. The list may grow.
 - Run `frequency/validate_deck.py` after every
   `frequency/build_deck.py`. Inspect `info`-severity
-  `ambiguous-sense` rows for fresh misranks. Newer checks:
-  `missing-russian` (coverage), `reserved-slash` (` / ` misused
-  as an English comma), `morpheme-noise` (a bare suffix slipped
-  past `SKIP_LEMMAS`).
+  `ambiguous-sense` rows for fresh misranks. Checks added across
+  the 2026-06-03 reviews: `missing-russian`, `reserved-slash`,
+  `morpheme-noise`, `mixed-script-gloss` (Armenian+Cyrillic in one
+  gloss token — the `էл`-with-Cyrillic-`л` bug), and
+  `duplicate-override-key` (a dict key duplicated in build_deck.py
+  silently shadows — caught the `դուր` regression).
 - **Editorial pass**: after the structural validator is
   green, run the `deck-editorial-pass` skill
   (`.claude/skills/deck-editorial-pass/`) for the

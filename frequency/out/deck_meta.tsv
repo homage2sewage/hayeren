@@ -1,0 +1,1098 @@
+lemma	rank	src
+լինել	0001	sakayan-paradigm
+որ	0002	hand-override
+ու	0003	hand-override
+մի	0004	hand-override
+կարդալ [կարտալ]	0005	sakayan-paradigm
+ունենալ	0006	sakayan-vocab
+ինչ	0007	hand-override
+գրել	0008	sakayan-paradigm
+այլ	0009	sakayan-vocab
+նա	0010	hand-override
+ինչպես	0011	hand-override
+այս	0012	hand-override
+լեզու	0014	sakayan-vocab
+գալ	0015	sakayan-vocab
+չէ	0016	hand-override
+շատ	0017	hand-override
+էլ	0018	sakayan-vocab
+ոչ	0019	hand-override
+իր	0020	hand-override
+խոսակցական	0021	dictionary
+այն	0022	hand-override
+մեջ [մեչ]	0023	hand-override
+տալ	0024	sakayan-paradigm
+կամ	0025	hand-override
+թե	0026	hand-override
+այդ [այտ]	0027	hand-override
+հայերեն	0028	hand-override
+իսկ	0029	hand-override
+խոսք	0030	hand-override
+նաև	0031	hand-override
+համար	0032	hand-override
+պետք	0033	dictionary
+դու	0034	hand-override
+երբ [երփ]	0035	hand-override
+նրա	0036	hand-override
+բայց	0037	hand-override
+երևան	0038	dictionary
+հետ	0039	hand-override
+ասել	0040	sakayan-vocab
+մեկ	0041	dictionary
+անել	0042	sakayan-vocab
+քանի	0043	sakayan-vocab
+կարող	0044	hand-override
+ավելի	0045	dictionary
+բոլոր	0046	hand-override
+մեծ	0047	sakayan-vocab
+նրանք	0048	hand-override
+մենք	0049	hand-override
+ինձ	0050	hand-override
+նրան	0051	hand-override
+խոսել	0052	sakayan-vocab
+լավ	0053	sakayan-vocab
+որոնք	0054	dictionary
+դուք	0055	hand-override
+վրա	0056	hand-override
+մարդ [մարթ]	0057	sakayan-vocab
+քեզ	0058	hand-override
+երկու	0059	dictionary
+ով	0060	hand-override
+ուտել	0061	sakayan-paradigm
+իմ	0062	hand-override
+օրինակ	0063	hand-override
+նրանց	0064	hand-override
+սեր	0065	frequency-gap
+գրական	0066	dictionary
+նոր	0067	sakayan-vocab
+ամեն	0068	hand-override
+բառ	0069	dictionary
+տեսնել	0070	sakayan-vocab
+այստեղ	0071	hand-override
+բան	0072	dictionary
+ձեր	0073	hand-override
+եթե	0074	sakayan-vocab
+օր	0075	sakayan-vocab
+առաջ [առաչ]	0076	hand-override
+այո	0077	hand-override
+սա	0078	hand-override
+տուն	0079	hand-override
+հայր	0080	sakayan-vocab
+հաճախ	0081	sakayan-vocab
+տարբեր	0082	hand-override
+իրենց	0083	hand-override
+որտեղ	0084	hand-override
+հայոց	0085	dictionary
+վազել	0086	dictionary
+հայ	0087	dictionary
+մասին	0088	hand-override
+ժամ	0089	dictionary
+կողմ	0090	hand-override
+ժամանակ	0091	frequency-gap
+մյուս	0092	sakayan-vocab
+մոտ	0093	frequency-gap
+ուզել	0094	dictionary
+քաղաք	0095	sakayan-vocab
+գիտենալ	0096	sakayan-vocab
+ըստ	0097	hand-override
+այսօր	0098	sakayan-vocab
+չէր	0099	hand-override
+հայաստան	0100	hand-override
+մայր	0101	sakayan-vocab
+առաջին [առաչին]	0102	dictionary
+անուն	0103	sakayan-vocab
+կա	0104	hand-override
+տեղ	0105	dictionary
+նստել	0106	sakayan-paradigm
+դուրս	0107	hand-override
+ընկնել	0108	sakayan-vocab
+երբեմն	0109	dictionary
+նման	0110	dictionary
+քո	0111	hand-override
+միջոց [միչոց]	0112	dictionary
+տարի	0113	hand-override
+ում	0114	hand-override
+սխալ	0115	dictionary
+բերել	0116	sakayan-vocab
+ձեռք	0117	sakayan-vocab
+հետո	0118	sakayan-vocab
+ալ	0119	hand-override
+իմաստ	0121	hand-override
+ուր	0122	dictionary
+թագավոր	0123	dictionary
+նախադասություն	0124	dictionary
+դառնալ	0125	sakayan-vocab
+առնել	0126	hand-override
+սակայն	0127	hand-override
+գիրք	0128	dictionary
+բառապաշար	0129	dictionary
+կան	0130	sakayan-vocab
+գնալ	0131	sakayan-vocab
+ինչու	0132	hand-override
+ապա	0133	frequency-gap
+դրանք	0134	hand-override
+ժամանակակից	0135	dictionary
+լեզվական	0136	dictionary
+փոքր	0137	sakayan-vocab
+իրար	0138	sakayan-vocab
+երևույթ	0139	hand-override
+հասարակական	0140	dictionary
+արդեն [արթեն]	0141	sakayan-vocab
+ուրիշ	0142	hand-override
+հազար	0143	hand-override
+մինչև	0144	hand-override
+կրթություն	0145	dictionary
+գլուխ	0146	sakayan-vocab
+ձեզ	0147	hand-override
+տվյալ	0148	hand-override
+առօրյա	0149	hand-override
+դպրոց	0150	sakayan-vocab
+նույն	0151	dictionary
+վեր	0152	hand-override
+որևէ	0153	dictionary
+հայկական	0154	sakayan-vocab
+միշտ	0155	dictionary
+միայն	0156	hand-override
+որոշ	0157	hand-override
+արտահայտել	0158	hand-override
+բնորոշ	0159	dictionary
+քույր	0160	sakayan-vocab
+որոնց	0161	sakayan-vocab
+որպես	0162	hand-override
+բժիշկ	0163	sakayan-vocab
+մեզ	0164	hand-override
+լսել	0165	hand-override
+ճիշտ	0166	dictionary
+նամակ	0167	sakayan-vocab
+հիմա	0168	hand-override
+օտար	0169	sakayan-vocab
+արև	0170	sakayan-vocab
+աշխարհ	0171	dictionary
+երեք	0172	dictionary
+տանել	0173	sakayan-vocab
+երեխա	0174	sakayan-vocab
+դնել	0176	sakayan-vocab
+այնտեղ	0177	hand-override
+որքան	0178	frequency-gap
+անվանի	0179	hand-override
+խաղալ	0180	dictionary
+անգամ [անքամ]	0181	hand-override
+խնդրեմ [խնթրեմ]	0182	hand-override
+կարելի	0183	dictionary
+կյանք	0184	frequency-gap
+սովորել	0185	sakayan-vocab
+աչք	0186	sakayan-vocab
+դա	0187	hand-override
+էջ	0188	dictionary
+փոխարեն	0189	hand-override
+գեղեցիկ	0190	sakayan-vocab
+ապրել	0191	sakayan-vocab
+ընկեր	0192	hand-override
+ան	0193	hand-override
+մաս	0194	dictionary
+կարևոր	0195	sakayan-vocab
+կին	0196	dictionary
+գործ	0198	frequency-gap
+առանց	0199	hand-override
+կիրառություն	0200	hand-override
+դեռ	0201	sakayan-vocab
+դեմք	0202	sakayan-vocab
+քիչ	0203	hand-override
+պես	0204	hand-override
+ռուսերեն	0205	dictionary
+լալ	0206	hand-override
+տիկին	0207	sakayan-vocab
+աղջիկ [աղչիկ]	0208	sakayan-vocab
+երկար	0209	dictionary
+արտահայտություն	0210	dictionary
+բանավոր	0211	dictionary
+այսպես	0212	hand-override
+հարյուր	0213	dictionary
+համալսարան	0214	dictionary
+նշել	0215	dictionary
+աշակերտ	0216	sakayan-vocab
+երիտասարդ [երիտասարթ]	0217	sakayan-vocab
+վատ	0218	dictionary
+դեմ	0219	hand-override
+գործածություն	0220	hand-override
+ոճական	0221	hand-override
+հիմնականում	0222	hand-override
+հին	0223	sakayan-vocab
+մնալ	0224	sakayan-vocab
+ամբողջ [ամբողչ]	0225	sakayan-vocab
+դուռ	0226	dictionary
+կոչվել	0228	hand-override
+յուրաքանչյուր	0229	dictionary
+հատկապես	0231	dictionary
+հարցնել	0232	sakayan-vocab
+այսինքն	0233	sakayan-vocab
+տարեկան	0234	hand-override
+չկա	0235	hand-override
+տակ	0236	hand-override
+ընդհանուր	0237	dictionary
+թվական	0238	sakayan-vocab
+հագուստ [հաքուստ]	0239	sakayan-vocab
+այնքան	0240	sakayan-vocab
+չորս	0241	dictionary
+ուսանող	0242	dictionary
+խմել	0243	dictionary
+լույս	0244	dictionary
+հատուկ	0245	sakayan-vocab
+հավանել	0246	hand-override
+բազմաթիվ	0247	dictionary
+պետական	0248	dictionary
+հիմնական	0249	dictionary
+ձև	0250	dictionary
+կես	0251	dictionary
+չափ	0252	sakayan-vocab
+հինգ	0253	dictionary
+եղբայր	0254	dictionary
+արա	0255	hand-override
+նշանակել	0256	hand-override
+վերջին [վերչին]	0257	dictionary
+եղանակ	0258	dictionary
+այսպիսի	0259	dictionary
+գիշեր	0260	frequency-gap
+աշխատանք	0261	dictionary
+այդպես	0262	hand-override
+նպատակ	0263	dictionary
+բարբառ	0264	dictionary
+մասնագիտական	0266	dictionary
+անգլերեն	0267	hand-override
+հասկանալ	0268	sakayan-vocab
+դժվար	0269	dictionary
+հոգնել [հոքնել]	0270	sakayan-paradigm
+հիվանդ	0271	dictionary
+դեր	0272	dictionary
+անդամ	0273	hand-override
+նկատմամբ	0274	dictionary
+երկիր	0276	sakayan-vocab
+հայտնի	0277	sakayan-vocab
+աշխատել	0278	hand-override
+սիրտ	0279	dictionary
+թողնել	0280	hand-override
+շուն	0281	dictionary
+այնպես	0282	dictionary
+հա	0283	hand-override
+այժմ	0284	dictionary
+կիրառվել	0285	hand-override
+առանձին	0286	sakayan-vocab
+դեպի	0287	hand-override
+բարի	0288	sakayan-vocab
+նորից	0290	sakayan-vocab
+գտնել	0291	sakayan-vocab
+լայն	0292	sakayan-vocab
+ներս	0293	hand-override
+շաբաթ [շափաթ]	0294	hand-override
+հաց	0295	dictionary
+դուր գալ	0296	hand-override
+անց	0297	dictionary
+բաց	0298	dictionary
+հարց	0299	dictionary
+ժողովուրդ	0300	dictionary
+ընթացքում	0301	hand-override
+պատմություն	0302	sakayan-vocab
+տասը	0303	dictionary
+ցույց	0304	dictionary
+հեռու	0305	dictionary
+քան	0306	hand-override
+առարկա	0309	dictionary
+վերաբերմունք	0310	hand-override
+որոշակի	0311	dictionary
+ինչպիսի	0312	sakayan-vocab
+անտառ	0313	sakayan-vocab
+սեղան	0314	dictionary
+ջուր	0315	dictionary
+ուրախ	0316	dictionary
+չէիր	0317	hand-override
+ևս	0318	dictionary
+միջև [միչև]	0319	dictionary
+պատճառով	0320	dictionary
+հանդես	0321	dictionary
+դարձնել	0322	hand-override
+այնպիսի	0323	dictionary
+պայմանավորված	0324	hand-override
+մի քիչ	0325	hand-override
+կտոր	0326	sakayan-vocab
+ծառ	0327	sakayan-vocab
+անցնել	0328	sakayan-vocab
+մտնել	0329	sakayan-vocab
+արի	0330	hand-override
+մատիտ	0331	dictionary
+տղա	0332	dictionary
+չէիք	0333	hand-override
+պարզ	0334	dictionary
+կապ	0335	dictionary
+խելք	0336	dictionary
+միավոր	0337	hand-override
+կազմել	0338	dictionary
+գրավոր	0339	dictionary
+ավելորդ	0340	dictionary
+վախենալ	0342	sakayan-vocab
+կենդանի [կենթանի]	0343	sakayan-vocab
+կարծել	0344	dictionary
+թատրոն	0345	dictionary
+թվել	0346	hand-override
+անձրև	0347	dictionary
+երկրորդ	0348	dictionary
+գտնվել	0349	hand-override
+որովհետև	0350	dictionary
+տարբերություն	0351	dictionary
+կերպ	0352	dictionary
+ուստի	0353	dictionary
+բարբառային	0354	dictionary
+ամառ	0355	sakayan-vocab
+տվեց	0356	hand-override
+բարձր [բարցր]	0357	sakayan-vocab
+ստանալ	0358	sakayan-vocab
+ձյուն	0359	sakayan-vocab
+փողոց	0360	sakayan-vocab
+գյուղ	0361	sakayan-vocab
+բարև	0362	hand-override
+ահա	0363	hand-override
+կար	0364	dictionary
+գիտություն	0365	dictionary
+խնդիր	0366	dictionary
+սովորաբար	0367	hand-override
+միտք	0368	dictionary
+նկատել	0370	dictionary
+հարուստ	0371	dictionary
+նույնիսկ	0372	dictionary
+ազգային	0373	dictionary
+գործել	0374	dictionary
+հակառակ	0375	sakayan-vocab
+րոպե	0376	dictionary
+երեկ	0377	dictionary
+ոչինչ	0378	dictionary
+նախ	0379	dictionary
+գետ	0380	dictionary
+կանաչ	0381	dictionary
+փոխ	0382	dictionary
+հաճախակի	0383	dictionary
+տարածված	0384	dictionary
+հասարակություն	0385	dictionary
+ուսումնական	0386	hand-override
+գարուն	0387	sakayan-vocab
+դիմել	0388	sakayan-vocab
+ազատ	0389	sakayan-vocab
+սպասել	0390	dictionary
+չէինք	0391	hand-override
+պահ	0392	frequency-gap
+տեղի	0394	dictionary
+այլև	0395	hand-override
+շրջան	0396	dictionary
+բնույթ	0397	dictionary
+գործածել	0398	dictionary
+քերականական	0399	dictionary
+հատկանիշ	0400	dictionary
+գույն	0401	sakayan-vocab
+կարմիր	0402	sakayan-vocab
+ոտք	0404	sakayan-vocab
+ուժ	0405	sakayan-vocab
+պահել	0406	sakayan-vocab
+պատճառ	0407	dictionary
+ասա	0408	hand-override
+սուրբ	0409	dictionary
+ձուկ	0410	dictionary
+երգել	0411	dictionary
+երես	0412	dictionary
+թեև	0413	dictionary
+անցյալ	0414	dictionary
+ոճ	0415	dictionary
+հուզված	0416	hand-override
+առավել	0417	dictionary
+անընդհատ	0418	dictionary
+անհրաժեշտ	0419	dictionary
+թիվ	0420	dictionary
+գիտական	0421	dictionary
+փորձել [փորցել]	0422	sakayan-vocab
+ձմեռ	0423	sakayan-vocab
+տաք	0424	sakayan-vocab
+կատարել	0425	sakayan-vocab
+արագ	0426	sakayan-vocab
+դաս	0427	dictionary
+ճաշ	0428	dictionary
+վիճակ	0429	dictionary
+երգ	0430	dictionary
+կարգ	0431	dictionary
+հենց	0433	hand-override
+ուսումնասիրություն	0434	dictionary
+իրողություն	0435	dictionary
+հետևյալ	0436	dictionary
+ժողովրդախոսակցական	0437	hand-override
+կրթական	0438	dictionary
+խումբ	0439	sakayan-vocab
+պատասխանել	0440	sakayan-vocab
+բռնել	0441	sakayan-vocab
+սիրել	0442	sakayan-vocab
+դրա	0443	hand-override
+ուսուցիչ	0444	sakayan-vocab
+կախվել	0445	sakayan-vocab
+փոքրիկ	0446	sakayan-vocab
+նկար	0447	dictionary
+կողք	0448	dictionary
+գրադարան	0449	dictionary
+գնա	0450	hand-override
+մտածել	0451	dictionary
+առ	0452	dictionary
+այլևս	0453	dictionary
+մամուլ	0454	dictionary
+ոչ միայն	0455	hand-override
+տաճար	0457	dictionary
+մի շարք	0458	hand-override
+կառույց	0459	dictionary
+տարբերակ	0460	dictionary
+վեզիր	0461	dictionary
+հնչյուն	0462	dictionary
+ձայնավոր	0463	dictionary
+ստեղծել	0464	sakayan-vocab
+հիանալի	0465	sakayan-vocab
+բերան	0466	sakayan-vocab
+հանել	0467	sakayan-vocab
+միասին	0468	dictionary
+կամաց	0469	dictionary
+ծաղիկ	0470	sakayan-vocab
+ոսկի	0471	sakayan-vocab
+շուտ	0472	hand-override
+վաղը	0473	dictionary
+դրամ	0474	dictionary
+երեկո	0475	dictionary
+յոթ	0476	dictionary
+բա	0477	hand-override
+ծով	0478	dictionary
+լի	0479	dictionary
+սուրճ	0480	dictionary
+մայրենի	0481	dictionary
+քար	0482	dictionary
+աստված	0483	dictionary
+մեկին	0484	dictionary
+բարձրագույն	0485	dictionary
+հող	0486	dictionary
+բավական	0487	dictionary
+որդի [որթի]	0488	sakayan-vocab
+հեռանալ	0489	sakayan-vocab
+կրկին	0490	sakayan-vocab
+սկսել	0491	sakayan-vocab
+թող	0492	hand-override
+ցանկանալ	0493	sakayan-vocab
+գրականություն	0494	dictionary
+խնդրել	0495	dictionary
+բարով	0496	dictionary
+ուրեմն	0497	hand-override
+ցավել	0498	dictionary
+ծանր	0499	dictionary
+քամի	0500	dictionary
+ֆրանսիա	0501	dictionary
+ելնել	0502	hand-override
+մանուկ	0503	dictionary
+ձայն	0504	dictionary
+պակաս	0505	dictionary
+հանդիպում	0506	dictionary
+հետևանք	0508	dictionary
+հասնել	0509	dictionary
+կենտրոն	0510	dictionary
+գոյական	0511	hand-override
+միջին [միչին]	0512	dictionary
+իշխան	0513	dictionary
+բաղաձայն	0514	dictionary
+առանձնահատկություն	0515	hand-override
+հանրակրթական	0516	hand-override
+հնարավորություն	0517	sakayan-vocab
+ծեր	0518	sakayan-vocab
+թույլ	0519	sakayan-vocab
+ազգանուն	0520	hand-override
+դասարան	0521	dictionary
+իհարկե	0522	ghamoyan-filler
+պարոն	0523	dictionary
+անշուշտ	0524	hand-override
+վեց	0525	dictionary
+կարծիք	0526	dictionary
+տարիք	0527	dictionary
+հյուր	0528	dictionary
+երրորդ [երրորթ]	0529	dictionary
+ծնվել	0530	hand-override
+նույնպես	0531	dictionary
+սև	0533	dictionary
+հիշել	0534	dictionary
+ընտանիք	0535	dictionary
+շնորհիվ	0536	dictionary
+վեպ	0537	dictionary
+բայ	0538	dictionary
+հնարավոր	0539	dictionary
+հաստատություն	0540	dictionary
+արժեք	0541	dictionary
+փոխառություն	0542	dictionary
+մակարդակ	0543	dictionary
+նյութ	0544	dictionary
+ժարգոն	0545	dictionary
+ֆրանսերեն	0546	hand-override
+օդ [օթ]	0547	sakayan-vocab
+հայացք	0548	dictionary
+ամեն ինչ	0549	hand-override
+ութ	0550	dictionary
+պատրաստ	0551	dictionary
+ցավ	0552	dictionary
+օգնել [օքնել]	0553	dictionary
+ռուսաստան	0554	hand-override
+ճանապարհ	0555	dictionary
+զարկել	0556	hand-override
+ռուս	0557	dictionary
+գառ	0558	dictionary
+սենյակ	0559	dictionary
+ակ	0560	dictionary
+ճանաչում	0561	dictionary
+վաղուց	0563	dictionary
+երբեք	0564	dictionary
+դար	0565	dictionary
+վազ	0566	dictionary
+նպաստել	0567	hand-override
+կրակ	0568	dictionary
+ջան	0569	dictionary
+սովորական	0570	dictionary
+նշանակություն	0571	hand-override
+այբուբեն	0573	sakayan-vocab
+պատասխան	0574	sakayan-vocab
+այցելել	0575	sakayan-vocab
+շուկա	0576	sakayan-vocab
+տեսակ	0577	sakayan-vocab
+գիտնական	0578	sakayan-vocab
+վերջապես [վերչապես]	0579	sakayan-vocab
+ուժեղ	0580	sakayan-vocab
+կանչել	0581	sakayan-vocab
+հարևան	0582	sakayan-vocab
+քսան	0583	dictionary
+շնորհակալ	0584	hand-override
+գինի	0585	dictionary
+ծանոթ	0586	dictionary
+դիմաց	0587	dictionary
+առատ	0588	dictionary
+լեռ	0589	dictionary
+որոշել	0590	dictionary
+լվանալ	0591	sakayan-paradigm
+ական	0592	dictionary
+բառարան	0593	dictionary
+տուր	0594	hand-override
+տեր	0595	frequency-gap
+քաշել	0596	dictionary
+առավոտ	0597	dictionary
+անկյուն	0598	dictionary
+իբրև	0599	dictionary
+ամիս	0600	dictionary
+զգալ	0601	dictionary
+ետ	0602	dictionary
+ման	0604	dictionary
+միմյանց	0605	dictionary
+ինքը	0606	hand-override
+ծագում	0607	dictionary
+ներկայացնել	0608	hand-override
+միջազգային [միչազգային]	0609	dictionary
+հանգամանք	0610	dictionary
+համապատասխան	0611	dictionary
+միաժամանակ	0612	dictionary
+անհատ	0613	dictionary
+դարձված	0614	dictionary
+կիրառում	0615	dictionary
+գերմաներեն	0616	hand-override
+հայրենիք	0617	sakayan-vocab
+խորհուրդ [խորհուրթ]	0618	sakayan-vocab
+թռչուն	0619	sakayan-vocab
+փիղ	0620	sakayan-vocab
+գրեթե	0621	sakayan-vocab
+տնօրեն	0622	sakayan-vocab
+քայլել	0623	sakayan-vocab
+բնություն	0624	sakayan-vocab
+տասներկու	0625	dictionary
+շնորհակալություն	0626	dictionary
+պար	0627	dictionary
+պատ	0628	dictionary
+ինչքան	0629	dictionary
+արյուն	0630	dictionary
+աստիճան	0631	dictionary
+կաթ	0632	dictionary
+ուրախություն	0633	dictionary
+անուշ	0634	dictionary
+ձի	0635	dictionary
+տար	0636	dictionary
+կառուցվել	0637	hand-override
+մեռնել	0638	dictionary
+եկեղեցի	0639	dictionary
+աղբյուր	0640	dictionary
+մշակույթ	0641	dictionary
+հաղորդում	0642	dictionary
+անկում	0643	dictionary
+ոլորտ	0644	dictionary
+միջնակարգ	0645	hand-override
+հանրույթ	0646	hand-override
+երանգավորել	0647	hand-override
+միլիոն	0648	sakayan-vocab
+շենք	0649	sakayan-vocab
+կարողանալ	0650	sakayan-vocab
+արագիլ	0651	sakayan-vocab
+գյուղացի	0652	sakayan-vocab
+դասախոս	0653	sakayan-vocab
+աշուն	0654	sakayan-vocab
+թափել	0655	sakayan-vocab
+սիրուն	0656	sakayan-vocab
+բացել	0657	sakayan-vocab
+քեռի	0658	sakayan-vocab
+խաղ	0659	dictionary
+գին	0660	dictionary
+հունաստան	0661	dictionary
+բանալ	0662	sakayan-paradigm
+շուրջ	0663	hand-override
+իրենք	0665	hand-override
+ընկերություն	0666	dictionary
+պապ	0667	dictionary
+լիճ	0668	dictionary
+հետևել	0669	dictionary
+որպեսզի	0670	dictionary
+նախագահ	0671	dictionary
+բացի	0672	dictionary
+երկինք	0673	dictionary
+դեռևս	0674	dictionary
+հազիվ	0675	dictionary
+սեփական	0676	hand-override
+հետևաբար	0677	dictionary
+ներքին	0678	dictionary
+խիստ	0679	dictionary
+էն	0680	hand-override
+համակարգ	0681	dictionary
+հասկացություն	0682	hand-override
+շարահյուսական	0683	hand-override
+մեթոդ	0684	dictionary
+գործառական	0685	hand-override
+մեջք [մեչք]	0686	sakayan-vocab
+գործողություն	0687	sakayan-vocab
+փնտրել	0688	hand-override
+անծանոթ	0689	hand-override
+բացվել	0690	sakayan-vocab
+սիրելի	0691	sakayan-vocab
+հասցե	0692	dictionary
+ախորժակ	0693	dictionary
+թերթ	0694	dictionary
+կրկնել	0695	dictionary
+փոր	0696	dictionary
+սկսվել	0697	hand-override
+արտաքին	0698	dictionary
+իսկապես	0699	ghamoyan-filler
+ծրագիր	0700	dictionary
+նախընտրել	0701	dictionary
+աղբ	0702	dictionary
+ծնունդ	0703	dictionary
+որդ	0704	dictionary
+այգի	0705	dictionary
+հույս	0707	dictionary
+մահ	0708	frequency-gap
+աղքատ	0709	dictionary
+էշ	0710	dictionary
+մատ	0711	dictionary
+երևում	0712	dictionary
+ճակատ	0713	dictionary
+առջև	0714	dictionary
+սրանք	0715	dictionary
+այդպիսի	0716	dictionary
+իմաստուն	0718	dictionary
+մինչդեռ	0719	hand-override
+ոնց	0720	dictionary
+բախտ	0721	dictionary
+որոշում	0722	dictionary
+թիթեռնիկ	0723	hand-override
+քաղաքական	0724	dictionary
+հոգ	0725	dictionary
+տարածել	0726	dictionary
+իսկական	0727	dictionary
+շերտ	0728	dictionary
+ուղղություն	0729	dictionary
+դրական	0730	dictionary
+կապակցություն	0731	dictionary
+ազդեցություն	0732	dictionary
+պաշտոնական	0733	dictionary
+բնակչություն	0734	dictionary
+դերանուն	0735	dictionary
+բնակիչ	0736	sakayan-vocab
+ընդունել [ընթունել]	0737	sakayan-vocab
+ցուրտ	0738	sakayan-vocab
+բարեկամ	0739	sakayan-vocab
+փակել	0740	sakayan-vocab
+հաճելի	0741	sakayan-vocab
+փախչել	0742	sakayan-vocab
+մեքենա	0743	sakayan-vocab
+աթոռ	0744	dictionary
+համեցեք	0745	dictionary
+ինքն	0746	hand-override
+բնակարան	0747	dictionary
+գլխարկ	0748	dictionary
+ուղիղ	0749	dictionary
+սպիտակ	0750	dictionary
+կոկորդ	0751	dictionary
+ճաշակ	0752	dictionary
+կարծես	0753	hand-override
+հաջորդ [հաջորթ]	0754	dictionary
+եվրոպա	0755	hand-override
+չինարեն	0756	dictionary
+ինը	0757	dictionary
+թոռ	0758	dictionary
+հոր	0759	sakayan-vocab
+եղավ	0760	dictionary
+համեղ	0761	dictionary
+լաց	0762	dictionary
+կամք	0763	dictionary
+ուշադրություն	0764	dictionary
+լուր	0765	dictionary
+չնայած	0766	dictionary
+հաջողություն	0767	dictionary
+կանոն	0768	dictionary
+հանրապետություն	0769	dictionary
+կարիք	0770	dictionary
+տպավորություն	0771	dictionary
+միևնույն	0772	hand-override
+մասամբ	0773	dictionary
+մշակութային	0774	dictionary
+հայտնել	0775	dictionary
+հետազոտություն	0776	dictionary
+հարկ	0777	dictionary
+գործունեություն	0778	dictionary
+էություն	0779	dictionary
+ածական	0780	dictionary
+բացասական	0781	dictionary
+իրադրություն	0782	hand-override
+անհատական	0783	dictionary
+արտահայտչական	0784	hand-override
+բաղադրիչ	0785	dictionary
+հուզական	0787	hand-override
+հնդեվրոպական	0788	sakayan-vocab
+ուսուցչուհի	0789	sakayan-vocab
+ամերիկա	0790	hand-override
+կանգնած	0791	sakayan-vocab
+շինել	0792	sakayan-vocab
+աշխատասեր	0793	sakayan-vocab
+օգնական [օքնական]	0794	sakayan-vocab
+կենալ	0795	dictionary
+դրսևորվել	0796	sakayan-vocab
+միթե	0797	hand-override
+թութակ	0798	sakayan-vocab
+հեռախոս	0799	hand-override
+երեսուն	0800	dictionary
+մայրիկ	0801	dictionary
+պատրաստել	0802	dictionary
+ձախ	0803	dictionary
+գուցե	0804	dictionary
+պատուհան	0805	dictionary
+այդքան [այտքան]	0806	dictionary
+երաժշտություն	0807	dictionary
+բեր	0808	hand-override
+կինո	0809	dictionary
+գերմանիա	0810	dictionary
+գերմանական	0811	dictionary
+ուշ	0812	dictionary
+ափ	0814	dictionary
+ծնող	0815	dictionary
+բարդ	0816	dictionary
+ծիծաղել	0817	dictionary
+տխուր	0818	dictionary
+չոր	0819	dictionary
+անմիջապես [անմիչապես]	0820	dictionary
+արդյոք	0821	dictionary
+կապված	0822	hand-override
+ներկա	0823	dictionary
+զբաղմունք	0824	hand-override
+ընտրել	0825	dictionary
+փոխել	0826	dictionary
+էլի	0827	dictionary
+պայման	0829	dictionary
+ժողովրդական	0830	dictionary
+ենթակա	0831	hand-override
+հանկարծ	0832	dictionary
+գոյություն	0833	dictionary
+բուն	0834	dictionary
+ներկայացուցիչ	0835	dictionary
+ընդգծել	0836	dictionary
+պահպանել	0837	dictionary
+հնչյունական	0839	dictionary
+ձգտում	0840	hand-override
+հասկանալի	0841	dictionary
+նմանատիպ	0842	dictionary
+նորմ	0843	hand-override
+հաճախականություն	0844	hand-override
+մանավանդ	0846	sakayan-vocab
+մի օր	0847	hand-override
+մեծանալ	0848	sakayan-vocab
+ճշգրիտ	0849	sakayan-vocab
+փորձ [փորց]	0850	sakayan-vocab
+մասնագետ	0851	sakayan-vocab
+դաշտ	0852	sakayan-vocab
+քաղաքացի	0853	dictionary
+զբաղվել	0854	hand-override
+գրիչ	0855	dictionary
+միակ	0856	dictionary
+մրսել	0857	dictionary
+սխալվել	0858	dictionary
+հրավիրել	0859	dictionary
+հարմար	0860	dictionary
+մինչ	0861	dictionary
+առիթ	0862	dictionary
+ամենայն	0863	dictionary
+հավասար	0864	dictionary
+իսպաներեն	0865	dictionary
+հունարեն	0866	dictionary
+թուրք	0867	dictionary
+հինգերորդ	0868	hand-override
+քննություն	0869	dictionary
+սուտ	0870	dictionary
+վախ	0871	dictionary
+խնձոր	0872	dictionary
+իմը	0873	dictionary
+շարունակել	0874	dictionary
+երազ	0875	dictionary
+սար	0876	dictionary
+խորթ	0877	dictionary
+ընդարձակ	0879	dictionary
+չար	0880	dictionary
+ցերեկ	0881	dictionary
+յան	0882	dictionary
+մայիս	0883	dictionary
+վերջ [վերչ]	0885	dictionary
+թանկ	0886	dictionary
+կառք	0887	dictionary
+իմանալ	0888	dictionary
+նեղ	0889	dictionary
+դժվարություն	0890	hand-override
+համաձայն	0891	dictionary
+պարզել	0892	hand-override
+յուղ	0893	dictionary
+նայել	0894	dictionary
+ոչխար	0897	dictionary
+գայլ	0898	dictionary
+ոչ մի	0899	dictionary
+հաղորդել	0901	dictionary
+հեռուստատեսություն	0902	dictionary
+ծակ	0903	dictionary
+հիմար	0905	dictionary
+կառուցվածք	0906	dictionary
+չափազանց	0907	dictionary
+թարգմանություն	0909	dictionary
+հարաբերություն	0910	dictionary
+բարձրացնել	0912	dictionary
+հարցում	0913	hand-override
+վերաբերել	0914	hand-override
+տոկոս	0915	dictionary
+խոր	0916	dictionary
+կացին	0917	dictionary
+կնիկ	0918	dictionary
+համարել	0920	dictionary
+երանգ	0922	dictionary
+ընդունված	0923	dictionary
+սկզբունք	0925	dictionary
+համարժեք	0932	dictionary
+օտարաբանություն	0934	dictionary
+վայր	0936	sakayan-vocab
+առաջարկել [առաչարկել]	0937	sakayan-vocab
+կոտրել	0938	sakayan-vocab
+կռվել	0939	sakayan-vocab
+վառ	0940	sakayan-vocab
+հագնել [հաքնել]	0941	sakayan-vocab
+բույն	0942	sakayan-vocab
+վերադառնալ	0944	sakayan-vocab
+մարտ	0945	sakayan-vocab
+տգեղ	0946	sakayan-vocab
+ականջ	0947	sakayan-vocab
+վարվել	0948	sakayan-vocab
+բանաստեղծ	0949	sakayan-vocab
+լուրջ	0950	sakayan-vocab
+քնած	0951	sakayan-vocab
+վարդ [վարթ]	0952	sakayan-vocab
+փակ	0953	sakayan-vocab
+քերականություն	0954	dictionary
+ժամանել	0956	dictionary
+գնել	0957	dictionary
+երանի	0959	dictionary
+կարճ	0962	dictionary
+մենակ	0964	dictionary
+տարեդարձ	0965	dictionary
+շնորհակալ եմ	0966	dictionary
+լողալ	0967	dictionary
+ամուսին	0968	dictionary
+իրավունք	0969	dictionary
+թուրքական	0970	dictionary
+մայրաքաղաք	0971	dictionary
+կեր	0972	dictionary
+յա	0973	dictionary
+հավ	0974	dictionary
+միս	0975	dictionary
+պաշտպանել	0976	dictionary
+ար	0977	dictionary
+հայրիկ	0979	dictionary
+բոլորովին	0980	dictionary
+սյուն	0981	dictionary
+բացատրել	0984	dictionary
+գիր	0985	dictionary
+նվեր	0986	dictionary
+վաղ	0987	dictionary
+շարք	0991	dictionary
+ծառա	0992	dictionary
+անկախ	0993	dictionary
+վառել	0994	dictionary
+ճամփա	0995	dictionary
+երջանիկ	0999	dictionary
+արդյունք	1000	dictionary
+խելացի	1001	dictionary
+կանգնել	1002	dictionary
+գցել	1003	dictionary
+դարձյալ	1004	dictionary
+ցանկություն	1006	dictionary
+վերցնել	1007	dictionary
+զգացում	1008	dictionary
+ավագ	1009	dictionary
+գլխավոր	1010	dictionary
+տեսություն	1011	hand-override
+գրավել	1012	dictionary
+հավաքել	1014	dictionary
+բերում	1015	dictionary
+անձ	1016	dictionary
+համ	1017	dictionary
+լեզվաբանություն	1019	dictionary
+արդի	1020	dictionary
+զանազան	1022	dictionary
+դատ	1024	dictionary
+սպանություն	1025	dictionary
+հեր	1028	dictionary
+անվանում	1029	dictionary
+թաղ	1031	dictionary
+ընտրություն	1032	dictionary
+շեշտ	1033	dictionary
+հոլով	1034	dictionary
+անկաշկանդ	1035	dictionary
+աշակերտուհի	1038	sakayan-vocab
+կավիճ	1039	sakayan-vocab
+միրգ [միրք]	1040	sakayan-vocab
+այսքան	1041	sakayan-vocab
+համով	1042	sakayan-vocab
+ամուր	1043	sakayan-vocab
+զգեստ	1044	sakayan-vocab
+օգտակար [օքտակար]	1045	sakayan-vocab
+գետին	1046	sakayan-vocab
+լավագույն	1047	sakayan-vocab
+թեկնածու	1048	sakayan-vocab
+կարողություն	1049	sakayan-vocab
+հետաքրքրական	1050	sakayan-vocab
+անտարբեր	1051	sakayan-vocab
+մեղմ	1052	sakayan-vocab
+պտուղ	1053	sakayan-vocab
+գրպան	1054	sakayan-vocab
+քաղաքացիություն	1055	dictionary
+ուսումնասիրել	1056	dictionary
+բնավ	1057	dictionary
+ծարավ	1058	dictionary
+սառույց	1059	dictionary
+գորգ	1060	dictionary
+կապույտ	1061	dictionary
+գնացք	1062	dictionary
+հագել [հաքել]	1063	hand-override
+մաքուր	1064	dictionary
+խոնավ	1065	dictionary
+ուրբաթ [ուրփաթ]	1066	dictionary
+կիրակի	1067	dictionary
+սրճարան	1068	dictionary
+եվրոպական	1069	dictionary
+ֆրանսիացի	1070	dictionary
+հունական	1071	dictionary
+կատու	1072	dictionary
+հան	1073	hand-override
+ափսոս	1077	dictionary
+ես		core-inject
+աջ		core-inject
+վերև		core-inject
+ներքև		core-inject
+վար		core-inject
+հետև		core-inject
+մեջտեղ		core-inject
+տեղափոխել		core-inject
+շարժել		core-inject
+շարժվել		core-inject
+հրել		core-inject
+շրջել		core-inject
+պտտել		core-inject
+դիպչել		core-inject
+բաժակ		core-inject
+ափսե		core-inject
+դանակ		core-inject
+գդալ		core-inject
+պատառաքաղ		core-inject
+բանալի		core-inject
+մահճակալ		core-inject
+սրբիչ		core-inject
+օճառ		core-inject
+լամպ		core-inject
+կոճակ		core-inject
+հատակ		core-inject
+առաստաղ		core-inject
+խոհանոց		core-inject
+լոգարան		core-inject
+մազ		core-inject
+քիթ		core-inject
+ատամ		core-inject
+շուրթ		core-inject
+մաշկ		core-inject
+վիզ		core-inject
+ուս		core-inject
+թև		core-inject
+արմունկ		core-inject
+ծունկ		core-inject
+կուրծք		core-inject
+ստամոքս		core-inject
+այտ		core-inject
+օգտագործել		core-inject
+մոռանալ		core-inject
+կորցնել		core-inject
+քնել		core-inject
+արթնանալ		core-inject
+հանգստանալ		core-inject
+սառը		core-inject
+հեշտ		core-inject
+դանդաղ		core-inject
+քաղցր		core-inject
+դառը		core-inject
+աղի		core-inject
+կծու		core-inject
+թարմ		core-inject
+կեղտոտ		core-inject
+դատարկ		core-inject
+թեթև		core-inject
+դեղին		core-inject
+շագանակագույն		core-inject
+մոխրագույն		core-inject
+նարնջագույն		core-inject
+մանուշակագույն		core-inject
+վարդագույն		core-inject
+շուտով		core-inject
+հազվադեպ		core-inject
+կեսօր		core-inject
+կեսգիշեր		core-inject
+ողջույն		core-inject
+ցտեսություն		core-inject
+ներողություն		core-inject
+ապրես		core-inject
+ոչ ոք		core-inject
+չէի		core-inject
+չէին		core-inject
+հարց տալ		phrasal
+ցույց տալ		phrasal
+թույլ տալ		phrasal
+դուրս գալ		phrasal
+ձեռք բերել		phrasal
+նկատի ունենալ		phrasal
+կարիք ունենալ		phrasal
+հույս ունենալ		phrasal
+տեղի ունենալ		phrasal
+խորհուրդ տալ		phrasal
+կանգ առնել		phrasal
+հանդես գալ		phrasal
+հրաժեշտ տալ		phrasal
+գլխի ընկնել		phrasal
+կուլ տալ		phrasal
+դեմ լինել		phrasal
+միտք անել		phrasal
+հոգ տանել		phrasal
+տուն գալ		phrasal
+ողջույն տալ		phrasal
+դատ բանալ		phrasal

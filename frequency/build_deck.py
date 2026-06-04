@@ -243,12 +243,15 @@ HAND_OVERRIDES: dict[str, str] = {
     "մենք":   "we / мы",
     "դուք":   "you (pl/formal) / вы",
     "նրանք":  "they / они",
-    "ինձ":    "me / меня, мне",
-    "քեզ":    "you (sg, obj) / тебя, тебе",
-    "նրան":   "him, her / его, ему",
-    "մեզ":    "us / нас, нам",
-    "ձեզ":    "you (pl/formal, obj) / вас, вам",
-    "նրանց":  "them / их, им",
+    # Oblique personal pronouns — case indication in the gloss
+    # (item 7). Forms are dat/acc; for plural դա/նա the same form
+    # also serves the genitive (gen=dat syncretism).
+    "ինձ":    "me (dat/acc of ես) / меня, мне",
+    "քեզ":    "you (dat/acc of դու) / тебя, тебе",
+    "նրան":   "him, her (dat/acc of նա) / его, ему",
+    "մեզ":    "us (dat/acc of մենք) / нас, нам",
+    "ձեզ":    "you, pl/formal (dat/acc of դուք) / вас, вам",
+    "նրանց":  "them; their (gen/dat of նրանք) / их, им",
     "իմ":     "my / мой",
     "քո":     "your (sg) / твой",
     "նրա":    "his, her / его, её",
@@ -256,18 +259,15 @@ HAND_OVERRIDES: dict[str, str] = {
     "ձեր":    "your (pl/formal) / ваш",
     "բա":     "well, what about / ну, а как же",
     "դե":     "well, come on / ну, давай",
-    "հենց":   "exactly, just / именно, как раз",
     "ուրեմն": "so, then / значит, итак",
     "իսկ":    "but, and (contrast) / а, же",
     "բայց":   "but / но",
     "կամ":    "or / или",
-    "ինչպես": "how, as / как",
     "շատ":    "very, much, many / очень, много",
     "քիչ":    "little, few / мало",
     "շնորհակալ": "thankful / благодарный",
     "խնդրեմ": "please; you're welcome / пожалуйста",
     "բարև":   "hello / привет",
-    "կարող":  "able, can / способный, может",
     "դուրս":  "out, outside / снаружи, наружу",
     "շուտ":   "soon, quickly, early / скоро, быстро, рано",
     "իր":     "his/her own (reflexive); thing, item / его/её (свой); вещь",
@@ -308,7 +308,7 @@ HAND_OVERRIDES: dict[str, str] = {
     # as a stand-in for the full idiomatic verb-phrase. See
     # DISPLAY_OVERRIDES below: the Armenian column is rewritten to
     # show `դուր գալ` so the learner sees the whole phrase.
-    "դուր":   "to please, be liked (dative-experiencer: X-ին դուր է գալիս Y) / нравиться",
+    "դուր":   "to please, to be liked (ինձ դուր է գալիս — I like it) / нравиться",
     "տարեկան": "annual; -years-old / годовой; -летний",
     "թողնել":  "to leave, allow (colloq: թողել) / оставить, разрешать",
     # `(language)` parenthetical is kaikki/sakayan scaffolding; the
@@ -343,9 +343,9 @@ HAND_OVERRIDES: dict[str, str] = {
     "քցել":    "to throw, drop (colloq var. of գցել) / бросить, ронять",
     # Inflected forms with idiomatic standalone meaning — translate
     # the actual sense, not the grammatical description.
-    "մասին":    "about, concerning (postposition) / о, про",
+    "մասին":    "about, concerning (քո մասին — about you) / о, про",
     "չկա":      "(there) isn't, doesn't exist / нет, не имеется",
-    "չէր":      "wasn't / не был(-а)",
+    "չէր":      "wasn't (3sg) / не был(-а)",
     "նշանված":  "engaged (to be married); marked / помолвленный; отмеченный",
     "սկսվել":   "to begin, start (intr.) / начинаться",
     "զարմացնել": "to amaze, surprise (someone) / удивить, поразить",
@@ -390,7 +390,7 @@ HAND_OVERRIDES: dict[str, str] = {
     # Postposition senses are dominant for high-frequency
     # function-word lemmas; kaikki lists noun first.
     "համար":      "for (ինձ համար — for me); number / для (послелог); номер",
-    "հետ":        "with (postposition); back (noun) / с (послелог); назад",
+    "հետ":        "with (ընկերոջ հետ — with a friend); back (noun) / с; назад",
     # Vocabulary that the source frequency list has in top-1000 but
     # which the offline kaikki dictionary doesn't cover. Without
     # these, the build_deck.py "skipped-empty" filter would silently
@@ -400,11 +400,9 @@ HAND_OVERRIDES: dict[str, str] = {
     "կիրառություն": "use, application / применение",
     "գործածություն": "use, usage / употребление",
     "ոճական":     "stylistic / стилистический",
-    # `դուր` is the bare form of `դուր գալ` "to please/be liked" —
-    # see `topics/syntax/dative_experiencer.md`. Kaikki returns
-    # "flat, level" which is etymologically related but wrong sense
-    # for the contemporary high-frequency reading.
-    "դուր":       "(in դուր գալ) to please, to be liked / (դուր գալ) нравиться",
+    # NB: `դուր` is overridden above (dative-experiencer idiom
+    # `դուր գալ`); no duplicate key here — dict literals keep the
+    # last value, which silently shadowed the curated gloss.
     "պայմանավորված": "conditioned by, due to / обусловленный",
     "միավոր":     "unit / единица",
     "այլև":       "also, moreover / также, к тому же",
@@ -509,7 +507,7 @@ HAND_OVERRIDES: dict[str, str] = {
     "ում":       "whom; whose; to whom (gen/dat/acc of ով) / кому, чей, кого",
     # kaikki picked the rare adj "scarlet"; corpus + kaikki's own adv
     # sense show this is the Western-Armenian/dialectal form of էл.
-    "ալ":         "also, too (W. Arm. / dialectal, = էл) / тоже, и",
+    "ալ":         "also, too (W. Arm., dialectal, = էլ) / тоже, и",
     "իմաստ":      "sense, meaning / смысл, значение",
     "սակայն":     "however, but, yet / однако, но",
     "դրանք":      "those; they (inanimate) / те; они",
@@ -522,8 +520,16 @@ HAND_OVERRIDES: dict[str, str] = {
     # Second wave — homograph traps surfaced by the Russian-
     # augmentation sweep: postpositions glossed as bare nouns, plus
     # the ` / `-as-comma bug. Each has a golden anchor.
-    "դեմ":        "against; opposite (postposition) / против",
-    "տակ":        "under, beneath (postposition); bottom / под; низ",
+    "դեմ":        "against (պատերազմի դեմ — against war); opposite / против",
+    "տակ":        "under (սեղանի տակ — under the table); bottom / под; низ",
+    # Postpositions whose dictionary gloss carried no usage example
+    # (item 3 — every pre-/postposition gets one).
+    "վրա":        "on, upon (սեղանի վրա — on the table) / на, поверх",
+    "ըստ":        "according to (ըստ օրենքի — according to the law) / согласно, по",
+    "առանց":      "without (առանց քեզ — without you) / без",
+    "պես":        "like, as (քո պես — like you) / как, подобно",
+    "դեպի":       "towards (դեպի տուն — towards home) / к, по направлению к",
+    "շուրջ":      "around (սեղանի շուրջ — around the table) / вокруг",
     "ներս":       "in, inside (ներս մտնել — to enter) / внутрь, внутри",
     "հավանել":    "to like, to approve; to agree / нравиться, одобрять",
     "լսել":       "to hear, to listen; to obey / слышать, слушать; слушаться",
@@ -531,6 +537,16 @@ HAND_OVERRIDES: dict[str, str] = {
     # reserves ` / ` strictly for the English/Russian boundary).
     "լալ":        "to cry, to weep / плакать, рыдать",
     "ելնել":      "to go out, to rise / выходить, подниматься",
+    # 2026-06-03 deck-vs-requirements review fixes.
+    # `/` was misused as an English sense-separator + no Russian.
+    "միթե":       "really?, is it so? (interrogative particle) / разве, неужели",
+    # Comparative conjunction — function word, needs Russian (req §3).
+    "քան":        "than (comparative) / чем",
+    # Postposition — needs Russian + an example (req §3, §6).
+    "ընթացքում":  "during, in the course of (դասի ընթացքում — during the class) / в течение",
+    # W.-Armenian / colloquial pronoun; Eastern standard is նա (also
+    # on deck). Labelled to avoid presenting a dialectal form as neutral.
+    "ան":         "he, she (W. Arm. / colloq.; Eastern: նա) / он, она",
 }
 
 
@@ -579,6 +595,9 @@ SKIP_LEMMAS: set[str] = {
                    # rare noun "sister-in-law".
     "մեկն",        # definite nom. sg. of մեկ (rank 42, in deck);
                    # kaikki's rare adverb "upright" is the wrong sense.
+    "տաս",         # colloquial reduction of literary տասը "10" (on
+                   # deck); variant-of-deck-lemma, per the literary-
+                   # lemma rule (req §5/§8).
     "ինք",         # W. Arm. / colloq variant of ինքը
     "ել",          # rare, ambiguous (could be ելք or "and-too")
     # 2026-05-14 additions: vetted by sub-agent. Three buckets:
@@ -816,6 +835,61 @@ def annotated_lemma(lemma: str, phonetic: dict[str, str]) -> str:
     return f"{display} [{respell}]"
 
 
+# Number lemmas → digit-only glosses (item 8: "number translations
+# should be numerical"). Keyed by bare lemma. Cardinals → digit;
+# ordinals → digit + ordinal suffix.
+NUMBER_DIGITS: dict[str, str] = {
+    "մեկ": "1", "երկու": "2", "երեք": "3", "չորս": "4", "հինգ": "5",
+    "վեց": "6", "յոթ": "7", "ութ": "8", "ինը": "9", "տասը": "10",
+    "տասն": "10", "տասնմեկ": "11", "տասներկու": "12",
+    "քսան": "20", "երեսուն": "30", "քառասուն": "40", "հիսուն": "50",
+    "վաթսուն": "60", "յոթանասուն": "70", "ութսուն": "80",
+    "իննսուն": "90", "հարյուր": "100", "հազար": "1000",
+    "միլիոն": "1000000",
+    "առաջին": "1st", "երկրորդ": "2nd", "երրորդ": "3rd",
+    "չորրորդ": "4th", "հինգերորդ": "5th", "վեցերորդ": "6th",
+    "յոթերորդ": "7th", "ութերորդ": "8th", "իններորդ": "9th",
+    "տասներորդ": "10th",
+}
+
+
+def _esc(s: str) -> str:
+    """Minimal HTML escaping for gloss text."""
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def _fmt_english(en: str) -> str:
+    """Bold the English senses, italicise parenthetical examples
+    (`(ներս մտնել — to enter)`). Single-quoted attrs only — the CSV
+    writer would otherwise quote-escape double quotes and break the
+    Anki import."""
+    out: list[str] = []
+    for seg in re.split(r"(\([^)]*\))", en):
+        seg = seg.strip()
+        if not seg:
+            continue
+        if seg.startswith("(") and seg.endswith(")"):
+            out.append(f"<i>{_esc(seg)}</i>")
+        else:
+            out.append(f"<b>{_esc(seg)}</b>")
+    return " ".join(out)
+
+
+def render_gloss(plain: str) -> str:
+    """Render a plain `English / Russian` gloss to tasteful Anki HTML:
+    English bold, Russian in muted gray on a new line, examples italic.
+    Authoring stays plain text (HAND_OVERRIDES, russian_glosses.tsv);
+    this is applied once at emit time. Import with 'Allow HTML in
+    fields' enabled. The validator strips this back to plain text."""
+    parts = plain.rsplit(" / ", 1)
+    en = parts[0].strip()
+    ru = parts[1].strip() if len(parts) > 1 else ""
+    html = _fmt_english(en)
+    if ru:
+        html += f"<br><span style='color:#888'>{_esc(ru)}</span>"
+    return html
+
+
 def build(limit: int = 1000, with_dictionary: bool = True) -> None:
     top_path = HERE / "out" / "our_top_1000.tsv"
     out_path = CARDS / "top_1000.tsv"
@@ -972,6 +1046,37 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
             print(f"  injected {injected} core-vocab rows from "
                   f"{inject_path.name}", file=sys.stderr, flush=True)
 
+    # Phrasal / light-verb enrichment (items 4,5): inject common
+    # multi-word verb constructions mined from the textbook corpora.
+    # Same dedup as core-inject; tagged `frequency phrasal-verb` so
+    # they're filterable in Anki.
+    phrasal_path = FREQUENCY_CARDS / "phrasal_verbs.tsv"
+    phrasal_n = 0
+    if phrasal_path.exists():
+        with phrasal_path.open(encoding="utf-8") as f:
+            for line in f:
+                if not line.strip() or line.lstrip().startswith("#"):
+                    continue
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) < 2:
+                    continue
+                lemma = parts[0].strip()
+                gloss = parts[1].strip()
+                if not lemma or not gloss:
+                    continue
+                key = _lemma_key(lemma) or lemma
+                if key in existing_lemmas:
+                    continue
+                tags = "frequency phrasal-verb src-phrasal"
+                rows_out.append([annotated_lemma(lemma, phonetic),
+                                 gloss, tags])
+                existing_lemmas.add(key)
+                phrasal_n += 1
+        if phrasal_n:
+            stats["phrasal-verb"] = phrasal_n
+            print(f"  injected {phrasal_n} phrasal-verb rows from "
+                  f"{phrasal_path.name}", file=sys.stderr, flush=True)
+
     # Russian-augmentation layer: append ` / <ru>` to any card whose
     # English gloss still lacks Cyrillic and whose lemma has an entry
     # in russian_glosses.tsv. Runs last so core-injected cards are
@@ -994,10 +1099,38 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
             print(f"  augmented {ru_added} cards with Russian glosses "
                   f"from russian_glosses.tsv", file=sys.stderr, flush=True)
 
-    with out_path.open("w", encoding="utf-8", newline="") as f:
+    # Number cards → digit-only glosses (item 8).
+    num_fixed = 0
+    for r in rows_out:
+        key = _lemma_key(r[0]) or r[0]
+        if key in NUMBER_DIGITS:
+            r[1] = NUMBER_DIGITS[key]
+            num_fixed += 1
+    if num_fixed:
+        print(f"  rewrote {num_fixed} number cards as digits",
+              file=sys.stderr, flush=True)
+
+    # Write the user-facing deck — clean tags (`frequency top-1000`,
+    # rank/src dropped per the 2026-06-03 review) and HTML-rendered
+    # glosses — plus a sidecar `out/deck_meta.tsv` carrying rank +
+    # source. The validator loads the sidecar so its rank/src-aware
+    # checks keep working without cluttering the card.
+    meta_path = HERE / "out" / "deck_meta.tsv"
+    with out_path.open("w", encoding="utf-8", newline="") as f, \
+            meta_path.open("w", encoding="utf-8", newline="") as mf:
         w = csv.writer(f, delimiter="\t", lineterminator="\n")
-        for r in rows_out:
-            w.writerow(r)
+        mw = csv.writer(mf, delimiter="\t", lineterminator="\n")
+        mw.writerow(["lemma", "rank", "src"])
+        for lemma, plain, tags in rows_out:
+            rm = re.search(r"rank-(\d+)", tags)
+            sm = re.search(r"src-([a-z-]+)", tags)
+            rank = rm.group(1) if rm else ""
+            src = sm.group(1) if sm else ""
+            mw.writerow([lemma, rank, src])
+            # Display tag = first two internal tokens: `frequency
+            # <category>` (top-1000 / core-inject / phrasal-verb).
+            display_tag = " ".join(tags.split()[:2])
+            w.writerow([lemma, render_gloss(plain), display_tag])
 
     print(f"\nWrote {len(rows_out)} cards → {out_path}", file=sys.stderr)
     if skipped_names:

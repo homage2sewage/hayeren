@@ -62,8 +62,18 @@ Two natural workflows:
 ## Schema for `top_1000.tsv`
 
 ```
-Armenian [phonetic-respell] \t  English / Russian (where available)  \t  tags
+Armenian [phonetic-respell] \t  <HTML: English / Russian>  \t  frequency <category>
 ```
+
+The gloss column is **Anki HTML** (since 2026-06-03): English bold,
+Russian muted gray on a new line (`<br>`), embedded examples italic.
+**Import into Anki with "Allow HTML in fields" enabled.** The tag
+column is just `frequency top-1000` / `frequency core-inject` /
+`frequency phrasal-verb` — rank and source were dropped from the card
+and live in the `../frequency/out/deck_meta.tsv` sidecar (the
+validator reads it). Number cards are digits (`1`, `5th`). Authoring
+of glosses stays plain `English / Russian` in `build_deck.py` /
+`russian_glosses.tsv`; HTML is rendered at build time.
 
 The phonetic-respell bracket is only present when the actual
 pronunciation deviates from the orthography on one of the contrast-

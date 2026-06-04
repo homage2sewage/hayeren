@@ -367,6 +367,20 @@ The two languages are joined into a single back-of-card field with
 ` / ` as separator. Each side holds 2-3 quick equivalents (no
 etymology, no Wiktionary annotations).
 
+> **HTML formatting (2026-06-03, `top_1000.tsv`).** The back field is
+> now rendered as Anki HTML: English **bold**, Russian muted gray, the
+> two on separate lines (`<br>`), embedded examples italic. Import
+> with **"Allow HTML in fields" enabled**. Authoring stays plain
+> `English / Russian` — `build_deck.render_gloss` does the rendering,
+> and the validator strips it back to plain text for its checks.
+> `build_deck` splits on the *last* ` / ` so an English parenthetical
+> may itself contain a slash. Tags are now just
+> `frequency <top-1000|core-inject|phrasal-verb>` — rank/source moved
+> to the `frequency/out/deck_meta.tsv` sidecar. Number cards show the
+> digit (`մեկ`→`1`, `հինգերորդ`→`5th`). Phrasal/light-verb cards
+> (`դուր գալ`, `հարց տալ`, …) come from
+> `cards/frequency/phrasal_verbs.tsv`, mined from the textbooks.
+
 > **` / ` is reserved.** It marks the English↔Russian boundary and
 > nothing else. Separate multiple English senses with commas or `;`
 > — never ` / ` (the `to cry / to weep` bug). `check_reserved_slash`

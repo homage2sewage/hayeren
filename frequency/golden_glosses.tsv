@@ -19,7 +19,7 @@
 # --- Cases caught during 2026-05-09 dictionary POS-priority audit ---
 տարեկան	annual	-year-old	летний
 բաց	open	открыт
-մեկ	one	один
+մեկ	1
 թե	that	if	or
 ով	who	кто
 արի	come	иди
@@ -28,7 +28,7 @@
 իր	thing	his	own	вещь	свой
 մեջ	in	inside	среди	внутри
 օրինակ	example	for example	пример
-հազար	thousand	тысяча
+հազար	1000
 ապրես	well done	attaboy	молод
 ուղիղ	straight	direct	прям
 բարև	hello	привет	здрав
@@ -55,7 +55,7 @@
 միավոր	unit	единица
 պայմանավորված	conditioned	due to	обусловл
 գոյական	noun	существительное
-հինգերորդ	fifth	пятый
+հինգերորդ	5th
 անդամ	member	limb
 թող	let	пусть
 տեսություն	theory	теория
@@ -95,3 +95,22 @@
 լալ	cry	weep
 плакать		
 ելնել	go out	выходить
+վրա	on	на
+ըստ	according	согласно
+առանց	without	без
+պես	like	как
+դեպի	towards	направлени
+շուրջ	around	вокруг
+դուր գալ	like	please
+нрав		
+հարց տալ	ask	вопрос
+դատ բանալ	sue	lawsuit	суд
+ցույց տալ	show	показ
+կանգ առնել	stop	останов
+տեղի ունենալ	take place	происход
+չէի	1sg	не был
+չէր	3sg	не был
+միթե	really	разве
+քան	than	чем
+ընթացքում	during	в течение
+ան	he, she	он, она

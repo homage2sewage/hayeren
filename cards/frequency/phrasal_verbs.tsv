@@ -1,0 +1,29 @@
+# Common Armenian phrasal / light-verb constructions, mined from the
+# textbook corpora (parnasyan, tioyan) and corpus-grounded (each was
+# attested with its own Russian gloss or a clear bilingual line).
+# Mined 2026-06-03. Injected by build_deck.py with tag
+# `frequency phrasal-verb`. The list can grow (item 5/9).
+#
+# Format (TSV): armenian_citation_form <TAB> english / russian
+դուր գալ	to like, to please / нравиться
+հարց տալ	to ask (a question) / задавать вопрос
+ցույց տալ	to show / показывать
+թույլ տալ	to allow, to permit / разрешать
+դուրս գալ	to go out, to come out / выходить
+ձեռք բերել	to acquire, to obtain / приобретать
+նկատի ունենալ	to bear in mind / иметь в виду
+կարիք ունենալ	to need / нуждаться
+հույս ունենալ	to hope / надеяться
+տեղի ունենալ	to take place, to occur / происходить
+խորհուրդ տալ	to advise / советовать
+կանգ առնել	to stop / останавливаться
+հանդես գալ	to perform, to appear / выступать
+հրաժեշտ տալ	to say goodbye / прощаться
+գլխի ընկնել	to realize, to catch on / догадаться
+կուլ տալ	to swallow / глотать
+դեմ լինել	to be against, to oppose / быть против
+միտք անել	to think, to ponder / думать
+հոգ տանել	to take care of / заботиться
+տուն գալ	to come home / приходить домой
+ողջույն տալ	to greet / приветствовать
+դատ բանալ	to file a lawsuit, to sue / подать в суд

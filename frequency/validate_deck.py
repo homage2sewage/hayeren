@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import html as _html
 import re
 import sys
 from collections import Counter, defaultdict
@@ -112,13 +113,49 @@ TRUNCATION_RE_TAIL_CANDIDATES = ("ի", "ություն", "ություն")
 Row = tuple[str, str, str]  # (lemma, translation, tags_field)
 
 
+_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def plain_gloss(s: str) -> str:
+    """Strip the Anki HTML rendering back to the plain
+    `English / Russian` form the content checks expect. `<br>` is the
+    EN/RU boundary → ` / `."""
+    s = re.sub(r"<br\s*/?>", " / ", s)
+    s = _TAG_RE.sub("", s)
+    return _html.unescape(s).strip()
+
+
+def load_deck_meta() -> dict[str, tuple[str, str]]:
+    """lemma → (rank, src) from build_deck's sidecar. Lets the
+    validator recover rank/source even though the card's tag column
+    is now just `frequency top-1000` (rank/src dropped per 2026-06-03)."""
+    path = HERE / "out" / "deck_meta.tsv"
+    meta: dict[str, tuple[str, str]] = {}
+    if path.exists():
+        with path.open(encoding="utf-8") as f:
+            reader = csv.reader(f, delimiter="\t")
+            next(reader, None)  # header
+            for row in reader:
+                if len(row) >= 3:
+                    meta[row[0]] = (row[1], row[2])
+    return meta
+
+
 def read_deck(path: Path = DECK_PATH) -> list[Row]:
+    meta = load_deck_meta()
     rows: list[Row] = []
     with path.open(encoding="utf-8") as f:
         for r in csv.reader(f, delimiter="\t"):
             if len(r) < 3:
                 continue
-            rows.append((r[0], r[1], r[2]))
+            lemma, gloss, tags = r[0], plain_gloss(r[1]), r[2]
+            # Reconstruct rank/src into the tags string so the existing
+            # rank_of()/`src-…` checks keep working unchanged.
+            if lemma in meta:
+                rank, src = meta[lemma]
+                tags = (f"frequency top-1000 rank-{rank} src-{src}"
+                        if rank else f"frequency core-inject src-{src}")
+            rows.append((lemma, gloss, tags))
     return rows
 
 
@@ -465,6 +502,21 @@ def check_script_purity(rows: list[Row], findings: list[Finding]) -> None:
                       "non-armenian-in-lemma",
                       f"unexpected char {ch!r} (U+{ord(ch):04X})")
             break  # one finding per lemma is enough
+        # Gloss-side guard: a single token mixing Armenian with
+        # Cyrillic/Latin letters is the `էл`-with-Cyrillic-л bug
+        # (2026-06-03). The lemma loop above can't see it — embedded
+        # Armenian examples live in the gloss. One finding per row.
+        for tok in tr.split():
+            arm = any(_is_armenian(c) for c in tok)
+            other = any((0x0400 <= ord(c) <= 0x04FF)  # Cyrillic
+                        or (0x0041 <= ord(c) <= 0x007A and c.isalpha())  # Latin
+                        for c in tok)
+            if arm and other:
+                _emit(findings, "error", rank_of(tags), lemma, tr,
+                      "mixed-script-gloss",
+                      f"token {tok!r} mixes Armenian with Cyrillic/Latin "
+                      f"letters")
+                break
 
 
 def check_dictionary_ambiguity(rows: list[Row], findings: list[Finding]) -> None:
@@ -601,6 +653,10 @@ def check_missing_russian(rows: list[Row], findings: list[Finding]) -> None:
         rank = rank_of(tags)
         if rank == -1 or rank > RUSSIAN_COVERAGE_RANK:
             continue
+        # Digit-only glosses (number cards) need no Russian — the
+        # numeral is language-neutral.
+        if re.fullmatch(r"\d+(?:st|nd|rd|th)?", tr.strip()):
+            continue
         if not _CYRILLIC_RE.search(tr):
             _emit(findings, "info", rank, _strip_annot(lemma), tr,
                   "missing-russian",
@@ -610,16 +666,50 @@ def check_missing_russian(rows: list[Row], findings: list[Finding]) -> None:
 
 def check_reserved_slash(rows: list[Row], findings: list[Finding]) -> None:
     """The deck reserves ` / ` strictly for the English/Russian
-    boundary. A gloss that contains ` / ` but NO Cyrillic anywhere is
-    misusing the slash as an English comma-separator (e.g. the
-    `to cry / to weep` bug). That also breaks the Russian-augmentation
-    layer, which skips such rows rather than appending a third part."""
+    boundary. A gloss that contains a `/` but NO Cyrillic anywhere is
+    misusing the slash as an English comma-separator (`to cry / to
+    weep`; also the un-spaced `Don't you think?/Isn't it?` case, which
+    the old space-padded pattern missed). The no-Cyrillic guard
+    exempts legit within-word alternatives like `his/her`, `pl/formal`
+    — those always carry a Russian half, so Cyrillic is present."""
     for lemma, tr, tags in rows:
-        if " / " in tr and not _CYRILLIC_RE.search(tr):
+        if "/" in tr and not _CYRILLIC_RE.search(tr):
             _emit(findings, "warning", rank_of(tags), _strip_annot(lemma),
                   tr, "reserved-slash",
                   "` / ` is reserved for the EN/RU boundary; use a comma "
                   "between English senses")
+
+
+def check_duplicate_override_keys(rows: list[Row],
+                                  findings: list[Finding]) -> None:
+    """Source-level guard: a duplicate string key in any dict literal
+    in build_deck.py (HAND_OVERRIDES, DISPLAY_OVERRIDES, …) silently
+    shadows the earlier value — Python keeps the last. This caused the
+    `դուր` gloss to ship as `(in դուր գալ) …` (2026-06-03). `rows` is
+    ignored; the check parses build_deck.py directly."""
+    import ast
+    src_path = HERE / "build_deck.py"
+    if not src_path.exists():
+        return
+    try:
+        tree = ast.parse(src_path.read_text(encoding="utf-8"))
+    except SyntaxError as e:
+        _emit(findings, "error", -1, "build_deck.py", "",
+              "build-deck-syntax", f"could not parse: {e}")
+        return
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Dict):
+            continue
+        seen: dict[str, int] = {}
+        for k in node.keys:
+            if isinstance(k, ast.Constant) and isinstance(k.value, str):
+                if k.value in seen:
+                    _emit(findings, "error", -1, k.value, "",
+                          "duplicate-override-key",
+                          f"key {k.value!r} duplicated in a build_deck.py "
+                          f"dict (line {k.lineno}, first {seen[k.value]}) "
+                          f"— the later value silently shadows the earlier")
+                seen[k.value] = k.lineno
 
 
 def check_morpheme_noise(rows: list[Row], findings: list[Finding]) -> None:
@@ -654,6 +744,7 @@ CHECKS = [
     check_missing_russian,
     check_reserved_slash,
     check_morpheme_noise,
+    check_duplicate_override_keys,
 ]
 
 

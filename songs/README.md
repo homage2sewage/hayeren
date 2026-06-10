@@ -102,3 +102,5 @@ Frontmatter (artists, title, source URLs, date, status) + then:
 
 - `dav-vnas-myus-angam.md` — Dav feat. Vnas, *Մյուս անգամ /
   Myus Angam*.
+- `brunette-8-sutasan.md` — Brunette, *8 SUTASAN / Սուտասան*
+  (chorus only; `status: partial` — verses not yet acquired).

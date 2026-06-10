@@ -285,6 +285,12 @@ Mirrored from frontmatter:
 
 ## Cross-references
 
+- `topics/phonology/known_transcriptions.md` — harvested table of all
+  98 attested respells from the corpus (sakayan + hand-curated), with
+  sources and a per-deviation tally.
+- `research/2026-06-10-transcription-coverage-and-system.md` — deck
+  coverage (45/1097) and the no-lookup expansion strategy
+  (root-propagation / cluster-rule / why a blanket stop-rule is unsafe).
 - `topics/phonology/three_way_laryngeal_contrast.md` — the underlying
   contrast that the alternation deviates from.
 - `sakayan/phonetics.py` — implementation of the deviation detector

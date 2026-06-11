@@ -547,6 +547,30 @@ HAND_OVERRIDES: dict[str, str] = {
     # W.-Armenian / colloquial pronoun; Eastern standard is նա (also
     # on deck). Labelled to avoid presenting a dialectal form as neutral.
     "ան":         "he, she (W. Arm. / colloq.; Eastern: նա) / он, она",
+    # ── 2026-06-11 adversarial review ─────────────────────────────
+    # Homograph traps: kaikki's lead (or only) sense is a rare/wrong
+    # homograph for these high-frequency tokens. Corpus-confirmed;
+    # each has a golden_glosses.tsv anchor.
+    # Existential past dominates the corpus (~10/14 hits: sakayan
+    # p223 `Տերևախիտ մի ծառ կար անտառի մեջ`, p404, ghamoyan p95);
+    # kaikki led the noun "seam | sewing" (1 hit, ghamoyan p86
+    # `կար էր անում`). Keep sewing as a labelled secondary sense.
+    "կար":       "there was (past of կա); sewing (կար ու ձև — tailoring) / было; шитьё",
+    # kaikki led "knowing, having the knowledge" (rare literary
+    # homograph); the everyday word is the river.
+    "գետ":       "river / река",
+    # kaikki led "more, more than"; corpus usage is additive
+    # (`Երևանում ևս` — "in Yerevan too").
+    "ևս":        "also, too, as well / тоже, также",
+    # kaikki led "paron, baron" (the Cilician feudal title); the
+    # living sense is the address term (corpus: `պարոն Սարյան`).
+    "պարոն":     "mister, sir (պարոն Սարյան — Mr. Saryan) / господин",
+    # kaikki led "wherefrom, whence" (archaic); the living sense is
+    # the conjunction (corpus: `ուստի ուզում եմ գալ`).
+    "ուստի":     "therefore, hence / поэтому",
+    # kaikki led the noun "passage, pass"; the high-frequency use is
+    # clock-time "past" (corpus: `Ութն անց կես է`, `անց քառորդ`).
+    "անց":       "past (ութն անց կես — half past eight; անց կենալ — to pass) / после (о времени)",
 }
 
 
@@ -700,6 +724,13 @@ SKIP_LEMMAS: set[str] = {
     "սարյան",      # Saryan (surname)
     "մաշտոց",      # Mashtots (historical figure)
     "երեվան",      # misspelled Երևան without ՛
+    # 2026-06-11 adversarial review: tokenizer / morpheme noise.
+    "ակ",          # corpus hits are suffix citations (`-ակ`) and
+                   # hyphenation splits across line breaks
+                   # (`մի-ակ` = միակ) — never a standalone word;
+                   # kaikki glossed it the rare noun "spring,
+                   # fountain". Same bucket as the bare suffixes
+                   # above (-իկ/-ուկ-style metalinguistic mentions).
 }
 
 
@@ -863,16 +894,22 @@ def _fmt_english(en: str) -> str:
     (`(ներս մտնել — to enter)`). Single-quoted attrs only — the CSV
     writer would otherwise quote-escape double quotes and break the
     Anki import."""
-    out: list[str] = []
+    html = ""
     for seg in re.split(r"(\([^)]*\))", en):
         seg = seg.strip()
         if not seg:
             continue
         if seg.startswith("(") and seg.endswith(")"):
-            out.append(f"<i>{_esc(seg)}</i>")
+            rendered = f"<i>{_esc(seg)}</i>"
         else:
-            out.append(f"<b>{_esc(seg)}</b>")
-    return " ".join(out)
+            rendered = f"<b>{_esc(seg)}</b>"
+        # Rejoin with a space EXCEPT before punctuation — stripping
+        # the segments would otherwise turn `…house); among` into
+        # `…house)</i> <b>; among</b>` (a space before the `;`).
+        if html and not seg.startswith((";", ",", ".", ":", ")", "!", "?")):
+            html += " "
+        html += rendered
+    return html
 
 
 def render_lemma(annotated: str) -> str:

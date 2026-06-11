@@ -591,6 +591,51 @@ def load_golden() -> dict[str, list[str]]:
     return golden
 
 
+_ARMENIAN_CHAR_RE = re.compile(r"[԰-֏]")
+
+
+def check_golden_file(rows: list[Row], findings: list[Finding]) -> None:
+    """Structural lint for `golden_glosses.tsv` itself. The 2026-06-11
+    review found five Russian alternates orphaned onto their own lines
+    as bogus lemma keys (`данны`, `знаменит`, …) — silently dropped by
+    load_golden's `if lemma and alts` guard — plus duplicate lemma
+    keys whose later row silently shadowed the earlier (dict
+    semantics). `rows` is ignored; the check re-parses the file."""
+    if not GOLDEN_PATH.exists():
+        return
+    seen: dict[str, int] = {}
+    with GOLDEN_PATH.open(encoding="utf-8") as f:
+        for lineno, raw in enumerate(f, 1):
+            raw = raw.rstrip("\n")
+            if not raw.strip() or raw.startswith("#"):
+                continue
+            parts = raw.split("\t")
+            lemma = parts[0].strip()
+            alts = [p.strip() for p in parts[1:] if p.strip()]
+            if not _ARMENIAN_CHAR_RE.search(lemma):
+                _emit(findings, "error", -1, lemma, "",
+                      "golden-file-malformed",
+                      f"line {lineno}: lemma key contains no Armenian "
+                      f"characters — likely an alternate orphaned off the "
+                      f"previous row; rejoin it as an extra column there")
+                continue
+            if not alts:
+                _emit(findings, "error", -1, lemma, "",
+                      "golden-file-malformed",
+                      f"line {lineno}: row has no expected-substring "
+                      f"columns (wrong column count) — load_golden "
+                      f"silently skips it")
+            key = lemma.lower()
+            if key in seen:
+                _emit(findings, "error", -1, lemma, "",
+                      "golden-file-malformed",
+                      f"line {lineno}: duplicate lemma key (first at line "
+                      f"{seen[key]}) — the later row silently shadows the "
+                      f"earlier in load_golden; merge into one row")
+            else:
+                seen[key] = lineno
+
+
 def check_golden_glosses(rows: list[Row], findings: list[Finding]) -> None:
     """For each lemma listed in `golden_glosses.tsv`, confirm the
     deck's gloss contains at least one expected substring. Catches
@@ -635,6 +680,9 @@ MORPHEME_NOISE = {
     "ություն",  # bare abstract-noun suffix
     "մերի",  # gen of substantivized possessive մերը (kaikki: "woods")
     "մեկն",  # definite nom. sg. of մեկ (kaikki: rare adv "upright")
+    "ակ",    # suffix citations `-ակ` + hyphenation splits (`մի-ակ`
+             # = միակ); kaikki: rare noun "spring, fountain"
+             # (2026-06-11 review)
 }
 
 # How deep the "every card should ideally carry a Russian gloss"
@@ -738,6 +786,7 @@ CHECKS = [
     check_duplicate_translation,
     check_eu_ligature,
     check_dictionary_ambiguity,
+    check_golden_file,
     check_golden_glosses,
     check_script_purity,
     check_prose_gloss,

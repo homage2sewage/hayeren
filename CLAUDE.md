@@ -138,21 +138,32 @@ detected" — that's the bundle. Ground the answer in it.
 
 To skip the auto-grounding for a specific prompt (e.g. while
 editing a topic file that contains Armenian fragments), prefix
-the prompt with `#nogrep`. The hook is registered in
-`.claude/settings.json` (committed) and survives reinstall.
+the prompt with `#nogrep` (prefix only — mentioning the token
+mid-prompt does not suppress). Prompts over 8000 chars are
+skipped as likely file pastes. Every invocation (fired or
+skipped, with reason) is logged to
+`.claude/logs/armenian_autoground.jsonl`. The hook is registered
+in `.claude/settings.json` (committed) and survives reinstall.
 
 ### Automation: same check on the response side (Stop hook)
 
 `.claude/hooks/armenian_self_check.py` runs on every `Stop`
 event (i.e. when the model finishes a draft response). It
-mirrors the auto-grounding hook in the opposite direction: if
-the draft response contains substantive Armenian-language
-content (≥ 20 Armenian characters), it runs
+reads the draft from the session transcript (the Stop payload
+carries `transcript_path`, not the response text; the hook
+parses the JSONL and takes the last assistant message's text
+blocks). It mirrors the auto-grounding hook in the opposite
+direction: if the draft response contains substantive
+Armenian-language content (≥ 20 Armenian characters) and does
+**not** already carry a citation marker (a `topics/<...>.md`
+path or a book-page cite like `ghamoyan p48`), it runs
 `frequency/query_kb.py` on the Armenian-bearing lines and, if
 the bundle has substantive corpus matches, **blocks** the
 response with the bundle as feedback. The model then re-emits
 with the bundle in context and has to reconcile any claims
-that disagree with corpus evidence.
+that disagree with corpus evidence. Already-cited drafts pass
+through (logged as `skip-cited`) — the hook is a once-per-turn
+forced re-read for *uncited* Armenian-bearing drafts only.
 
 This closes the gap that motivated 7+ failure-log entries over
 the 2026-05-09 → 2026-05-26 stretch (see

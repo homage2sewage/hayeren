@@ -116,6 +116,47 @@ def show_unmapped(spans: list[dict]) -> None:
         print(f"  {n:7d}  {font:25s}  {ch!r}  U+{ord(ch):04X}")
 
 
+def self_check(spans: list[dict]) -> bool:
+    """Post-decode sanity checks. Returns True iff all pass.
+
+    1. Flanking-pair statistic: « and » counts across the decoded
+       output must balance to within a small tolerance (they wrap
+       words/titles, so a big imbalance means a decode-table bug —
+       the 0xA6/0xA7 mismap shipped exactly that way).
+    2. Census of raw ≥0x80 codepoints in ARMSCII-8 fonts that the
+       table still doesn't cover (i.e. passed through undecoded).
+    """
+    ok = True
+
+    n_open = sum(s["text"].count("«") for s in spans)
+    n_close = sum(s["text"].count("»") for s in spans)
+    if abs(n_open - n_close) > 3:
+        print(f"SELF-CHECK FAIL: guillemets unbalanced: "
+              f"« ×{n_open} vs » ×{n_close} (|diff| > 3) — "
+              f"suspect a decode-table regression", file=sys.stderr)
+        ok = False
+    else:
+        print(f"self-check: guillemets balanced (« ×{n_open}, » ×{n_close})",
+              file=sys.stderr)
+
+    undecoded: collections.Counter = collections.Counter()
+    for s in spans:
+        if s["font"] not in armscii.ENCODED_FONTS:
+            continue
+        for ch in s["text_raw"]:
+            if ord(ch) >= 0x80 and ord(ch) not in armscii.ARMSCII8:
+                undecoded[ch] += 1
+    if undecoded:
+        print(f"self-check: {len(undecoded)} distinct raw >=0x80 codepoints "
+              f"in encoded fonts remain undecoded:", file=sys.stderr)
+        for ch, n in undecoded.most_common():
+            print(f"  {n:7d}  {ch!r}  U+{ord(ch):04X}", file=sys.stderr)
+    else:
+        print("self-check: no undecoded >=0x80 codepoints in encoded fonts",
+              file=sys.stderr)
+    return ok
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -146,6 +187,8 @@ def main() -> None:
     md_path.write_text(render_md(spans), encoding="utf-8")
     print(f"Wrote {len(spans)} spans → {jsonl_path}", file=sys.stderr)
     print(f"Wrote markdown → {md_path}", file=sys.stderr)
+    if not self_check(spans):
+        sys.exit(1)
 
 
 if __name__ == "__main__":

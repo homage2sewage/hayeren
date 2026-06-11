@@ -1,4 +1,4 @@
-"""ARMSCII-8 → Unicode decoder for Armenian text mis-extracted as
+r"""ARMSCII-8 → Unicode decoder for Armenian text mis-extracted as
 WinAnsi.
 
 ARMSCII-8 (Armenian Standard Code for Information Interchange, 8-bit)
@@ -17,6 +17,21 @@ The table here is the standard ARMSCII-8 mapping (Wikipedia: ArmSCII).
 Per-PDF overrides handle fonts that deviate from the standard for a
 handful of glyphs (this PDF uses Greek μ U+03BC for `բ` and ¨ U+00A8
 for the ev-ligature `և`).
+
+Known PDF-specific deviations from standard ARMSCII-8 (verified
+empirically against the rendered pages, 2026-06-11):
+
+- 0xA7 renders as the opening guillemet «, 0xA6 as the closing »
+  (516 / 515 occurrences, perfectly paired around words and titles —
+  e.g. p2 raw `§ØáõÝ»ïÇÏ¦` = «Մունետիկ»). Standard ARMSCII-8 puts
+  storaket/hyphen there; the standard 0xAB/0xAC guillemet slots occur
+  about once each in this book.
+- ASCII backtick 0x60 is the Armenian բութ ՝ U+055D (641 occurrences,
+  e.g. raw `ËÙμ³·Çñ\`` = խմբագիր՝). Remapped only inside
+  ENCODED_FONTS — `decode` is never applied to non-encoded fonts.
+- 0xB0 is the shesht ՛ U+055B (raw `Ã»°` = թե՛, `î»°ë` = Տե՛ս) and
+  0xB1 the hartsakan ՞ U+055E (raw `Ç±Ýã` = ի՞նչ). In standard
+  ARMSCII-8 these slots are unassigned (letters start at 0xB2).
 """
 
 
@@ -27,15 +42,19 @@ ARMSCII8: dict[int, str] = {
     0xA3: "՛",   # shesht (emphasis)
     0xA4: "․",   # mid-dot (Armenian period equivalent in some standards)
     0xA5: "՝",   # mijaket (mid-stop / clause separator)
-    0xA6: ",",   # storaket (comma)
-    0xA7: "-",   # hyphen
+    0xA6: "»",   # closing guillemet (this PDF; standard has storaket here)
+    0xA7: "«",   # opening guillemet (this PDF; standard has hyphen here)
     0xA8: "և",   # ev-ligature (this PDF; standard ARMSCII-8 has ֊ here)
     0xA9: "՞",   # hartsakan (question)
     0xAA: "՟",   # patʿiv / abbreviation
-    0xAB: "«",
-    0xAC: "»",
+    0xAB: "«",   # standard ARMSCII-8 slot (~1 occurrence in this PDF)
+    0xAC: "»",   # standard ARMSCII-8 slot (~1 occurrence in this PDF)
     0xAE: "…",
     0xAF: "՜",   # batsakanchakan (exclamation)
+    # PDF-specific punctuation outside the standard table
+    0x60: "՝",   # ASCII backtick → but (mid-stop); ENCODED_FONTS only
+    0xB0: "՛",   # shesht (emphasis) — standard leaves 0xB0/0xB1 unassigned
+    0xB1: "՞",   # hartsakan (question)
     # Letter pairs (uppercase, lowercase) from 0xB2
     0xB2: "Ա", 0xB3: "ա", 0xB4: "Բ", 0xB5: "բ",
     0xB6: "Գ", 0xB7: "գ", 0xB8: "Դ", 0xB9: "դ",

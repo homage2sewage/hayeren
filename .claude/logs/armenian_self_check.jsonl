@@ -43,3 +43,32 @@
 {"ts": "2026-06-11T04:20:51", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
 {"ts": "2026-06-11T04:23:26", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
 {"ts": "2026-06-11T04:28:11", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T13:40:34", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T14:15:26", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T14:28:07", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T14:40:59", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T14:55:58", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T15:10:19", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T15:17:25", "stop_hook_active": false, "response_chars": 3792, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-11T15:21:27", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T15:29:08", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-11T15:39:47", "stop_hook_active": false, "response_chars": 1964, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T01:11:42", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-13T01:29:57", "stop_hook_active": false, "response_chars": 4026, "armenian_chars": 371, "action": "skip-cited", "bundle": ""}
+{"ts": "2026-06-13T01:36:15", "stop_hook_active": false, "response_chars": 131, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T01:41:40", "stop_hook_active": false, "response_chars": 99, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T01:49:19", "stop_hook_active": false, "response_chars": 1693, "armenian_chars": 132, "action": "block", "bundle": "# KB-grounding bundle\n\n## Query\n\n```\n> **Ա. Սարգսյան, Ս. Համբարձումյան**, *Հայոց լեզուն և խոսքի մշակույթ*, Ե., 2012, էջ 51:\nSo it's not an old usage manual — my \"1960s-style prose\" quip in the last message was wrong on the date; it's a **2012 university textbook**. What the corpus bytes give us: aut"}
+{"ts": "2026-06-13T01:50:35", "stop_hook_active": true, "response_chars": 2937, "armenian_chars": 66, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-06-13T01:55:57", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-13T02:46:19", "stop_hook_active": false, "response_chars": 312, "armenian_chars": 17, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T12:53:00", "stop_hook_active": false, "response_chars": 151, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T13:04:57", "stop_hook_active": false, "response_chars": 176, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T13:17:29", "stop_hook_active": false, "response_chars": 2852, "armenian_chars": 26, "action": "pass-no-corpus-matches", "bundle": "# KB-grounding bundle\n\n## Query\n\n```\n**\"Manual\" was the load-bearing error; \"1960s\" was a modifier hanging off it.** The footnote bytes gave a *title* (Հայոց լեզուն և խոսքի մշակույթ). \"Manual\" was imp"}
+{"ts": "2026-06-13T13:22:22", "stop_hook_active": false, "response_chars": 3623, "armenian_chars": 18, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T13:25:45", "stop_hook_active": false, "response_chars": 2471, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T13:31:24", "stop_hook_active": false, "response_chars": 1848, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T13:41:59", "stop_hook_active": false, "response_chars": 1349, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T13:46:32", "stop_hook_active": false, "response_chars": 2011, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T14:10:14", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-13T14:13:35", "stop_hook_active": false, "response_chars": 2559, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T14:25:14", "stop_hook_active": false, "response_chars": 448, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}

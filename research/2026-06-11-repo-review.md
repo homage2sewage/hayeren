@@ -199,10 +199,17 @@ traces to a logged failure.
 - **acharyan rework** (page-tracker forward resync, abbreviation-
   aware headword regex) — before acharyan joins `query_kb.py`'s
   book list.
-- **Stop hook tier-1 redesign**: parse (citation, fragment) pairs
-  from the draft and byte-verify via citation-check logic; block on
-  specific failures. Do after observing the repaired hook's block
-  rate for a week.
+- **Stop hook tier-1 redesign** — **SHIPPED 2026-06-13.** Cited
+  drafts are no longer trusted: each `<book> pN` cite + same-line
+  quoted Armenian fragment is byte-verified (whitespace-insensitive
+  NFC) against sakayan/ghamoyan, blocking on the specific
+  unsupported `fragment@book pN`. Rationale in
+  `research/2026-06-13-answer-verification-architecture-fit.md`;
+  CLAUDE.md § "same check on the response side" documents behaviour.
+  *Still deferred:* the uncited-characterization arm (flag
+  confident source/Armenian characterizations with no citation —
+  the F1/"manual" class) — judged LLM-hard/false-positive-prone,
+  wants a design pass not a regex.
 - **Cross-language sense-consistency check**: for each
   `src-dictionary` card, compare the kaikki-EN sense against the
   RU-medium corpus gloss where present; disagreement promotes

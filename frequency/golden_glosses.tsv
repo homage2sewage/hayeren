@@ -96,7 +96,6 @@
 դեպի	towards	направлени
 շուրջ	around	вокруг
 հարց տալ	ask	вопрос
-դատ բանալ	sue	lawsuit	суд
 ցույց տալ	show	показ
 կանգ առնել	stop	останов
 տեղի ունենալ	take place	происход
@@ -117,3 +116,21 @@
 պարոն	mister	sir	господин
 ուստի	therefore	hence	поэтому
 անց	past	после
+# 2026-06-14 corpus-grounded sense fixes (Anahit critic pass).
+վախ	fear	страх
+հոլով	case	declension	падеж
+անկաշկանդ	uninhibited	free	непринуждённ
+ափսոս	pity	too bad	жаль
+փակ	closed	shut	закрыт
+քար	stone	rock	камень
+հաստատություն	institution	establishment	учреждение
+անհատ	individual	личность	индивид
+անցնել	pass	cross	проходить
+կինո	cinema	movies	film	кино
+ոսկի	gold	золото
+հայրիկ	dad	daddy	папа
+# 2026-06-14 round 2.
+կեր	feed	fodder	eat	корм
+# 2026-06-14 round 3 (web-grounded: Wiktionary modern entry «դատի տալ — to sue»;
+# NOT «դատ տալ» = condemn oneself).
+դատի տալ	sue	take to court	подать в суд

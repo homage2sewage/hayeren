@@ -5,6 +5,10 @@ imported into Anki; everything else (extraction artifacts, frequency
 analysis, validation reports) stays in the per-project `out/`
 directories.
 
+See `CHANGELOG.md` for the dated record of deck fixes (what changed,
+why, the grounding evidence, and which critic findings were walked
+back). `REQUIREMENTS.md` is the spec; this file is the layout.
+
 ## Layout
 
 ```

@@ -72,3 +72,16 @@
 {"ts": "2026-06-13T14:10:14", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
 {"ts": "2026-06-13T14:13:35", "stop_hook_active": false, "response_chars": 2559, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
 {"ts": "2026-06-13T14:25:14", "stop_hook_active": false, "response_chars": 448, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-13T15:50:18", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T00:24:32", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T00:26:13", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T00:34:51", "stop_hook_active": false, "response_chars": 117, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T00:39:25", "stop_hook_active": false, "response_chars": 84, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T00:41:58", "stop_hook_active": false, "response_chars": 172, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T00:42:40", "stop_hook_active": false, "response_chars": 2769, "armenian_chars": 131, "action": "skip-cited-unverifiable", "bundle": ""}
+{"ts": "2026-06-14T00:49:03", "stop_hook_active": false, "response_chars": 137, "armenian_chars": 15, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T01:50:22", "stop_hook_active": false, "response_chars": 266, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T02:35:25", "stop_hook_active": false, "response_chars": 177, "armenian_chars": 12, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T02:35:57", "stop_hook_active": false, "response_chars": 60, "armenian_chars": 5, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T02:55:40", "stop_hook_active": false, "response_chars": 180, "armenian_chars": 15, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T03:19:51", "stop_hook_active": false, "response_chars": 89, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}

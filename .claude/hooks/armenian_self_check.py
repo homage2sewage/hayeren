@@ -10,9 +10,11 @@ After the model finishes generating a draft response, this hook:
    transcript JSONL.
 2. Detects Armenian Unicode (U+0530..U+058F) in the response;
    skips if there is no / too little Armenian content.
-3. Skips if the response already carries a citation marker
-   (a `topics/<...>.md` path or a `<book> pN` cite) — an
-   already-grounded draft doesn't need a forced re-read.
+3. If the response carries citation markers, BYTE-VERIFIES each
+   `<book> pN` + quoted-Armenian-fragment claim against the corpus
+   extraction; BLOCKS on any whose fragment is not at the cited
+   page (the song-citation-fabrication guard, errors/2026-06-01-001),
+   otherwise allows — a *verified* cited draft passes.
 4. Runs `frequency/query_kb.py` on the Armenian-bearing lines.
 5. If the bundle has substantive matches (topic files or book
    passages), BLOCKS the response with the bundle as feedback,
@@ -38,7 +40,10 @@ Suppression knobs:
     (response is just a passing mention, not analysis).
   - Skipped if the response is longer than MAX_RESPONSE_CHARS
     (likely a deck dump or other bulk emission).
-  - Skipped if the response already contains a citation marker.
+  - A cited response is byte-VERIFIED, not skipped: each `<book> pN`
+    + quoted-Armenian-fragment claim is checked against the corpus and
+    BLOCKS on mismatch (sakayan/ghamoyan only). Verified or unverifiable
+    cited drafts pass through.
   - Skipped if `stop_hook_active` is set in the payload.
 
 Env overrides (used by `.claude/hooks/test_hooks.py`):
@@ -60,6 +65,7 @@ import re
 import subprocess
 import sys
 import time
+import unicodedata
 
 ARMENIAN_RANGE = re.compile(r'[԰-֏]')
 MIN_ARMENIAN_CHARS = 20
@@ -129,6 +135,118 @@ def is_already_cited(response):
     """Cheap discriminator: the draft already carries a citation
     marker, so the forced re-read would be redundant."""
     return bool(CITATION_RE.search(response))
+
+
+# --- Citation verification (tier-1): byte-check cited Armenian fragments ---
+# Upgrades the prior behaviour (any cited draft was trusted and skipped)
+# into: verify each `<book> pN` + quoted-Armenian-fragment claim against
+# the corpus extraction, and block on the ones whose bytes are NOT at the
+# cited page. This is the song-citation-fabrication guard
+# (errors/2026-06-01-001 — delegation does not transfer trust) and the
+# SAFE-style verify stage from
+# research/2026-06-13-answer-verification-architecture-fit.md.
+
+# Only the clean text-layer books are byte-verified. parnasyan/tioyan are
+# tesseract OCR (Armenian headwords are often replaced by Cyrillic
+# transliteration), so exact byte matching would false-block correct
+# citations to them — treated as unverifiable until a fuzzy/ocr_conf-aware
+# match exists (v2). acharyan/gharagyulyan have no usable `text` field.
+# Citations to any of these still count as "cited" but are never flagged.
+VERIFIABLE_BOOKS = ("sakayan", "ghamoyan")
+CITE_CAPTURE_RE = re.compile(
+    r'(sakayan|ghamoyan|parnasyan|tioyan|acharyan|gharagyulyan)\s+p\.?\s*(\d+)',
+    re.IGNORECASE,
+)
+# Quoted spans: backtick, guillemets, straight + smart double, smart single.
+_QUOTE_SPAN_RE = re.compile(
+    r'`([^`]+)`|«([^»]+)»|"([^"]+)"|“([^”]+)”|‘([^’]+)’'
+)
+# Maximal Armenian run; spaces + within-word marks may join words, but NOT
+# the full stop ։ (that would span sentences).
+_ARM_RUN_RE = re.compile(r'[Ա-Ֆա-և]+(?:[ ՛՝]*[Ա-Ֆա-և]+)*')
+_RESPELL_RE = re.compile(r'\[[^\]]*\]')
+_WS_RE = re.compile(r'\s+')
+_BOOK_PAGE_TEXT = {}
+
+
+def _squash(s):
+    r"""NFC + strip ALL whitespace. The extraction stores text at token/box
+    granularity joined by newlines, so a multiword phrase the model quotes
+    (`word1 word2`) is bytes `word1\nword2` on the page; whitespace-
+    insensitive matching avoids false-blocking correct multiword citations
+    (and recovers mid-word span splits too)."""
+    return _WS_RE.sub('', unicodedata.normalize("NFC", s))
+
+
+def book_page_index(root, book):
+    """Lazy {page -> whitespace-squashed NFC text}, cached per process."""
+    if book in _BOOK_PAGE_TEXT:
+        return _BOOK_PAGE_TEXT[book]
+    path = os.path.join(root, book, 'out', 'full.jsonl')
+    pages = {}
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    e = json.loads(line)
+                except (json.JSONDecodeError, ValueError):
+                    continue
+                p = e.get('page')
+                if p is None:
+                    continue
+                pages.setdefault(p, []).append(e.get('text') or '')
+    except OSError:
+        pages = {}
+    idx = {p: _squash(''.join(parts)) for p, parts in pages.items()}
+    _BOOK_PAGE_TEXT[book] = idx
+    return idx
+
+
+def extract_citation_claims(response):
+    """[(fragment, book, page)] for quoted Armenian fragments that share a
+    LINE with a `<book> pN` citation (book in VERIFIABLE_BOOKS), each bound
+    to the nearest citation on that line. Same-line binding avoids the
+    cross-sentence mis-association a wide character window produced.
+    Fragments need >=2 Armenian letters; [phonetic-respell] brackets are
+    stripped before extraction."""
+    claims = []
+    for line in response.split('\n'):
+        cites = [(m.group(1).lower(), int(m.group(2)), m.start())
+                 for m in CITE_CAPTURE_RE.finditer(line)]
+        cites = [c for c in cites if c[0] in VERIFIABLE_BOOKS]
+        if not cites:
+            continue
+        for qm in _QUOTE_SPAN_RE.finditer(line):
+            span = next((g for g in qm.groups() if g is not None), None)
+            if span is None:
+                continue
+            span = _RESPELL_RE.sub(' ', span)
+            pos = qm.start()
+            book, page, _ = min(cites, key=lambda c: abs(c[2] - pos))
+            for run in _ARM_RUN_RE.findall(span):
+                frag = run.strip()
+                if len(ARMENIAN_RANGE.findall(frag)) >= 2:
+                    claims.append((frag, book, page))
+    return claims
+
+
+def verify_citation_claims(root, response):
+    """(failures, n_checked). A failure is (fragment, book, page) whose
+    fragment is NOT present at the cited page (whitespace-insensitive). A
+    cited page absent from the extraction is unverifiable: not counted, not
+    flagged."""
+    failures, seen, checked = [], set(), 0
+    for frag, book, page in extract_citation_claims(response):
+        if (frag, book, page) in seen:
+            continue
+        seen.add((frag, book, page))
+        page_text = book_page_index(root, book).get(page)
+        if page_text is None:
+            continue
+        checked += 1
+        if _squash(frag) not in page_text:
+            failures.append((frag, book, page))
+    return failures, checked
 
 
 def run_query_kb(root, query):
@@ -294,8 +412,37 @@ def main():
         return
 
     if is_already_cited(response):
-        log_activation(root, payload, len(response), armenian_chars,
-                       "skip-cited", "")
+        failures, n_checked = verify_citation_claims(root, response)
+        if failures:
+            items = "\n".join(
+                f"  - `{frag}` is NOT at the cited {book} p{page}"
+                for frag, book, page in failures[:20]
+            )
+            feedback = (
+                "<system-reminder>\n"
+                "The `armenian-self-check` hook byte-verified the citations "
+                "in your draft against the corpus extraction. These claims' "
+                "Armenian fragments do NOT appear at the cited page:\n\n"
+                + items + "\n\n"
+                "Fix each: cite the correct book/page, or — if the fragment "
+                "really is on the page and this is OCR noise in an OCR'd "
+                "book (parnasyan/tioyan) — say so explicitly and proceed. "
+                "Do not ship a citation whose bytes you have not confirmed "
+                "(`errors/2026-06-01-001`: delegation does not transfer "
+                "trust).\n"
+                "Note: fires once per turn (anti-loop via `stop_hook_active`).\n"
+                "</system-reminder>\n"
+            )
+            log_activation(root, payload, len(response), armenian_chars,
+                           "block-citation-unverified",
+                           "; ".join(f"{f}@{b}p{pg}"
+                                     for f, b, pg in failures[:5]))
+            print(json.dumps({"decision": "block", "reason": feedback}))
+            return
+        log_activation(
+            root, payload, len(response), armenian_chars,
+            "pass-citations-verified" if n_checked else "skip-cited-unverifiable",
+            "")
         return
 
     armenian_content = extract_armenian_content(response)

@@ -33,80 +33,72 @@ info	418	անընդհատ	continuous, uninterrupted, unbroken, continual, unceas
 info	452	առ	plunder, pillage	ambiguous-sense	3 POS senses; competing: [noun] plunder, pillage / [prep] by (in the formula X առ (aṙ) X, indicates a steady / [verb] second-person singular imperative of առնել (aṙnel)
 info	469	կամաց	slow	ambiguous-sense	2 POS senses; competing: [adj] slow / [adv] slowly
 info	473	վաղը	tomorrow	ambiguous-sense	2 POS senses; competing: [adv] tomorrow / [noun] tomorrow, the day after today
-info	482	քար	hard, strong, solid	ambiguous-sense	2 POS senses; competing: [adj] hard, strong, solid / [noun] stone, rock
-info	484	մեկին	clear, explained, intelligible	ambiguous-sense	3 POS senses; competing: [adj] clear, explained, intelligible / [adv] clearly, intelligibly / [pron] definite dative singular of մեկ (mek)
-info	487	բավական	enough, sufficient	ambiguous-sense	2 POS senses; competing: [adj] enough, sufficient / [adv] enough, quite
-info	496	բարով	with pleasure, with love, willingly	ambiguous-sense	2 POS senses; competing: [adv] with pleasure, with love, willingly / [intj] hello!, hi! (addressed to a single familiar person
-info	505	պակաս	incomplete; missing; insufficient	ambiguous-sense	2 POS senses; competing: [adj] incomplete; missing; insufficient / [noun] lack, want; shortage, deficit; absence
-info	512	միջին [միչին]	middle	ambiguous-sense	2 POS senses; competing: [adj] middle / [noun] definite dative singular of մեջ (meǰ)
-info	529	երրորդ [երրորթ]	3rd	ambiguous-sense	3 POS senses; competing: [adv] thirdly / [noun] the third part / [num] third
-info	533	սև	black	ambiguous-sense	2 POS senses; competing: [adj] black / [noun] black
-info	541	արժեք	value, worth, cost, price	ambiguous-sense	2 POS senses; competing: [noun] value, worth, cost, price / [verb] second-person plural present of արժել (aržel)
-info	557	ռուս	Russian	ambiguous-sense	2 POS senses; competing: [adj] Russian / [noun] an ethnic Russian person
-info	568	ջան	exclamation of joy, pleasure	ambiguous-sense	2 POS senses; competing: [intj] exclamation of joy, pleasure / [noun] body
-info	585	ծանոթ	familiar, known	ambiguous-sense	2 POS senses; competing: [adj] familiar, known / [noun] acquaintance; friend
-info	587	առատ	abundant, abounding, plentiful, copious	ambiguous-sense	2 POS senses; competing: [adj] abundant, abounding, plentiful, copious / [adv] abundantly, aboundingly, plentifully, copiously
-info	612	անհատ	singular, unique	ambiguous-sense	2 POS senses; competing: [adj] singular, unique / [noun] person, individual
-info	625	շնորհակալություն	gratefulness, thankfulness	ambiguous-sense	2 POS senses; competing: [noun] gratefulness, thankfulness / [particle] thank you, thanks
-info	635	տար	distant, far off, remote	ambiguous-sense	2 POS senses; competing: [adj] distant, far off, remote / [verb] second-person singular imperative of տանել (tanel)
-info	678	խիստ	strict, severe, stringent, austere, stern	ambiguous-sense	2 POS senses; competing: [adj] strict, severe, stringent, austere, stern / [adv] strictly, severely, stringently, austerely, sternl
-info	697	արտաքին	outward, external, outer	ambiguous-sense	2 POS senses; competing: [adj] outward, external, outer / [noun] appearance; look
-info	708	աղքատ	poor, indigent	ambiguous-sense	2 POS senses; competing: [adj] poor, indigent / [noun] poor man, pauper
-info	717	իմաստուն	wise	ambiguous-sense	3 POS senses; competing: [adj] wise / [adv] wisely / [noun] wise man, sage
-info	748	ուղիղ	straight, direct	ambiguous-sense	3 POS senses; competing: [adj] straight, direct / [adv] straight, directly / [noun] straight line
-info	749	սպիտակ	white	ambiguous-sense	2 POS senses; competing: [adj] white / [noun] white
-info	753	հաջորդ [հաջորթ]	next, following, subsequent	ambiguous-sense	2 POS senses; competing: [adj] next, following, subsequent / [noun] successor
-info	755	չինարեն	Chinese	ambiguous-sense	3 POS senses; competing: [adj] Chinese (of or pertaining to the language) / [adv] in Chinese / [noun] Chinese language
-info	759	եղավ	all right, OK	ambiguous-sense	2 POS senses; competing: [intj] all right, OK / [verb] third-person singular past perfect indicative of լ
-info	765	չնայած	in spite of, despite, notwithstanding	ambiguous-sense	2 POS senses; competing: [prep] in spite of, despite, notwithstanding / [verb] negative conjugation of նայած (nayac)
-info	766	հաջողություն	good luck	ambiguous-sense	2 POS senses; competing: [intj] good luck / [noun] success
-info	779	ածական	adjective, adjectival	ambiguous-sense	2 POS senses; competing: [adj] adjective, adjectival / [noun] adjective
-info	784	բաղադրիչ	constituent	ambiguous-sense	2 POS senses; competing: [adj] constituent / [noun] component
-info	802	ձախ	left; left-hand	ambiguous-sense	3 POS senses; competing: [adj] left; left-hand / [adv] to the left (of) / [noun] left, the left side; the left hand
-info	811	ուշ	late	ambiguous-sense	2 POS senses; competing: [adj] late / [adv] late
-info	815	բարդ	complicated, complex, difficult	ambiguous-sense	2 POS senses; competing: [adj] complicated, complex, difficult / [noun] heap of corn or grass
-info	817	տխուր	sad, melancholy, sorrowful	ambiguous-sense	2 POS senses; competing: [adj] sad, melancholy, sorrowful / [adv] sadly, sorrowfully
-info	822	ներկա	present	ambiguous-sense	2 POS senses; competing: [adj] present / [noun] the present
-info	826	էլի	again	ambiguous-sense	2 POS senses; competing: [adv] again / [intj] used to express hopelessness or acquiescence
-info	833	բուն	original, genuine, effective	ambiguous-sense	2 POS senses; competing: [adj] original, genuine, effective / [noun] tree trunk
-info	859	հարմար	comfortable, convenient	ambiguous-sense	2 POS senses; competing: [adj] comfortable, convenient / [adv] comfortably, conveniently
-info	860	մինչ	while, whilst	ambiguous-sense	2 POS senses; competing: [adv] while, whilst / [prep] till, until, to, as far as
-info	863	հավասար	equal, alike	ambiguous-sense	2 POS senses; competing: [adj] equal, alike / [adv] equally, evenly
-info	864	իսպաներեն	Spanish	ambiguous-sense	3 POS senses; competing: [adj] Spanish (of or pertaining to the language) / [adv] in Spanish / [noun] Spanish (language)
-info	865	հունարեն	Greek	ambiguous-sense	3 POS senses; competing: [adj] Greek (of or pertaining to the language) / [adv] in Greek / [noun] Greek (language)
-info	869	սուտ	false, counterfeit, mock	ambiguous-sense	2 POS senses; competing: [adj] false, counterfeit, mock / [noun] lie, falsehood, untruth
-info	870	վախ	an exclamation of pain or grief	ambiguous-sense	2 POS senses; competing: [intj] an exclamation of pain or grief / [noun] fear, fright, dread
-info	876	խորթ	unrelated, step-	ambiguous-sense	2 POS senses; competing: [adj] unrelated, step- / [noun] young man
-info	878	ընդարձակ	expansive, wide, broad, spacious	ambiguous-sense	2 POS senses; competing: [adj] expansive, wide, broad, spacious / [adv] intricately
-info	879	չար	evil, wicked	ambiguous-sense	2 POS senses; competing: [adj] evil, wicked / [noun] evil
-info	884	վերջ [վերչ]	end, ending, finish	ambiguous-sense	2 POS senses; competing: [noun] end, ending, finish / [postp] after
-info	890	համաձայն	in agreement , concordant	ambiguous-sense	3 POS senses; competing: [adj] in agreement (with), concordant (with) / [adv] in accord, in harmony / [postp] according to; in accordance with
-info	902	ծակ	having a hole, perforated, holed	ambiguous-sense	2 POS senses; competing: [adj] having a hole, perforated, holed / [noun] hole; opening; aperture
-info	904	հիմար	stupid, foolish, idiotic, moronic	ambiguous-sense	2 POS senses; competing: [adj] stupid, foolish, idiotic, moronic / [noun] fool, idiot, moron
-info	906	չափազանց	extreme, excessive, undue	ambiguous-sense	2 POS senses; competing: [adj] extreme, excessive, undue / [adv] extremely, excessively, unduly
-info	915	խոր	deep	ambiguous-sense	2 POS senses; competing: [adj] deep / [adv] deep
-info	922	ընդունված	accepted, adopted	ambiguous-sense	2 POS senses; competing: [noun] accepted, adopted / [verb] resultative participle of ընդունվել (əndunvel)
-info	931	համարժեք	equivalent	ambiguous-sense	2 POS senses; competing: [adj] equivalent / [noun] equivalent
-info	958	երանի	if only	ambiguous-sense	2 POS senses; competing: [intj] if only (I wish that) / [noun] wish, happiness, joy
-info	963	մենակ	alone	ambiguous-sense	2 POS senses; competing: [adj] alone / [adv] alone
-info	971	կեր	food, nourishment	ambiguous-sense	2 POS senses; competing: [noun] food, nourishment (especially for animals and babi / [verb] second-person singular imperative of ուտել (utel)
-info	972	յա	or	ambiguous-sense	2 POS senses; competing: [conj] or / [intj] an interjection expressing surprise
-info	986	վաղ	early	ambiguous-sense	2 POS senses; competing: [adj] early / [adv] early
-info	1000	խելացի	smart, clever, intelligent	ambiguous-sense	2 POS senses; competing: [adj] smart, clever, intelligent / [adv] cleverly, sensibly
-info	1008	ավագ	older, elder, senior	ambiguous-sense	2 POS senses; competing: [adj] older, elder, senior / [noun] elder
-info	1009	գլխավոր	main, principal, essential	ambiguous-sense	3 POS senses; competing: [adj] main, principal, essential / [adv] especially, particularly / [noun] leader, head
-info	1016	համ	and, both	ambiguous-sense	2 POS senses; competing: [conj] and, both / [noun] taste, savour
-info	1027	հեր	hair	ambiguous-sense	2 POS senses; competing: [noun] alternative form of հայր (hayr) / [pron] why
-info	1033	հոլով	much, plenty, numerous	ambiguous-sense	2 POS senses; competing: [adj] much, plenty, numerous / [noun] grammatical case
-info	1060	կապույտ	blue	ambiguous-sense	2 POS senses; competing: [adj] blue / [noun] blue
-info	1064	խոնավ	damp, humid, moist	ambiguous-sense	2 POS senses; competing: [adj] damp, humid, moist / [noun] rain
-info	1076	ափսոս	pitiable	ambiguous-sense	3 POS senses; competing: [adj] pitiable / [intj] alas!, what a pity! / [noun] regret
+info	486	բավական	enough, sufficient	ambiguous-sense	2 POS senses; competing: [adj] enough, sufficient / [adv] enough, quite
+info	495	բարով	with pleasure, with love, willingly	ambiguous-sense	2 POS senses; competing: [adv] with pleasure, with love, willingly / [intj] hello!, hi! (addressed to a single familiar person
+info	504	պակաս	incomplete; missing; insufficient	ambiguous-sense	2 POS senses; competing: [adj] incomplete; missing; insufficient / [noun] lack, want; shortage, deficit; absence
+info	511	միջին [միչին]	middle	ambiguous-sense	2 POS senses; competing: [adj] middle / [noun] definite dative singular of մեջ (meǰ)
+info	528	երրորդ [երրորթ]	3rd	ambiguous-sense	3 POS senses; competing: [adv] thirdly / [noun] the third part / [num] third
+info	532	սև	black	ambiguous-sense	2 POS senses; competing: [adj] black / [noun] black
+info	540	արժեք	value, worth, cost, price	ambiguous-sense	2 POS senses; competing: [noun] value, worth, cost, price / [verb] second-person plural present of արժել (aržel)
+info	556	ռուս	Russian	ambiguous-sense	2 POS senses; competing: [adj] Russian / [noun] an ethnic Russian person
+info	567	ջան	exclamation of joy, pleasure	ambiguous-sense	2 POS senses; competing: [intj] exclamation of joy, pleasure / [noun] body
+info	584	ծանոթ	familiar, known	ambiguous-sense	2 POS senses; competing: [adj] familiar, known / [noun] acquaintance; friend
+info	586	առատ	abundant, abounding, plentiful, copious	ambiguous-sense	2 POS senses; competing: [adj] abundant, abounding, plentiful, copious / [adv] abundantly, aboundingly, plentifully, copiously
+info	624	շնորհակալություն	gratefulness, thankfulness	ambiguous-sense	2 POS senses; competing: [noun] gratefulness, thankfulness / [particle] thank you, thanks
+info	634	տար	distant, far off, remote	ambiguous-sense	2 POS senses; competing: [adj] distant, far off, remote / [verb] second-person singular imperative of տանել (tanel)
+info	677	խիստ	strict, severe, stringent, austere, stern	ambiguous-sense	2 POS senses; competing: [adj] strict, severe, stringent, austere, stern / [adv] strictly, severely, stringently, austerely, sternl
+info	696	արտաքին	outward, external, outer	ambiguous-sense	2 POS senses; competing: [adj] outward, external, outer / [noun] appearance; look
+info	707	աղքատ	poor, indigent	ambiguous-sense	2 POS senses; competing: [adj] poor, indigent / [noun] poor man, pauper
+info	716	իմաստուն	wise	ambiguous-sense	3 POS senses; competing: [adj] wise / [adv] wisely / [noun] wise man, sage
+info	747	ուղիղ	straight, direct	ambiguous-sense	3 POS senses; competing: [adj] straight, direct / [adv] straight, directly / [noun] straight line
+info	748	սպիտակ	white	ambiguous-sense	2 POS senses; competing: [adj] white / [noun] white
+info	752	հաջորդ [հաջորթ]	next, following, subsequent	ambiguous-sense	2 POS senses; competing: [adj] next, following, subsequent / [noun] successor
+info	754	չինարեն	Chinese	ambiguous-sense	3 POS senses; competing: [adj] Chinese (of or pertaining to the language) / [adv] in Chinese / [noun] Chinese language
+info	758	եղավ	all right, OK	ambiguous-sense	2 POS senses; competing: [intj] all right, OK / [verb] third-person singular past perfect indicative of լ
+info	764	չնայած	in spite of, despite, notwithstanding	ambiguous-sense	2 POS senses; competing: [prep] in spite of, despite, notwithstanding / [verb] negative conjugation of նայած (nayac)
+info	765	հաջողություն	good luck	ambiguous-sense	2 POS senses; competing: [intj] good luck / [noun] success
+info	778	ածական	adjective, adjectival	ambiguous-sense	2 POS senses; competing: [adj] adjective, adjectival / [noun] adjective
+info	783	բաղադրիչ	constituent	ambiguous-sense	2 POS senses; competing: [adj] constituent / [noun] component
+info	801	ձախ	left; left-hand	ambiguous-sense	3 POS senses; competing: [adj] left; left-hand / [adv] to the left (of) / [noun] left, the left side; the left hand
+info	810	ուշ	late	ambiguous-sense	2 POS senses; competing: [adj] late / [adv] late
+info	814	բարդ	complicated, complex, difficult	ambiguous-sense	2 POS senses; competing: [adj] complicated, complex, difficult / [noun] heap of corn or grass
+info	816	տխուր	sad, melancholy, sorrowful	ambiguous-sense	2 POS senses; competing: [adj] sad, melancholy, sorrowful / [adv] sadly, sorrowfully
+info	821	ներկա	present	ambiguous-sense	2 POS senses; competing: [adj] present / [noun] the present
+info	825	էլի	again	ambiguous-sense	2 POS senses; competing: [adv] again / [intj] used to express hopelessness or acquiescence
+info	832	բուն	original, genuine, effective	ambiguous-sense	2 POS senses; competing: [adj] original, genuine, effective / [noun] tree trunk
+info	858	հարմար	comfortable, convenient	ambiguous-sense	2 POS senses; competing: [adj] comfortable, convenient / [adv] comfortably, conveniently
+info	859	մինչ	while, whilst	ambiguous-sense	2 POS senses; competing: [adv] while, whilst / [prep] till, until, to, as far as
+info	862	հավասար	equal, alike	ambiguous-sense	2 POS senses; competing: [adj] equal, alike / [adv] equally, evenly
+info	863	իսպաներեն	Spanish	ambiguous-sense	3 POS senses; competing: [adj] Spanish (of or pertaining to the language) / [adv] in Spanish / [noun] Spanish (language)
+info	864	հունարեն	Greek	ambiguous-sense	3 POS senses; competing: [adj] Greek (of or pertaining to the language) / [adv] in Greek / [noun] Greek (language)
+info	868	սուտ	false, counterfeit, mock	ambiguous-sense	2 POS senses; competing: [adj] false, counterfeit, mock / [noun] lie, falsehood, untruth
+info	875	խորթ	unrelated, step-	ambiguous-sense	2 POS senses; competing: [adj] unrelated, step- / [noun] young man
+info	877	ընդարձակ	expansive, wide, broad, spacious	ambiguous-sense	2 POS senses; competing: [adj] expansive, wide, broad, spacious / [adv] intricately
+info	878	չար	evil, wicked	ambiguous-sense	2 POS senses; competing: [adj] evil, wicked / [noun] evil
+info	882	վերջ [վերչ]	end, ending, finish	ambiguous-sense	2 POS senses; competing: [noun] end, ending, finish / [postp] after
+info	888	համաձայն	in agreement , concordant	ambiguous-sense	3 POS senses; competing: [adj] in agreement (with), concordant (with) / [adv] in accord, in harmony / [postp] according to; in accordance with
+info	900	ծակ	having a hole, perforated, holed	ambiguous-sense	2 POS senses; competing: [adj] having a hole, perforated, holed / [noun] hole; opening; aperture
+info	902	հիմար	stupid, foolish, idiotic, moronic	ambiguous-sense	2 POS senses; competing: [adj] stupid, foolish, idiotic, moronic / [noun] fool, idiot, moron
+info	904	չափազանց	extreme, excessive, undue	ambiguous-sense	2 POS senses; competing: [adj] extreme, excessive, undue / [adv] extremely, excessively, unduly
+info	913	խոր	deep	ambiguous-sense	2 POS senses; competing: [adj] deep / [adv] deep
+info	920	ընդունված	accepted, adopted	ambiguous-sense	2 POS senses; competing: [noun] accepted, adopted / [verb] resultative participle of ընդունվել (əndunvel)
+info	929	համարժեք	equivalent	ambiguous-sense	2 POS senses; competing: [adj] equivalent / [noun] equivalent
+info	956	երանի	if only	ambiguous-sense	2 POS senses; competing: [intj] if only (I wish that) / [noun] wish, happiness, joy
+info	961	մենակ	alone	ambiguous-sense	2 POS senses; competing: [adj] alone / [adv] alone
+info	982	վաղ	early	ambiguous-sense	2 POS senses; competing: [adj] early / [adv] early
+info	996	խելացի	smart, clever, intelligent	ambiguous-sense	2 POS senses; competing: [adj] smart, clever, intelligent / [adv] cleverly, sensibly
+info	1004	ավագ	older, elder, senior	ambiguous-sense	2 POS senses; competing: [adj] older, elder, senior / [noun] elder
+info	1005	գլխավոր	main, principal, essential	ambiguous-sense	3 POS senses; competing: [adj] main, principal, essential / [adv] especially, particularly / [noun] leader, head
+info	1011	համ	and, both	ambiguous-sense	2 POS senses; competing: [conj] and, both / [noun] taste, savour
+info	1022	հեր	hair	ambiguous-sense	2 POS senses; competing: [noun] alternative form of հայր (hayr) / [pron] why
+info	1055	կապույտ	blue	ambiguous-sense	2 POS senses; competing: [adj] blue / [noun] blue
+info	1059	խոնավ	damp, humid, moist	ambiguous-sense	2 POS senses; competing: [adj] damp, humid, moist / [noun] rain
 warning	9	այլ (#9), մյուս (#92)	other / другой	duplicate-translation	2 lemmas map to identical gloss
 warning	28	հայերեն (#28), հայոց (#85)	armenian / армянский	duplicate-translation	2 lemmas map to identical gloss
-warning	394	տեղի (#394), վայր (#935)	place	duplicate-translation	2 lemmas map to identical gloss
-warning	462	հնչյուն (#462), ձայն (#504)	sound	duplicate-translation	2 lemmas map to identical gloss
-warning	490	կրկին (#490), էլի (#826)	again	duplicate-translation	2 lemmas map to identical gloss
-warning	579	ուժեղ (#579), ամուր (#1042)	strong	duplicate-translation	2 lemmas map to identical gloss
-warning	656	բացել (#656), բանալ (#661)	to open	duplicate-translation	2 lemmas map to identical gloss
-warning	865	հունարեն (#865), հունական (#1070)	greek	duplicate-translation	2 lemmas map to identical gloss
-warning	1039	միրգ [միրք] (#1039), պտուղ (#1052)	fruit	duplicate-translation	2 lemmas map to identical gloss
+warning	394	տեղի (#394), վայր (#933)	place	duplicate-translation	2 lemmas map to identical gloss
+warning	462	հնչյուն (#462), ձայն (#503)	sound	duplicate-translation	2 lemmas map to identical gloss
+warning	489	կրկին (#489), էլի (#825)	again	duplicate-translation	2 lemmas map to identical gloss
+warning	578	ուժեղ (#578), ամուր (#1037)	strong	duplicate-translation	2 lemmas map to identical gloss
+warning	655	բացել (#655), բանալ (#660)	to open	duplicate-translation	2 lemmas map to identical gloss
+warning	864	հունարեն (#864), հունական (#1065)	greek	duplicate-translation	2 lemmas map to identical gloss
+warning	1034	միրգ [միրք] (#1034), պտուղ (#1047)	fruit	duplicate-translation	2 lemmas map to identical gloss

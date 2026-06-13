@@ -153,24 +153,52 @@ reads the draft from the session transcript (the Stop payload
 carries `transcript_path`, not the response text; the hook
 parses the JSONL and takes the last assistant message's text
 blocks). It mirrors the auto-grounding hook in the opposite
-direction: if the draft response contains substantive
-Armenian-language content (≥ 20 Armenian characters) and does
-**not** already carry a citation marker (a `topics/<...>.md`
-path or a book-page cite like `ghamoyan p48`), it runs
-`frequency/query_kb.py` on the Armenian-bearing lines and, if
-the bundle has substantive corpus matches, **blocks** the
-response with the bundle as feedback. The model then re-emits
-with the bundle in context and has to reconcile any claims
-that disagree with corpus evidence. Already-cited drafts pass
-through (logged as `skip-cited`) — the hook is a once-per-turn
-forced re-read for *uncited* Armenian-bearing drafts only.
+direction and has **two arms** keyed on whether the draft
+carries a citation marker (a `topics/<...>.md` path or a
+book-page cite like `ghamoyan p48`):
+
+- **Uncited arm** (the original behaviour). If the draft has
+  substantive Armenian content (≥ 20 Armenian characters) and
+  **no** citation marker, it runs `frequency/query_kb.py` on
+  the Armenian-bearing lines and, if the bundle has substantive
+  corpus matches, **blocks** with the bundle as feedback. The
+  model re-emits with the bundle in context and reconciles any
+  claims that disagree. This gates on *presence of a citation*.
+
+- **Cited arm** (added 2026-06-13). A citation is no longer
+  trusted on sight — a *fabricated* page cite used to be the
+  one thing that waved a draft straight through. Now each
+  `<book> pN` cite is **byte-verified against the corpus**: for
+  every line, quoted Armenian fragments (`` `…` ``, `«…»`,
+  straight/smart quotes) are bound to the `<book> pN` cite **on
+  that same line** and checked against that page's bytes. A
+  mismatch **blocks**, naming the specific unsupported
+  `fragment@book pN`. This gates on whether the cited claim is
+  *supported* — the evidence-*consumption* gap, vs. the uncited
+  arm's evidence-*delivery* gap.
+
+  Verification details: only **sakayan** and **ghamoyan** are
+  verifiable (clean text layer). parnasyan/tioyan are
+  OCR/Cyrillic-garbled and acharyan/gharagyulyan lack a text
+  field, so their cites log `skip-cited-unverifiable` rather
+  than false-block. Matching is **whitespace-insensitive NFC**
+  (`_squash`) because the corpus stores text at token/box
+  granularity — a multiword phrase the model quotes with a
+  single space (`word1 word2`) is `word1\nword2` on the page;
+  squashing whitespace on both sides avoids false-blocking
+  correct multiword citations (test (g) is the guard).
+  Log actions: `pass-citations-verified` /
+  `block-citation-unverified` / `skip-cited-unverifiable`.
 
 This closes the gap that motivated 7+ failure-log entries over
 the 2026-05-09 → 2026-05-26 stretch (see
 `errors/INDEX.md`): the model would assert structurally-
 plausible-sounding Armenian analysis without checking the
 corpus, and the operator had to manually push back. The
-self-check hook automates the push-back.
+self-check hook automates the push-back. The cited arm
+additionally catches the citation-fabrication class
+(`errors/2026-06-01-001`): a plausible `«word»` attached to a
+page that doesn't contain it now blocks at emit time.
 
 To skip the self-check for a specific response, include the
 literal token `#nocheck` in the response prose. The hook also
@@ -179,7 +207,12 @@ field — it fires at most once per turn. Activations are logged
 to `.claude/logs/armenian_self_check.jsonl` for measurement.
 
 See `research/2026-05-26-pre-emit-verification-automation.md`
-for the design rationale (options A-D considered; this is A).
+for the original design rationale (options A-D considered; this
+is A), and
+`research/2026-06-13-answer-verification-architecture-fit.md`
+for the cited-arm rationale (the SAFE-shaped verify-over-draft
+that motivated byte-verifying cited claims rather than trusting
+them).
 
 ## When the user reports a wrong output
 

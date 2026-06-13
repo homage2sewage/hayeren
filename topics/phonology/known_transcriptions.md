@@ -17,7 +17,9 @@ for the analysis (what's a rule vs. lexical vs. root-regular).
 - **hand-curated rows** — `PHONETIC_OVERRIDES` in
   `frequency/build_deck.py`; rationale + book pages in the topic file.
 
-**98 entries** (87 sakayan-attested, 11 hand-curated). Deviation tally: ջ→չ ×23, դ→թ ×22, գ→ք ×19, ձ→ց ×12, դ→տ ×11, բ→փ ×8, բ→պ ×2, գ→կ ×2.
+**105 entries** (87 sakayan-attested, 18 hand-curated — 7 added 2026-06-14
+via tier-1 root propagation, see the dedicated section below). Deviation
+tally: ջ→չ ×25, դ→թ ×23, գ→ք ×19, ձ→ց ×14, դ→տ ×11, բ→փ ×10, բ→պ ×2, գ→կ ×2.
 
 ## դ → թ (d → tʰ, aspirated) — 21
 
@@ -156,6 +158,40 @@ for the analysis (what's a rule vs. lexical vs. root-regular).
 | վերջնական | [վերչնական] | ջ→չ | sakayan chunks, u05d3 |
 | վերջո | [վերչո] | ջ→չ | sakayan u09v |
 | քրոջս | [քրոչս] | ջ→չ | sakayan chunks, u04d1 |
+
+## Tier-1 root-propagation additions (2026-06-14)
+
+Deck lemmas that share a root with an attested respell, added to
+`PHONETIC_OVERRIDES` after individual vetting against the book
+transliteration columns (the tier-1 "root/morpheme propagation"
+strategy in `research/2026-06-10-transcription-coverage-and-system.md`).
+Three are **corpus-confirmed** (a direct transliteration bracket exists
+in tioyan); four are propagated from a sister derivative in an identical
+root + position. Deck respell coverage 45 → 52.
+
+| word | respell | deviation | basis |
+|------|---------|-----------|-------|
+| երբեմն | [երփեմն] | բ→փ | tioyan `[ерп'эмэн]` (corpus-confirmed) |
+| վարդագույն | [վարթագույն] | դ→թ | tioyan `[варт'агуйн]` (corpus-confirmed; գ stays voiced) |
+| ողջույն | [ողչույն] | ջ→չ | tioyan `[вохчуйн]` (corpus-confirmed; ղջ cluster) |
+| երբեք | [երփեք] | բ→փ | sibling երբեմն; identical բ-before-ե environment |
+| բարձրագույն | [բարցրագույն] | ձ→ց | sister բարձրահասակ [բարցրահասակ] (sakayan); root-internal |
+| բարձրացնել | [բարցրացնել] | ձ→ց | same բարձր- root-internal ձ→ց |
+| մեջտեղ | [մեչտեղ] | ջ→չ | մեջ- layer-2 root; sister մեջք `[мэчк']`; ջ before voiceless տ |
+
+**Rejected counterexamples** (the same propagation pass tested and
+discarded): **այդպես**, **այդպիսի** — tioyan transliterates `[айдпэс]`
+/ `[айдписи]`, the դ staying **voiced** word-internally. So the
+word-final այդ → [այտ] devoicing (sakayan dialogue) does *not* carry
+into derivatives; these stay bare. This is layer-1 (lexically/positionally
+idiosyncratic), not a propagable root regularity.
+
+**Not addressed** — phrase cards whose first word is respell-eligible
+(`խորհուրդ տալ`, `ողջույն տալ`). The respell lookup keys on the whole
+lemma and `render_lemma` appends the bracket at the end, so per-word
+respells inside a multi-word card need a code change, not a data entry.
+The learner still sees the respell on the single-word cards (`խորհուրդ
+[խորհուրթ]`, `ողջույն [ողչույն]`).
 
 ## Cross-book attestations (exact page citations)
 

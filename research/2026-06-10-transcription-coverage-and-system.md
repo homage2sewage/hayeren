@@ -11,11 +11,28 @@ lookup (Wiktionary). Pairs with
 
 ## Current state
 
-- **Deck coverage: 45 / 1097 cards** carry a `[respell]`.
-- **Total known transcriptions in the corpus: 98** — 87 sakayan-attested
-  (harvested from `cards/sakayan/*.tsv`) + 11 hand-curated
-  (`PHONETIC_OVERRIDES`). Deviation tally: `ջ→չ` ×23, `դ→թ` ×22,
-  `գ→ք` ×19, `ձ→ց` ×12, `դ→տ` ×11, `բ→փ` ×8, `բ→պ` ×2, `գ→կ` ×2.
+- **Deck coverage: 52 / 1097 cards** carry a `[respell]` (was 45; +7 from
+  the 2026-06-14 tier-1 propagation pass below).
+- **Total known transcriptions in the corpus: 105** — 87 sakayan-attested
+  (harvested from `cards/sakayan/*.tsv`) + 18 hand-curated
+  (`PHONETIC_OVERRIDES`). Deviation tally: `ջ→չ` ×25, `դ→թ` ×23,
+  `գ→ք` ×19, `ձ→ց` ×14, `դ→տ` ×11, `բ→փ` ×10, `բ→պ` ×2, `գ→կ` ×2.
+
+### 2026-06-14 update — tier-1 prototyped and partially landed
+
+The tier-1 root-propagation strategy below was executed against the
+deck's 1097 lemmas. Prefix-matching deck lemmas to attested respell
+roots surfaced **11 candidates**; each was vetted against the book
+transliteration columns. **7 landed** (3 corpus-confirmed in tioyan:
+`երբեմն [ерп'эмэн]`, `վարդագույն [варт'агуйн]`, `ողջույն [вохчуйн]`;
+4 sister-attested: `երբեք`, `բարձրագույն`, `բարձրացնել`, `մեջտեղ`).
+**2 rejected as counterexamples** (`այդպես [айдпэс]`, `այդպիսի
+[айдписи]` — դ stays voiced word-internally, the predicted failure of
+extending word-final devoicing). 2 were phrase cards needing a code
+change (`խորհուրդ տալ`, `ողջույն տալ`). Details + provenance table in
+`topics/phonology/known_transcriptions.md` § "Tier-1 root-propagation
+additions". The 87 sakayan-attested respells served as the gold set;
+0 of the 7 landed forms disagree with any attested form.
 
 ## Why coverage is stuck on sakayan
 

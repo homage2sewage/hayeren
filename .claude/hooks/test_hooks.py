@@ -85,6 +85,33 @@ ARMENIAN_CITED = (
     "gloss is 'naive / clueless person'."
 )
 
+# Cited draft whose QUOTED Armenian fragment IS at the cited page.
+CITED_VERIFIED = (
+    "Here is my analysis of the line.\n"
+    "Բարև ձեզ, այս բառը խոսակցական ռեգիստրի հետ կապված է և բավական երկար։\n"
+    "The slang `խոտ` means 'naive / clueless person' (ghamoyan p48)."
+)
+
+# Cited draft whose QUOTED fragment is NOT at the cited page — the
+# documented wrong-book song fabrication (errors/2026-06-01-001):
+# `կուսական` is parnasyan p383, absent from sakayan.
+CITED_FABRICATED = (
+    "Here is my analysis of the line.\n"
+    "Բարև ձեզ, այս բառը խոսակցական ռեգիստրի հետ կապված է և բավական երկար։\n"
+    "The word «կուսական» means 'virginal' — sakayan p383."
+)
+
+# Regression for the span-boundary false positive (found by the verify
+# subagents 2026-06-13): a MULTIWORD Armenian phrase that is split across
+# token-granular spans on a clean page (`Հայաստան\nհայ` on sakayan p31).
+# A byte-exact match against the `\n`-joined page text would wrongly block
+# it; the whitespace-insensitive match must let it pass.
+CITED_MULTIWORD = (
+    "Here is my analysis of the line.\n"
+    "Բարև ձեզ, այս բառը խոսակցական ռեգիստրի հետ կապված է և բավական երկար։\n"
+    "The phrase `Հայաստան հայ` appears in the vocabulary (sakayan p31)."
+)
+
 
 def load_module(path, name):
     spec = importlib.util.spec_from_file_location(name, path)
@@ -255,15 +282,58 @@ def test_self_check(tmp):
           rec and rec.get("response_chars") == len(ARMENIAN_UNCITED) + 1,
           str(rec))
 
-    # (b) cited Armenian response -> skip-cited, no block
+    # (b) cited but no quoted Armenian fragment to byte-check
+    #     -> skip-cited-unverifiable, no block
     t_cited = os.path.join(tmp, 'cited.jsonl')
     make_transcript(t_cited, ARMENIAN_CITED)
     proc = run_hook(SELF_CHECK, stop_payload(t_cited), env)
     rec = last_log(logd, 'armenian_self_check.jsonl')
     check("(b) exit 0, no stdout", proc.returncode == 0 and not proc.stdout.strip(),
           proc.stdout[:200])
-    check("(b) log action=skip-cited", rec and rec.get("action") == "skip-cited",
-          str(rec))
+    check("(b) log action=skip-cited-unverifiable",
+          rec and rec.get("action") == "skip-cited-unverifiable", str(rec))
+
+    # (e) cited draft whose quoted fragment IS at the cited page
+    #     -> pass-citations-verified, no block (verified, not blindly trusted)
+    t_ok = os.path.join(tmp, 'cited_ok.jsonl')
+    make_transcript(t_ok, CITED_VERIFIED)
+    proc = run_hook(SELF_CHECK, stop_payload(t_ok), env)
+    rec = last_log(logd, 'armenian_self_check.jsonl')
+    check("(e) verified citation -> exit 0, no block",
+          proc.returncode == 0 and not proc.stdout.strip(), proc.stdout[:200])
+    check("(e) log action=pass-citations-verified",
+          rec and rec.get("action") == "pass-citations-verified", str(rec))
+
+    # (f) cited draft whose quoted fragment is NOT at the cited page
+    #     (the song wrong-book fabrication) -> block-citation-unverified
+    t_bad = os.path.join(tmp, 'cited_bad.jsonl')
+    make_transcript(t_bad, CITED_FABRICATED)
+    proc = run_hook(SELF_CHECK, stop_payload(t_bad), env)
+    rec = last_log(logd, 'armenian_self_check.jsonl')
+    out = {}
+    try:
+        out = json.loads(proc.stdout)
+    except ValueError:
+        pass
+    check("(f) fabricated citation -> decision=block",
+          out.get("decision") == "block", proc.stdout[:200])
+    check("(f) feedback names the bad fragment + page",
+          "կուսական" in out.get("reason", "")
+          and "sakayan p383" in out.get("reason", ""),
+          out.get("reason", "")[:200])
+    check("(f) log action=block-citation-unverified",
+          rec and rec.get("action") == "block-citation-unverified", str(rec))
+
+    # (g) REGRESSION: multiword phrase split across spans on a clean page
+    #     must NOT false-block (whitespace-insensitive match).
+    t_mw = os.path.join(tmp, 'cited_multiword.jsonl')
+    make_transcript(t_mw, CITED_MULTIWORD)
+    proc = run_hook(SELF_CHECK, stop_payload(t_mw), env)
+    rec = last_log(logd, 'armenian_self_check.jsonl')
+    check("(g) multiword split phrase -> NOT blocked",
+          proc.returncode == 0 and not proc.stdout.strip(), proc.stdout[:200])
+    check("(g) log action=pass-citations-verified",
+          rec and rec.get("action") == "pass-citations-verified", str(rec))
 
     # (c) stop_hook_active -> skip (anti-loop)
     proc = run_hook(SELF_CHECK,

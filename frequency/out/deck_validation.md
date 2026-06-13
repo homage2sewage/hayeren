@@ -1,13 +1,13 @@
 # Deck validation report
 
-- Deck: `cards/top_1000.tsv` (1097 rows)
-- Findings: **111** (0 errors, 11 warnings)
+- Deck: `cards/top_1000.tsv` (1095 rows)
+- Findings: **103** (0 errors, 11 warnings)
 
 ## By category
 
 | category | severity | count |
 | --- | --- | --- |
-| `ambiguous-sense` | warning | 102 |
+| `ambiguous-sense` | warning | 94 |
 | `duplicate-translation` | warning | 9 |
 
 ## `ambiguous-sense`
@@ -42,16 +42,16 @@
 - **# 409** `սուրբ` → `holy, sacred` — 2 POS senses; competing: [adj] holy, sacred / [noun] saint
 - **# 414** `անցյալ` → `past, last` — 2 POS senses; competing: [adj] past, last / [noun] the past
 - **# 417** `առավել` → `more, much, far` — 2 POS senses; competing: [adv] more, much, far / [noun] the untilled land left at the edges of the field
-- … and 72 more
+- … and 64 more
 
 ## `duplicate-translation`
 
 - **#   9** `այլ (#9), մյուս (#92)` → `other / другой` — 2 lemmas map to identical gloss
 - **#  28** `հայերեն (#28), հայոց (#85)` → `armenian / армянский` — 2 lemmas map to identical gloss
-- **# 394** `տեղի (#394), վայր (#935)` → `place` — 2 lemmas map to identical gloss
-- **# 462** `հնչյուն (#462), ձայն (#504)` → `sound` — 2 lemmas map to identical gloss
-- **# 490** `կրկին (#490), էլի (#826)` → `again` — 2 lemmas map to identical gloss
-- **# 579** `ուժեղ (#579), ամուր (#1042)` → `strong` — 2 lemmas map to identical gloss
-- **# 656** `բացել (#656), բանալ (#661)` → `to open` — 2 lemmas map to identical gloss
-- **# 865** `հունարեն (#865), հունական (#1070)` → `greek` — 2 lemmas map to identical gloss
-- **#1039** `միրգ [միրք] (#1039), պտուղ (#1052)` → `fruit` — 2 lemmas map to identical gloss
+- **# 394** `տեղի (#394), վայր (#933)` → `place` — 2 lemmas map to identical gloss
+- **# 462** `հնչյուն (#462), ձայն (#503)` → `sound` — 2 lemmas map to identical gloss
+- **# 489** `կրկին (#489), էլի (#825)` → `again` — 2 lemmas map to identical gloss
+- **# 578** `ուժեղ (#578), ամուր (#1037)` → `strong` — 2 lemmas map to identical gloss
+- **# 655** `բացել (#655), բանալ (#660)` → `to open` — 2 lemmas map to identical gloss
+- **# 864** `հունարեն (#864), հունական (#1065)` → `greek` — 2 lemmas map to identical gloss
+- **#1034** `միրգ [միրք] (#1034), պտուղ (#1047)` → `fruit` — 2 lemmas map to identical gloss

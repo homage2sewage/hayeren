@@ -138,6 +138,24 @@ PHONETIC_OVERRIDES: dict[str, str] = {
     "աղջիկ":   "աղչիկ",
     "ողջ":     "ողչ",
     "ամբողջ":  "ամբողչ",
+    # --- Tier-1 root/morpheme propagations (added 2026-06-14) ---
+    # Deck lemmas that share a root with an attested respell and were
+    # vetted individually against the book transliteration columns
+    # (see research/2026-06-10-transcription-coverage-and-system.md
+    # § "Expansion strategy", tier 1, and known_transcriptions.md).
+    # Counterexamples REJECTED in the same pass: այդպես / այդպիսի keep
+    # voiced դ — tioyan transliterates [айдпэс] / [айдписи], so the
+    # word-final այդ → [այտ] devoicing does NOT carry word-internally.
+    #
+    # Corpus-confirmed (direct transliteration bracket attested):
+    "երբեմն":     "երփեմն",      # tioyan [ерп'эмэн]; բ→փ before ե
+    "վարդագույն":  "վարթագույն",  # tioyan [варт'агуйн]; դ→թ (գ stays voiced)
+    "ողջույն":    "ողչույն",      # tioyan [вохчуйн]; ղջ cluster, ჯ→չ
+    # Sister-derivative attested, identical root + position:
+    "երբեք":      "երփեք",        # sibling երբեմն (corpus); բ before ե
+    "բարձրագույն": "բարցրագույն",  # բարձր- root; sister բարձրահասակ [բարցրահասակ] (sakayan)
+    "բարձրացնել":  "բարցրացնել",   # same բարձր- root-internal ձ→ց
+    "մեջտեղ":     "մեչտեղ",       # մեջ- layer-2 root; sister մեջք [мэчк']; ջ before voiceless տ
 }
 
 
@@ -379,7 +397,7 @@ HAND_OVERRIDES: dict[str, str] = {
     # Fixed expression — at-home reading is idiomatic.
     "տանը":      "at home (def. dat. of տուն) / дома",
     # Trim verbose dictionary gloss.
-    "ուսումնական": "academic, school (related) / учебный, школьный",
+    "ուսումնական": "academic, school / учебный, школьный",
     "պարզել":     "to clarify, clean, purify / прояснить, очистить",
     # Postposition is the dominant sense; "the inside" is rare.
     "մեջ":        "in, inside (տան մեջ — in the house); among / в, внутри; среди",
@@ -571,6 +589,27 @@ HAND_OVERRIDES: dict[str, str] = {
     # kaikki led the noun "passage, pass"; the high-frequency use is
     # clock-time "past" (corpus: `Ութն անց կես է`, `անց քառորդ`).
     "անց":       "past (ութն անց կես — half past eight; անց կենալ — to pass) / после (о времени)",
+    # 2026-06-14 corpus-grounded sense/POS fixes (Anahit critic pass,
+    # each verified via query_kb.py against topics/ + book corpora; see
+    # the deck-review research note). kaikki shipped the wrong homograph
+    # / a literal-decomposition / a dictionary-prose gloss for each.
+    "վախ":       "fear / страх",                                  # not "exclamation of pain"; topics/morphology/verbal_nouns.md (վախենալ→վախ "fear")
+    "հոլով":     "grammatical case, declension / падеж",          # not "much, plenty"; grammar-terms.md "Հոլով / Падеж"
+    "անկաշկանդ": "uninhibited, free, at ease / непринуждённый, свободный",  # not "unfastened"; ghamoyan (paired with ազատ/անկախ)
+    "ափսոս":     "what a pity!, too bad / жаль, как жаль",         # interjection, not adj "pitiable"; parnasyan p76 glosses it «(выражение …»
+    "փակ":       "closed, shut / закрытый",                        # adjective, not the bare verb "close"; topics/lexicon/idioms_phrasal.md «ձեռքը փակ»
+    "քար":       "stone, rock / камень",                           # not "hard, strong"; sakayan p91 proverb «Սոված մարդը քարից փափուկը կուտի»
+    "հաստատություն": "institution, establishment / учреждение",     # not "firmness"; ghamoyan «ուսումնական հաստատություններ»
+    "անհատ":     "individual / личность, индивид",                 # not "singular, unique"; sakayan p448 «մեծ անհատները»
+    "անցնել":    "to pass, cross, go by / проходить, переходить",  # not "to surpass"; sakayan p400 «սահմանն անցնելիս»
+    "կինո":      "cinema, the movies; film / кино, кинотеатр",     # not "cinematography"; sakayan p131 «կինոնկար» (film)
+    "ոսկի":      "gold / золото",                                  # was "gold (en)" — stray annotation leak
+    "հայրիկ":    "dad, daddy / папа, папочка",                     # was "diminutive of հայր : dad, daddy" — dictionary-prose
+    # 2026-06-14 round 2 (latent items surfaced by the verification
+    # pass, then grounded). կեր is a real noun but collides with the
+    # imperative of ուտել (on deck); "food, nourishment" was too
+    # generic (that's ուտելիք/կերակուր) and hid the homograph.
+    "կեր":       "(animal) feed, fodder; eat! (imperative of ուտել) / корм; ешь!",
 }
 
 
@@ -731,6 +770,26 @@ SKIP_LEMMAS: set[str] = {
                    # kaikki glossed it the rare noun "spring,
                    # fountain". Same bucket as the bare suffixes
                    # above (-իկ/-ուկ-style metalinguistic mentions).
+    # 2026-06-14 corpus-grounded noise/inflected removals (Anahit pass).
+    "մեկին",       # dat/acc of մեկ "one" (on deck); kaikki glossed it
+                   # the wrong homograph "clear, explained". corpus:
+                   # sakayan p147 «մեկին, երկուսին» (to one, to two).
+    "յան",         # the patronymic surname suffix -յան, not a word
+                   # ("side"). corpus attests only Սարյան/Ազարյան.
+    "ար",          # tokenizer noise; 0 standalone corpus hits. kaikki
+                   # glossed the English copula fragment "are".
+    "յա",          # tokenizer noise / colloquial tag particle; 0
+                   # standalone corpus hits. kaikki glossed it "or"
+                   # (which is կամ).
+    # 2026-06-14 round 2 (latent items surfaced by the verification
+    # pass, then grounded via query_kb.py).
+    "բերում",      # present converb of բերել "to bring" (on deck).
+                   # KB irregular_verbs.md «բերել → բերում եմ»; sakayan
+                   # p354 «բերում եմ». Same class as the գնում trap.
+    "հան",         # imperative of հանել "take out" (on deck) + kaikki's
+                   # unsupported "grandma" gloss. 0 corpus support for
+                   # "grandma"; corpus has only հանել-forms (Տասից
+                   # հանած ինը) and the name Հանս.
 }
 
 

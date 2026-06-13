@@ -1,0 +1,37 @@
+name: saqapetoyan
+title: Բառգրքույկ. Նոր և նորակազմ բառեր հայերենում
+title_translit: Bargrkuyk. Nor ev norakazm barer hayerenum
+title_en: A Wordbook. New and Newly-coined Words in Armenian
+title_ru: Словарик. Новые и новообразованные слова в армянском
+author: R.K. Sakapetoyan (Ռ.Կ. Սաքապետոյան)
+author_armenian: Ռ.Կ. Սաքապետոյան
+editor: prof. Y. Avetisyan (պրոֆ. Յ. Ավետիսյան)
+english_consultant: Karapet Sakapetoyan (Կարապետ Սաքապետոյան)
+publisher: Yerevan State University Press (ԵՊՀ հրատարակչություն)
+institute: Yerevan State University (Երևանի պետական համալսարան)
+year: 2014
+isbn: 978-5-8084-1849-3
+pages: 80
+language: hye
+script: Armenian
+domain: lexicology
+sub_domain: neologisms (նորակազմ բառեր) — native Armenian coinages
+  proposed as replacements for foreign loanwords
+register: prescriptive / standard literary
+structure: >
+  Alphabetical glossary. Each entry: HEADWORD (the foreign loanword,
+  in Armenian script) – POS. [(domain tag)] [encyclopaedic definition ՝]
+  NATIVE-COINAGE, <russian equivalent>, <english equivalent>.
+  Front matter pp. 1-8 (title, preface ԱՌԱՋԱԲԱՆ, abbreviations list);
+  body glossary pp. 9-76; alphabetical index pp. 77-78; colophon p. 79-80.
+extraction:
+  type: text_layer
+  ocr_engine: null  # PDF carries a clean embedded Unicode text layer
+  quality: clean across all 79 pages; Armenian/Russian/English all
+    preserved verbatim. Line-final hyphenation splits words across
+    lines (de-hyphenation deferred to a structured-parse pass).
+  files:
+    - saqapetoyan_neologisms.pdf
+  schema: "{page, bbox, text_raw, text, ocr_conf}"  # one record per text line
+source: user-provided (~/Downloads/305269.pdf)
+copyright: © Yerevan State University Press / R.K. Sakapetoyan, 2014

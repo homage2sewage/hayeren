@@ -1,0 +1,25 @@
+headword	homograph	pos	domain	definition	coinages	ru	en	multi_sense	class_note
+Աբստրակցիոնիզմ		գ.			Վերացապաշտություն	абстракционизм	abstractionism		clean-baseline
+Գենոցիդ		գ.		Ազգային, ցեղային, կրոնական և այլ հատկանիշներով պայմանավորված սպանություն	Ցեղասպանություն	геноцид	genocide		clean-with-def
+Ակումուլյատոր		գ.	տեխն.		Կուտակիչ|Ուժահավաք	аккумулятор	battery, accumulator		multiple-english
+Ավտոմատ	1			Ինքնիրեն աշխատող	Ինքնեկ	автомат	automatic		homograph-1
+Ավտոմատ	2	գ.		Զենքի տեսակ	Ինքնաձիգ|Արագահարված	автомат	machine gun		homograph-2
+Ուիք-էնդ		գ.		Շաբաթվա վերջին, հանգստյան օրերը, շաբաթ և կիրակի	Շաբաթավերջ	уик-энд	weekend		hyphenated-headword
+Աուդիո–վիդեո		ած.		Լսելու և դիտելու	Լսատեսողական	аудио-видео	audio-video		endash-in-headword
+Էկզեմա		գ.	ախտ.	Դեմքի մաշկի բորբոքում	Թրմաքոս|Մրջմնոց	экзема	eczema		grave-separator
+Սայթ		գ.		Համացանցային հասցե	Կայք|Կայքէջ	сайт	site		grave-separator-2
+Գենետիկ(ական)		ած.			Ծինական	генетический	genetic		colon-coinage-rescue
+Հերմաֆրոդիտ		գ.	բժշկ.	Միաժամանակ արական և իգական սեռական գործարաններ ունեցող	Արուէգ|Որձևէգ	гермафродит	hermaphrodite		definition-inferred
+Բրենդ		գ.		Արտադրողի կամ վաճառողի հատուկ	Ապրանքանիշ|Վաճառանիշ	бренд	brand		definition-inferred-recover-coinage
+Ֆուրունկուլ		գ.	ախտ.	Մաշկի թարախոտ ուռուցք	Թարախապալար|Պզուկ|Մկնոռ	фурункул	furuncle		definition-inferred-multi-coinage
+Հիպոֆիզ		գ.	կենս.	Գլխուղեղում գտնվող գեղձ, որ կարգավորում է մարմնի աճը	Մաղասագեղձ	гипофиз	pituitary, body hypophisys		domain-first
+Էսթետիկա		գ.			Գեղագիտություն|գեղեցկագիտություն	эстетика	aesthetics		lowercase-real-coinage
+Լամա		գ.			Այծուղտ|ուղտայծ	лама	lama		lowercase-real-coinage-2
+Բյուջե		գ.			Հասույթներն ու ծախքերը ցույց տվող հաշիվ|Մուտքի և ելքի Հաշվեցույց|Մուտքի և ելքի Նախահաշիվ|Ելևմտացույց	бюджет	budget	1	multi-sense
+Սենատոր				1. ած. Ծերակույտին վերաբերող: 2. գ. Ծերակույտի անդամ	Ծերակուտական	сенатор	senator	1	multi-sense-in-definition
+Անտեննա		գ.			Ալեհավաք|Ալեցիր	передающая антенна	antenna	1	interleaved-field
+Մոնոլիտ				Քարի մեկ միասնական զանգվածից պատրաստված կառույց	Մենաքար	монолит	monolith		genuine-no-pos
+Էֆտանազիա		գ.			Բարեսպանություն	эфтаназия			genuine-no-english
+Կենգուրու		գ.			Ագեվազ	кенгуру	kangaroo		hyphen-minus-separator
+Տեխնիկ		գ.			Արհեստագետ	техник	technician		no-space-after-dash
+էլեկտրաթերապիա		ած. գ.		Էլեկտրականությամբ բուժող	Էլեկտրաբույժ	электротерапия	electrotherapy		lowercase-initial-headword

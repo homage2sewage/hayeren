@@ -47,3 +47,16 @@
 {"ts": "2026-06-14T02:48:51", "action": "fired", "prompt_chars": 536, "armenian_chars": 9, "bundle_chars": 1126, "duration_ms": 712}
 {"ts": "2026-06-14T02:51:32", "action": "skip-no-armenian", "prompt_chars": 9, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
 {"ts": "2026-06-14T03:18:13", "action": "skip-no-armenian", "prompt_chars": 78, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T03:21:28", "action": "skip-no-armenian", "prompt_chars": 44, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T03:24:37", "action": "skip-no-armenian", "prompt_chars": 61, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T03:25:09", "action": "skip-no-armenian", "prompt_chars": 31, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T03:26:27", "action": "skip-no-armenian", "prompt_chars": 17, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T03:28:39", "action": "skip-no-armenian", "prompt_chars": 92, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T03:37:31", "action": "skip-no-armenian", "prompt_chars": 104, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T03:46:05", "action": "skip-too-long", "prompt_chars": 8743, "armenian_chars": 1494, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T04:09:11", "action": "skip-too-long", "prompt_chars": 8731, "armenian_chars": 1324, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T04:44:42", "action": "skip-no-armenian", "prompt_chars": 108, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T04:51:05", "action": "skip-no-armenian", "prompt_chars": 86, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T04:54:13", "action": "skip-no-armenian", "prompt_chars": 240, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-06-14T05:01:47", "action": "skip-too-long", "prompt_chars": 8727, "armenian_chars": 1213, "bundle_chars": 0, "duration_ms": 3}
+{"ts": "2026-06-14T20:22:52", "action": "skip-no-armenian", "prompt_chars": 63, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}

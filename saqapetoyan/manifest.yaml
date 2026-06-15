@@ -28,10 +28,27 @@ extraction:
   type: text_layer
   ocr_engine: null  # PDF carries a clean embedded Unicode text layer
   quality: clean across all 79 pages; Armenian/Russian/English all
-    preserved verbatim. Line-final hyphenation splits words across
-    lines (de-hyphenation deferred to a structured-parse pass).
+    preserved verbatim.
   files:
     - saqapetoyan_neologisms.pdf
-  schema: "{page, bbox, text_raw, text, ocr_conf}"  # one record per text line
+  outputs:
+    - path: out/full.jsonl       # raw line layer
+      schema: "{page, bbox, text_raw, text, ocr_conf}"
+      records: 1622
+    - path: out/entries.jsonl    # structured per-entry layer (body pp.9-76)
+      schema: "{headword, homograph, pos, domain[], lang_origin[], definition,
+        native_coinages[], ru, en, multi_sense, stray, raw, warnings[]}"
+      records: 614
+      builder: parse_entries.py
+      validator: validate_entries.py  # golden_entries.tsv + structural invariants
+  usage_caveats:  # see README § "Read this before USING the structured data"
+    - native_coinages are PRESCRIPTIVE PROPOSALS, not attested usage
+      (e.g. Մսադոնդող for холодец has ~zero real usage); definition is
+      the reliable meaning signal.
+    - many headwords are Russian-origin loanwords; headword+ru is a
+      signal for colloquial/spoken register.
+    - ru present for 614/614 entries; en for 613/614.
+    - inverse map coinage->headword usable for synonyms/glosses
+      (some coinages are common words, not rare).
 source: user-provided (~/Downloads/305269.pdf)
 copyright: © Yerevan State University Press / R.K. Sakapetoyan, 2014

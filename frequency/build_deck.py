@@ -610,6 +610,10 @@ HAND_OVERRIDES: dict[str, str] = {
     # imperative of ուտել (on deck); "food, nourishment" was too
     # generic (that's ուտելիք/կերակուր) and hid the homograph.
     "կեր":       "(animal) feed, fodder; eat! (imperative of ուտել) / корм; ешь!",
+    # 2026-06-14 round 4 (corpus-grounded synonym-pair disambiguation).
+    # ամուր = firm/sturdy/solid, NOT "strong" (that's ուժեղ). parnasyan
+    # p347 «ամուր … крепкий, прочный, твердый»; tioyan p13/p254/p344.
+    "ամուր":     "firm, sturdy, solid / крепкий, прочный, твёрдый",
 }
 
 

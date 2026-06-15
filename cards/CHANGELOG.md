@@ -15,6 +15,53 @@ vindicated.
 
 ---
 
+## 2026-06-14 — new deck: `top_1000_ru.tsv` (Russian-only, ≤2-word)
+
+A parallel **minimal** deck: same 1095 Armenian fronts (lemma + phonetic
+respell reused verbatim from `top_1000.tsv`), but the back is a
+**Russian-only gloss of at most 2 words** — the single most useful
+sense. Follows the **Minimum Information Principle** (Wozniak, *20 Rules
+of Formulating Knowledge*, Rule 4: atomic cards). Tag: `frequency
+ru-minimal`. Russian is a prior/translation layer (not corpus-cited),
+which the spec explicitly permits.
+
+Built by a two-phase subagent fan-out (`ru-minimal-deck` workflow):
+
+1. **Collapse** (15 batch subagents) — each pulls a lemma's multiple
+   English/Russian senses and reduces to ≤2 Cyrillic words: dominant
+   sense only, examples/grammar-labels/register-notes dropped; verbs →
+   infinitive; cardinals → digit (`1`, `20`, `1000`); ordinals →
+   Russian word (`первый`, `пятый`).
+2. **Validate** (15 batch subagents) — checked Cyrillic-only, ≤2 tokens,
+   non-empty, sense-correct; auto-fixed 12 (e.g. `չէիր` "ты не был" →
+   "не был"; `նկատի ունենալ` "иметь в виду" → "подразумевать"; `առ`
+   "грабить" → "возьми").
+
+Post-assembly deterministic check: 0 empty / 0 Latin-leak / 0 Armenian-
+leak / 0 over-2-words across 1095 rows. Then an **independent editorial
+subagent** (native-Russian-learner framing) spot-checked ~55 cards; its
+⚠ wrong-sense findings were applied:
+
+| Lemma | was | → | note |
+|-------|-----|---|------|
+| `թերթ` | лепесток | газета | "petal" was the rare sense; dominant = newspaper/sheet |
+| `այգի` | виноградник | сад | garden is primary; vineyard is the archaic sense |
+| `ճանաչում` | распознавание | признание | recognition = acknowledgment, not pattern-recognition |
+| `խորթ` | чужой | неродной | the salient sense is "step-/unrelated" |
+| `կախվել` | висеть | повиснуть | intransitive change-of-state, not stative |
+| `հոր` | отцовский | отца | genitive of `հայր` (noun), not an adjective |
+| `թև` | рука | рука, крыло | arm + wing (бare "рука" collided with `ձեռք`) |
+| `հեր` | волос | волосы | "hair" → plural, consistent with `մազ` → волосы |
+| `խնդիր` | просьба | задача | corpus says problem/task; "request" is the EN deck's known-wrong lead |
+
+**Known inheritance caveat.** The Russian deck mirrors `top_1000.tsv`,
+so it inherits that deck's English sense choices. Several ⚠ above
+(`թերթ`, `այգի`, `խնդիր`, `ճանաչում`) are *also* latent in the English
+deck (kaikki rare-sense leads). Fixing them there (HAND_OVERRIDE) is the
+proper two-step; not done this session — tracked as a follow-up.
+
+---
+
 ## 2026-06-14 — agent-driven editorial review ("Anahit" critic) + grounding
 
 A spec-aware critic persona ("Anahit": Eastern-Armenian tutor holding

@@ -6,16 +6,9 @@ headword	homograph	pos	domain	definition	coinages	ru	en	multi_sense	class_note
 Ավտոմատ	2	գ.		Զենքի տեսակ	Ինքնաձիգ|Արագահարված	автомат	machine gun		homograph-2
 Ուիք-էնդ		գ.		Շաբաթվա վերջին, հանգստյան օրերը, շաբաթ և կիրակի	Շաբաթավերջ	уик-энд	weekend		hyphenated-headword
 Աուդիո–վիդեո		ած.		Լսելու և դիտելու	Լսատեսողական	аудио-видео	audio-video		endash-in-headword
-Էկզեմա		գ.	ախտ.	Դեմքի մաշկի բորբոքում	Թրմաքոս|Մրջմնոց	экзема	eczema		grave-separator
-Սայթ		գ.		Համացանցային հասցե	Կայք|Կայքէջ	сайт	site		grave-separator-2
 Գենետիկ(ական)		ած.			Ծինական	генетический	genetic		colon-coinage-rescue
-Հերմաֆրոդիտ		գ.	բժշկ.	Միաժամանակ արական և իգական սեռական գործարաններ ունեցող	Արուէգ|Որձևէգ	гермафродит	hermaphrodite		definition-inferred
-Բրենդ		գ.		Արտադրողի կամ վաճառողի հատուկ	Ապրանքանիշ|Վաճառանիշ	бренд	brand		definition-inferred-recover-coinage
-Ֆուրունկուլ		գ.	ախտ.	Մաշկի թարախոտ ուռուցք	Թարախապալար|Պզուկ|Մկնոռ	фурункул	furuncle		definition-inferred-multi-coinage
 Հիպոֆիզ		գ.	կենս.	Գլխուղեղում գտնվող գեղձ, որ կարգավորում է մարմնի աճը	Մաղասագեղձ	гипофиз	pituitary, body hypophisys		domain-first
-Էսթետիկա		գ.			Գեղագիտություն|գեղեցկագիտություն	эстетика	aesthetics		lowercase-real-coinage
-Լամա		գ.			Այծուղտ|ուղտայծ	лама	lama		lowercase-real-coinage-2
-Բյուջե		գ.			Հասույթներն ու ծախքերը ցույց տվող հաշիվ|Մուտքի և ելքի Հաշվեցույց|Մուտքի և ելքի Նախահաշիվ|Ելևմտացույց	бюджет	budget	1	multi-sense
+Բյուջե		գ.		1. Հասույթներն ու ծախքերը ցույց տվող հաշիվ, 2. Մուտքի և ելքի 3. Մուտքի և ելքի	Հաշվեցույց|Նախահաշիվ|Ելևմտացույց	бюджет	budget	1	multi-sense-bold
 Սենատոր				1. ած. Ծերակույտին վերաբերող: 2. գ. Ծերակույտի անդամ	Ծերակուտական	сенатор	senator	1	multi-sense-in-definition
 Անտեննա		գ.			Ալեհավաք|Ալեցիր	передающая антенна	antenna	1	interleaved-field
 Մոնոլիտ				Քարի մեկ միասնական զանգվածից պատրաստված կառույց	Մենաքար	монолит	monolith		genuine-no-pos
@@ -23,3 +16,11 @@ headword	homograph	pos	domain	definition	coinages	ru	en	multi_sense	class_note
 Կենգուրու		գ.			Ագեվազ	кенгуру	kangaroo		hyphen-minus-separator
 Տեխնիկ		գ.			Արհեստագետ	техник	technician		no-space-after-dash
 էլեկտրաթերապիա		ած. գ.		Էլեկտրականությամբ բուժող	Էլեկտրաբույժ	электротерапия	electrotherapy		lowercase-initial-headword
+Ակցիոներ		գ.	տնտես.		Մասնակից|Շահընկեր|Արժեթղթերի սեփականատեր|Բաժնետեր|Բաժնեկից	акционер	shareholder		all-bold-no-definition
+Ֆուրգոն		գ.		Բեռնատար ավտոմեքենա	Բեռնակառք	фургон	van		regular-def-bold-coinage
+Կոմիկ		գ.		1.Կատակերգակ դերասան: 2. Կատակերգություն գրող	Կատակերգու|Ծաղրերգու	комик	comedian	1	bold-coinages-after-def
+Հիերարխիա		գ.		Աստիճանակարգում վերից վար (զինվորական, հոգևորական և այլն) եկեղեցական	Կարգապետություն|Նվիրապետություն	иерархия	hierarchy		bold-coinage-not-buried
+Աորտա		գ.	կզմխս.	Սրտից դուրս եկող մայր երակ	Բներակ|Սրտափող	аорта	aorta		two-bold-coinages
+Ֆեոդալ		գ.		Ինքնիշխան	Հողատեր|Ավատապետ	феодал	feudal lord		def-before-bold-coinage
+Կուլտուրա		գ.			Մշակույթ	культура	culture		unbolded-single-coinage
+Կապիտալիստ		գ.			Դրամատեր	капиталист	capitalist		unbolded-single-coinage-2

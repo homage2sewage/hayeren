@@ -36,6 +36,12 @@ cards/
 
 ## Which file should you import?
 
+> **Variant.** `top_1000_ru.tsv` is a **Russian-only minimal** deck —
+> same Armenian fronts as `top_1000.tsv`, but each back is a single
+> Russian gloss of **≤2 words** (Minimum Information Principle, for fast
+> raw recall). Tag `frequency ru-minimal`. See `CHANGELOG.md` for how it
+> was built.
+
 Two natural workflows:
 
 1. **Frequency-first** — import `top_1000.tsv` and study highest-frequency

@@ -98,7 +98,6 @@ warning	28	հայերեն (#28), հայոց (#85)	armenian / армянский	
 warning	394	տեղի (#394), վայր (#933)	place	duplicate-translation	2 lemmas map to identical gloss
 warning	462	հնչյուն (#462), ձայն (#503)	sound	duplicate-translation	2 lemmas map to identical gloss
 warning	489	կրկին (#489), էլի (#825)	again	duplicate-translation	2 lemmas map to identical gloss
-warning	578	ուժեղ (#578), ամուր (#1037)	strong	duplicate-translation	2 lemmas map to identical gloss
 warning	655	բացել (#655), բանալ (#660)	to open	duplicate-translation	2 lemmas map to identical gloss
 warning	864	հունարեն (#864), հունական (#1065)	greek	duplicate-translation	2 lemmas map to identical gloss
 warning	1034	միրգ [միրք] (#1034), պտուղ (#1047)	fruit	duplicate-translation	2 lemmas map to identical gloss

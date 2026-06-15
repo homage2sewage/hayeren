@@ -1,14 +1,14 @@
 # Deck validation report
 
 - Deck: `cards/top_1000.tsv` (1095 rows)
-- Findings: **103** (0 errors, 11 warnings)
+- Findings: **102** (0 errors, 10 warnings)
 
 ## By category
 
 | category | severity | count |
 | --- | --- | --- |
 | `ambiguous-sense` | warning | 94 |
-| `duplicate-translation` | warning | 9 |
+| `duplicate-translation` | warning | 8 |
 
 ## `ambiguous-sense`
 
@@ -51,7 +51,6 @@
 - **# 394** `տեղի (#394), վայր (#933)` → `place` — 2 lemmas map to identical gloss
 - **# 462** `հնչյուն (#462), ձայն (#503)` → `sound` — 2 lemmas map to identical gloss
 - **# 489** `կրկին (#489), էլի (#825)` → `again` — 2 lemmas map to identical gloss
-- **# 578** `ուժեղ (#578), ամուր (#1037)` → `strong` — 2 lemmas map to identical gloss
 - **# 655** `բացել (#655), բանալ (#660)` → `to open` — 2 lemmas map to identical gloss
 - **# 864** `հունարեն (#864), հունական (#1065)` → `greek` — 2 lemmas map to identical gloss
 - **#1034** `միրգ [միրք] (#1034), պտուղ (#1047)` → `fruit` — 2 lemmas map to identical gloss

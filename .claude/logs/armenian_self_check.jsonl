@@ -85,3 +85,18 @@
 {"ts": "2026-06-14T02:35:57", "stop_hook_active": false, "response_chars": 60, "armenian_chars": 5, "action": "skip-low-armenian", "bundle": ""}
 {"ts": "2026-06-14T02:55:40", "stop_hook_active": false, "response_chars": 180, "armenian_chars": 15, "action": "skip-low-armenian", "bundle": ""}
 {"ts": "2026-06-14T03:19:51", "stop_hook_active": false, "response_chars": 89, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T03:22:58", "stop_hook_active": false, "response_chars": 269, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T03:24:22", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T03:24:56", "stop_hook_active": false, "response_chars": 1778, "armenian_chars": 99, "action": "block", "bundle": "# KB-grounding bundle\n\n## Query\n\n```\n- **2 ambiguous-sense** (inherent): `պետք` (adj \"needed\" / noun \"need\"), `մեկ` (num \"one\" / pron \"someone\").\n- **9 duplicate-translation** — genuine near-synonyms glossed identically: `այլ`/`մյուս` (other), `հնչյուն`/`ձայն` (sound), `ուժեղ`/`ամուր` (strong), `բաց"}
+{"ts": "2026-06-14T03:26:27", "stop_hook_active": true, "response_chars": 1098, "armenian_chars": 37, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-06-14T03:26:34", "stop_hook_active": false, "response_chars": 158, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T03:27:25", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T03:34:45", "stop_hook_active": false, "response_chars": 375, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T03:38:57", "stop_hook_active": false, "response_chars": 431, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T04:04:18", "stop_hook_active": false, "response_chars": 173, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T04:14:55", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T04:47:53", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T04:54:57", "stop_hook_active": false, "response_chars": 109, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T04:57:49", "stop_hook_active": false, "response_chars": 289, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-14T05:08:05", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-14T20:25:53", "stop_hook_active": false, "response_chars": 1921, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}

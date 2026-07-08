@@ -2,7 +2,7 @@
 <b>որ</b>	<b>that, which, who</b><br><span style='color:#888'>что, который</span>	frequency top-1000
 <b>ու</b>	<b>and</b><br><span style='color:#888'>и</span>	frequency top-1000
 <b>մի</b>	<b>one, a; don't!</b><br><span style='color:#888'>один, а; не (запрет)</span>	frequency top-1000
-<b>կարդալ</b> <span style='color:#888;font-size:0.8em'>[կարտալ]</span>	<b>to read</b><br><span style='color:#888'>читать</span>	frequency top-1000
+<b>կարդալ</b> <span style='color:#888;font-size:0.8em'>[կարթալ]</span>	<b>to read</b><br><span style='color:#888'>читать</span>	frequency top-1000
 <b>ունենալ</b>	<b>to have</b><br><span style='color:#888'>иметь</span>	frequency top-1000
 <b>ինչ</b>	<b>what</b><br><span style='color:#888'>что</span>	frequency top-1000
 <b>գրել</b>	<b>to write</b><br><span style='color:#888'>писать</span>	frequency top-1000
@@ -245,7 +245,7 @@
 <b>կես</b>	<b>half</b><br><span style='color:#888'>половина</span>	frequency top-1000
 <b>չափ</b>	<b>measure, size</b><br><span style='color:#888'>мера, размер</span>	frequency top-1000
 <b>հինգ</b>	<b>5</b>	frequency top-1000
-<b>եղբայր</b>	<b>brother</b><br><span style='color:#888'>брат</span>	frequency top-1000
+<b>եղբայր</b> <span style='color:#888;font-size:0.8em'>[եղպայր]</span>	<b>brother</b><br><span style='color:#888'>брат</span>	frequency top-1000
 <b>արա</b>	<b>hey, dude</b> <i>(voc.)</i><b>; do!</b> <i>(imp. of անել; մի՛ արա = don't)</i><br><span style='color:#888'>эй, чувак; делай!</span>	frequency top-1000
 <b>նշանակել</b>	<b>to mean</b><br><span style='color:#888'>значить, обозначать</span>	frequency top-1000
 <b>վերջին</b> <span style='color:#888;font-size:0.8em'>[վերչին]</span>	<b>last, final</b><br><span style='color:#888'>последний</span>	frequency top-1000
@@ -263,7 +263,7 @@
 <b>հոգնել</b> <span style='color:#888;font-size:0.8em'>[հոքնել]</span>	<b>to get tired</b><br><span style='color:#888'>уставать</span>	frequency top-1000
 <b>հիվանդ</b>	<b>sick, ill, diseased</b><br><span style='color:#888'>больной</span>	frequency top-1000
 <b>դեր</b>	<b>role</b><br><span style='color:#888'>роль</span>	frequency top-1000
-<b>անդամ</b>	<b>member; limb</b><br><span style='color:#888'>член; конечность</span>	frequency top-1000
+<b>անդամ</b> <span style='color:#888;font-size:0.8em'>[անթամ]</span>	<b>member; limb</b><br><span style='color:#888'>член; конечность</span>	frequency top-1000
 <b>նկատմամբ</b>	<b>towards, regarding, concerning</b><br><span style='color:#888'>по отношению к, относительно</span>	frequency top-1000
 <b>երկիր</b>	<b>country</b><br><span style='color:#888'>страна</span>	frequency top-1000
 <b>հայտնի</b>	<b>well-known</b><br><span style='color:#888'>известный</span>	frequency top-1000
@@ -351,7 +351,7 @@
 <b>ահա</b>	<b>here, behold</b><br><span style='color:#888'>вот, гляди</span>	frequency top-1000
 <b>կար</b>	<b>there was</b> <i>(past of կա)</i><b>; sewing</b> <i>(կար ու ձև — tailoring)</i><br><span style='color:#888'>было; шитьё</span>	frequency top-1000
 <b>գիտություն</b>	<b>science</b>	frequency top-1000
-<b>խնդիր</b>	<b>request</b>	frequency top-1000
+<b>խնդիր</b> <span style='color:#888;font-size:0.8em'>[խնթիր]</span>	<b>request</b>	frequency top-1000
 <b>սովորաբար</b>	<b>usually</b><br><span style='color:#888'>обычно</span>	frequency top-1000
 <b>միտք</b>	<b>brains, mind, intellect; reflection, thinking</b>	frequency top-1000
 <b>նկատել</b>	<b>to note</b>	frequency top-1000
@@ -393,7 +393,7 @@
 <b>ասա</b>	<b>say!</b> <i>(imp. of ասել)</i><br><span style='color:#888'>скажи!</span>	frequency top-1000
 <b>սուրբ</b>	<b>holy, sacred</b>	frequency top-1000
 <b>ձուկ</b>	<b>fish</b>	frequency top-1000
-<b>երգել</b>	<b>to sing</b>	frequency top-1000
+<b>երգել</b> <span style='color:#888;font-size:0.8em'>[երքել]</span>	<b>to sing</b>	frequency top-1000
 <b>երես</b>	<b>face</b>	frequency top-1000
 <b>թեև</b>	<b>although, though</b>	frequency top-1000
 <b>անցյալ</b>	<b>past, last</b>	frequency top-1000
@@ -412,8 +412,8 @@
 <b>դաս</b>	<b>class; category; order</b>	frequency top-1000
 <b>ճաշ</b>	<b>dinner</b>	frequency top-1000
 <b>վիճակ</b>	<b>state, condition</b>	frequency top-1000
-<b>երգ</b>	<b>song</b>	frequency top-1000
-<b>կարգ</b>	<b>system, order, rank, class; category</b>	frequency top-1000
+<b>երգ</b> <span style='color:#888;font-size:0.8em'>[երք]</span>	<b>song</b>	frequency top-1000
+<b>կարգ</b> <span style='color:#888;font-size:0.8em'>[կարք]</span>	<b>system, order, rank, class; category</b>	frequency top-1000
 <b>հենց</b>	<b>exactly, just</b><br><span style='color:#888'>именно, как раз</span>	frequency top-1000
 <b>ուսումնասիրություն</b>	<b>research, study, survey</b>	frequency top-1000
 <b>իրողություն</b>	<b>reality</b>	frequency top-1000
@@ -613,7 +613,7 @@
 <b>կառուցվել</b>	<b>to be built</b><br><span style='color:#888'>строиться</span>	frequency top-1000
 <b>մեռնել</b>	<b>to die</b>	frequency top-1000
 <b>եկեղեցի</b>	<b>church</b>	frequency top-1000
-<b>աղբյուր</b>	<b>spring, fountain, source of water</b>	frequency top-1000
+<b>աղբյուր</b> <span style='color:#888;font-size:0.8em'>[աղպյուր]</span>	<b>spring, fountain, source of water</b>	frequency top-1000
 <b>մշակույթ</b>	<b>culture</b>	frequency top-1000
 <b>հաղորդում</b>	<b>announcement, communication, statement</b>	frequency top-1000
 <b>անկում</b>	<b>fall, tumble, collapse, drop</b>	frequency top-1000
@@ -674,7 +674,7 @@
 <b>իսկապես</b>	<b>really, indeed</b><br><span style='color:#888'>действительно, правда</span>	frequency top-1000
 <b>ծրագիր</b>	<b>program, plan, project</b>	frequency top-1000
 <b>նախընտրել</b>	<b>to prefer, to give preference to, to favor</b>	frequency top-1000
-<b>աղբ</b>	<b>garbage, trash, rubbish</b>	frequency top-1000
+<b>աղբ</b> <span style='color:#888;font-size:0.8em'>[աղպ]</span>	<b>garbage, trash, rubbish</b>	frequency top-1000
 <b>ծնունդ</b>	<b>birth</b>	frequency top-1000
 <b>որդ</b>	<b>worm</b>	frequency top-1000
 <b>այգի</b>	<b>vineyard</b>	frequency top-1000
@@ -721,7 +721,7 @@
 <b>գլխարկ</b>	<b>hat</b>	frequency top-1000
 <b>ուղիղ</b>	<b>straight, direct</b>	frequency top-1000
 <b>սպիտակ</b>	<b>white</b>	frequency top-1000
-<b>կոկորդ</b>	<b>throat</b>	frequency top-1000
+<b>կոկորդ</b> <span style='color:#888;font-size:0.8em'>[կոկորթ]</span>	<b>throat</b>	frequency top-1000
 <b>ճաշակ</b>	<b>taste</b>	frequency top-1000
 <b>կարծես</b>	<b>as if, seemingly</b><br><span style='color:#888'>как будто, кажется</span>	frequency top-1000
 <b>հաջորդ</b> <span style='color:#888;font-size:0.8em'>[հաջորթ]</span>	<b>next, following, subsequent</b>	frequency top-1000
@@ -784,7 +784,7 @@
 <b>ուշ</b>	<b>late</b>	frequency top-1000
 <b>ափ</b>	<b>coast, bank, shore</b>	frequency top-1000
 <b>ծնող</b>	<b>parent</b>	frequency top-1000
-<b>բարդ</b>	<b>complicated, complex, difficult</b>	frequency top-1000
+<b>բարդ</b> <span style='color:#888;font-size:0.8em'>[բարթ]</span>	<b>complicated, complex, difficult</b>	frequency top-1000
 <b>ծիծաղել</b>	<b>to laugh</b>	frequency top-1000
 <b>տխուր</b>	<b>sad, melancholy, sorrowful</b>	frequency top-1000
 <b>չոր</b>	<b>dry</b>	frequency top-1000
@@ -932,7 +932,7 @@
 <b>խելացի</b>	<b>smart, clever, intelligent</b>	frequency top-1000
 <b>կանգնել</b>	<b>to stand</b>	frequency top-1000
 <b>գցել</b>	<b>to throw; cast; hurl, fling; chuck</b>	frequency top-1000
-<b>դարձյալ</b>	<b>anew, again, once again</b>	frequency top-1000
+<b>դարձյալ</b> <span style='color:#888;font-size:0.8em'>[դարցյալ]</span>	<b>anew, again, once again</b>	frequency top-1000
 <b>ցանկություն</b>	<b>wish, desire</b>	frequency top-1000
 <b>վերցնել</b>	<b>to take</b>	frequency top-1000
 <b>զգացում</b>	<b>feeling, sensation, sense</b>	frequency top-1000
@@ -999,7 +999,7 @@
 <b>թեթև</b>	<b>light</b>	frequency top-1000
 <b>հարսանիք</b>	<b>wedding</b>	frequency top-1000
 <b>ես</b>	<b>I</b><br><span style='color:#888'>я</span>	frequency core-inject
-<b>աջ</b>	<b>right</b> <i>(direction)</i><br><span style='color:#888'>правый, направо</span>	frequency core-inject
+<b>աջ</b> <span style='color:#888;font-size:0.8em'>[աչ]</span>	<b>right</b> <i>(direction)</i><br><span style='color:#888'>правый, направо</span>	frequency core-inject
 <b>վերև</b>	<b>up, above</b><br><span style='color:#888'>вверх, наверху</span>	frequency core-inject
 <b>ներքև</b>	<b>down, below</b><br><span style='color:#888'>вниз, внизу</span>	frequency core-inject
 <b>վար</b>	<b>down, downward</b><br><span style='color:#888'>вниз</span>	frequency core-inject

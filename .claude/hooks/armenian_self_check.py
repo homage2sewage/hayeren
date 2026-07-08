@@ -79,7 +79,7 @@ LOG_FILENAME = "armenian_self_check.jsonl"
 # mention of `topics/` or a bare page number does NOT match.
 CITATION_RE = re.compile(
     r'topics/[\w\-]+(?:/[\w\-]+)*\.md'
-    r'|(?:sakayan|ghamoyan|parnasyan|tioyan|acharyan|gharagyulyan)'
+    r'|(?:sakayan|ghamoyan|dumtragut|parnasyan|tioyan|acharyan|gharagyulyan)'
     r'\s+p\.?\s*\d+',
     re.IGNORECASE,
 )
@@ -152,9 +152,12 @@ def is_already_cited(response):
 # citations to them — treated as unverifiable until a fuzzy/ocr_conf-aware
 # match exists (v2). acharyan/gharagyulyan have no usable `text` field.
 # Citations to any of these still count as "cited" but are never flagged.
-VERIFIABLE_BOOKS = ("sakayan", "ghamoyan")
+# dumtragut has a clean text layer (Armenian + IPA), so it is byte-
+# verifiable like sakayan/ghamoyan; its `page` field is the PDF/JSONL
+# page (book page = PDF page − 17), so cite the JSONL page number.
+VERIFIABLE_BOOKS = ("sakayan", "ghamoyan", "dumtragut")
 CITE_CAPTURE_RE = re.compile(
-    r'(sakayan|ghamoyan|parnasyan|tioyan|acharyan|gharagyulyan)\s+p\.?\s*(\d+)',
+    r'(sakayan|ghamoyan|dumtragut|parnasyan|tioyan|acharyan|gharagyulyan)\s+p\.?\s*(\d+)',
     re.IGNORECASE,
 )
 # Quoted spans: backtick, guillemets, straight + smart double, smart single.
@@ -166,6 +169,12 @@ _QUOTE_SPAN_RE = re.compile(
 _ARM_RUN_RE = re.compile(r'[Ա-Ֆա-և]+(?:[ ՛՝]*[Ա-Ֆա-և]+)*')
 _RESPELL_RE = re.compile(r'\[[^\]]*\]')
 _WS_RE = re.compile(r'\s+')
+# IPA respelling brackets: a [..] span carrying an IPA-specific glyph
+# (vowels/uvulars/etc. that never appear in a topic-ref like [#3] or an
+# Armenian-script respell). Lets the cited-arm byte-verify an IPA
+# transcription, not just an Armenian-script quote.
+_IPA_MARKERS = frozenset("ɑɛɔəɾʃʒχʁŋɲʔʋʰ")
+_IPA_BRACKET_RE = re.compile(r'\[[^\]\n]{1,48}\]')
 _BOOK_PAGE_TEXT = {}
 
 
@@ -207,8 +216,9 @@ def extract_citation_claims(response):
     LINE with a `<book> pN` citation (book in VERIFIABLE_BOOKS), each bound
     to the nearest citation on that line. Same-line binding avoids the
     cross-sentence mis-association a wide character window produced.
-    Fragments need >=2 Armenian letters; [phonetic-respell] brackets are
-    stripped before extraction."""
+    Armenian-script fragments need >=2 Armenian letters and have
+    [phonetic-respell] brackets stripped first; an IPA respelling bracket
+    (carrying an IPA-specific glyph) is bound and checked as-is."""
     claims = []
     for line in response.split('\n'):
         cites = [(m.group(1).lower(), int(m.group(2)), m.start())
@@ -227,6 +237,14 @@ def extract_citation_claims(response):
                 frag = run.strip()
                 if len(ARMENIAN_RANGE.findall(frag)) >= 2:
                     claims.append((frag, book, page))
+        # IPA respellings: a bare [..] bracket with an IPA-specific glyph,
+        # bound to the nearest cite on the line. (Topic refs [#3] and
+        # Armenian-script respells carry no IPA glyph, so they're skipped.)
+        for bm in _IPA_BRACKET_RE.finditer(line):
+            frag = bm.group(0)
+            if _IPA_MARKERS.intersection(frag):
+                book, page, _ = min(cites, key=lambda c: abs(c[2] - bm.start()))
+                claims.append((frag, book, page))
     return claims
 
 

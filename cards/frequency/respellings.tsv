@@ -1,0 +1,67 @@
+lemma	respell	ipa	source	note
+շաբաթ	շափաթ		armenian-grammar.md	բ→փ
+հոգնում	հոքնում		armenian-grammar.md	գ→ք
+հոգնել	հոքնել		armenian-grammar.md	գ→ք
+մեջ	մեչ		sakayan	ջ→չ lexical-root (մեջ-); root regular not phonological
+վերջ	վերչ		sakayan	bare root; all վերջ- derivatives attest չ
+միջոց	միչոց		sakayan	միջ- stem (extension of մեջ-)
+միջև	միչև		sakayan	միջ- stem
+միջին	միչին		sakayan	միջ- stem
+միջազգային	միչազգային		sakayan	միջ- stem
+անմիջապես	անմիչապես		sakayan	միջ- stem
+աղջիկ	աղչիկ	[ɑχtʃʰik]	parnasyan p346; dumtragut p41	ղջ cluster, mark ჯ→չ only (ղ→χ documented not encoded)
+ողջ	ողչ		parnasyan p346	ղջ cluster, ჯ→չ
+ամբողջ	ամբողչ		parnasyan p346	ղջ cluster, ჯ→չ
+երբեմն	երփեմն		tioyan [ерп'эмэн]	բ→փ before ե
+վարդագույն	վարթագույն		tioyan [варт'агуйн]	դ→թ (գ stays voiced)
+ողջույն	ողչույն		tioyan [вохчуйн]	ղջ cluster, ჯ→չ
+երբեք	երփեք		sister երբեմն	բ before ե; sibling of corpus-attested երբեմն
+բարձրագույն	բարցրագույն		sister բարձրահասակ (sakayan)	բարձր- root ձ→ց
+բարձրացնել	բարցրացնել		sakayan բարձր- root	root-internal ձ→ց
+մեջտեղ	մեչտեղ		sakayan մեջք [мэчк']	մեջ- layer-2 root; ջ before voiceless տ
+բարդ	բարթ	[bɑɾtʰ]	dumtragut p39	դ→թ
+երգ	երք	[jɛɾkʰ]	dumtragut p39	գ→ք
+արջ	արչ	[ɑɾtʃʰ]	dumtragut p39	ջ→չ
+դարբնոց	դարփնոց	[dɑɾpʰnɔtsʰ]	dumtragut p39	բ→փ
+արդեն	արթեն	[ɑɾtʰɛn]	dumtragut p39	դ→թ
+դարձյալ	դարցյալ	[dɑɾtsʰjɑl]	dumtragut p39	ձ→ց
+վերջին	վերչին	[vɛɾtʃʰin]	dumtragut p39	ջ→չ
+աջ	աչ	[ɑtʃʰ]	dumtragut p40	ջ→չ
+խաբել	խափել	[χɑpʰɛl]	dumtragut p40	բ→փ
+համբույր	համփույր	[hɑmpʰujɾ]	dumtragut p40	բ→փ
+խնդիր	խնթիր	[χəntʰiɾ]	dumtragut p40	դ→թ
+եղբայր	եղպայր	[jɛχpɑjɾ]	dumtragut p41	բ→պ
+դեղձ	դեղց	[dɛχtsʰ]	dumtragut p41	ձ→ց
+արբել	արփել	[ɑɾpʰɛl]	dumtragut p41	բ→փ
+դարբին	դարփին	[dɑɾpʰin]	dumtragut p41	բ→փ
+երբ	երփ	[jɛɾpʰ]	dumtragut p41	բ→փ
+սրբել	սրփել	[səɾpʰɛl]	dumtragut p41	բ→փ
+համբերել	համփերել	[hɑmpʰɛɾɛl]	dumtragut p41	բ→փ
+իբր	իփր	[ipʰɾ]	dumtragut p41	բ→փ
+աբխազ	ափխազ	[ɑpʰχɑz]	dumtragut p41	բ→փ
+աղբ	աղպ	[aχp]	dumtragut p41	բ→պ
+աղբյուր	աղպյուր	[ɑχpjuɾ]	dumtragut p41	բ→պ
+արդար	արթար	[ɑɾtʰɑɾ]	dumtragut p41	դ→թ
+բերդ	բերթ	[bɛɾtʰ]	dumtragut p41	դ→թ
+բրդել	բրթել	[bəɾtʰɛl]	dumtragut p41	դ→թ
+դրդել	դրթել	[dəɾtʰɛl]	dumtragut p41	դ→թ
+երդ	երթ	[jɛɾtʰ]	dumtragut p41	դ→թ
+զարդ	զարթ	[zɑɾtʰ]	dumtragut p42	դ→թ
+զերդ	զերթ	[zɛɾtʰ]	dumtragut p42	դ→թ
+լյարդ	լյարթ	[ljɑɾtʰ]	dumtragut p42	դ→թ
+կարդալ	կարթալ	[kɑɾtʰɑl]	dumtragut p42	դ→թ; overrides sakayan u02d1 [կարտալ] (տ) — aspirated թ agrees with dumtragut + sakayan կարդում/կարդա [կարթ-]
+կոկորդ	կոկորթ	[kɔkɔɾtʰ]	dumtragut p42	դ→թ
+հաղորդ	հաղորթ	[hɑʁɔɾtʰ]	dumtragut p42	դ→թ
+մարդ	մարթ	[mɑɾtʰ]	dumtragut p42	դ→թ
+նյարդ	նյարթ	[njɑɾtʰ]	dumtragut p42	դ→թ
+ջարդ	ջարթ	[dʒɑɾtʰ]	dumtragut p42	դ→թ
+վարդ	վարթ	[vɑɾtʰ]	dumtragut p42	դ→թ
+վրդովել	վրթովել	[vəɾtʰɔvɛl]	dumtragut p42	դ→թ
+երրորդ	երրորթ	[jɛɾɾɔɾtʰ]	dumtragut p42	դ→թ
+անդամ	անթամ	[ɑntʰɑm]	dumtragut p42	դ→թ
+կենդանի	կենթանի	[kɛntʰɑni]	dumtragut p42	դ→թ
+դադար	դաթար	[dɑtʰɑɾ]	dumtragut p42	դ→թ
+դադրել	դաթրել	[dɑtʰɾɛl]	dumtragut p42	դ→թ
+երգել	երքել	[jɛɾkʰɛl]	dumtragut p42	գ→ք
+կարգ	կարք	[kɑɾkʰ]	dumtragut p42	գ→ք
+մարգարե	մարքարե	[mɑɾkʰɑɾɛ]	dumtragut p42	գ→ք

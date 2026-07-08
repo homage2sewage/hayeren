@@ -60,7 +60,10 @@ PROJECT_NOTES = [
     ROOT / "transliteration-notes.md",
     ROOT / "grammar-terms.md",
 ]
-BOOKS = ["sakayan", "ghamoyan", "parnasyan", "tioyan"]
+BOOKS = ["sakayan", "ghamoyan", "parnasyan", "tioyan", "dumtragut"]
+# Cap page-groups shown per book in the bundle (dumtragut is 760pp; a
+# common word hits dozens of pages). Densest pages shown; rest disclosed.
+MAX_PAGES_PER_BOOK = 6
 
 
 # ---------- query lemmatisation ----------
@@ -400,7 +403,14 @@ def render_bundle(
     if book_hits:
         for book, records in book_hits.items():
             out.append(f"### {book}\n")
-            for page, page_recs in _book_page_groups(records):
+            groups = _book_page_groups(records)
+            # A big reference grammar (dumtragut, 760pp) can hit a common
+            # word on dozens of pages; cap the page-groups shown so the
+            # bundle stays small, surfacing the densest pages first.
+            # Disclosed, never silent (the "+N more pages" line + total).
+            ranked = sorted(groups, key=lambda g: (-len(g[1]), g[0]))
+            shown = ranked[:MAX_PAGES_PER_BOOK]
+            for page, page_recs in sorted(shown, key=lambda g: g[0]):
                 # Show up to 3 records per page to avoid context bloat.
                 out.append(f"**p {page}** "
                            f"({len(page_recs)} hit"
@@ -414,6 +424,13 @@ def render_bundle(
                 if len(page_recs) > 3:
                     out.append(f"  … +{len(page_recs) - 3} more on p{page}")
                 out.append("```\n")
+            if len(groups) > MAX_PAGES_PER_BOOK:
+                hidden_pages = len(groups) - MAX_PAGES_PER_BOOK
+                hidden_hits = sum(len(g[1]) for g in ranked[MAX_PAGES_PER_BOOK:])
+                out.append(
+                    f"*… +{hidden_pages} more page(s) with {hidden_hits} hit(s) "
+                    f"in {book} (showing the {MAX_PAGES_PER_BOOK} densest; "
+                    f"grep `{book}/out/full.jsonl` for the rest).*\n")
     else:
         out.append("*(no book passages matched)*\n")
 
@@ -426,7 +443,7 @@ def render_bundle(
         out.append("")
         out.append("These terms appear in the query but are absent — both "
                    "as surface form and as lemma — from the topic graph, "
-                   "project notes, and all four book extractions. An "
+                   f"project notes, and all {len(BOOKS)} book extractions. An "
                    "answer about these terms would be **guessing from "
                    "pre-training**, not citation-grounded.")
     else:

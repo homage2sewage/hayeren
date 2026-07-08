@@ -100,3 +100,31 @@
 {"ts": "2026-06-14T04:57:49", "stop_hook_active": false, "response_chars": 289, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
 {"ts": "2026-06-14T05:08:05", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
 {"ts": "2026-06-14T20:25:53", "stop_hook_active": false, "response_chars": 1921, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-16T02:35:19", "stop_hook_active": false, "response_chars": 36, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-16T02:52:29", "stop_hook_active": false, "response_chars": 213, "armenian_chars": 5, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-18T21:42:49", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-18T21:47:57", "stop_hook_active": false, "response_chars": 888, "armenian_chars": 138, "action": "block", "bundle": "# KB-grounding bundle\n\n## Query\n\n```\n**Ես քեզ հայտնի կդարձնեմ։** — *Yes kez haytni kdardznem.*\n- **քեզ** — you (singular/informal, accusative)\n- **հայտնի** — famous, well-known\n- **կդարձնեմ** — I will make/turn (future of *դարձնել* \"to make, to turn into\")\n- **Formal / plural \"you\":** Ես **Ձեզ** հայ"}
+{"ts": "2026-06-18T21:48:49", "stop_hook_active": true, "response_chars": 1816, "armenian_chars": 217, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-06-18T21:49:41", "stop_hook_active": false, "response_chars": 2153, "armenian_chars": 285, "action": "pass-citations-verified", "bundle": ""}
+{"ts": "2026-06-18T21:59:13", "stop_hook_active": false, "response_chars": 1704, "armenian_chars": 154, "action": "skip-cited-unverifiable", "bundle": ""}
+{"ts": "2026-06-18T22:06:21", "stop_hook_active": false, "response_chars": 56, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-19T00:28:33", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-19T00:39:40", "stop_hook_active": false, "response_chars": 344, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-19T00:58:17", "stop_hook_active": false, "response_chars": 77, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-19T01:22:24", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-19T01:38:55", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-19T02:01:08", "stop_hook_active": false, "response_chars": 60, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-19T03:33:25", "stop_hook_active": false, "response_chars": 152, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-19T05:01:08", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-20T21:48:51", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-20T21:50:37", "stop_hook_active": false, "response_chars": 76, "armenian_chars": 3, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-06-20T22:00:58", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-06-20T22:19:48", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-02T22:45:20", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-02T23:31:24", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-03T02:51:21", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-03T02:58:27", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-03T03:14:46", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-03T18:02:51", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-04T00:00:20", "stop_hook_active": false, "response_chars": 3981, "armenian_chars": 478, "action": "block-citation-unverified", "bundle": "այստեղ ևս կան խնդիրներ@sakayanp391; ևս մեկ@ghamoyanp23"}
+{"ts": "2026-07-04T00:01:03", "stop_hook_active": true, "response_chars": 118, "armenian_chars": 0, "action": "skip-stop-hook-active", "bundle": ""}

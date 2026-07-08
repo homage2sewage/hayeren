@@ -101,62 +101,28 @@ def index_phonetic_respellings() -> dict[str, str]:
     return hits
 
 
-# Hand-curated additions for documented voiced↔aspirated alternations
-# that don't show up in sakayan TSVs (because the lemma is paradigm-
-# only or hand-override only, with no transliteration column to
-# annotate). Sources: armenian-grammar.md § "After extracting all 11
-# units we have evidence the alternation is" + topics/phonology/
-# voiced_aspirated_alternation.md. Keep this list narrow — only add
-# entries that are textually attested in those notes.
-PHONETIC_OVERRIDES: dict[str, str] = {
-    "շաբաթ":   "շափաթ",
-    "հոգնում": "հոքնում",
-    "հոգնել":  "հոքնել",
-    # ջ → չ — sakayan transliterations attest this devoicing
-    # systematically within specific lexicalized roots
-    # (վերջ-, առաջ-, մեջ-, առողջ-). Bare-root and additional
-    # derivatives below are inferred from the same root pattern.
-    # Counterexample on record: հաջորդ [հաջորթ] keeps ջ voiced
-    # — so this is *lexical-root regularity*, not a phonological
-    # rule. See topics/phonology/voiced_aspirated_alternation.md
-    # and errors/2026-05-09-005 lineage.
-    "մեջ":     "մեչ",
-    "վերջ":    "վերչ",         # bare root; derivatives all attest չ
-    "միջոց":   "միչոց",         # միջ- stem (extension of մեջ-)
-    "միջև":    "միչև",
-    "միջին":   "միչին",
-    "միջազգային": "միչազգային",
-    "անմիջապես":  "անմիչապես",
-    # ղջ cluster — both consonants devoice (ղ → χ, ջ → չ).
-    # Parnasyan p346 attests `աղջիկ [ахчик]`, `ամբողջ [амбохч]`.
-    # Different mechanism from the lexical-root regularity above:
-    # this is cluster devoicing, applies wherever the ղջ cluster
-    # appears. We mark only the ჯ → չ change in the respell
-    # (matching sakayan's convention in `առողջություն →
-    # առողչություն`); the ղ surface devoicing is documented in
-    # the topic file but not encoded here.
-    "աղջիկ":   "աղչիկ",
-    "ողջ":     "ողչ",
-    "ամբողջ":  "ամբողչ",
-    # --- Tier-1 root/morpheme propagations (added 2026-06-14) ---
-    # Deck lemmas that share a root with an attested respell and were
-    # vetted individually against the book transliteration columns
-    # (see research/2026-06-10-transcription-coverage-and-system.md
-    # § "Expansion strategy", tier 1, and known_transcriptions.md).
-    # Counterexamples REJECTED in the same pass: այդպես / այդպիսի keep
-    # voiced դ — tioyan transliterates [айдпэс] / [айдписи], so the
-    # word-final այդ → [այտ] devoicing does NOT carry word-internally.
-    #
-    # Corpus-confirmed (direct transliteration bracket attested):
-    "երբեմն":     "երփեմն",      # tioyan [ерп'эмэн]; բ→փ before ե
-    "վարդագույն":  "վարթագույն",  # tioyan [варт'агуйн]; դ→թ (գ stays voiced)
-    "ողջույն":    "ողչույն",      # tioyan [вохчуйн]; ղջ cluster, ჯ→չ
-    # Sister-derivative attested, identical root + position:
-    "երբեք":      "երփեք",        # sibling երբեմն (corpus); բ before ե
-    "բարձրագույն": "բարցրագույն",  # բարձր- root; sister բարձրահասակ [բարցրահասակ] (sakayan)
-    "բարձրացնել":  "բարցրացնել",   # same բարձր- root-internal ձ→ց
-    "մեջտեղ":     "մեչտեղ",       # մեջ- layer-2 root; sister մեջք [мэчк']; ջ before voiceless տ
-}
+# Curated voiced↔aspirated respellings that don't show up in sakayan
+# TSVs (paradigm-only / hand-override lemmas with no transliteration
+# column to annotate). Moved out of code into a standalone, extensible
+# data file (`cards/frequency/respellings.tsv`, columns:
+# lemma | respell | ipa | source | note) so the respelling base is a
+# single source of truth and can carry the citable IPA from dumtragut.
+# See topics/phonology/voiced_aspirated_alternation.md for the rules.
+RESPELLINGS_TSV = CARDS / "frequency" / "respellings.tsv"
+
+
+def load_phonetic_overrides() -> dict[str, str]:
+    """`lemma → respell` from the curated respellings TSV. The `ipa`,
+    `source`, `note` columns are provenance (verification + the
+    known_transcriptions view), not part of the deck map."""
+    overrides: dict[str, str] = {}
+    with RESPELLINGS_TSV.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            lemma = (row.get("lemma") or "").strip()
+            respell = (row.get("respell") or "").strip()
+            if lemma and respell:
+                overrides[lemma] = respell
+    return overrides
 
 
 def armenian_tokens(cell: str) -> list[str]:
@@ -1014,9 +980,20 @@ def build(limit: int = 1000, with_dictionary: bool = True) -> None:
           file=sys.stderr, flush=True)
 
     phonetic = index_phonetic_respellings()
-    phonetic.update(PHONETIC_OVERRIDES)
+    overrides = load_phonetic_overrides()
+    # A curated override that DISAGREES with a sakayan-harvested respell
+    # is a source conflict — surface it (the override wins, but never
+    # silently). Each such case must carry a resolution note in
+    # respellings.tsv.
+    for lemma, respell in overrides.items():
+        sak = phonetic.get(lemma.lower())
+        if sak and sak != respell.lower():
+            print(f"  CONFLICT: {lemma} sakayan=[{sak}] overridden by "
+                  f"respellings.tsv=[{respell}] — check the row's note",
+                  file=sys.stderr, flush=True)
+    phonetic.update(overrides)
     print(f"Indexed {len(phonetic)} phonetic respellings "
-          f"({len(PHONETIC_OVERRIDES)} hand-curated)",
+          f"({len(overrides)} curated)",
           file=sys.stderr, flush=True)
 
     rows_out: list[list[str]] = []

@@ -35,6 +35,7 @@ Exit codes: 0 = no FAILs (WARN/SKIP allowed), 1 = at least one FAIL,
 
 import argparse
 import json
+import re
 import sys
 import unicodedata
 from pathlib import Path
@@ -83,6 +84,20 @@ def normalize(s: str) -> str:
     """NFC-normalise — Armenian script and Sakayan's Armtrans diacritics
     show up in either NFC or NFD; matching needs a canonical form."""
     return unicodedata.normalize("NFC", s)
+
+
+_WS_RE = re.compile(r"\s+")
+
+
+def squash(s: str) -> str:
+    r"""NFC + strip ALL whitespace. The corpus stores text at token/box
+    granularity — a phrase is split across spans, and IPA transcriptions
+    are split one glyph per span (`[mɑɾtʰ]` is bytes `[ m ɑ ɾ tʰ ]` once
+    spans are joined). Whitespace-insensitive matching lets a contiguous
+    quote (multiword phrase, or an IPA bracket) verify against that
+    fragmentation. Mirrors `_squash` in
+    `.claude/hooks/armenian_self_check.py`."""
+    return _WS_RE.sub("", unicodedata.normalize("NFC", s))
 
 
 def parse_frontmatter(md_path: Path) -> dict:
@@ -209,7 +224,9 @@ def check_source(src: dict, spans_by_book: dict) -> list[dict]:
                     f"y-extent [{ext_lo:.0f}-{ext_hi:.0f}] — location "
                     f"check is nearly page-wide")
 
-    haystack = normalize(" ".join(s["text"] for s in region))
+    # Whitespace-squashed so IPA (one glyph per span) and phrases split
+    # across spans verify against a contiguous quote (see squash()).
+    haystack = squash("".join(s["text"] for s in region))
 
     results = []
     for frag in fragments:
@@ -219,7 +236,7 @@ def check_source(src: dict, spans_by_book: dict) -> list[dict]:
                 f"fragment has < {ARMENIAN_MIN_LETTERS} Armenian "
                 f"letters (and < {TOTAL_MIN_LETTERS} letters total) — "
                 f"short enough to verify almost anywhere")
-        needle = normalize(frag)
+        needle = squash(frag)
         ok = needle in haystack
         diagnostic = ""
         if not ok:

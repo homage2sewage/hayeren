@@ -79,8 +79,101 @@ sources:
       mechanism that drives the ղջ cluster cases (parnasyan p346
       [ахчик], [амбохч]) — supports the broader-than-lexical-root
       reading of ղ devoicing. The Russian gloss is "скидка."
+  - id: 7
+    book: dumtragut
+    page: 39
+    y_range: [371, 397]
+    verbatim_quote:
+      - "(c) fricative voice assimilation given below are NOT strict and general rules in SMEA: "
+      - "they are only applied to one part of the lexicon (see below), whereas the other part is still "
+    supports: supported
+    note: |
+      Dum-Tragut (§1.2.1 "Writing and pronunciation of SMEA
+      consonants", book p22 = JSONL p39) explicitly frames devoicing,
+      aspiration, s-aspiration and fricative voice assimilation as
+      *lexically restricted* — applying to only part of the lexicon,
+      with the rest pronounced as spelled, "often doublets." Directly
+      corroborates Sakayan's lexical-irregularity account [#2][#3][#4].
+  - id: 8
+    book: dumtragut
+    page: 39
+    y_range: [444, 458]
+    verbatim_quote: "In SMEA there is, in principle, no terminal devoicing: voiced consonants in general remain "
+    supports: supported
+    note: |
+      Important nuance the textbook sources don't state: word-final
+      devoicing is NOT a blanket rule in SMEA (book p22). Devoicing is
+      conditioned (see [#9][#10]), not a general terminal-position
+      process — so a deck respell must be per-lexeme, never a blanket
+      "final voiced stop → voiceless."
+  - id: 9
+    book: dumtragut
+    page: 40
+    y_range: [385, 399]
+    verbatim_quote: "If the medial or final voiced consonant follows a nasal, it may undergo devoicing and "
+    supports: supported
+    note: |
+      States one of Dum-Tragut's three conditioning environments — the
+      one our sources never characterised. Nasal environment: m+b
+      (համբույր), n+d (անդամ, խնդիր, կենդանի), ŋ+g (անգամ). The other
+      two environments are r-devoicing (after flap [r]/[ɾ]: մարդ, բարդ,
+      արջ; attested [#11]) and intervocalic/post-vocalic (օդ, էգ, հոգի).
+      The bracketed IPA is itself citable — see [#11]–[#13].
+  - id: 10
+    book: dumtragut
+    page: 41
+    y_range: [428, 441]
+    verbatim_quote:
+      - "it follows the voiced uvular fricative ["
+      - "], [b] is only pronounced voiceless but not aspi-"
+    supports: supported
+    note: |
+      The ղ exception (book p24): after the voiced uvular fricative ղ
+      [ʁ], a following voiced stop devoices to *plain voiceless, not
+      aspirated* ([p], not [pʰ]) — աղբ, աղբյուր, եղբայր, ողբալ.
+      Attested IPA [#12] եղբայր [jɛχpɑjɾ]: ղ→[χ] and բ→[p]. This
+      refines our existing "ղ→խ in voiceless clusters" note [#6] and the
+      ղջ-cluster cases: ղ conditions both its own devoicing and the
+      (un)aspiration of the following stop.
+  - id: 11
+    book: dumtragut
+    page: 42
+    y_range: [109, 124]
+    verbatim_quote: ["մարդ", "[mɑɾtʰ]", "նյարդ", "[njɑɾtʰ]"]
+    supports: supported
+    note: |
+      r-devoicing + aspiration, IPA byte-verified: մարդ "man" [mɑɾtʰ]
+      (դ→[tʰ] after flap [ɾ]), նյարդ "nerve" [njɑɾtʰ]. The [tʰ] (vs the
+      [t] of the unaspirated row, or the spelled voiced [d]) is the
+      whole point — and it now verifies against the corpus, so an IPA
+      respelling claim like մարդ → [mɑɾtʰ] can be checked, not just
+      asserted. (y-window starts ~3pt above the baseline to include the
+      raised superscript ʰ span.)
+  - id: 12
+    book: dumtragut
+    page: 41
+    y_range: [452, 466]
+    verbatim_quote: ["աղբյուր", "[ɑχpjuɾ]", "եղբայր", "[jɛχpɑjɾ]"]
+    supports: supported
+    note: |
+      The ղ exception, IPA byte-verified: աղբյուր "spring" [ɑχpjuɾ],
+      եղբայր "brother" [jɛχpɑjɾ] — ղ→[χ] and the following բ→[p]
+      *unaspirated* (contrast the aspirated [pʰ] of the r/nasal/vowel
+      environments, e.g. [#11]). Direct evidence for [#10].
+  - id: 13
+    book: dumtragut
+    page: 41
+    y_range: [125, 139]
+    verbatim_quote: ["դեղձ", "[dɛχtsʰ]", "աղջիկ", "[ɑχtʃʰik]"]
+    supports: supported
+    note: |
+      Fricative voice assimilation / ղ-cluster devoicing, IPA
+      byte-verified: դեղձ "peach" [dɛχtsʰ] (ղ→[χ], ձ→[tsʰ]), աղջիկ
+      "girl" [ɑχtʃʰik] (ղ→[χ], ջ→[tʃʰ]). The ղջ→[χtʃʰ] form is exactly
+      the cluster our deck respells (`աղջիկ → [աղչիկ]`) approximate in
+      Armenian script; here the full IPA is attested.
 gaps:
-  - "Sakayan does not state the alternation as a rule. Ghamoyan attributes the broader class of shifts to dialect/idiom influence but doesn't characterize the conditioning environment phonetically. Whether any of the shifts are environment-sensitive (vs purely lexical) remains open."
+  - "ADDRESSED by Dum-Tragut [#7][#9][#10]: the conditioning environment is now characterised — devoicing/aspiration applies after a flap [r], after a nasal, or intervocalically, with a ղ-exception (plain voiceless after uvular ʁ), but only across part of the lexicon (lexically restricted within those environments). The earlier open question (Sakayan exemplifies but states no rule; Ghamoyan attributes to dialect) is resolved: it is environment-conditioned AND lexically selective, not one or the other."
   - "No frequency data — what proportion of voiced-stop tokens actually alternate in running text?"
   - "Etymological correlation unaddressed — does the alternation track native vs loan stratum (Iranian, Turkish, Russian)?"
   - "Many further examples in `armenian-grammar.md` (արդեն, շաբաթ, օգնական, հոգնում, վերջապես, …) are not yet citation-checked against the JSONL."
@@ -95,6 +188,15 @@ no rule predicting which words alternate, observable only via the
 transliteration column. [#2] [#3] [#4] Ghamoyan reframes the same
 phenomenon as part of a broader **dialect-influenced bidirectional
 shift** characteristic of Yerevan colloquial speech. [#5]
+
+Dum-Tragut's reference grammar [#7]–[#10] reconciles the two: the
+shifts are **environment-conditioned _and_ lexically selective**. They
+occur in three phonological environments — after a flap [r], after a
+nasal, or intervocalically — but only across *part* of the lexicon
+within those environments, "often doublets." [#7] So neither account
+is wrong: Sakayan sees the lexical selectivity (no rule predicts *which*
+word), Dum-Tragut adds the conditioning that bounds *where* it can
+happen at all. See "Dum-Tragut's conditioning environments" below.
 
 ## The three-way contrast it deviates from
 
@@ -208,6 +310,55 @@ devoices, the other doesn't) is a clean illustration that
 per-root: same ղ in same word, different position, different
 outcome.
 
+## Dum-Tragut's conditioning environments
+
+Dum-Tragut's §1.2.1 (book pp22–26) is the first source in this
+workspace to state the phonological conditioning. Up front it stresses
+the rules are **"NOT strict and general… only applied to one part of
+the lexicon"** [#7] — and that, **"in principle, no terminal
+devoicing"** applies: a word-final voiced stop is not automatically
+devoiced. [#8] Within that lexically-restricted scope, three
+environments license devoicing-and-aspiration of voiced plosives/
+affricates:
+
+| environment | trigger | examples (IPA render-verified) |
+|-------------|---------|-------------------------------|
+| **r-devoicing** | after flap [r]/[ɾ] | մարդ [mɑɾtʰ], նյարդ [njɑɾtʰ] [#11]; բարդ [bɑɾtʰ], արջ [ɑɾtʃʰ] |
+| **post-vocalic** | after / between vowels | օդ [ɔtʰ], էգ [ɛkʰ], հոգի [hɔkʰi] |
+| **nasal** | m+b, n+d, ŋ+g | համբույր [hɑmpʰujɾ], անդամ [ɑntʰɑm], անգամ [ɑŋkʰɑm] [#9] |
+
+(IPA byte-verified against the corpus — [#11] r-devoicing, [#12] the ղ
+exception, [#13] ղ-cluster — now that the bracketed phonetics are
+citable.)
+
+Two refinements our textbook sources didn't have:
+
+- **The ղ exception.** After the voiced uvular fricative ղ [ʁ], a
+  following voiced stop devoices to **plain voiceless, *not* aspirated**
+  — [p] not [pʰ]: աղբ [ɑχp], եղբայր [jɛχpɑjɾ], ողբալ [ɔχbɑl]. [#10]
+  This is the same ղ-devoicing our [#6] / ղջ-cluster notes describe,
+  now with the extra fact that ղ also *suppresses aspiration* on the
+  stop it precedes.
+- **Voiced stays voiced after [r] in specific strata** — dialectal
+  loans (դարդ [dɑɾd], նարդի [nɑɾdi], բուրջ [buɾdʒ]), new loans, and
+  reduplications (գրգիռ, բարբառ). So the [r] environment *enables*
+  devoicing but the lexical/etymological layer still decides.
+
+Dum-Tragut also separates two further processes from the voiced-stop
+devoicing above: **(b) s-aspiration** of voiceless plosives before
+sibilants (ապստամբել [ɑpʰstɑmbel]) and **(c) fricative voice
+assimilation** in clusters (եղբայր, աղջիկ [ɑχtʃʰik], դեղձ [dɛχtsʰ]) —
+the mechanism behind our ղջ-cluster respells.
+
+**Practical effect on the deck.** The conditioning explains *why* the
+respell families cluster the way they do (most attested respells sit in
+an r/nasal/post-vocalic environment), but it does **not** license a
+blanket "devoice every voiced stop after [r]" rule — [#7] and the
+dialectal-loan counterexamples (դարդ stays [dɑɾd]) show the lexical
+gate is real. Any new `PHONETIC_OVERRIDES` entry still needs per-lexeme
+attestation (corpus IPA / transliteration), not extrapolation from the
+environment alone.
+
 ## Wider scope in colloquial speech (Ghamoyan)
 
 Ghamoyan documents a *broader* phenomenon in Yerevan colloquial: [#5]
@@ -269,19 +420,21 @@ has no obvious Russian analogue.
 
 Mirrored from frontmatter:
 
-- Sakayan exemplifies but does not state the alternation as a rule;
-  ghamoyan attributes the broader class of shifts to dialect/idiom
-  influence but doesn't characterize the *conditioning environment*
-  phonetically. Whether any of the shifts are environment-sensitive
-  (vs purely lexical) remains open.
+- ~~Whether the shifts are environment-sensitive vs purely lexical~~
+  **CLOSED by Dum-Tragut [#7][#9][#10]** (2026-06-19): both — they are
+  environment-conditioned (flap [r] / nasal / post-vocalic, with a ղ
+  exception) *and* lexically selective within those environments. See
+  "Dum-Tragut's conditioning environments."
 - Frequency / token-count: how often does the alternation actually
-  occur in running text?
+  occur in running text? **Still open** — Dum-Tragut gives word-lists,
+  not corpus frequencies.
 - Etymological correlation (native vs Iranian/Turkish/Russian loan
-  stratum) is unaddressed by both books.
-- A descriptive grammar — Dum-Tragut (2009) — would likely close the
-  remaining gaps; but with ghamoyan now citable, the most pressing
-  open question shifts from "what is the rule" to "what's the
-  conditioning environment".
+  stratum): **partially addressed** — Dum-Tragut notes that voiced
+  stops *stay voiced* after [r] in dialectal/new loans (դարդ, նարդի)
+  and reduplications, tying the lexical gate to stratum, but gives no
+  systematic native-vs-loan breakdown.
+- Many further examples in `armenian-grammar.md` (արդեն, շաբաթ,
+  օգնական, …) are still not citation-checked against the JSONL.
 
 ## Cross-references
 
@@ -297,3 +450,7 @@ Mirrored from frontmatter:
   used to surface alternations on flashcards.
 - `armenian-grammar.md` (parent file, pending split) — the original
   notes that seeded this topic.
+- `dumtragut/out/full.md` §1.2.1 "Writing and pronunciation of SMEA
+  consonants" (book pp22–26) — the reference-grammar account of the
+  conditioning environments [#7]–[#10]; `dumtragut/README.md` documents
+  the IPA decode (the bracketed phonetics are now usable).

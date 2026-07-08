@@ -112,6 +112,23 @@ CITED_MULTIWORD = (
     "The phrase `Հայաստան հայ` appears in the vocabulary (sakayan p31)."
 )
 
+# Cited IPA respelling that IS on the cited dumtragut page (p42 has the
+# bracketed IPA [mɑɾtʰ] for մարդ). dumtragut has a clean text layer, so
+# its Armenian + IPA are byte-verifiable.
+CITED_IPA_VERIFIED = (
+    "Here is my analysis of the line.\n"
+    "Բարև ձեզ, այս բառը խոսակցական ռեգիստրի հետ կապված է և բավական երկար։\n"
+    "The word «մարդ» devoices to [mɑɾtʰ] (dumtragut p42)."
+)
+
+# Fabricated IPA respelling: [mɑɾt] omits the aspiration the page shows
+# ([mɑɾtʰ]) — a wrong respell must block at emit time.
+CITED_IPA_FABRICATED = (
+    "Here is my analysis of the line.\n"
+    "Բարև ձեզ, այս բառը խոսակցական ռեգիստրի հետ կապված է և բավական երկար։\n"
+    "The word «մարդ» is pronounced [mɑɾt] (dumtragut p42)."
+)
+
 
 def load_module(path, name):
     spec = importlib.util.spec_from_file_location(name, path)
@@ -334,6 +351,35 @@ def test_self_check(tmp):
           proc.returncode == 0 and not proc.stdout.strip(), proc.stdout[:200])
     check("(g) log action=pass-citations-verified",
           rec and rec.get("action") == "pass-citations-verified", str(rec))
+
+    # (h) dumtragut IPA respelling that IS on the cited page -> verified.
+    #     Guards both the dumtragut-in-VERIFIABLE_BOOKS addition and the
+    #     IPA-bracket claim extraction.
+    t_ipa = os.path.join(tmp, 'cited_ipa.jsonl')
+    make_transcript(t_ipa, CITED_IPA_VERIFIED)
+    proc = run_hook(SELF_CHECK, stop_payload(t_ipa), env)
+    rec = last_log(logd, 'armenian_self_check.jsonl')
+    check("(h) verified IPA respell -> exit 0, no block",
+          proc.returncode == 0 and not proc.stdout.strip(), proc.stdout[:200])
+    check("(h) log action=pass-citations-verified",
+          rec and rec.get("action") == "pass-citations-verified", str(rec))
+
+    # (i) fabricated IPA respelling ([mɑɾt] vs page's [mɑɾtʰ]) -> block.
+    t_ipa_bad = os.path.join(tmp, 'cited_ipa_bad.jsonl')
+    make_transcript(t_ipa_bad, CITED_IPA_FABRICATED)
+    proc = run_hook(SELF_CHECK, stop_payload(t_ipa_bad), env)
+    rec = last_log(logd, 'armenian_self_check.jsonl')
+    out = {}
+    try:
+        out = json.loads(proc.stdout)
+    except ValueError:
+        pass
+    check("(i) fabricated IPA respell -> decision=block",
+          out.get("decision") == "block", proc.stdout[:200])
+    check("(i) feedback names the bad IPA fragment",
+          "[mɑɾt]" in out.get("reason", ""), out.get("reason", "")[:200])
+    check("(i) log action=block-citation-unverified",
+          rec and rec.get("action") == "block-citation-unverified", str(rec))
 
     # (c) stop_hook_active -> skip (anti-loop)
     proc = run_hook(SELF_CHECK,

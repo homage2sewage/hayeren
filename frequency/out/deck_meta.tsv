@@ -3,7 +3,7 @@ lemma	rank	src
 որ	0002	hand-override
 ու	0003	hand-override
 մի	0004	hand-override
-կարդալ [կարտալ]	0005	sakayan-paradigm
+կարդալ [կարթալ]	0005	sakayan-paradigm
 ունենալ	0006	sakayan-vocab
 ինչ	0007	hand-override
 գրել	0008	sakayan-paradigm
@@ -246,7 +246,7 @@ lemma	rank	src
 կես	0251	dictionary
 չափ	0252	sakayan-vocab
 հինգ	0253	dictionary
-եղբայր	0254	dictionary
+եղբայր [եղպայր]	0254	dictionary
 արա	0255	hand-override
 նշանակել	0256	hand-override
 վերջին [վերչին]	0257	dictionary
@@ -264,7 +264,7 @@ lemma	rank	src
 հոգնել [հոքնել]	0270	sakayan-paradigm
 հիվանդ	0271	dictionary
 դեր	0272	dictionary
-անդամ	0273	hand-override
+անդամ [անթամ]	0273	hand-override
 նկատմամբ	0274	dictionary
 երկիր	0276	sakayan-vocab
 հայտնի	0277	sakayan-vocab
@@ -352,7 +352,7 @@ lemma	rank	src
 ահա	0363	hand-override
 կար	0364	hand-override
 գիտություն	0365	dictionary
-խնդիր	0366	dictionary
+խնդիր [խնթիր]	0366	dictionary
 սովորաբար	0367	hand-override
 միտք	0368	dictionary
 նկատել	0370	dictionary
@@ -394,7 +394,7 @@ lemma	rank	src
 ասա	0408	hand-override
 սուրբ	0409	dictionary
 ձուկ	0410	dictionary
-երգել	0411	dictionary
+երգել [երքել]	0411	dictionary
 երես	0412	dictionary
 թեև	0413	dictionary
 անցյալ	0414	dictionary
@@ -413,8 +413,8 @@ lemma	rank	src
 դաս	0427	dictionary
 ճաշ	0428	dictionary
 վիճակ	0429	dictionary
-երգ	0430	dictionary
-կարգ	0431	dictionary
+երգ [երք]	0430	dictionary
+կարգ [կարք]	0431	dictionary
 հենց	0433	hand-override
 ուսումնասիրություն	0434	dictionary
 իրողություն	0435	dictionary
@@ -614,7 +614,7 @@ lemma	rank	src
 կառուցվել	0635	hand-override
 մեռնել	0636	dictionary
 եկեղեցի	0637	dictionary
-աղբյուր	0638	dictionary
+աղբյուր [աղպյուր]	0638	dictionary
 մշակույթ	0639	dictionary
 հաղորդում	0640	dictionary
 անկում	0641	dictionary
@@ -675,7 +675,7 @@ lemma	rank	src
 իսկապես	0697	ghamoyan-filler
 ծրագիր	0698	dictionary
 նախընտրել	0699	dictionary
-աղբ	0700	dictionary
+աղբ [աղպ]	0700	dictionary
 ծնունդ	0701	dictionary
 որդ	0702	dictionary
 այգի	0703	dictionary
@@ -722,7 +722,7 @@ lemma	rank	src
 գլխարկ	0746	dictionary
 ուղիղ	0747	dictionary
 սպիտակ	0748	dictionary
-կոկորդ	0749	dictionary
+կոկորդ [կոկորթ]	0749	dictionary
 ճաշակ	0750	dictionary
 կարծես	0751	hand-override
 հաջորդ [հաջորթ]	0752	dictionary
@@ -785,7 +785,7 @@ lemma	rank	src
 ուշ	0810	dictionary
 ափ	0812	dictionary
 ծնող	0813	dictionary
-բարդ	0814	dictionary
+բարդ [բարթ]	0814	dictionary
 ծիծաղել	0815	dictionary
 տխուր	0816	dictionary
 չոր	0817	dictionary
@@ -933,7 +933,7 @@ lemma	rank	src
 խելացի	0996	dictionary
 կանգնել	0997	dictionary
 գցել	0998	dictionary
-դարձյալ	0999	dictionary
+դարձյալ [դարցյալ]	0999	dictionary
 ցանկություն	1001	dictionary
 վերցնել	1002	dictionary
 զգացում	1003	dictionary
@@ -1000,7 +1000,7 @@ lemma	rank	src
 թեթև	1077	dictionary
 հարսանիք	1078	dictionary
 ես		core-inject
-աջ		core-inject
+աջ [աչ]		core-inject
 վերև		core-inject
 ներքև		core-inject
 վար		core-inject

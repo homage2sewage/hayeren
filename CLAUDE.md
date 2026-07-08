@@ -177,16 +177,24 @@ book-page cite like `ghamoyan p48`):
   *supported* — the evidence-*consumption* gap, vs. the uncited
   arm's evidence-*delivery* gap.
 
-  Verification details: only **sakayan** and **ghamoyan** are
-  verifiable (clean text layer). parnasyan/tioyan are
-  OCR/Cyrillic-garbled and acharyan/gharagyulyan lack a text
-  field, so their cites log `skip-cited-unverifiable` rather
-  than false-block. Matching is **whitespace-insensitive NFC**
-  (`_squash`) because the corpus stores text at token/box
+  Verification details: **sakayan**, **ghamoyan** and
+  **dumtragut** are verifiable (clean text layer). parnasyan/
+  tioyan are OCR/Cyrillic-garbled and acharyan/gharagyulyan lack
+  a text field, so their cites log `skip-cited-unverifiable`
+  rather than false-block. Matching is **whitespace-insensitive
+  NFC** (`_squash`) because the corpus stores text at token/box
   granularity — a multiword phrase the model quotes with a
   single space (`word1 word2`) is `word1\nword2` on the page;
   squashing whitespace on both sides avoids false-blocking
-  correct multiword citations (test (g) is the guard).
+  correct multiword citations (test (g) is the guard). The same
+  squash makes **IPA respellings citable**: dumtragut stores IPA
+  one glyph per span (`[mɑɾtʰ]` = `[ m ɑ ɾ tʰ ]`), so the
+  cited-arm also extracts IPA `[…]` brackets (carrying an
+  IPA-specific glyph) and byte-verifies them — a wrong respell
+  (`[mɑɾt]` for page's `[mɑɾtʰ]`) blocks at emit time (tests (h)/
+  (i)). `citation-check` squashes identically, so topic
+  `verbatim_quote`s may be IPA brackets too (give the y-window
+  ~3pt of headroom to include the raised superscript ʰ span).
   Log actions: `pass-citations-verified` /
   `block-citation-unverified` / `skip-cited-unverifiable`.
 

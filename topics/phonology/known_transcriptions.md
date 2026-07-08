@@ -14,12 +14,32 @@ for the analysis (what's a rule vs. lexical vs. root-regular).
   from Sakayan's transliteration column. Source cites the unit
   file(s) the form appears in (`u07v` = `unit07_vocab.tsv`,
   `u01d1` = `unit01_dialogue1.tsv`, `chunks` = `chunks.tsv`).
-- **hand-curated rows** — `PHONETIC_OVERRIDES` in
-  `frequency/build_deck.py`; rationale + book pages in the topic file.
+- **hand-curated rows** — the curated respelling base
+  `cards/frequency/respellings.tsv` (lemma | respell | ipa | source |
+  note; was the inline `PHONETIC_OVERRIDES` dict in
+  `frequency/build_deck.py`). It now carries 66 rows: the original 20
+  plus **46 dumtragut §1.2.1 devoicings**, each with a byte-verified IPA
+  (`մարդ → մարթ [mɑɾtʰ]`, …) and `dumtragut pN` source. The IPA is the
+  citable ground truth (`citation-check`); the `respell` is the
+  Armenian-script deck form.
 
-**105 entries** (87 sakayan-attested, 18 hand-curated — 7 added 2026-06-14
-via tier-1 root propagation, see the dedicated section below). Deviation
-tally: ջ→չ ×25, դ→թ ×23, գ→ք ×19, ձ→ց ×14, դ→տ ×11, բ→փ ×10, բ→պ ×2, գ→կ ×2.
+The table below is the older sakayan-harvested + original-curated view
+(**105 entries**; 87 sakayan-attested, 18 hand-curated). It is **not yet
+regenerated** to include the 46 dumtragut rows — for the live curated set
+read `respellings.tsv` directly. Deviation tally (old view): ջ→չ ×25,
+դ→թ ×23, գ→ք ×19, ձ→ց ×14, դ→տ ×11, բ→փ ×10, բ→պ ×2, գ→կ ×2.
+
+**Dumtragut IPA deviation table (2026-07-02/03):** every word→[IPA]
+pair in the Dum-Tragut text layer is harvested to
+`dumtragut/out/ipa_index.tsv` (645 occurrences, citation-ready
+y-ranges, `deviant`/`regular`/`artifact` column); the human table
+[`dumtragut_ipa_transcriptions.md`](dumtragut_ipa_transcriptions.md)
+keeps only the ~210 words whose IPA *deviates* from the regular
+reading of the spelling — same charter as this file, far beyond the
+46 curated devoicing rows. Regenerate with `python3
+dumtragut/harvest_ipa.py`. Note the `‚`→ʋ decode correction in
+`dumtragut/phonetic.py` (formerly misread as ʔ): initial ո- is
+[ʋɔ], և is [jɛʋ].
 
 ## դ → թ (d → tʰ, aspirated) — 21
 
@@ -58,7 +78,7 @@ tally: ջ→չ ×25, դ→թ ×23, գ→ք ×19, ձ→ց ×14, դ→տ ×11, բ�
 | դուրդ | [դուրտ] | դ→տ | sakayan chunks, u05d1, u05d2, u08d1, u08d2 |
 | ծնողներիդ | [ծնողներիտ] | դ→տ | sakayan chunks, u04d1 |
 | կահույքդ | [կահույքտ] | դ→տ | sakayan u05d1 |
-| կարդալ | [կարտալ] | դ→տ | sakayan u02d1 |
+| կարդալ | [կարթալ] | դ→թ | dumtragut p42 (overrides sakayan u02d1 [կարտալ]; aspirated թ agrees with կարդում/կարդա) |
 | կենացդ | [կենացտ] | դ→տ | sakayan chunks, u03d4 |
 | հետդ | [հետտ] | դ→տ | sakayan u10d1 |
 | մորդ | [մորտ] | դ→տ | sakayan chunks, u04d1 |

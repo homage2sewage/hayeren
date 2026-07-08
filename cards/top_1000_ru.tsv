@@ -2,7 +2,7 @@
 <b>որ</b>	который	frequency ru-minimal
 <b>ու</b>	и	frequency ru-minimal
 <b>մի</b>	один	frequency ru-minimal
-<b>կարդալ</b> <span style='color:#888;font-size:0.8em'>[կարտալ]</span>	читать	frequency ru-minimal
+<b>կարդալ</b> <span style='color:#888;font-size:0.8em'>[կարթալ]</span>	читать	frequency ru-minimal
 <b>ունենալ</b>	иметь	frequency ru-minimal
 <b>ինչ</b>	что	frequency ru-minimal
 <b>գրել</b>	писать	frequency ru-minimal
@@ -245,7 +245,7 @@
 <b>կես</b>	половина	frequency ru-minimal
 <b>չափ</b>	мера	frequency ru-minimal
 <b>հինգ</b>	5	frequency ru-minimal
-<b>եղբայր</b>	брат	frequency ru-minimal
+<b>եղբայր</b> <span style='color:#888;font-size:0.8em'>[եղպայր]</span>	брат	frequency ru-minimal
 <b>արա</b>	эй, чувак	frequency ru-minimal
 <b>նշանակել</b>	значить	frequency ru-minimal
 <b>վերջին</b> <span style='color:#888;font-size:0.8em'>[վերչին]</span>	последний	frequency ru-minimal
@@ -263,7 +263,7 @@
 <b>հոգնել</b> <span style='color:#888;font-size:0.8em'>[հոքնել]</span>	уставать	frequency ru-minimal
 <b>հիվանդ</b>	больной	frequency ru-minimal
 <b>դեր</b>	роль	frequency ru-minimal
-<b>անդամ</b>	член	frequency ru-minimal
+<b>անդամ</b> <span style='color:#888;font-size:0.8em'>[անթամ]</span>	член	frequency ru-minimal
 <b>նկատմամբ</b>	относительно	frequency ru-minimal
 <b>երկիր</b>	страна	frequency ru-minimal
 <b>հայտնի</b>	известный	frequency ru-minimal
@@ -351,7 +351,7 @@
 <b>ահա</b>	вот	frequency ru-minimal
 <b>կար</b>	было	frequency ru-minimal
 <b>գիտություն</b>	наука	frequency ru-minimal
-<b>խնդիր</b>	задача	frequency ru-minimal
+<b>խնդիր</b> <span style='color:#888;font-size:0.8em'>[խնթիր]</span>	задача	frequency ru-minimal
 <b>սովորաբար</b>	обычно	frequency ru-minimal
 <b>միտք</b>	мысль	frequency ru-minimal
 <b>նկատել</b>	замечать	frequency ru-minimal
@@ -393,7 +393,7 @@
 <b>ասա</b>	скажи	frequency ru-minimal
 <b>սուրբ</b>	святой	frequency ru-minimal
 <b>ձուկ</b>	рыба	frequency ru-minimal
-<b>երգել</b>	петь	frequency ru-minimal
+<b>երգել</b> <span style='color:#888;font-size:0.8em'>[երքել]</span>	петь	frequency ru-minimal
 <b>երես</b>	лицо	frequency ru-minimal
 <b>թեև</b>	хотя	frequency ru-minimal
 <b>անցյալ</b>	прошлый	frequency ru-minimal
@@ -412,8 +412,8 @@
 <b>դաս</b>	урок	frequency ru-minimal
 <b>ճաշ</b>	обед	frequency ru-minimal
 <b>վիճակ</b>	состояние	frequency ru-minimal
-<b>երգ</b>	песня	frequency ru-minimal
-<b>կարգ</b>	порядок	frequency ru-minimal
+<b>երգ</b> <span style='color:#888;font-size:0.8em'>[երք]</span>	песня	frequency ru-minimal
+<b>կարգ</b> <span style='color:#888;font-size:0.8em'>[կարք]</span>	порядок	frequency ru-minimal
 <b>հենց</b>	именно	frequency ru-minimal
 <b>ուսումնասիրություն</b>	исследование	frequency ru-minimal
 <b>իրողություն</b>	реальность	frequency ru-minimal
@@ -613,7 +613,7 @@
 <b>կառուցվել</b>	строиться	frequency ru-minimal
 <b>մեռնել</b>	умирать	frequency ru-minimal
 <b>եկեղեցի</b>	церковь	frequency ru-minimal
-<b>աղբյուր</b>	источник	frequency ru-minimal
+<b>աղբյուր</b> <span style='color:#888;font-size:0.8em'>[աղպյուր]</span>	источник	frequency ru-minimal
 <b>մշակույթ</b>	культура	frequency ru-minimal
 <b>հաղորդում</b>	сообщение	frequency ru-minimal
 <b>անկում</b>	падение	frequency ru-minimal
@@ -674,7 +674,7 @@
 <b>իսկապես</b>	действительно	frequency ru-minimal
 <b>ծրագիր</b>	программа	frequency ru-minimal
 <b>նախընտրել</b>	предпочитать	frequency ru-minimal
-<b>աղբ</b>	мусор	frequency ru-minimal
+<b>աղբ</b> <span style='color:#888;font-size:0.8em'>[աղպ]</span>	мусор	frequency ru-minimal
 <b>ծնունդ</b>	рождение	frequency ru-minimal
 <b>որդ</b>	червь	frequency ru-minimal
 <b>այգի</b>	сад	frequency ru-minimal
@@ -721,7 +721,7 @@
 <b>գլխարկ</b>	шляпа	frequency ru-minimal
 <b>ուղիղ</b>	прямой	frequency ru-minimal
 <b>սպիտակ</b>	белый	frequency ru-minimal
-<b>կոկորդ</b>	горло	frequency ru-minimal
+<b>կոկորդ</b> <span style='color:#888;font-size:0.8em'>[կոկորթ]</span>	горло	frequency ru-minimal
 <b>ճաշակ</b>	вкус	frequency ru-minimal
 <b>կարծես</b>	как будто	frequency ru-minimal
 <b>հաջորդ</b> <span style='color:#888;font-size:0.8em'>[հաջորթ]</span>	следующий	frequency ru-minimal
@@ -784,7 +784,7 @@
 <b>ուշ</b>	поздно	frequency ru-minimal
 <b>ափ</b>	берег	frequency ru-minimal
 <b>ծնող</b>	родитель	frequency ru-minimal
-<b>բարդ</b>	сложный	frequency ru-minimal
+<b>բարդ</b> <span style='color:#888;font-size:0.8em'>[բարթ]</span>	сложный	frequency ru-minimal
 <b>ծիծաղել</b>	смеяться	frequency ru-minimal
 <b>տխուր</b>	грустный	frequency ru-minimal
 <b>չոր</b>	сухой	frequency ru-minimal
@@ -932,7 +932,7 @@
 <b>խելացի</b>	умный	frequency ru-minimal
 <b>կանգնել</b>	стоять	frequency ru-minimal
 <b>գցել</b>	бросать	frequency ru-minimal
-<b>դարձյալ</b>	снова	frequency ru-minimal
+<b>դարձյալ</b> <span style='color:#888;font-size:0.8em'>[դարցյալ]</span>	снова	frequency ru-minimal
 <b>ցանկություն</b>	желание	frequency ru-minimal
 <b>վերցնել</b>	брать	frequency ru-minimal
 <b>զգացում</b>	чувство	frequency ru-minimal
@@ -999,7 +999,7 @@
 <b>թեթև</b>	лёгкий	frequency ru-minimal
 <b>հարսանիք</b>	свадьба	frequency ru-minimal
 <b>ես</b>	я	frequency ru-minimal
-<b>աջ</b>	правый	frequency ru-minimal
+<b>աջ</b> <span style='color:#888;font-size:0.8em'>[աչ]</span>	правый	frequency ru-minimal
 <b>վերև</b>	вверх	frequency ru-minimal
 <b>ներքև</b>	вниз	frequency ru-minimal
 <b>վար</b>	вниз	frequency ru-minimal

@@ -15,6 +15,34 @@ vindicated.
 
 ---
 
+## 2026-06-19 — respelling base separated + extended (dumtragut IPA)
+
+Moved the curated phonetic-respell layer out of
+`build_deck.PHONETIC_OVERRIDES` (inline dict) into a standalone data
+file **`cards/frequency/respellings.tsv`** (`lemma | respell | ipa |
+source | note`), read by `build_deck.load_phonetic_overrides()`. The
+refactor is behaviour-preserving — `top_1000.tsv` was byte-identical
+after.
+
+**Extended** with the **46 §1.2.1 devoicing examples** from the
+Dum-Tragut reference grammar, each with a **byte-verified IPA**
+(`citation-check` against `dumtragut/out/full.jsonl`) and adversarially
+critic-reviewed (47/47 correct). 13 deck lemmas gained/changed a
+respell: `անդամ [անթամ]`, `խնդիր [խնթիր]`, `կարգ [կարք]`,
+`եղբայր [եղպայր]` (ղ-exception → unaspirated պ), `բարդ [բարթ]`, etc.
+
+**Conflict surfaced (not silent):** `կարդալ` — sakayan u02d1 had
+`[կարտալ]` (unaspirated տ) but dumtragut + sakayan's own `կարդում/կարդա`
+give aspirated թ. Kept `[կարթալ]`; `build_deck` now prints a `CONFLICT:`
+line whenever a TSV override disagrees with a sakayan-harvested respell.
+
+Both decks rebuilt: `top_1000.tsv` (validate_deck 0 errors) and the
+front column of `top_1000_ru.tsv` synced to carry the corrected
+respells (Russian glosses untouched). The 13 changed RU cards passed a
+Russian-L1 human-pov review (respell↔IPA fidelity + gloss correctness).
+Guard: each respell is anchored to its byte-verifiable IPA + `source` in
+`respellings.tsv`.
+
 ## 2026-06-14 — new deck: `top_1000_ru.tsv` (Russian-only, ≤2-word)
 
 A parallel **minimal** deck: same 1095 Armenian fronts (lemma + phonetic

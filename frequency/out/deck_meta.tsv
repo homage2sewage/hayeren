@@ -109,7 +109,7 @@ lemma	rank	src
 երբեմն [երփեմն]	0109	dictionary
 նման	0110	dictionary
 քո	0111	hand-override
-միջոց [միչոց]	0112	dictionary
+միջոց	0112	dictionary
 տարի	0113	hand-override
 ում	0114	hand-override
 սխալ	0115	dictionary
@@ -306,7 +306,7 @@ lemma	rank	src
 ուրախ	0316	dictionary
 չէիր	0317	hand-override
 ևս	0318	hand-override
-միջև [միչև]	0319	dictionary
+միջև	0319	dictionary
 պատճառով	0320	dictionary
 հանդես	0321	dictionary
 դարձնել	0322	hand-override
@@ -583,7 +583,7 @@ lemma	rank	src
 ինքը	0604	hand-override
 ծագում	0605	dictionary
 ներկայացնել	0606	hand-override
-միջազգային [միչազգային]	0607	dictionary
+միջազգային	0607	dictionary
 հանգամանք	0608	dictionary
 համապատասխան	0609	dictionary
 միաժամանակ	0610	dictionary
@@ -789,7 +789,7 @@ lemma	rank	src
 ծիծաղել	0815	dictionary
 տխուր	0816	dictionary
 չոր	0817	dictionary
-անմիջապես [անմիչապես]	0818	dictionary
+անմիջապես	0818	dictionary
 արդյոք	0819	dictionary
 կապված	0820	hand-override
 ներկա	0821	dictionary
@@ -1005,7 +1005,7 @@ lemma	rank	src
 ներքև		core-inject
 վար		core-inject
 հետև		core-inject
-մեջտեղ [մեչտեղ]		core-inject
+մեջտեղ		core-inject
 տեղափոխել		core-inject
 շարժել		core-inject
 շարժվել		core-inject

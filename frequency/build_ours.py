@@ -320,6 +320,19 @@ def lemmatize(
 
 _DICT_HEADWORDS_CACHE: set[str] | None = None
 
+# Proper nouns kaikki lacks, protected from suffix stripping. Without
+# an entry here, the -ով strip truncates them (մոսկով → մոսկ,
+# չեխով → չեխ "Czech", իվանով → իվան); kaikki-covered peers
+# (Մոսկվա, Սարատով) are already rescued by the headword check.
+# Anchored in frequency/golden_lemmas.tsv; verified 2026-07-13 that
+# none occur standalone in the five book corpora, so deck lemmas are
+# unaffected.
+HEADWORD_ADDITIONS: set[str] = {
+    "մոսկով",   # dated form of Մոսկվա (cf. մոսկովյան; Charents)
+    "չեխով",    # Chekhov
+    "իվանով",   # Ivanov
+}
+
 
 def _dict_headwords() -> set[str]:
     """Real-lemma view onto `dictionary.load_dict()`. Filters out
@@ -346,9 +359,9 @@ def _dict_headwords() -> set[str]:
                         break
                 if word in real:
                     break
-        _DICT_HEADWORDS_CACHE = real
+        _DICT_HEADWORDS_CACHE = real | HEADWORD_ADDITIONS
     except Exception:
-        _DICT_HEADWORDS_CACHE = set()
+        _DICT_HEADWORDS_CACHE = set(HEADWORD_ADDITIONS)
     return _DICT_HEADWORDS_CACHE
 
 

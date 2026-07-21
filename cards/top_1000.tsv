@@ -108,7 +108,7 @@
 <b>երբեմն</b> <span style='color:#888;font-size:0.8em'>[երփեմն]</span>	<b>sometimes, occasionally</b><br><span style='color:#888'>иногда</span>	frequency top-1000
 <b>նման</b>	<b>similar, like, resembling</b><br><span style='color:#888'>похожий, подобный</span>	frequency top-1000
 <b>քո</b>	<b>your</b> <i>(sg)</i><br><span style='color:#888'>твой</span>	frequency top-1000
-<b>միջոց</b> <span style='color:#888;font-size:0.8em'>[միչոց]</span>	<b>means, method</b><br><span style='color:#888'>средство, способ</span>	frequency top-1000
+<b>միջոց</b>	<b>means, method</b><br><span style='color:#888'>средство, способ</span>	frequency top-1000
 <b>տարի</b>	<b>year</b><br><span style='color:#888'>год</span>	frequency top-1000
 <b>ում</b>	<b>whom; whose; to whom</b> <i>(gen/dat/acc of ով)</i><br><span style='color:#888'>кому, чей, кого</span>	frequency top-1000
 <b>սխալ</b>	<b>wrong, incorrect</b><br><span style='color:#888'>неправильный, ошибочный</span>	frequency top-1000
@@ -305,7 +305,7 @@
 <b>ուրախ</b>	<b>happy, glad, cheerful</b>	frequency top-1000
 <b>չէիր</b>	<b>weren't</b> <i>(2sg)</i><br><span style='color:#888'>ты не был(-а)</span>	frequency top-1000
 <b>ևս</b>	<b>also, too, as well</b><br><span style='color:#888'>тоже, также</span>	frequency top-1000
-<b>միջև</b> <span style='color:#888;font-size:0.8em'>[միչև]</span>	<b>among, between</b>	frequency top-1000
+<b>միջև</b>	<b>among, between</b>	frequency top-1000
 <b>պատճառով</b>	<b>by reason of, because of</b>	frequency top-1000
 <b>հանդես</b>	<b>festival, celebrations, festivities</b>	frequency top-1000
 <b>դարձնել</b>	<b>to make, turn</b> <i>(sth)</i> <b>into</b><br><span style='color:#888'>превратить, делать</span>	frequency top-1000
@@ -582,7 +582,7 @@
 <b>ինքը</b>	<b>he/she</b> <i>(emphatic)</i><br><span style='color:#888'>он/она (сам)</span>	frequency top-1000
 <b>ծագում</b>	<b>origin</b>	frequency top-1000
 <b>ներկայացնել</b>	<b>to present, introduce</b><br><span style='color:#888'>представить, представлять</span>	frequency top-1000
-<b>միջազգային</b> <span style='color:#888;font-size:0.8em'>[միչազգային]</span>	<b>international</b>	frequency top-1000
+<b>միջազգային</b>	<b>international</b>	frequency top-1000
 <b>հանգամանք</b>	<b>circumstance</b>	frequency top-1000
 <b>համապատասխան</b>	<b>appropriate, proper</b>	frequency top-1000
 <b>միաժամանակ</b>	<b>at the same time</b>	frequency top-1000
@@ -788,7 +788,7 @@
 <b>ծիծաղել</b>	<b>to laugh</b>	frequency top-1000
 <b>տխուր</b>	<b>sad, melancholy, sorrowful</b>	frequency top-1000
 <b>չոր</b>	<b>dry</b>	frequency top-1000
-<b>անմիջապես</b> <span style='color:#888;font-size:0.8em'>[անմիչապես]</span>	<b>immediately, instantly, promptly, right away</b>	frequency top-1000
+<b>անմիջապես</b>	<b>immediately, instantly, promptly, right away</b>	frequency top-1000
 <b>արդյոք</b>	<b>whether, really?, is it possible?</b>	frequency top-1000
 <b>կապված</b>	<b>tied, connected; related to</b><br><span style='color:#888'>связанный, привязанный</span>	frequency top-1000
 <b>ներկա</b>	<b>present</b>	frequency top-1000
@@ -1004,7 +1004,7 @@
 <b>ներքև</b>	<b>down, below</b><br><span style='color:#888'>вниз, внизу</span>	frequency core-inject
 <b>վար</b>	<b>down, downward</b><br><span style='color:#888'>вниз</span>	frequency core-inject
 <b>հետև</b>	<b>behind, back</b><br><span style='color:#888'>сзади, позади</span>	frequency core-inject
-<b>մեջտեղ</b> <span style='color:#888;font-size:0.8em'>[մեչտեղ]</span>	<b>middle, in the middle</b><br><span style='color:#888'>середина, посередине</span>	frequency core-inject
+<b>մեջտեղ</b>	<b>middle, in the middle</b><br><span style='color:#888'>середина, посередине</span>	frequency core-inject
 <b>տեղափոխել</b>	<b>to move</b> <i>(relocate)</i><b>, transfer</b><br><span style='color:#888'>переместить, перенести</span>	frequency core-inject
 <b>շարժել</b>	<b>to move</b> <i>(set in motion)</i><br><span style='color:#888'>двигать</span>	frequency core-inject
 <b>շարժվել</b>	<b>to move</b> <i>(intr.)</i><br><span style='color:#888'>двигаться</span>	frequency core-inject

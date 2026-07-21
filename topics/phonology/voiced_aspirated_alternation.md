@@ -3,6 +3,8 @@ topic: voiced↔aspirated alternation in Eastern Armenian
 domain: phonology
 units: [sakayan:1, sakayan:2, sakayan:3]
 related: [three-way-laryngeal-contrast, armenian-alphabet-phonology]
+known_failure_modes:
+  - errors/2026-07-13-001-mij-stem-respell-uncited-ablaut-extension.md
 status: draft
 attestation: multi-attested
 sources:
@@ -172,6 +174,101 @@ sources:
       "girl" [ɑχtʃʰik] (ղ→[χ], ջ→[tʃʰ]). The ղջ→[χtʃʰ] form is exactly
       the cluster our deck respells (`աղջիկ → [աղչիկ]`) approximate in
       Armenian script; here the full IPA is attested.
+  - id: 14
+    book: dumtragut
+    page: 43
+    y_range: [533, 553]
+    verbatim_quote:
+      - "it occurs between two vowels, or follows a vowel in the following words (and their "
+      - "derivations and compounds) "
+    supports: supported
+    note: |
+      Dum-Tragut's post-vocalic ջ→[tʃʰ] environment is a CLOSED
+      word-list (book p26): աջ, առաջ, առաջին, մեջ, ոջիլ, քաջք "(and
+      their derivations and compounds)". Not an open root-propagation
+      license — see [#15][#16] for what falls outside it.
+  - id: 15
+    book: dumtragut
+    page: 43
+    y_range: [571, 603]
+    verbatim_quote:
+      - "In all other words it is written as ջ j "
+      - "pronounced as [dʒ] as in "
+      - "հաջորդ"
+      - "[hɑdʒɔɾtʰ]"
+      - "իջնել"
+      - "[idʒnɛl]"
+    supports: supported
+    note: |
+      The complement rule: outside the closed list, ջ stays voiced
+      [dʒ] — հաջորդ [hɑdʒɔɾtʰ] (only դ devoices), իջնել [idʒnɛl].
+  - id: 16
+    book: dumtragut
+    page: 43
+    y_range: [597, 616]
+    verbatim_quote:
+      - "միջին"
+      - "[midʒin]"
+      - "միջատ"
+      - "[midʒɑt]"
+    supports: supported
+    note: |
+      The load-bearing counterexample for the միջ- stem: Dum-Tragut
+      explicitly lists միջին [midʒin] and միջատ [midʒɑt] among the
+      "all other words" that keep voiced [dʒ]. The ablauted միջ-
+      stem does NOT inherit մեջ's devoicing, despite being its
+      derivation historically. Killed the deck's hand-curated
+      [միչին]/[միչոց]/[միչև]/[միչազգային]/[անմիչապես] respells
+      (2026-07-13).
+  - id: 17
+    book: dumtragut
+    page: 44
+    y_range: [70, 89]
+    verbatim_quote:
+      - "[kʰəɾɔdʒ]"
+      - "ընկերոջ"
+      - "[əŋkɛɾɔdʒ]"
+    supports: supported
+    note: |
+      -ոջ genitives voiced in Dum-Tragut: քրոջ [kʰəɾɔdʒ], ընկերոջ
+      [əŋkɛɾɔdʒ] — direct conflict with sakayan's քրոջս [քրոչս]
+      (u04d1). Genuine doublet zone, cf. [#7] "often doublets."
+  - id: 18
+    book: dumtragut
+    page: 57
+    y_range: [357, 415]
+    verbatim_quote:
+      - "մեջտեղ"
+      - "[mɛdʒtɛʁ]"
+      - "մեջընդմեջ"
+      - "[mɛdʒəntʰmɛdʒ]"
+    supports: supported
+    note: |
+      Dum-Tragut's own practice wobbles on մեջ-compounds: p57
+      transcribes մեջտեղ [mɛdʒtɛʁ], մեջքակապ [mɛdʒkʰɑkɑp] and
+      մեջընդմեջ [mɛdʒəntʰmɛdʒ] with voiced [dʒ], against its own
+      p43 "and their derivations and compounds" [#14] and against
+      sakayan's մեջք [мэчк']. Direct counter-attestation for the
+      exact lemma մեջտեղ → its propagated deck respell [մեչտեղ]
+      retracted (2026-07-13).
+  - id: 19
+    book: parnasyan
+    page: 398
+    y_range: [3316, 4029]
+    verbatim_quote:
+      - "միջին [мичин]"
+      - "միջոցառում [мичоцар’ум]"
+    supports: partially-supported
+    note: |
+      The other side of the միջ- doublet: parnasyan's glossary
+      transliterates միջին [мичин], միջոցառում [мичоцар’ум],
+      միջակետ [мичакэт], միջամտել [мичамэтэл] with devoiced ч.
+      parnasyan's translit IS contrastive (ջուր [джур], ջերմ
+      [джерм], անջնջելի [анджэнджэли] keep дж), so these are
+      deliberate devoicing claims, head-on against [#16] on the
+      same word միջին. Soviet-era prescription or genuine
+      variation; we follow Dum-Tragut + audio evidence for the
+      deck.
 gaps:
   - "ADDRESSED by Dum-Tragut [#7][#9][#10]: the conditioning environment is now characterised — devoicing/aspiration applies after a flap [r], after a nasal, or intervocalically, with a ղ-exception (plain voiceless after uvular ʁ), but only across part of the lexicon (lexically restricted within those environments). The earlier open question (Sakayan exemplifies but states no rule; Ghamoyan attributes to dialect) is resolved: it is environment-conditioned AND lexically selective, not one or the other."
   - "No frequency data — what proportion of voiced-stop tokens actually alternate in running text?"
@@ -244,7 +341,8 @@ form (քրոջս) all surface with չ in sakayan's IPA-style
 transliteration column.
 
 Counterexample on record: **հաջորդ → [հաջորթ]** — the
-`հաջ-`-stem keeps ջ voiced; only դ devoices.
+`հաջ-`-stem keeps ջ voiced; only դ devoices. Dum-Tragut agrees:
+հաջորդ [hɑdʒɔɾtʰ]. [#15]
 
 Conclusion: ջ → չ is a **lexical-root regularity** (the
 devoicing is consistent *within* the relevant roots and across
@@ -252,10 +350,87 @@ all their derivatives) but **not a phonological rule** —
 synchronic environment doesn't predict whether a given root's
 ջ devoices. The split is per-root and must be memorised.
 
-Practical effect on the deck: `frequency/build_deck.py`'s
-`PHONETIC_OVERRIDES` carries the bare roots and sakayan-
-unattested derivatives of these four families that don't have
-their own annotation in the source TSVs.
+#### 2026-07-13 correction: the ablauted **միջ-** stem does NOT devoice
+
+The 2026-06 hand-curated extension of the մեջ- family to its
+ablauted stem միջ- (միջոց, միջին, միջև, միջազգային, անմիջապես →
+[միչ-]) was **wrong** — root-propagation across the ե→ի vowel
+alternation boundary is not licensed:
+
+- Dum-Tragut's post-vocalic ջ→[tʃʰ] rule is a **closed word-list**
+  — աջ, առաջ, առաջին, մեջ, ոջիլ, քաջք "(and their derivations and
+  compounds)" [#14] — and **"In all other words"** ջ stays voiced
+  [dʒ], with **միջին [midʒin]** and **միջատ [midʒɑt]** explicitly
+  on the voiced side. [#15] [#16]
+- Real-speech evidence agrees with Dum-Tragut: Wiktionary's audio
+  for միջոց and running speech in YouTube clips have plainly
+  voiced [dʒ] (operator-verified 2026-07-13), even though
+  Wiktionary's *text* transcription gives /mitʃʰotsʰ/.
+- parnasyan disagrees: its (contrastive — ջուր [джур] vs
+  վերջանալ [вэрчанал]) transliteration gives միջին [мичин],
+  միջոցառում [мичоцар’ум] with devoiced ч [#19]; tioyan p77 has
+  միջև [միչէվ]-ish (OCR-garbled). Older Soviet-textbook
+  prescription vs. the modern reference grammar + audio — a
+  genuine **doublet zone** [#7]. The deck followed Dum-Tragut +
+  audio: **no bracket** on միջ- lemmas. (Superseded for միջին
+  only — see the 2026-07-15 refinement below.)
+
+The doublet zone extends to the edges of the մեջ-shape itself:
+Dum-Tragut's own practice transcribes the compounds մեջտեղ
+[mɛdʒtɛʁ], մեջքակապ [mɛdʒkʰɑkɑp], մեջընդմեջ [mɛdʒəntʰmɛdʒ] with
+voiced [dʒ] [#18] — against its own p43 "derivations and
+compounds" and against sakayan's մեջք [мэчк']. Likewise the -ոջ
+genitives: sakayan քրոջս [քրոչս] vs Dum-Tragut քրոջ [kʰəɾɔdʒ],
+ընկերոջ [əŋkɛɾɔdʒ]. [#17] Where direct attestations conflict on
+the *exact* lemma, the deck drops the bracket (մեջտեղ retracted);
+where a family is multi-source-consistent (bare մեջ [mɛtʃʰ],
+մեջք, վերջ- [#15's վերջին vɛɾtʃʰin agrees], առաջ-), brackets
+stay.
+
+Practical effect on the deck: `cards/frequency/respellings.tsv`
+carries the bare roots and unattested-but-consistent derivatives
+of the surviving families; the միջ- rows and մեջտեղ were removed
+2026-07-13. **Rule going forward: a respell entry needs per-lexeme
+attestation or propagation within an identical surface shape — an
+ablaut boundary (մեջ→միջ) breaks the license.**
+
+#### 2026-07-15 refinement: **միջին** devoices after all — the doublet splits per-lexeme
+
+The 2026-07-13 audio verification covered **միջոց only**; for
+միջին the audio cell of the evidence matrix was empty, and the
+deck's blanket "no bracket on միջ-" silently generalised միջոց's
+evidence to the sibling lemma — the same
+extension-beyond-evidence shape the correction itself was fixing,
+one level up. Operator re-checked միջին specifically (2026-07-15,
+YouTube + TikTok running speech; adjective uses only — coffee
+sizes, math averages): consistently devoiced **[tʃʰ]**.
+
+Updated per-lexeme picture for the ablauted stem:
+
+- **միջոց — voiced [dʒ]**: Wiktionary audio + YouTube speech
+  (operator-verified 2026-07-13), with Dum-Tragut's rule text on
+  the same side [#15].
+- **միջին — devoiced [tʃʰ]**: operator audio 2026-07-15 +
+  parnasyan's contrastive [мичин] [#19] + Wiktionary's text IPA,
+  **against** Dum-Tragut's explicit **միջին [midʒin]** [#16].
+  Live audio + a second source outweigh the reference grammar's
+  lone text claim for this lexeme.
+- **միջև, միջազգային, անմիջապես, միջատ** — no per-lexeme audio
+  either way; unbracketed pending evidence.
+
+A same-stem voiced/devoiced split is exactly Dum-Tragut's own
+framing of these alternations as lexically restricted, "often
+doublets" [#7]; the ablaut guard is untouched — միջին re-enters
+`respellings.tsv` as a per-lexeme attestation, not propagation,
+and its row must not be used as a license for the remaining միջ-
+lemmas. Corollary for the workflow: **audio evidence is
+per-lexeme too — an empty audio cell is a gap, not agreement.**
+
+Homograph caveat recorded during verification: միջին the
+adjective was deliberately distinguished from միջին as inflected
+մեջ ("in the middle of", the folk/literary ձորի միջին type),
+which belongs to մեջ's own closed-list family and would devoice
+unremarkably. The verified clips were unambiguous adjective uses.
 
 ### Note on the **ղջ** cluster — broader cluster devoicing
 

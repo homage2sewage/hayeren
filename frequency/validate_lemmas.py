@@ -148,12 +148,47 @@ def write_outputs(results: list[dict]) -> None:
         print(f"  {status:25s}  {len(entries)}", file=sys.stderr)
 
 
+def check_golden() -> int:
+    """Offline golden-anchor check for the query-lemmatisation path.
+
+    Runs each token in `golden_lemmas.tsv` through the same
+    `query_kb.query_lemmas` pipeline the KB-grounding hook uses and
+    compares against the expected lemma. No network. Returns the
+    number of mismatches (0 = pass)."""
+    import query_kb
+
+    golden_path = HERE / "golden_lemmas.tsv"
+    failures = 0
+    checked = 0
+    with golden_path.open(encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if not line or line.startswith("#"):
+                continue
+            cols = line.split("\t")
+            token, expected = cols[0].strip(), cols[1].strip()
+            pairs = query_kb.query_lemmas(token)
+            got = pairs[0][1] if pairs else "<dropped>"
+            checked += 1
+            if got != expected:
+                failures += 1
+                print(f"FAIL  {token} → {got}  (expected {expected})")
+    print(f"golden lemmas: {checked - failures}/{checked} pass",
+          file=sys.stderr)
+    return failures
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--top", type=int, default=200,
                     help="how many top lemmas to validate (default 200)")
+    ap.add_argument("--golden", action="store_true",
+                    help="offline check of golden_lemmas.tsv against the "
+                         "query_kb lemmatisation path; exit 1 on mismatch")
     args = ap.parse_args()
+    if args.golden:
+        sys.exit(1 if check_golden() else 0)
     results = validate_top_n(args.top)
     write_outputs(results)
 

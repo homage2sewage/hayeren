@@ -2,13 +2,9 @@ lemma	respell	ipa	source	note
 շաբաթ	շափաթ		armenian-grammar.md	բ→փ
 հոգնում	հոքնում		armenian-grammar.md	գ→ք
 հոգնել	հոքնել		armenian-grammar.md	գ→ք
-մեջ	մեչ		sakayan	ջ→չ lexical-root (մեջ-); root regular not phonological
-վերջ	վերչ		sakayan	bare root; all վերջ- derivatives attest չ
-միջոց	միչոց		sakayan	միջ- stem (extension of մեջ-)
-միջև	միչև		sakayan	միջ- stem
-միջին	միչին		sakayan	միջ- stem
-միջազգային	միչազգային		sakayan	միջ- stem
-անմիջապես	անմիչապես		sakayan	միջ- stem
+մեջ	մեչ	[mɛtʃʰ]	dumtragut p43	ջ→չ; in dumtragut's closed post-vocalic list (աջ, առաջ, առաջին, մեջ, ոջիլ, քաջք)
+միջին	միչին		operator audio 2026-07-15; parnasyan p398 [мичин]	ջ→չ; adjective "middle/average", per-lexeme attestation (YouTube/TikTok running speech: coffee sizes, math) — AGAINST dumtragut p43 [midʒin]; doublet resolved per-lexeme, other միջ- lemmas stay unbracketed; see voiced_aspirated_alternation.md § 2026-07-15
+վերջ	վերչ		sakayan	bare root; all վերջ- derivatives attest չ (dumtragut p39 վերջին [vɛɾtʃʰin] agrees)
 աղջիկ	աղչիկ	[ɑχtʃʰik]	parnasyan p346; dumtragut p41	ղջ cluster, mark ჯ→չ only (ղ→χ documented not encoded)
 ողջ	ողչ		parnasyan p346	ղջ cluster, ჯ→չ
 ամբողջ	ամբողչ		parnasyan p346	ղջ cluster, ჯ→չ
@@ -18,7 +14,6 @@ lemma	respell	ipa	source	note
 երբեք	երփեք		sister երբեմն	բ before ե; sibling of corpus-attested երբեմն
 բարձրագույն	բարցրագույն		sister բարձրահասակ (sakayan)	բարձր- root ձ→ց
 բարձրացնել	բարցրացնել		sakayan բարձր- root	root-internal ձ→ց
-մեջտեղ	մեչտեղ		sakayan մեջք [мэчк']	մեջ- layer-2 root; ջ before voiceless տ
 բարդ	բարթ	[bɑɾtʰ]	dumtragut p39	դ→թ
 երգ	երք	[jɛɾkʰ]	dumtragut p39	գ→ք
 արջ	արչ	[ɑɾtʃʰ]	dumtragut p39	ջ→չ

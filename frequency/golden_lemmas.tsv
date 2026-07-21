@@ -1,0 +1,11 @@
+# Golden anchors for query lemmatisation (frequency/query_kb.py path).
+# Checked by `validate_lemmas.py --golden` (offline, no Wiktionary).
+# Columns: token <TAB> expected_lemma <TAB> note
+# Two-step rule: every over-strip bug found in the wild lands here.
+մոսկով	մոսկով	dated toponym; kaikki lacks it — was truncated to մոսկ (2026-07-13)
+չեխով	չեխով	surname Chekhov; was truncated to չեխ "Czech"
+իվանով	իվանով	surname Ivanov; was truncated to իվան
+մոսկվա	մոսկվա	kaikki headword — canary that the dict rescue keeps working
+սարատով	սարատով	kaikki headword ending in -ով — canary
+ոտքով	ոտք	real instrumental — canary that -ով stripping still fires
+նավով	նավ	real instrumental — canary

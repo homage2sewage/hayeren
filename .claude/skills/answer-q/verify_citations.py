@@ -100,7 +100,8 @@ def parse_bundle(bundle_text: str) -> dict:
         if in_books:
             mb = _BUNDLE_BOOK_HEADER.match(line)
             if mb and mb.group(1).lower() in (
-                    "sakayan", "ghamoyan", "parnasyan", "tioyan"):
+                    "sakayan", "ghamoyan", "parnasyan", "tioyan",
+                    "dumtragut"):
                 current_book = mb.group(1).lower()
                 continue
             mp = _BUNDLE_BOOK_PAGE.match(line)
@@ -128,7 +129,7 @@ _CITE_PATH = re.compile(
 )
 # Book + page: `[ghamoyan p48]`, `(per sakayan p 102)`, `ghamoyan, p. 48`.
 _CITE_BOOK = re.compile(
-    r"\b(sakayan|ghamoyan|parnasyan|tioyan)\b[^A-Za-z0-9]{0,5}p\.?\s*(\d+)",
+    r"\b(sakayan|ghamoyan|parnasyan|tioyan|dumtragut)\b[^A-Za-z0-9]{0,5}p\.?\s*(\d+)",
     re.IGNORECASE,
 )
 _CITE_SYNTHESIS = re.compile(

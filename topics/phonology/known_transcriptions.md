@@ -151,24 +151,20 @@ dumtragut/harvest_ipa.py`. Note the `‚`→ʋ decode correction in
 | օձ | [օց] | ձ→ց | sakayan u06v |
 | օձերը | [օցերը] | ձ→ց | sakayan u06v |
 
-## ջ → չ (dʒ → tʃʰ) — 23
+## ջ → չ (dʒ → tʃʰ) — 18
 
 | word | respell | all deviations | source |
 |------|---------|----------------|--------|
 | աղջիկ | [աղչիկ] | ջ→չ | hand-curated |
 | ամբողջ | [ամբողչ] | ջ→չ | hand-curated |
-| անմիջապես | [անմիչապես] | ջ→չ | hand-curated |
 | առաջ | [առաչ] | ջ→չ | sakayan u07d2 |
 | առաջարկել | [առաչարկել] | ջ→չ | sakayan u04v, u08v |
 | առաջը | [առաչը] | ջ→չ | sakayan u05v |
 | առաջին | [առաչին] | ջ→չ | sakayan chunks, u11d3 |
 | առողջություն | [առողչություն] | ջ→չ | sakayan u11v |
-| մեջ | [մեչ] | ջ→չ | hand-curated |
+| մեջ | [մեչ] | ջ→չ | dumtragut p43 [mɛtʃʰ] (was hand-curated) |
 | մեջք | [մեչք] | ջ→չ | sakayan u07v |
-| միջազգային | [միչազգային] | ջ→չ | hand-curated |
-| միջին | [միչին] | ջ→չ | hand-curated |
-| միջոց | [միչոց] | ջ→չ | hand-curated |
-| միջև | [միչև] | ջ→չ | hand-curated |
+| միջին | [միչին] | ջ→չ | operator audio 2026-07-15 + parnasyan p398 [мичин] — **against** dumtragut p43 [midʒin]; per-lexeme doublet, see retraction note below |
 | ողջ | [ողչ] | ջ→չ | hand-curated |
 | վերջ | [վերչ] | ջ→չ | hand-curated |
 | վերջանալ | [վերչանալ] | ջ→չ | sakayan u09v |
@@ -177,7 +173,36 @@ dumtragut/harvest_ipa.py`. Note the `‚`→ʋ decode correction in
 | վերջին | [վերչին] | ջ→չ | sakayan u08d1 |
 | վերջնական | [վերչնական] | ջ→չ | sakayan chunks, u05d3 |
 | վերջո | [վերչո] | ջ→չ | sakayan u09v |
-| քրոջս | [քրոչս] | ջ→չ | sakayan chunks, u04d1 |
+| քրոջս | [քրոչս] | ջ→չ | sakayan chunks, u04d1 — **disputed**: dumtragut p44 քրոջ [kʰəɾɔdʒ], ընկերոջ [əŋkɛɾɔdʒ] voiced |
+
+### Retracted 2026-07-13 — միջ- stem does NOT devoice
+
+The five hand-curated միջ- rows (միջոց, միջին, միջև, միջազգային,
+անմիջապես → [միչ-]) were **removed from the table above and from
+`respellings.tsv`**. They were root-propagations from մեջ across
+the ե→ի ablaut boundary — never attested. Dum-Tragut p43 puts the
+post-vocalic ջ→[tʃʰ] devoicing in a *closed list* (աջ, առաջ,
+առաջին, մեջ, ոջիլ, քաջք) and explicitly transcribes **միջին
+[midʒin], միջատ [midʒɑt] voiced** under "In all other words";
+Wiktionary audio and running YouTube speech for միջոց agree
+(operator-verified). parnasyan's contrastive transliteration has
+the opposite (միջին [мичин], միջոցառում [мичоцар’ум]) — recorded
+as a doublet, not followed. Full analysis + citations [#14]–[#19]
+in `voiced_aspirated_alternation.md` § "2026-07-13 correction".
+
+**2026-07-15 partial reversal — միջին (only) returns, devoiced.**
+The 2026-07-13 audio check covered միջոց only; միջին's audio cell
+was empty, and the blanket "no bracket on միջ-" quietly extended
+միջոց's evidence to the whole stem. Operator re-checked միջին
+specifically (YouTube + TikTok running speech, adjective uses:
+coffee sizes, math averages) — consistently devoiced [tʃʰ], siding
+with parnasyan's [мичин] against Dum-Tragut's explicit [midʒin].
+միջին is restored to the table above and to `respellings.tsv` as a
+**per-lexeme attestation** (not propagation — the ablaut guard
+stands). միջոց (audio-verified voiced), միջև, միջազգային,
+անմիջապես stay unbracketed. Audio evidence is per-lexeme too: an
+empty audio cell is a gap, not agreement. Details in
+`voiced_aspirated_alternation.md` § "2026-07-15 refinement".
 
 ## Tier-1 root-propagation additions (2026-06-14)
 
@@ -186,8 +211,9 @@ Deck lemmas that share a root with an attested respell, added to
 transliteration columns (the tier-1 "root/morpheme propagation"
 strategy in `research/2026-06-10-transcription-coverage-and-system.md`).
 Three are **corpus-confirmed** (a direct transliteration bracket exists
-in tioyan); four are propagated from a sister derivative in an identical
-root + position. Deck respell coverage 45 → 52.
+in tioyan); three are propagated from a sister derivative in an identical
+root + position. (Deck respell coverage 45 → 52 at the time; the մեջտեղ
+row was retracted 2026-07-13, see below.)
 
 | word | respell | deviation | basis |
 |------|---------|-----------|-------|
@@ -197,7 +223,6 @@ root + position. Deck respell coverage 45 → 52.
 | երբեք | [երփեք] | բ→փ | sibling երբեմն; identical բ-before-ե environment |
 | բարձրագույն | [բարցրագույն] | ձ→ց | sister բարձրահասակ [բարցրահասակ] (sakayan); root-internal |
 | բարձրացնել | [բարցրացնել] | ձ→ց | same բարձր- root-internal ձ→ց |
-| մեջտեղ | [մեչտեղ] | ջ→չ | մեջ- layer-2 root; sister մեջք `[мэчк']`; ջ before voiceless տ |
 
 **Rejected counterexamples** (the same propagation pass tested and
 discarded): **այդպես**, **այդպիսի** — tioyan transliterates `[айдпэс]`
@@ -205,6 +230,13 @@ discarded): **այդպես**, **այդպիսի** — tioyan transliterates `[а�
 word-final այդ → [այտ] devoicing (sakayan dialogue) does *not* carry
 into derivatives; these stay bare. This is layer-1 (lexically/positionally
 idiosyncratic), not a propagable root regularity.
+
+**Retracted 2026-07-13**: **մեջտեղ** [մեչտեղ] (was in this table,
+propagated from sister մեջք) — dumtragut p57 transcribes the exact
+lemma **voiced**, մեջտեղ [mɛdʒtɛʁ] (alongside մեջքակապ
+[mɛdʒkʰɑkɑp], մեջընդմեջ [mɛdʒəntʰmɛdʒ]). A direct attestation for
+the exact lemma beats sister-propagation; bracket dropped. Same
+pass retracted the five միջ- rows (see § above).
 
 **Not addressed** — phrase cards whose first word is respell-eligible
 (`խորհուրդ տալ`, `ողջույն տալ`). The respell lookup keys on the whole

@@ -99,12 +99,188 @@ sources:
       Russian-pedagogical treatment of the participle that drives the
       present/imperfect tense, with separate sub-tables for 1st and
       2nd conjugation. Russian-L1 framing, OCR'd at 90%+ confidence.
+  - id: 6
+    book: dumtragut
+    page: 203
+    y_range: [70, 145]
+    verbatim_quote:
+      - "Processual forms"
+      - "simultaneous to another action (coincides with another action)."
+      - "They are usually expressed by means of the processual participle in"
+    supports: supported
+    note: |
+      dum-tragut's definition of the -իս form ("processual
+      participle"): denotes an action in process at the reference
+      point or simultaneous to another action. Purely temporal
+      semantics — the foundation of the -իս/-ով split below.
+  - id: 7
+    book: dumtragut
+    page: 522
+    y_range: [245, 302]
+    verbatim_quote:
+      - "Participle constructions with processual participle in"
+      - "as temporal adverbs expressing simultaneity, usually appear at the beginning of the"
+      - "Infinitive constructions functioning as various kinds of adverbials appear in the begin-"
+    supports: supported
+    note: |
+      the sharpest statement of the split: -իս constructions function
+      "exclusively as temporal adverbs expressing simultaneity" and
+      usually stand sentence-initially, while infinitive
+      (case-declined) constructions cover "various kinds of
+      adverbials" and sit at either sentence edge by function.
+  - id: 8
+    book: dumtragut
+    page: 450
+    y_range: [108, 380]
+    verbatim_quote:
+      - "Simultaneity can be articulated with the infinitive in the instrumental, but"
+      - "more often with the processual participle"
+      - "Անտառում սունկ հավաքելիս, Մադլենը կորցրեց տան բանալին"
+    supports: supported
+    note: |
+      temporal-adverbial chapter: in the simultaneity zone the two
+      forms overlap, but -իս is the default there. Example (339) is
+      the canonical -իս sentence ("while collecting mushrooms in the
+      forest, Madlen lost her front door key").
+  - id: 9
+    book: dumtragut
+    page: 404
+    y_range: [70, 200]
+    verbatim_quote:
+      - "Լսելով նրա սրբակեցության մասին՝ շատերը թողնում են իրենց տներն ու"
+      - "“Hearing about his holy way of living, many leave their houses and depart for"
+    supports: supported
+    note: |
+      example (218): sentence-initial -ով phrase as attendant
+      circumstance (rendered with a perfective Russian-style converb
+      "hearing/услышав"), separated by the short stop ՝. Matrix verb
+      is հեռանալ — structurally the exact shape of the Brunette
+      «Դիմակ» lyric that prompted this section.
+  - id: 10
+    book: dumtragut
+    page: 404
+    y_range: [340, 455]
+    verbatim_quote:
+      - "Adjunct/Complement of Manner"
+      - "infinites in INSTrumental"
+      - "resultative participles functioning as manner adverbs"
+    supports: supported
+    note: |
+      the manner-adjunct inventory lists "infinites in INSTrumental"
+      (sic — "infinitives") as a standard manner expression, alongside
+      manner adverbs, nouns in instrumental/locative, resultative
+      participles, and adpositional phrases.
+  - id: 11
+    book: dumtragut
+    page: 533
+    y_range: [325, 380]
+    verbatim_quote:
+      - "This causal meaning can also be expressed by means of a “real” infinitive construction with"
+      - "the infinitive in the instrumental."
+      - "Պայմաններին չհարմարվելով՝ երկու որդիները տեղափոխվել են Ռուսաստան"
+    supports: supported
+    note: |
+      causal function of the instrumental infinitive, example (570):
+      "since they have not acclimatised themselves to the conditions,
+      the two sons have moved to Russia" (flagged there as Colloquial
+      Armenian).
+  - id: 12
+    book: dumtragut
+    page: 533
+    y_range: [550, 570]
+    verbatim_quote:
+      - "In written language, the punctuation mark short stop separates this causal infinitive construc-"
+    supports: supported
+    note: |
+      footnote 311: the short stop ՝ conventionally separates the
+      instrumental-infinitive construction when it opens or closes
+      the sentence (comma when embedded; audible pauses in speech).
+      Stated for the causal use; example 218 [#9] shows the same
+      punctuation with the attendant-circumstance use.
+  - id: 13
+    book: dumtragut
+    page: 407
+    y_range: [445, 505]
+    verbatim_quote:
+      - "Complement/Adjunct of Condition"
+      - "the infinitive in the instrumental"
+    supports: supported
+    note: |
+      conditional function: the condition adjunct "is usually
+      expressed with the infinitive in the instrumental" or with
+      դեպքում/պարագայում/պայմանով postpositional phrases.
+  - id: 14
+    book: dumtragut
+    page: 221
+    y_range: [460, 520]
+    verbatim_quote:
+      - "Սիլվան ծիծաղելով եկավ ինձ մոտ"
+      - "“Silva came to me laughing (lit. with laughing).”"
+    supports: supported
+    note: |
+      example (400), pure manner -ով with an atelic verb — the case
+      that proves Russian aspect is orthogonal to the choice: Russian
+      renders this with an IMPERFECTIVE converb (смеясь), yet
+      Armenian uses -ով because the function is manner, not a
+      temporal frame.
+  - id: 15
+    book: parnasyan
+    page: 223
+    y_range: [2270, 4680]
+    verbatim_quote:
+      - "Деепричастие сопутствующего действия"
+      - "Это деепричастие в армянском языке образуется путем при-"
+      - "соединения окончания -իս к форме инфинитива"
+      - "ным действием, и в предложении всегда является обстоятельст-"
+      - "вом времени."
+      - "Как вы уже знаете, оно синонимично инфинитиву с послело-"
+    supports: supported
+    note: |
+      parnasyan's lesson on the -իս form, titled "Деепричастие
+      сопутствующего действия": formed by adding -իս to the
+      infinitive, "в предложении всегда является обстоятельством
+      времени" (always a temporal adverbial), and synonymous with
+      infinitive + postposition ժամանակ (գրելիս = գրելու ժամանակ
+      "при написании = когда пишу"). Russian-L1 textbook, OCR'd.
+  - id: 16
+    book: parnasyan
+    page: 309
+    y_range: [4580, 5200]
+    verbatim_quote:
+      - "տեսնելով» выделенная часть — деепричастный оборот, функцию’"
+      - "леепричастия в нем выполняет инфинитив в творительном падеже’."
+    supports: supported
+    note: |
+      commentary on a Gorky citation ending «…առաջին անգամ
+      տեսնելով»: "выделенная часть — деепричастный оборот, функцию
+      деепричастия в нем выполняет инфинитив в творительном падеже."
+      ("леепричастия" is an OCR garble of "деепричастия"; the trailing
+      ’ marks are OCR noise.) Direct textbook statement that -ելով is
+      the infinitive in the instrumental case doing converb duty —
+      and that Russian renders BOTH Armenian forms as деепричастия.
+      The page's follow-up examples translate -ով phrases with
+      perfective converbs (поздоровавшись, закончив).
+  - id: 17
+    book: parnasyan
+    page: 173
+    y_range: [1765, 2410]
+    verbatim_quote:
+      - "Обратите внимание на сочетание աշխատանքի գնալիս"
+      - "обозначающее сопутствующее действие. Оно соответствует в ос-"
+      - "новном русскому деепричастию. Его показателем является -իս,"
+    supports: supported
+    note: |
+      first introduction of -իս in parnasyan: "соответствует в
+      основном русскому деепричастию" — the hedge "в основном"
+      (mostly) matters, since the Russian converb also covers the
+      -ով functional zone.
 gaps:
   - "Per-form formation rules (suffix tables for each of the eight forms × two conjugations) not yet enumerated here. The basic parent file `armenian-grammar.md` has them; can be folded in when the topic gets revised."
   - "Per-irregular-verb participle tables (cf. paradigms_data.PARTICIPLES which has 8 verbs covered: գրել, կարդալ, ունենալ, լինել, գալ, տեսնել, ուտել, տալ + the universal anel/ar`nel) are not directly cited from a single book passage — Sakayan p354-355 has the table; needs a citation source on its own."
   - "Discrepancy: sakayan says 'two sets of four' (= 8 forms), tioyan lists 5 independent + 4 dependent (= 9, with հարակատար bridging). The accounting depends on whether հարակատար is counted once or twice. Worth resolving by reading both sources more carefully."
-  - "Sociolinguistic / register data on participle usage: which forms are colloquial-only vs literary-only? E.g. is համակատար (synchronic converb in -ելիս) used in colloquial speech or only in writing? Untreated by the cited sources."
-  - "Aspectual semantics of each form: vague labels like 'imperfective' vs 'perfect' don't fully capture the system. A typological grammar (Dum-Tragut 2009) would help — TODO."
+  - "Sociolinguistic / register data on participle usage: which forms are colloquial-only vs literary-only? E.g. is համակատար (synchronic converb in -ելիս) used in colloquial speech or only in writing? Untreated by the cited sources. (Partial datum 2026-07-13: dumtragut flags a causal -ով example as 'Colloquial Armenian' [#11], and Brunette's «Դիմակ» lyric uses the -ով construction with textbook punctuation — both forms clearly alive in colloquial registers.)"
+  - "Aspectual semantics of the BOUND participles: vague labels like 'imperfective' vs 'perfect' don't fully capture the system. Dum-Tragut 2009 is now extracted; the -իս/-ով adverbial split is covered below (2026-07-13), but the tense-driving participles' aspect semantics remain TODO."
+  - "Same-subject constraint: do -իս / -ով converb clauses require their implicit subject to corefer with the matrix subject? Not covered by the spans read so far; Dum-Tragut's subordination chapter likely treats it."
 ---
 
 # Non-finite verb forms (participles, դերբայներ) in Eastern Armenian
@@ -165,6 +341,12 @@ implies 8; tioyan's listing has 5 independent + 4 dependent = 9 with
 *both* — it has a bound use in the resultative tenses *and* a free
 use as an adjective. Counting it once gives 8.
 
+One high-frequency converb is missing from this inventory because it
+isn't a դերբայ at all: the `-ելով/-ալով` form is the **infinitive
+declined in the instrumental case** [#16]. It patterns with the
+համակատար as an adverbial converb, so the two are treated together
+in § "The two adverbial converbs" below.
+
 ## Per-form formation: an example (անկատար / imperfective)
 
 The most-encountered participle: imperfective in `-ում`, the engine
@@ -219,6 +401,84 @@ the **aorist stem** rather than the infinitive stem:
 
 See `topics/morphology/irregular_verbs.md` (TODO) for the full
 treatment.
+
+## The two adverbial converbs: synchronic `-ելիս` vs instrumental `-ելով`
+
+Both forms attach a subordinate action to a matrix clause and both
+translate into Russian as a деепричастие and into English as a bare
+*V-ing* adjunct — but they are **not interchangeable**. The split is
+functional, and every cited source draws it the same way.
+
+### `-իս`: exclusively a temporal frame
+
+Dum-Tragut calls the -իս form the *processual participle*: it denotes
+an action in process at the reference point or "simultaneous to
+another action (coincides with another action)" [#6]. Constructions
+built on it function "exclusively as temporal adverbs expressing
+simultaneity" and usually stand at the beginning of the sentence
+[#7]. Parnasyan says the same from the Russian side: the -իս converb
+"в предложении всегда является обстоятельством времени" — *always* a
+temporal adverbial — and is synonymous with infinitive + ժամանակ
+(`գրելիս` = `գրելու ժամանակ` "when/while writing") [#15].
+
+> `Անտառում սունկ հավաքելիս, Մադլենը կորցրեց տան բանալին` —
+> "While collecting mushrooms in the forest, Madlen lost her front
+> door key." [#8]
+
+The mushroom-picking is only the time-frame the key-losing falls
+into; it is not how, why, or under what circumstance she lost it.
+That is the whole job of `-իս`.
+
+### `-ով`: the instrumental infinitive — manner, circumstance, cause, condition
+
+The -ով converb is morphologically the infinitive in the
+instrumental case [#16], and its adverbial range is what you would
+expect of an instrumental:
+
+| function | example | source |
+|---|---|---|
+| manner | `Սիլվան ծիծաղելով եկավ ինձ մոտ` "Silva came to me laughing (lit. with laughing)" | [#14]; listed under Adjunct/Complement of Manner as "infinites in INSTrumental" [#10] |
+| attendant circumstance | `Լսելով նրա սրբակեցության մասին՝ շատերը թողնում են իրենց տներն ու հեռանում…` "Hearing about his holy way of living, many leave their houses and depart…" | [#9] |
+| cause | `Պայմաններին չհարմարվելով՝ երկու որդիները տեղափոխվել են Ռուսաստան` "Since they have not acclimatised to the conditions, the two sons moved to Russia" | [#11] |
+| condition | (the condition adjunct "is usually expressed with the infinitive in the instrumental") | [#13] |
+| simultaneity (marginal) | "Simultaneity can be articulated with the infinitive in the instrumental, but more often with the processual participle" -իս | [#8] |
+
+So the two zones overlap only at the temporal edge, where `-իս` is
+the default [#8]; everywhere else the choice is forced by function.
+
+**Position and punctuation.** -իս constructions gravitate to
+sentence-initial position [#7]; instrumental-infinitive constructions
+appear at either sentence edge depending on function [#7], and in
+writing are set off by the short stop `՝` when they open or close
+the sentence (comma when embedded) [#12] — cf. the ՝ in both -ով
+examples above [#9] [#11].
+
+### The Russian trap: деепричастие covers both
+
+Russian coalesces exactly what Armenian splits. Parnasyan renders
+*both* forms as деепричастия — -իս is the "деепричастие
+сопутствующего действия" that "соответствует в основном русскому
+деепричастию" [#15] [#17], while an -ով phrase is a "деепричастный
+оборот" whose converb duty is done by "инфинитив в творительном
+падеже" [#16]. Nor does Russian *aspect* track the split:
+`ծիծաղելով` renders as imperfective *смеясь* [#14] while `Լսելով`
+renders as perfective *услышав* [#9] — the -ով form covers both
+aspects, because the axis Armenian cares about is function, not
+aspect.
+
+The usable Russian-side heuristic is a substitution test, not a
+form-to-form mapping: **can the деепричастие be replaced by «когда /
+в то время как» + finite verb with no change of meaning?** If yes
+(pure time-frame) → `-իս` [#15]. If it instead answers «как? каким
+образом?» or reads as «при этом / тем самым» (manner, bundled
+action, cause) → `-ով`. E.g. «собирая грибы, Мадлен потеряла ключ» =
+«когда собирала» → `հավաքելիս` [#8]; «ухожу, унося с собой тень» ≠
+«ухожу, когда уношу» → `տանելով` (Brunette, «Դիմակ»: `Հեռանում եմ՝
+հետս տանելով ստվերս` — attendant circumstance, same shape as [#9]).
+
+**For an English L1** the same trap exists with bare *V-ing*
+adjuncts: "while V-ing" ≈ `-իս`, "by V-ing / V-ing (and thereby)" ≈
+`-ով`.
 
 ## Contrastive notes
 

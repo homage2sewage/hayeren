@@ -135,3 +135,5 @@
 {"ts": "2026-07-22T02:15:08", "action": "skip-too-long", "prompt_chars": 8221, "armenian_chars": 207, "bundle_chars": 0, "duration_ms": 0}
 {"ts": "2026-07-22T02:22:24", "action": "skip-too-long", "prompt_chars": 9101, "armenian_chars": 592, "bundle_chars": 0, "duration_ms": 0}
 {"ts": "2026-07-22T02:43:33", "action": "skip-no-armenian", "prompt_chars": 65, "armenian_chars": 0, "bundle_chars": 0, "duration_ms": 0}
+{"ts": "2026-07-22T03:13:02", "action": "fired", "prompt_chars": 330, "armenian_chars": 14, "bundle_chars": 763, "duration_ms": 2083}
+{"ts": "2026-07-23T01:08:14", "action": "fired", "prompt_chars": 46, "armenian_chars": 1, "bundle_chars": 99333, "duration_ms": 1252}

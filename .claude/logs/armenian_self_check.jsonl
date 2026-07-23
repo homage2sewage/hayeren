@@ -172,3 +172,6 @@
 {"ts": "2026-07-22T02:13:25", "stop_hook_active": false, "response_chars": 253, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
 {"ts": "2026-07-22T02:15:15", "stop_hook_active": false, "response_chars": 227, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
 {"ts": "2026-07-22T02:30:45", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-22T02:45:29", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-22T03:14:59", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T01:10:51", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}

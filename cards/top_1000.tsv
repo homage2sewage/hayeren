@@ -609,7 +609,7 @@
 <b>ուրախություն</b>	<b>joy</b>	frequency top-1000
 <b>անուշ</b>	<b>sweet</b>	frequency top-1000
 <b>ձի</b>	<b>horse</b>	frequency top-1000
-<b>տար</b>	<b>distant, far off, remote</b>	frequency top-1000
+<b>տար</b>	<b>take</b> <i>(it)</i> <b>away!</b> <i>(imperative of տանել)</i><b>; would give</b> <i>(subjunctive of տալ)</i><br><span style='color:#888'>отнеси, унеси</span>	frequency top-1000
 <b>կառուցվել</b>	<b>to be built</b><br><span style='color:#888'>строиться</span>	frequency top-1000
 <b>մեռնել</b>	<b>to die</b>	frequency top-1000
 <b>եկեղեցի</b>	<b>church</b>	frequency top-1000
@@ -683,7 +683,7 @@
 <b>աղքատ</b>	<b>poor, indigent</b>	frequency top-1000
 <b>էշ</b>	<b>donkey, ass</b>	frequency top-1000
 <b>մատ</b>	<b>finger; toe</b>	frequency top-1000
-<b>երևում</b>	<b>appearance, emergence</b>	frequency top-1000
+<b>երևում</b>	<i>(երևում է)</i> <b>apparently, evidently; converb of երևալ</b><br><span style='color:#888'>видно, по-видимому</span>	frequency top-1000
 <b>ճակատ</b>	<b>forehead</b>	frequency top-1000
 <b>առջև</b>	<b>before, in front of in space</b>	frequency top-1000
 <b>սրանք</b>	<b>these</b>	frequency top-1000

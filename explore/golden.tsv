@@ -1,0 +1,42 @@
+# Golden anchors for `explore/words.tsv` — domain-parallel to
+# `frequency/golden_glosses.tsv` (same format/semantics, checked by
+# `explore/validate_wordlist.py`).
+#
+# Format:  word <TAB> expected_substring [<TAB> alternative_substring ...]
+# A row passes if the en+ru gloss for `word` contains at least one
+# listed substring (case-insensitive). Add a row whenever a wrong
+# gloss is caught and fixed, so a skeleton regeneration (which
+# re-pulls kaikki glosses) can't resurrect it.
+#
+# 2026-07-26 homograph-trap batch: kaikki-artifact glosses caught by
+# the chunk-generation critic flags and corpus-verified (sakayan
+# p410-414 ձեն "voice"; ghamoyan p48 + topics/lexicon/yerevan_slang.md
+# բոց "flame / slang cool"; sakayan p438-440 լուսնկա "moonlit";
+# ghamoyan p10 տարվել "be conducted").
+ձեն	voice	голос
+բոց	flame	пламя
+լուսնկա	moonlit	лунн
+վարպետ	master	мастер
+հաճախորդ	client	customer	клиент
+տարվել	carried	conducted	вестись	увлечься
+#
+# 2026-07-26 critic-pass batch (100-row sample review + chunk-03
+# flags; corpus refs: ghamoyan p20-21 թերթ "newspaper", ghamoyan p61
+# բարեկամ "relative", sakayan p175/p355/p411 տար = verb forms of
+# տալ/տանել, ghamoyan p43-44 կնիկ colloquial register, pro_drop.md /
+# ghamoyan p79 տիպ "type").
+տվեց	aorist	дал
+տար	imper	отнеси
+երևում	երևալ	по-видимому	apparently
+տիպ	type	тип
+կնիկ	colloq	разг
+եզակի	unique	уникальн
+թերթ	newspaper	газета
+այգի	garden	сад
+բարեկամ	relative	родственник
+ընկերություն	company	компани
+փորձ	experience	опыт
+հերթ	queue	очередь
+կենդանի	alive	живой
+ընտրություն	election	выборы
+զոհ	victim	жертва

@@ -1,0 +1,335 @@
+block_id	surface	kind	lemma	ru	en	source	conf
+0002	ՀՆՉՅՈՒՆԱԿԱՆ	word	հնչյունական	фонетический	phonetic	kaikki	hi
+0002	ՀԱՏԿԱՆԻՇՆԵՐԸ	word	հատկանիշ	признак	feature	kaikki	hi
+0003	ներկայումս	word	ներկայումս	в настоящее время	at present	kaikki	hi
+0003	գրականի	word	գրական	литературный	literary	kaikki	hi
+0003	առօրյա	word	առօրյա	повседневный	everyday	prior	hi
+0003	հակասությունների	word	հակասություն	противоречие	contradiction	prior	hi
+0003	գործընթացում	word	գործընթաց	процесс	process	kaikki	hi
+0003	Իրողությունն	word	իրողություն	реальность, факт	reality	kaikki	hi
+0003	հսկայական	word	հսկայական	огромный	huge	kaikki	hi
+0003	անջրպետ	word	անջրպետ	пропасть, разрыв	barrier, gap	kaikki	hi
+0004	Հարցազրույց	word	հարցազրույց	интервью	interview	kaikki	hi
+0004	հարցաթերթիկների	word	հարցաթերթիկ	анкета	questionnaire	prior	hi
+0004	անկաշկանդ	word	անկաշկանդ	непринуждённый	unconstrained	prior	hi
+0004	ձայնագրությունների	word	ձայնագրություն	звукозапись	(sound) recording	prior	hi
+0004	ուսումնասիրվել	word	ուսումնասիրվել	изучаться	to be studied	prior	hi
+0004	գրանցվել	word	գրանցվել	фиксироваться	to be recorded	kaikki	hi
+0004	բանավոր	word	բանավոր	устный	oral	kaikki	hi
+0004	հաճախակի	word	հաճախակի	частый	frequent	kaikki	hi
+0004	շեղումներ	word	շեղում	отклонение	deviation	prior	hi
+0004	խախտումներ	word	խախտում	нарушение	violation	prior	hi
+0004	առկա	word	առկա	имеющийся	present, existing	kaikki	hi
+0004	բառագիտական	word	բառագիտական	лексический	lexical	prior	hi
+0004	քերականական	word	քերականական	грамматический	grammatical	kaikki	hi
+0004	մակարդակներում	word	մակարդակ	уровень	level	kaikki	hi
+0005	ուշադրությունն	word	ուշադրություն	внимание	attention	kaikki	hi
+0005	գրավել	word	գրավել	привлекать	to attract	prior	hi
+0005	երևույթներ	word	երևույթ	явление	phenomenon	kaikki	hi
+0005	ուղղախոսական	word	ուղղախոսական	орфоэпический	orthoepic	kaikki	hi
+0005	ավելորդ	word	ավելորդ	лишний	superfluous	kaikki	hi
+0005	գործածություն	word	գործածություն	употребление	usage	prior	hi
+0005	հնչյունների	word	հնչյուն	звук	sound	kaikki	hi
+0005	հնչյունափոխություններ	word	հնչյունափոխություն	звукоизменение	sound change	prior	hi
+0006	խոսակիցների	word	խոսակից	собеседник	interlocutor	prior	hi
+0006	շփման	word	շփում	общение, контакт	contact, interaction	kaikki	hi
+0006	վերահսկվում	word	վերահսկվել	контролироваться	to be monitored	prior	hi
+0006	թուլանում	word	թուլանալ	ослабевать	to weaken	kaikki	hi
+0006	սղվում	word	սղվել	выпадать (о звуке)	to be elided	prior	hi
+0006	վանկեր	word	վանկ	слог	syllable	kaikki	hi
+0006	խաթարում	word	խաթարել	портить, нарушать	to impair	prior	hi
+0006	ընկալումը	word	ընկալում	восприятие	perception	prior	hi
+0006	հաղորդակցության	word	հաղորդակցություն	коммуникация	communication	kaikki	hi
+0006	կիսատ	word	կիսատ	незаконченный	incomplete	kaikki	hi
+0006	անհստակ	word	անհստակ	нечёткий, неясный	unclear	prior	hi
+0006	լիովին	word	լիովին	полностью	fully	kaikki	hi
+0006	իրադրությունը	word	իրադրություն	ситуация, обстановка	situation	prior	hi
+0006	հետևաբար	word	հետևաբար	следовательно	consequently	kaikki	hi
+0006	շարժումներով	word	շարժում	движение, жест	movement	kaikki	hi
+0006	դիմախաղով	word	դիմախաղ	мимика	facial expression	kaikki	hi
+0006	հնչերանգով	word	հնչերանգ	интонация	intonation	prior	hi
+0007	Ձայնավորների	word	ձայնավոր	гласный	vowel	kaikki	hi
+0007	սղումը	word	սղում	выпадение, элизия	elision	prior	hi
+0007	անկումը	word	անկում	выпадение, падение	loss, dropping	kaikki	hi
+0007	մեծ մասամբ	mwe	մեծ մասամբ	по большей части	for the most part	prior	hi
+0007	կից	word	կից	смежный, соседний	adjacent	kaikki	hi
+0007	նույնական	word	նույնական	идентичный	identical	prior	hi
+0007	ամփոփման	word	ամփոփում	стяжение, гаплология	contraction (here)	prior	med
+0007	արտահայտվում	word	արտահայտվել	выражаться	to be expressed	prior	hi
+0007	տարածված	word	տարածված	распространённый	widespread	kaikki	hi
+0008	հաճախականություն	word	հաճախականություն	частотность	frequency	prior	hi
+0008	լիակատար	word	լիակատար	полный	complete	kaikki	hi
+0008	տեմպում	word	տեմպ	темп	tempo	prior	hi
+0008	ցըտեսցյուն	hl	ցտեսություն	до свидания	goodbye	kaikki	hi
+0008	շնորակալցյուն	hl	շնորհակալություն	спасибо, благодарность	thanks	kaikki	hi
+0008	գործնեություն	hl	գործունեություն	деятельность	activity	kaikki	hi
+0008	ուսցիչ	hl	ուսուցիչ	учитель	teacher	kaikki	hi
+0008	ուսչական	hl	ուսուցչական	учительский	teachers'	prior	hi
+0008	խօսակցյուն	hl	խոսակցություն	разговор	conversation	prior	hi
+0009	փոխ.	abbr	փոխարեն	сокр.: прав. форма —	abbr.: correct form is	prior	hi
+0009	դիմացկանություն	hl	դիմացկունություն	выносливость, прочность	durability	prior	hi
+0010	վերածվել	word	վերածվել	превращаться (в)	to turn into	prior	hi
+0010	պ{ը}տի	hl	պիտի	должен (частица буд.)	must (future particle)	kaikki	hi
+0010	հ{ը}մի	hl	հիմի	сейчас (разг.)	now (colloq.)	prior	hi
+0010	{ը}նչի	hl	ինչի	почему; чего	why	kaikki	hi
+0011	բար լուս	hl	բարի լույս	доброе утро	good morning	kaikki	hi
+0011	մանում	hl	իմանալ	не знаю (իմանալ — знать)	(I don't) know	kaikki	hi
+0011	լզել	hl	լիզել	лизать	to lick	kaikki	hi
+0012	հակառակ	word	հակառակ	наоборот, вопреки	contrary	kaikki	hi
+0012	արտաբերվում	word	արտաբերվել	артикулироваться	to be articulated	prior	hi
+0012	լինելիություն	hl	լինելություն	бытие, существование	existence	prior	hi
+0012	պատկանելիություն	hl	պատկանելություն	принадлежность	belonging	prior	hi
+0013	գործածելը	word	գործածել	употреблять	to use	kaikki	hi
+0013	բարյացկամ	hl	բարյացակամ	доброжелательный	benevolent	kaikki	hi
+0013	գնհատել	hl	գնահատել	оценивать	to evaluate	kaikki	hi
+0013	գնհատական	hl	գնահատական	оценка	grade, evaluation	kaikki	hi
+0013	գողնալ	hl	գողանալ	воровать	to steal	kaikki	hi
+0013	դաստիրակ	hl	դաստիարակ	воспитатель	educator	kaikki	hi
+0013	սննկանալ	hl	սնանկանալ	разоряться	to go bankrupt	kaikki	hi
+0014	համաբանությամբ	word	համաբանություն	по аналогии	analogy	prior	hi
+0014	ըստ արժանավույն	hl	ըստ արժանվույն	по достоинству	according to merit	prior	hi
+0014	ութանասուն	hl	ութսուն	80	eighty	kaikki	hi
+0015	ընդունելի	word	ընդունելի	приемлемый	acceptable	kaikki	hi
+0015	մոտովորապես	hl	մոտավորապես	приблизительно	approximately	kaikki	hi
+0016	կաննավոր	hl	կանոնավոր	регулярный, правильный	regular	kaikki	hi
+0017	վերջավորություն	word	վերջավորություն	окончание	ending	terms	hi
+0017	գոյականները	word	գոյական	существительное	noun	terms	hi
+0017	տարբերակում	word	տարբերակ	вариант	variant	kaikki	hi
+0017	սովորաբար	word	սովորաբար	обычно	usually	kaikki	hi
+0018	բառացի	word	բառացի	буквально	literally	kaikki	hi
+0018	տարեկետում	hl	տարկետում	отсрочка	deferment	kaikki	hi
+0019	ներեղություն	hl	ներողություն	извинение; простите	apology	kaikki	hi
+0020	շեշտակիր	word	շեշտակիր	несущий ударение	stress-bearing	prior	hi
+0020	տեղափոխության	word	տեղափոխություն	перемещение	displacement	prior	hi
+0020	հավելման	word	հավելում	добавление, вставка	addition	kaikki	hi
+0020	բառավերջում	word	բառավերջ	конец слова	word-final position	prior	hi
+0020	հարկավոր	word	հարկավոր	необходимый	necessary	kaikki	hi
+0020	գ{ը}տ{ը}նվել	hl	գտնվել	находиться	to be located	kaikki	hi
+0020	երդ{ը}վել	hl	երդվել	клясться	to swear	kaikki	hi
+0020	թաք{ը}նվել	hl	թաքնվել	прятаться	to hide	kaikki	hi
+0020	ժ{ը}պ{ը}տալ	hl	ժպտալ	улыбаться	to smile	kaikki	hi
+0020	կ{ը}րկ{ը}նել	hl	կրկնել	повторять	to repeat	kaikki	hi
+0020	հայտ{ը}նվել	hl	հայտնվել	появляться	to appear	prior	hi
+0020	հագ{ը}նվել	hl	հագնվել	одеваться	to get dressed	kaikki	hi
+0020	ձեռն{ը}պահ	hl	ձեռնպահ	воздерживающийся	abstaining	kaikki	hi
+0020	ձեռն{ը}տու	hl	ձեռնտու	выгодный	advantageous	kaikki	hi
+0020	ք{ը}ն{ը}նել	hl	քննել	рассматривать; экзаменовать	to examine	kaikki	hi
+0021	Արտասանական	word	արտասանական	произносительный	pronunciation (adj.)	prior	hi
+0021	ոլորտում	word	ոլորտ	сфера, область	sphere	kaikki	hi
+0021	երկհնչյունների	word	երկհնչյուն	дифтонг	diphthong	prior	hi
+0021	անցումը	word	անցում	переход	transition	kaikki	hi
+0021	ցուցական	word	ցուցական	указательный	demonstrative	prior	hi
+0021	դերանունների	word	դերանուն	местоимение	pronoun	kaikki	hi
+0021	բաղադրյալ	word	բաղադրյալ	составной	compound	prior	hi
+0021	էս	hl	այս	= այս: этот	this (colloq.)	kaikki	hi
+0021	հեր	hl	հայր	= հայր: отец	father	kaikki	hi
+0021	մեր	hl	մայր	= մայր: мать	mother	kaikki	hi
+0021	քուր	hl	քույր	= քույր: сестра	sister	kaikki	hi
+0021	լիս	hl	լույս	= լույս: свет	light	kaikki	hi
+0021	գեղ	hl	գյուղ	= գյուղ: деревня	village	kaikki	hi
+0021	գեղացի	hl	գյուղացի	= գյուղացի: деревенский	villager	kaikki	hi
+0022	բաղաձայնների	word	բաղաձայն	согласный	consonant	kaikki	hi
+0022	թուլացումը	word	թուլացում	ослабление	weakening	kaikki	hi
+0023	պայմանավորված	word	պայմանավորված	обусловленный	conditioned (by)	kaikki	hi
+0023	բնույթով	word	բնույթ	характер, природа	nature	kaikki	hi
+0023	հաջորդում	word	հաջորդել	следовать (за)	to follow	prior	hi
+0023	արտասանության	word	արտասանություն	произношение, артикуляция	pronunciation	kaikki	hi
+0023	նախորդողը	word	նախորդող	предшествующий	preceding	prior	hi
+0023	հազիվ	word	հազիվ	едва	barely	kaikki	hi
+0023	լսելի	word	լսելի	слышимый	audible	prior	hi
+0023	պաճառ	hl	պատճառ	= պատճառ: причина	reason	kaikki	hi
+0023	անպաճառ	hl	անպատճառ	= անպատճառ: непременно	without fail	kaikki	hi
+0023	պաճեն	hl	պատճեն	= պատճեն: копия	copy	kaikki	hi
+0023	մաչելի	hl	մատչելի	= մատչելի: доступный	accessible	prior	hi
+0024	ընթացքի	word	ընթացք	ход, течение	course	kaikki	hi
+0024	երաշտական	hl	երաժշտական	музыкальный	musical	kaikki	hi
+0024	բշկական	hl	բժշկական	медицинский	medical	kaikki	hi
+0025	սանդր	hl	սանր	= սանր: расчёска	comb	kaikki	hi
+0025	մանդր	hl	մանր	= մանր: мелкий	small, fine	kaikki	hi
+0025	ծանդր	hl	ծանր	= ծանր: тяжёлый	heavy	kaikki	hi
+0026	ժողովրդախոսակցական	word	ժողովրդախոսակցական	народно-разговорный	vernacular	prior	hi
+0026	դուս	hl	դուրս	наружу	out	kaikki	hi
+0026	աղչըկեք	hl	աղջկերք	девушки, девчата	girls	prior	hi
+0026	տղեք	hl	տղերք	парни, ребята	guys	prior	hi
+0026	յեփ օր	hl	երբ որ	когда	when	prior	hi
+0027	թվականի	word	թվական	числительное	numeral	terms	hi
+0027	հրամայական	word	հրամայական	повелительное (наклонение)	imperative	terms	hi
+0027	եղանակի	word	եղանակ	наклонение	mood	terms	hi
+0027	եզակի	word	եզակի	единственное число	singular	terms	hi
+0027	բայերը	word	բայ	глагол	verb	terms	hi
+0027	եկրորդ	hl	երկրորդ	второй	second	kaikki	hi
+0028	ռուսախոսների	word	ռուսախոս	русскоязычный	Russian-speaking	prior	hi
+0028	շրջանակում	word	շրջանակ	круг, среда	circle, milieu	kaikki	hi
+0028	կրթություն	word	կրթություն	образование	education	kaikki	hi
+0028	մասնագետների	word	մասնագետ	специалист	specialist	kaikki	hi
+0028	Փոխառյալ	word	փոխառյալ	заимствованный	borrowed	prior	hi
+0028	մա{ռ}տ	hl	մարտ	бой; март	battle; March	kaikki	hi
+0028	ա{ռ}ծիվ	hl	արծիվ	орёл	eagle	kaikki	hi
+0028	մրմուռ	hl	մրմուռ	щемящая боль	smarting pain	prior	hi
+0028	մրցել	hl	մրցել	состязаться	to compete	kaikki	hi
+0028	հարբել	hl	հարբել	пьянеть	to get drunk	kaikki	hi
+0028	վերնագիր	hl	վերնագիր	заголовок	title	kaikki	hi
+0028	պառկել	hl	պառկել	ложиться	to lie down	kaikki	hi
+0029	կոմ	hl	կողմ	сторона	side	kaikki	hi
+0029	թո	hl	թող	пусть	let	kaikki	hi
+0029	ըստե	hl	այստեղ	здесь	here	kaikki	hi
+0029	տե	hl	տեղ	место	place	kaikki	hi
+0029	ըտե	hl	այդտեղ	там (у тебя)	there (by you)	kaikki	hi
+0029	ընդե	hl	այնտեղ	там	there	kaikki	hi
+0030	ճարե	hl	ճարել	раздобыть	to get hold of	kaikki	hi
+0030	պատահե	hl	պատահել	случаться	to happen	kaikki	hi
+0030	տեսանկյունից	word	տեսանկյուն	точка зрения	point of view	kaikki	hi
+0030	փայփլել	hl	փայլփլել	сверкать, мерцать	to glitter	prior	hi
+0031	մասնիկ	word	մասնիկ	частица	particle	terms	hi
+0032	վացուն	hl	վաթսուն	60	sixty	kaikki	hi
+0032	հիցուն	hl	հիսուն	50	fifty	kaikki	hi
+0033	ձայնեղացում	word	ձայնեղացում	озвончение	voicing	prior	hi
+0034	համատարած	word	համատարած	повсеместный	pervasive	kaikki	hi
+0034	առաջի	hl	առաջին	первый	first	kaikki	hi
+0034	վերջի	hl	վերջին	последний	last	kaikki	hi
+0034	պատճե	hl	պատճեն	копия	copy	kaikki	hi
+0035	ավելնորդ	hl	ավելորդ	лишний	superfluous	kaikki	hi
+0035	կանանչ	hl	կանաչ	зелёный	green	kaikki	hi
+0035	կանանցի	hl	կանացի	женственный, женский	feminine	kaikki	hi
+0035	մանրունք	hl	մանրուք	мелочь	trifle	prior	hi
+0035	ճանանչել	hl	ճանաչել	узнавать, знать	to recognize	kaikki	hi
+0035	ամանչել	hl	ամաչել	стыдиться	to be ashamed	kaikki	hi
+0035	անձեռնոցիկ	hl	անձեռոցիկ	салфетка	napkin	kaikki	hi
+0035	արտասունք	hl	արտասուք	слёзы	tears	kaikki	hi
+0035	ընձեռնել	hl	ընձեռել	предоставлять	to grant	prior	hi
+0035	մարմանջ	hl	մարմաջ	зуд, свербёж	itch	prior	hi
+0036	տառերը	word	տառ	буква	letter	kaikki	hi
+0036	բացառություն	word	բացառություն	исключение	exception	kaikki	hi
+0036	օրենքը	word	օրենք	закон, правило	law, rule	kaikki	hi
+0036	ան[յ]ելանելի	hl	անելանելի	безвыходный	hopeless (situation)	prior	hi
+0036	ան[վ]որոշ	hl	անորոշ	неопределённый	indefinite	kaikki	hi
+0036	ան[վ]ողնաշար	hl	անողնաշար	бесхребетный	spineless	prior	hi
+0036	ան[վ]որակ	hl	անորակ	некачественный	low-quality	kaikki	hi
+0036	բար[վ]որակ	hl	բարորակ	доброкачественный	benign	kaikki	hi
+0036	չար[վ]որակ	hl	չարորակ	злокачественный	malignant	kaikki	hi
+0037	առնմանության	word	առնմանություն	ассимиляция	assimilation	kaikki	hi
+0037	տարնմանության	word	տարնմանություն	диссимиляция	dissimilation	kaikki	hi
+0037	համընկման	word	համընկնում	слияние, совпадение	coincidence	prior	hi
+0037	արտաբերման	word	արտաբերում	артикуляция	articulation	prior	hi
+0037	անփոփում	hl	ամփոփում	обобщение, резюме	summing up	kaikki	hi
+0037	անբիոն	hl	ամբիոն	кафедра, трибуна	rostrum, chair	kaikki	hi
+0037	անբարիշտ	hl	ամբարիշտ	нечестивый	impious	kaikki	hi
+0037	ապստանբ	hl	ապստամբ	мятежник, повстанец	rebel	kaikki	hi
+0037	անբաստանյալ	hl	ամբաստանյալ	обвиняемый	the accused	kaikki	hi
+0037	ամպայման	hl	անպայման	обязательно	definitely	kaikki	hi
+0037	ամմիջապես	hl	անմիջապես	сразу, немедленно	immediately	kaikki	hi
+0039	իրավմամբ	hl	իրավամբ	поистине, по праву	rightfully	kaikki	hi
+0040	հելնել	hl	ելնել	выходить, вставать	to go out, rise	kaikki	hi
+0040	նախագա	hl	նախագահ	президент, председатель	president	kaikki	hi
+0040	հաշվապա	hl	հաշվապահ	бухгалтер	accountant	kaikki	hi
+0040	հերթապա	hl	հերթապահ	дежурный	person on duty	prior	hi
+0041	Դրափոխության	word	դրափոխություն	метатеза	metathesis	kaikki	hi
+0041	հետևանքով	word	հետևանք	следствие	consequence	kaikki	hi
+0041	գ{յ}ազար	hl	գազար	морковь	carrot	kaikki	hi
+0041	սյուն{յ}ակ	hl	սյունակ	столбец, колонка	column	kaikki	hi
+0041	հորեղբո{յ}ր	hl	հորեղբայր	дядя (по отцу)	paternal uncle	kaikki	hi
+0041	աղուսյակ	hl	աղյուսակ	таблица	table	kaikki	hi
+0042	հնչյունակապակցություն	word	հնչյունակապակցություն	звукосочетание	sound sequence	prior	hi
+0042	արմատացել	word	արմատանալ	укореняться	to take root	prior	hi
+0042	հիմնարկություններում	word	հիմնարկություն	учреждение	institution	prior	hi
+0042	ակնաբուժ	hl	ակնաբույժ	окулист	eye doctor	prior	hi
+0042	զգուշ	hl	զգույշ	осторожный	careful	kaikki	hi
+0042	տուժ	hl	տույժ	взыскание, пеня	penalty	kaikki	hi
+0042	մեղվաբուծ	hl	մեղվաբույծ	пчеловод	beekeeper	kaikki	hi
+0042	ատամնաբուժ	hl	ատամնաբույժ	стоматолог	dentist	kaikki	hi
+0042	մանկաբուժ	hl	մանկաբույժ	педиатр	pediatrician	prior	hi
+0043	պարզեցված	word	պարզեցված	упрощённый	simplified	prior	hi
+0043	արուն	hl	արյուն	= արյուն: кровь	blood	kaikki	hi
+0043	ձուն	hl	ձյուն	= ձյուն: снег	snow	kaikki	hi
+0043	սառուց	hl	սառույց	= սառույց: лёд	ice	kaikki	hi
+0043	ալուր	hl	ալյուր	= ալյուր: мука	flour	kaikki	hi
+0043	կապուտ	hl	կապույտ	= կապույտ: синий	blue	kaikki	hi
+0043	լուս	hl	լույս	= լույս: свет	light	kaikki	hi
+0044	կանոնի	word	կանոն	правило	rule	kaikki	hi
+0044	համաձայն	word	համաձայն	согласно	according to	kaikki	hi
+0044	սխալմամբ	word	սխալմամբ	ошибочно	mistakenly	prior	hi
+0044	գույնավոր	hl	գունավոր	цветной	colored	prior	hi
+0044	զույգընկեր	hl	զուգընկեր	партнёр	partner	prior	hi
+0044	թույլանալ	hl	թուլանալ	слабеть	to weaken	kaikki	hi
+0044	ծույլանալ	hl	ծուլանալ	лениться	to be lazy	kaikki	hi
+0044	կույրանալ	hl	կուրանալ	слепнуть	to go blind	kaikki	hi
+0044	համբույրել	hl	համբուրել	целовать	to kiss	kaikki	hi
+0044	մշակույթային	hl	մշակութային	культурный	cultural	kaikki	hi
+0045	Թեքված	word	թեքված	словоизменённый	inflected	prior	hi
+0046	անտեղի	word	անտեղի	неуместно	inappropriately	prior	hi
+0046	քմայնացվում	word	քմայնացվել	палатализоваться	to be palatalized	prior	hi
+0046	դասական	word	դասական	порядковый (числ.)	ordinal	kaikki	hi
+0046	վերջածանցին	word	վերջածանց	суффикс	suffix	terms	hi
+0047	տեղաշարժերը	word	տեղաշարժ	сдвиг, смещение	shift	prior	hi
+0047	բարբառների	word	բարբառ	диалект	dialect	kaikki	hi
+0047	խոսվածքների	word	խոսվածք	говор	subdialect	prior	hi
+0047	շնչեղացում	word	շնչեղացում	аспирация, придыхание	aspiration	prior	hi
+0047	խլացում	word	խլացում	оглушение	devoicing	prior	hi
+0047	անհատական	word	անհատական	индивидуальный	individual	kaikki	hi
+0047	ընկեր	hl	ընկեր	друг, товарищ	friend	kaikki	hi
+0047	ընկնել	hl	ընկնել	падать	to fall	kaikki	hi
+0047	հանկարծ	hl	հանկարծ	вдруг	suddenly	kaikki	hi
+0047	գդալ	hl	գդալ	ложка	spoon	kaikki	hi
+0047	գտնել	hl	գտնել	находить	to find	kaikki	hi
+0047	գցել	hl	գցել	бросать	to throw	kaikki	hi
+0047	խրտվիլակ	hl	խրտվիլակ	пугало	scarecrow	kaikki	hi
+0047	երեկ	hl	երեկ	вчера	yesterday	kaikki	hi
+0047	իրիկուն	hl	իրիկուն	вечер (разг.)	evening (colloq.)	kaikki	hi
+0047	կիպ	hl	կիպ	плотный, вплотную	tight	kaikki	hi
+0047	փտել	hl	փտել	гнить	to rot	kaikki	hi
+0047	սուտ	hl	սուտ	ложь	lie	kaikki	hi
+0047	վարկաբեկել	hl	վարկաբեկել	дискредитировать	to discredit	kaikki	hi
+0047	ախորժակ	hl	ախորժակ	аппетит	appetite	kaikki	hi
+0047	լրիվ	hl	լրիվ	полностью	completely	kaikki	hi
+0047	ճանճ	hl	ճանճ	муха	fly	kaikki	hi
+0047	ծունկ	hl	ծունկ	колено	knee	kaikki	hi
+0048	համբյուր	hl	համբույր	поцелуй	kiss	kaikki	hi
+0048	հույր	hl	հյուր	гость	guest	kaikki	hi
+0048	մույս	hl	մյուս	другой	the other	kaikki	hi
+0048	ինքնուրյուն	hl	ինքնուրույն	самостоятельный	independent	kaikki	hi
+0048	ողջյուն	hl	ողջույն	приветствие	greeting	kaikki	hi
+0048	հույթ	hl	հյութ	сок	juice	kaikki	hi
+0048	զոնքաչ	hl	զոքանչ	тёща	mother-in-law	kaikki	hi
+0048	բախշել	hl	բաշխել	распределять, раздавать	to distribute	kaikki	hi
+0048	սիպտակ	hl	սպիտակ	белый	white	kaikki	hi
+0048	բալանի	hl	բանալի	ключ	key	kaikki	hi
+0048	ալանի	hl	անալի	несолёный	unsalted	kaikki	hi
+0049	անձնանուններում	word	անձնանուն	личное имя	personal name	kaikki	hi
+0049	աստիճանի	word	աստիճան	степень	degree	kaikki	hi
+0049	խօրթավոր	hl	խորհրդավոր	таинственный	mysterious	kaikki	hi
+0049	խօրթակցել	hl	խորհրդակցել	совещаться	to confer	prior	hi
+0049	շնորկալցյուն	hl	շնորհակալություն	благодарность; спасибо	thanks	kaikki	hi
+0049	որտև	hl	որովհետև	потому что	because	kaikki	hi
+0049	մոք	hl	մորաքույր	тётя (по матери)	maternal aunt	kaikki	hi
+0049	հոք	hl	հորաքույր	тётя (по отцу)	paternal aunt	kaikki	hi
+0050	սովորության	word	սովորություն	привычка	habit	kaikki	hi
+0050	հետևողականորեն	word	հետևողականորեն	последовательно	consistently	prior	hi
+0050	սկզբունքը	word	սկզբունք	принцип	principle	kaikki	hi
+0050	կիրառվում	word	կիրառվել	применяться	to be applied	kaikki	hi
+0050	նկատմամբ	word	նկատմամբ	по отношению к	with respect to	kaikki	hi
+0051	նմանատիպ	word	նմանատիպ	подобный	similar	kaikki	hi
+0051	առանձնացնել	word	առանձնացնել	выделять	to single out	prior	hi
+0051	փոխարինումը	word	փոխարինում	замена	replacement	kaikki	hi
+0051	հավանականությունը	word	հավանականություն	вероятность	probability	kaikki	hi
+0051	լրագրողն	word	լրագրող	журналист	journalist	kaikki	hi
+0051	հեռուստահաղորդավարը	word	հեռուստահաղորդավար	телеведущий	TV presenter	prior	hi
+0051	բանաստեղծն	word	բանաստեղծ	поэт	poet	kaikki	hi
+0051	գրականագետը	word	գրականագետ	литературовед	literary scholar	kaikki	hi
+0051	անիմաստ	word	անիմաստ	бессмысленный	pointless	kaikki	hi
+0051	կիրարկման	word	կիրարկում	применение	application	prior	hi
+0051	վերականգնման	word	վերականգնում	восстановление	restoration	kaikki	hi
+0051	խոսելաձևը	word	խոսելաձև	манера речи	manner of speaking	prior	hi
+0051	թերագնահատել	word	թերագնահատել	недооценивать	to underestimate	kaikki	hi
+0051	հեռուստատեսության	word	հեռուստատեսություն	телевидение	television	kaikki	hi
+0051	վարժվեն	word	վարժվել	привыкать	to get used to	prior	hi
+0051	արցյունք	hl	արդյունք	= արդյունք: результат	result	kaikki	hi
+0051	արցյոք	hl	արդյոք	= արդյոք: ли, разве	whether	kaikki	hi
+0051	բրցյա	hl	բրդյա	= բրդյա: шерстяной	woolen	kaikki	hi
+0051	հաջողուցյուն	hl	հաջողություն	= հաջողություն: успех	success	kaikki	hi
+0051	առողջուցյուն	hl	առողջություն	= առողջություն: здоровье	health	kaikki	hi
+0051	հանրապետուցյուն	hl	հանրապետություն	= հանրապետություն: республика	republic	kaikki	hi
+0051	արագուցյուն	hl	արագություն	= արագություն: скорость	speed	kaikki	hi
+0052	թզի	word	թուզ	инжир	fig	kaikki	hi
+0052	դեղձի	word	դեղձ	персик	peach	kaikki	hi
+0052	չրից	word	չիր	сухофрукты	dried fruit	kaikki	hi
+0052	քաղցրավենիք	word	քաղցրավենիք	сладости	confectionery	prior	hi

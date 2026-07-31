@@ -135,3 +135,8 @@
 # NOT «դատ տալ» = condemn oneself).
 դատի տալ	sue	take to court	подать в суд
 ամուր	firm	sturdy	solid	крепк
+# 2026-07-26 — homograph traps found by the explore/-wordlist critic
+# pass; corpus refs: sakayan p175/p355/p411 (տար = verb forms, not
+# "distant"), երևում = converb of երևալ, not "appearance".
+տար	imperative	отнеси
+երևում	երևալ	по-видимому	apparently

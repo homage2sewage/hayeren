@@ -175,3 +175,58 @@
 {"ts": "2026-07-22T02:45:29", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
 {"ts": "2026-07-22T03:14:59", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
 {"ts": "2026-07-23T01:10:51", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T21:48:08", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T21:52:11", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T21:58:16", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T22:18:38", "stop_hook_active": false, "response_chars": 2187, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-23T22:20:38", "stop_hook_active": false, "response_chars": 558, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-23T22:46:49", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T23:04:56", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T23:11:03", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-23T23:46:10", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-24T00:00:58", "stop_hook_active": false, "response_chars": 131, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-24T02:48:15", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-24T02:55:12", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-24T22:55:07", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-24T23:01:11", "stop_hook_active": false, "response_chars": 2613, "armenian_chars": 294, "action": "block-citation-unverified", "bundle": "Փորձելով ազատվել դատավորի ձեռքից՝ մանուկն ուժգին հարվածում է նրան@dumtragutp535"}
+{"ts": "2026-07-24T23:01:36", "stop_hook_active": true, "response_chars": 2153, "armenian_chars": 218, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-07-24T23:07:07", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-24T23:21:39", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-25T00:09:13", "stop_hook_active": false, "response_chars": 2523, "armenian_chars": 270, "action": "block-citation-unverified", "bundle": "մնա չգտնելով@dumtragutp535; չգտնելով@dumtragutp535; գտնվ@dumtragutp535; մի վայրկյան մնաց անխոս@dumtragutp537; օտար հողերում չգտնված մնա@ghamoyanp56"}
+{"ts": "2026-07-25T00:10:02", "stop_hook_active": true, "response_chars": 1997, "armenian_chars": 233, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-07-25T00:16:54", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-25T02:00:17", "stop_hook_active": false, "response_chars": 2322, "armenian_chars": 126, "action": "block-citation-unverified", "bundle": "ով@dumtragutp64"}
+{"ts": "2026-07-25T02:00:42", "stop_hook_active": true, "response_chars": 2137, "armenian_chars": 195, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-07-25T02:04:44", "stop_hook_active": false, "response_chars": 85, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-25T02:06:03", "stop_hook_active": false, "response_chars": 2350, "armenian_chars": 140, "action": "block-citation-unverified", "bundle": "նայի@dumtragutp290; նայի՛ր@dumtragutp290; պարիր@dumtragutp706; պարի@dumtragutp706"}
+{"ts": "2026-07-25T02:06:23", "stop_hook_active": true, "response_chars": 2350, "armenian_chars": 140, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-07-25T02:10:43", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-25T02:26:29", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-25T02:50:41", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-25T02:57:01", "stop_hook_active": false, "response_chars": 200, "armenian_chars": 15, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-25T03:30:27", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-25T05:13:04", "stop_hook_active": false, "response_chars": 2914, "armenian_chars": 85, "action": "block-citation-unverified", "bundle": "հետ@dumtragutp66; քո հետ@dumtragutp67; հետ@dumtragutp67; քո հե՛տ@dumtragutp706"}
+{"ts": "2026-07-25T05:13:29", "stop_hook_active": true, "response_chars": 2510, "armenian_chars": 184, "action": "skip-stop-hook-active", "bundle": ""}
+{"ts": "2026-07-26T19:40:49", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-26T19:44:17", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-26T19:54:11", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-26T20:10:51", "stop_hook_active": false, "response_chars": 388, "armenian_chars": 18, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T20:31:56", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-26T22:32:16", "stop_hook_active": false, "response_chars": 78, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T22:32:57", "stop_hook_active": false, "response_chars": 217, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T22:33:18", "stop_hook_active": false, "response_chars": 209, "armenian_chars": 22, "action": "pass-no-corpus-matches", "bundle": "# KB-grounding bundle\n\n## Query\n\n```\nChunk 02 done — found a real defect: an off-by-one shift in the Տեսիլաժամեր unit (pairs #10–12; #11's true original is «Հայրենիքում», currently assigned to #10). W"}
+{"ts": "2026-07-26T22:33:25", "stop_hook_active": false, "response_chars": 98, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T22:33:33", "stop_hook_active": false, "response_chars": 92, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T22:33:38", "stop_hook_active": false, "response_chars": 36, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T22:33:41", "stop_hook_active": false, "response_chars": 79, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T22:33:57", "stop_hook_active": false, "response_chars": 69, "armenian_chars": 5, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T22:34:29", "stop_hook_active": false, "response_chars": 36, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-26T23:15:04", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-27T23:20:25", "stop_hook_active": false, "response_chars": 138, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-27T23:23:09", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-27T23:32:03", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-28T00:52:24", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-28T01:50:21", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-28T01:58:01", "stop_hook_active": false, "response_chars": 163, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}
+{"ts": "2026-07-28T20:57:50", "stop_hook_active": false, "response_chars": 0, "armenian_chars": 0, "action": "skip-no-response", "bundle": ""}
+{"ts": "2026-07-29T04:53:01", "stop_hook_active": false, "response_chars": 130, "armenian_chars": 0, "action": "skip-low-armenian", "bundle": ""}

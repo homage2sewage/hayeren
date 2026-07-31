@@ -1,0 +1,8 @@
+iDone. Both are the Armenian→English Wiktionary dictionary (14,806 lemmas, ~800,000 inflected forms, definitions in HTML). The data snapshot is from late 2022, but Wiktionary's Armenian coverage was already excellent by then.
+
+Which to use:
+
+EXPANDED — every inflected form is a direct index entry, so it works even in readers that ignore .syn files (NeoReader may be one). Use this on the Boox. Only downside is a ~24 MB index, which is fine.
+Original with .syn — smaller, use in KOReader or GoldenDict if you go that route.
+
+Install on the Boox: unzip, then copy the whole Armenian-English Wiktionary dictionary folder into the dicts folder in the root of internal storage (create it if it's not there — some firmware versions use Dictionary instead; whichever folder already contains dictionary subfolders). Then in NeoReader, long-press a word and pick Dictionary. For KOReader, the folder goes into koreader/data/dict instead.

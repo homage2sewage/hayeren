@@ -1,0 +1,17 @@
+# Golden gloss anchors — ghamoyan ch2 (pages 35-40).
+# Two-step rule: each row is a case a critic pass or review caught
+# (or a trap it explicitly cleared); a rebuilt glosses.tsv must
+# still satisfy these. Checked by golden_check.py: for (block_id,
+# surface), the lemma must equal `lemma` and `ru_contains` must be a
+# substring of the ru gloss.
+# provenance: 2026-07-23 Opus critic pass over glosses.tsv.
+block_id	surface	lemma	ru_contains	note
+0046	դասական	դասական	порядковый	homograph trap cleared: NOT "классический" — դասական թվական = ordinal numeral
+0017	տարբերակում	տարբերակ	вариант	homograph trap cleared: locative of տարբերակ, NOT verbal noun of տարբերակել
+0007	ամփոփման	ամփոփում	стяжение	sense trap: kaikki's "summary" sense is wrong here; syllable contraction/haplology
+0045	Թեքված	թեքված	словоизменённый	register trap: standalone "флективный" reads as language typology; context = inflected forms
+0037	համընկման	համընկնում	слияние	wording: coalescence of sounds, not flat "совпадение"
+0009	փոխ.	փոխարեն	прав. форма	abbreviation convention gloss; source stays prior (expansion asserted, not corpus-verified)
+0023	արտասանության	արտասանություն	артикуляция	set-phrase context "արտասանության տեղ" = place of articulation; gloss must carry артикуляция
+0048	ալանի	անալի	несолёный	homonym clash cleared: highlighted ալանի = անալի "unsalted" (block says «ոչ աղի իմաստով»); the footnote's ալանի (a dried-fruit sweet) is the excluded reading
+0021	մեր	մայր	мать	hl homograph guard: surface մեր here is colloquial for մայր, NOT the possessive "our"; hl rows must never lemma-match as the pronoun

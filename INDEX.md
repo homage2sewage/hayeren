@@ -49,6 +49,14 @@ subdirectories — keep top level limited to this index and shared assets.
 │   ├── README.md
 │   ├── build_ours.py / compare.py
 │   └── out/                       # our_top_1000.tsv, comparison_report.md, …
+├── explore/                       # top-2000 browsing wordlist (word|ru|examples) → e-reader PDF
+│   ├── README.md                  # provenance: ru/examples are a generated prior layer
+│   ├── words.tsv                  # the raw table; golden.tsv anchors caught-and-fixed glosses
+│   └── build_wordlist.py / validate_wordlist.py / make_pdf.py
+├── interlinear/                   # glossed re-typeset of a book (A→E pipeline, typst PDF)
+│   ├── README.md                  # pipeline doc; FRD in research/2026-07-23-…-frd.md
+│   ├── structure.py / render.py / validate.py / …
+│   └── ghamoyan/ch2/              # worked chunk: book.md + sidecars + book.pdf
 ├── cards/                         # ⭐ Anki-importable TSVs — current variants live here
 │   ├── README.md
 │   ├── top_1000.tsv               # unified frequency-ranked top-1000 deck

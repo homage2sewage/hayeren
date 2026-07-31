@@ -1,13 +1,13 @@
 # Deck validation report
 
 - Deck: `cards/top_1000.tsv` (1095 rows)
-- Findings: **102** (0 errors, 10 warnings)
+- Findings: **101** (0 errors, 10 warnings)
 
 ## By category
 
 | category | severity | count |
 | --- | --- | --- |
-| `ambiguous-sense` | warning | 94 |
+| `ambiguous-sense` | warning | 93 |
 | `duplicate-translation` | warning | 8 |
 
 ## `ambiguous-sense`
@@ -42,7 +42,7 @@
 - **# 409** `սուրբ` → `holy, sacred` — 2 POS senses; competing: [adj] holy, sacred / [noun] saint
 - **# 414** `անցյալ` → `past, last` — 2 POS senses; competing: [adj] past, last / [noun] the past
 - **# 417** `առավել` → `more, much, far` — 2 POS senses; competing: [adv] more, much, far / [noun] the untilled land left at the edges of the field
-- … and 64 more
+- … and 63 more
 
 ## `duplicate-translation`
 

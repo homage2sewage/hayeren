@@ -1,0 +1,115 @@
+block_id	surface	kind	reason	conf
+0002	ՀԱՏԿԱՆԻՇՆԵՐԸ	word	feature/characteristic, heading	hi
+0003	ներկայումս	word	adverb, formal register	hi
+0003	հակասությունների	word	contradiction	hi
+0003	գործընթացում	word	process	hi
+0003	հսկայական	word	huge	hi
+0003	անջրպետ	word	rare: chasm/gap	hi
+0004	Հարցազրույց	word	interview	hi
+0004	հարցաթերթիկների	word	questionnaire	hi
+0004	ձայնագրությունների	word	(sound) recording	hi
+0004	ուսումնասիրվել	word	to be studied	hi
+0004	գրանցվել	word	to be registered	hi
+0004	շեղումներ	word	deviation — thematic	hi
+0004	խախտումներ	word	violation	hi
+0004	առկա	word	present/existing, formal	hi
+0004	բառագիտական	word	term:lexical	hi
+0004	մակարդակներում	word	level	hi
+0005	ուղղախոսական	word	term:orthoepic	hi
+0005	հնչյունափոխություններ	word	term:sound change	hi
+0006	խոսակիցների	word	interlocutor	hi
+0006	շփման	word	contact/interaction	hi
+0006	վերահսկվում	word	to be controlled	hi
+0006	թուլանում	word	to weaken	hi
+0006	սղվում	word	term:elide — chapter-central	hi
+0006	վանկեր	word	term:syllable	hi
+0006	խաթարում	word	to impair	hi
+0006	ընկալումը	word	perception	hi
+0006	հաղորդակցության	word	communication	hi
+0006	կիսատ	word	incomplete	hi
+0006	անհստակ	word	unclear	hi
+0006	լիովին	word	fully	hi
+0006	դիմախաղով	word	facial expression	hi
+0006	հնչերանգով	word	intonation	hi
+0007	սղումը	word	term:elision — chapter-central	hi
+0007	մեծ մասամբ	mwe	mostly / for the most part	hi
+0007	կից	word	adjacent	hi
+0007	նույնական	word	identical	hi
+0007	ամփոփման	word	merging/summing here: contraction	med
+0007	արտահայտվում	word	to be expressed	hi
+0008	լիակատար	word	complete/total	hi
+0008	տեմպում	word	tempo (of speech)	hi
+0009	փոխ.	abbr	փոխարեն — the book's correction convention	hi
+0010	վերածվել	word	to turn into	hi
+0012	արտաբերվում	word	term:articulate	hi
+0014	համաբանությամբ	word	term:by analogy	hi
+0017	վերջավորություն	word	term:ending	hi
+0017	գոյականները	word	term:noun	hi
+0017	տարբերակում	word	variant	hi
+0018	բառացի	word	literally	hi
+0018	տարկետում	example	deferment — the para's example word	med
+0020	շեշտակիր	word	term:stress-bearing	hi
+0020	տեղափոխության	word	displacement/moving	hi
+0020	հավելման	word	term:addition — recurs	hi
+0020	բառավերջում	word	term:word-final position	hi
+0020	հարկավոր	word	necessary	hi
+0021	Արտասանական	word	term:pronunciation(adj)	hi
+0021	ոլորտում	word	sphere/domain	hi
+0021	երկհնչյունների	word	term:diphthong	hi
+0021	ցուցական	word	term:demonstrative	hi
+0021	բաղադրյալ	word	term:compound	hi
+0022	թուլացումը	word	weakening	hi
+0023	պայմանավորված	word	conditioned by	hi
+0023	հաջորդում	word	to follow	hi
+0023	արտասանության	word	term:pronunciation	hi
+0023	նախորդողը	word	preceding	hi
+0024	ընթացքի	word	course/flow	med
+0027	հրամայական	word	term:imperative	hi
+0027	եզակի	word	term:singular	hi
+0027	բայերը	word	term:verb	hi
+0028	ռուսախոսների	word	Russian-speaker	hi
+0028	շրջանակում	word	circle/milieu	hi
+0028	Փոխառյալ	word	term:borrowed	hi
+0030	տեսանկյունից	word	point of view	hi
+0031	մասնիկ	word	term:particle	hi
+0033	ձայնեղացում	word	term:voicing	hi
+0034	համատարած	word	universal/pervasive	hi
+0036	բացառություն	word	exception	hi
+0037	առնմանության	word	term:assimilation	hi
+0037	տարնմանության	word	term:dissimilation	hi
+0037	համընկման	word	coincidence/merger	hi
+0037	արտաբերման	word	term:articulation	hi
+0041	Դրափոխության	word	term:metathesis	hi
+0042	հնչյունակապակցություն	word	term:sound sequence	hi
+0042	արմատացել	word	to take root	hi
+0042	հիմնարկություններում	word	institution	hi
+0043	պարզեցված	word	simplified	hi
+0044	սխալմամբ	word	by mistake	hi
+0045	Թեքված	word	term:inflected	hi
+0046	անտեղի	word	inappropriately	hi
+0046	քմայնացվում	word	term:palatalize	hi
+0046	դասական	word	term:ordinal (numeral)	hi
+0046	վերջածանցին	word	term:suffix	hi
+0047	տեղաշարժերը	word	shift	hi
+0047	խոսվածքների	word	term:subdialect	hi
+0047	շնչեղացում	word	term:aspiration	hi
+0047	խլացում	word	term:devoicing	hi
+0049	անձնանուններում	word	personal name	hi
+0050	սովորության	word	habit	hi
+0050	հետևողականորեն	word	consistently	hi
+0051	առանձնացնել	word	to single out	hi
+0051	փոխարինումը	word	replacement	hi
+0051	հավանականությունը	word	probability	hi
+0051	լրագրողն	word	journalist	hi
+0051	հեռուստահաղորդավարը	word	TV presenter	hi
+0051	գրականագետը	word	literary scholar	hi
+0051	անիմաստ	word	pointless	hi
+0051	կիրարկման	word	rare: application/usage	hi
+0051	վերականգնման	word	restoration	hi
+0051	խոսելաձևը	word	manner of speaking	hi
+0051	թերագնահատել	word	to underestimate	hi
+0051	վարժվեն	word	to get accustomed	hi
+0052	թզի	word	fig (fruit)	hi
+0052	դեղձի	word	peach	hi
+0052	չրից	word	dried fruit	hi
+0052	քաղցրավենիք	word	sweets/confection	hi

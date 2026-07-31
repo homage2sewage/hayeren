@@ -1,0 +1,115 @@
+block_id	surface	lemma	ru	en	source	conf
+0002	ՀԱՏԿԱՆԻՇՆԵՐԸ	հատկանիշ	признак	feature	kaikki	hi
+0003	ներկայումս	ներկայումս	в настоящее время	at present	kaikki	hi
+0003	հակասությունների	հակասություն	противоречие	contradiction	prior	hi
+0003	գործընթացում	գործընթաց	процесс	process	kaikki	hi
+0003	հսկայական	հսկայական	огромный	huge	kaikki	hi
+0003	անջրպետ	անջրպետ	пропасть, разрыв	barrier, gap	kaikki	hi
+0004	Հարցազրույց	հարցազրույց	интервью	interview	kaikki	hi
+0004	հարցաթերթիկների	հարցաթերթիկ	анкета	questionnaire	prior	hi
+0004	ձայնագրությունների	ձայնագրություն	звукозапись	(sound) recording	prior	hi
+0004	ուսումնասիրվել	ուսումնասիրվել	изучаться	to be studied	prior	hi
+0004	գրանցվել	գրանցվել	фиксироваться	to be recorded	kaikki	hi
+0004	շեղումներ	շեղում	отклонение	deviation	prior	hi
+0004	խախտումներ	խախտում	нарушение	violation	prior	hi
+0004	առկա	առկա	имеющийся	present, existing	kaikki	hi
+0004	բառագիտական	բառագիտական	лексический	lexical	prior	hi
+0004	մակարդակներում	մակարդակ	уровень	level	kaikki	hi
+0005	ուղղախոսական	ուղղախոսական	орфоэпический	orthoepic	kaikki	hi
+0005	հնչյունափոխություններ	հնչյունափոխություն	звукоизменение	sound change	prior	hi
+0006	խոսակիցների	խոսակից	собеседник	interlocutor	prior	hi
+0006	շփման	շփում	общение, контакт	contact, interaction	kaikki	hi
+0006	վերահսկվում	վերահսկվել	контролироваться	to be monitored	prior	hi
+0006	թուլանում	թուլանալ	ослабевать	to weaken	kaikki	hi
+0006	սղվում	սղվել	выпадать (о звуке)	to be elided	prior	hi
+0006	վանկեր	վանկ	слог	syllable	kaikki	hi
+0006	խաթարում	խաթարել	портить, нарушать	to impair	prior	hi
+0006	ընկալումը	ընկալում	восприятие	perception	prior	hi
+0006	հաղորդակցության	հաղորդակցություն	коммуникация	communication	kaikki	hi
+0006	կիսատ	կիսատ	незаконченный	incomplete	kaikki	hi
+0006	անհստակ	անհստակ	нечёткий, неясный	unclear	prior	hi
+0006	լիովին	լիովին	полностью	fully	kaikki	hi
+0006	դիմախաղով	դիմախաղ	мимика	facial expression	kaikki	hi
+0006	հնչերանգով	հնչերանգ	интонация	intonation	prior	hi
+0007	սղումը	սղում	выпадение, элизия	elision	prior	hi
+0007	մեծ մասամբ	մեծ մասամբ	по большей части	for the most part	prior	hi
+0007	կից	կից	смежный, соседний	adjacent	kaikki	hi
+0007	նույնական	նույնական	идентичный	identical	prior	hi
+0007	ամփոփման	ամփոփում	стяжение, гаплология	contraction (here)	prior	med
+0007	արտահայտվում	արտահայտվել	выражаться	to be expressed	prior	hi
+0008	լիակատար	լիակատար	полный	complete	kaikki	hi
+0008	տեմպում	տեմպ	темп	tempo	prior	hi
+0009	փոխ.	փոխարեն	сокр.: прав. форма —	abbr.: instead of, i.e. correct form	prior	hi
+0010	վերածվել	վերածվել	превращаться (в)	to turn into	prior	hi
+0012	արտաբերվում	արտաբերվել	артикулироваться	to be articulated	prior	hi
+0014	համաբանությամբ	համաբանություն	по аналогии	analogy	prior	hi
+0017	վերջավորություն	վերջավորություն	окончание	ending	terms	hi
+0017	գոյականները	գոյական	существительное	noun	terms	hi
+0017	տարբերակում	տարբերակ	вариант	variant	kaikki	hi
+0018	բառացի	բառացի	буквально	literally	kaikki	hi
+0018	տարկետում	տարկետում	отсрочка	deferment	kaikki	hi
+0020	շեշտակիր	շեշտակիր	несущий ударение	stress-bearing	prior	hi
+0020	տեղափոխության	տեղափոխություն	перемещение	displacement	prior	hi
+0020	հավելման	հավելում	добавление, вставка	addition	kaikki	hi
+0020	բառավերջում	բառավերջ	конец слова	word-final position	prior	hi
+0020	հարկավոր	հարկավոր	необходимый	necessary	kaikki	hi
+0021	Արտասանական	արտասանական	произносительный	pronunciation (adj.)	prior	hi
+0021	ոլորտում	ոլորտ	сфера, область	sphere	kaikki	hi
+0021	երկհնչյունների	երկհնչյուն	дифтонг	diphthong	prior	hi
+0021	ցուցական	ցուցական	указательный	demonstrative	prior	hi
+0021	բաղադրյալ	բաղադրյալ	составной	compound	prior	hi
+0022	թուլացումը	թուլացում	ослабление	weakening	kaikki	hi
+0023	պայմանավորված	պայմանավորված	обусловленный	conditioned (by)	kaikki	hi
+0023	հաջորդում	հաջորդել	следовать (за)	to follow	prior	hi
+0023	արտասանության	արտասանություն	произношение, артикуляция	pronunciation	kaikki	hi
+0023	նախորդողը	նախորդող	предшествующий	preceding	prior	hi
+0024	ընթացքի	ընթացք	ход, течение	course	kaikki	hi
+0027	հրամայական	հրամայական	повелительное (наклонение)	imperative	terms	hi
+0027	եզակի	եզակի	единственное число	singular	terms	hi
+0027	բայերը	բայ	глагол	verb	terms	hi
+0028	ռուսախոսների	ռուսախոս	русскоязычный	Russian-speaking	prior	hi
+0028	շրջանակում	շրջանակ	круг, среда	circle, milieu	kaikki	hi
+0028	Փոխառյալ	փոխառյալ	заимствованный	borrowed	prior	hi
+0030	տեսանկյունից	տեսանկյուն	точка зрения	point of view	prior	hi
+0031	մասնիկ	մասնիկ	частица	particle	terms	hi
+0033	ձայնեղացում	ձայնեղացում	озвончение	voicing	prior	hi
+0034	համատարած	համատարած	повсеместный	pervasive	kaikki	hi
+0036	բացառություն	բացառություն	исключение	exception	kaikki	hi
+0037	առնմանության	առնմանություն	ассимиляция	assimilation	kaikki	hi
+0037	տարնմանության	տարնմանություն	диссимиляция	dissimilation	kaikki	hi
+0037	համընկման	համընկնում	слияние, совпадение	coincidence	prior	hi
+0037	արտաբերման	արտաբերում	артикуляция	articulation	prior	hi
+0041	Դրափոխության	դրափոխություն	метатеза	metathesis	kaikki	hi
+0042	հնչյունակապակցություն	հնչյունակապակցություն	звукосочетание	sound sequence	prior	hi
+0042	արմատացել	արմատանալ	укореняться	to take root	prior	hi
+0042	հիմնարկություններում	հիմնարկություն	учреждение	institution	prior	hi
+0043	պարզեցված	պարզեցված	упрощённый	simplified	prior	hi
+0044	սխալմամբ	սխալմամբ	ошибочно	mistakenly	prior	hi
+0045	Թեքված	թեքված	словоизменённый	inflected	prior	hi
+0046	անտեղի	անտեղի	неуместно	inappropriately	prior	hi
+0046	քմայնացվում	քմայնացվել	палатализоваться	to be palatalized	prior	hi
+0046	դասական	դասական	порядковый (числ.)	ordinal	kaikki	hi
+0046	վերջածանցին	վերջածանց	суффикс	suffix	terms	hi
+0047	տեղաշարժերը	տեղաշարժ	сдвиг, смещение	shift	prior	hi
+0047	խոսվածքների	խոսվածք	говор	subdialect	prior	hi
+0047	շնչեղացում	շնչեղացում	аспирация, придыхание	aspiration	prior	hi
+0047	խլացում	խլացում	оглушение	devoicing	prior	hi
+0049	անձնանուններում	անձնանուն	личное имя	personal name	kaikki	hi
+0050	սովորության	սովորություն	привычка	habit	kaikki	hi
+0050	հետևողականորեն	հետևողականորեն	последовательно	consistently	prior	hi
+0051	առանձնացնել	առանձնացնել	выделять	to single out	prior	hi
+0051	փոխարինումը	փոխարինում	замена	replacement	kaikki	hi
+0051	հավանականությունը	հավանականություն	вероятность	probability	kaikki	hi
+0051	լրագրողն	լրագրող	журналист	journalist	kaikki	hi
+0051	հեռուստահաղորդավարը	հեռուստահաղորդավար	телеведущий	TV presenter	prior	hi
+0051	գրականագետը	գրականագետ	литературовед	literary scholar	kaikki	hi
+0051	անիմաստ	անիմաստ	бессмысленный	pointless	kaikki	hi
+0051	կիրարկման	կիրարկում	применение	application	prior	hi
+0051	վերականգնման	վերականգնում	восстановление	restoration	kaikki	hi
+0051	խոսելաձևը	խոսելաձև	манера речи	manner of speaking	prior	hi
+0051	թերագնահատել	թերագնահատել	недооценивать	to underestimate	kaikki	hi
+0051	վարժվեն	վարժվել	привыкать	to get used to	prior	hi
+0052	թզի	թուզ	инжир	fig	kaikki	hi
+0052	դեղձի	դեղձ	персик	peach	kaikki	hi
+0052	չրից	չիր	сухофрукты	dried fruit	kaikki	hi
+0052	քաղցրավենիք	քաղցրավենիք	сладости	confectionery	prior	hi

@@ -274,13 +274,31 @@ sources:
       основном русскому деепричастию" — the hedge "в основном"
       (mostly) matters, since the Russian converb also covers the
       -ով functional zone.
+  - id: 18
+    book: dumtragut
+    page: 535
+    y_range: [350, 390]
+    verbatim_quote:
+      - "The logical agent, if other than the sentence’s subject, appears in the dative."
+      - "Կրկեսի մասին լսելով բոլոր երեխաները վազեցին դուրս"
+    supports: supported
+    note: |
+      the orientation rule for the case-declined infinitive
+      constructions (stated in the temporal subsection, applying to
+      the construction family that includes the instrumental -ելով):
+      the implicit agent is the sentence's subject, and a
+      non-coreferent logical agent must surface in the dative.
+      Example (576) conforms: the hearers are the runners. The -ելով
+      examples elsewhere in the chapter all pattern the same way
+      (570 [#11], 585 on p537). Closes the -ով half of the
+      same-subject gap flagged 2026-07-13.
 gaps:
   - "Per-form formation rules (suffix tables for each of the eight forms × two conjugations) not yet enumerated here. The basic parent file `armenian-grammar.md` has them; can be folded in when the topic gets revised."
   - "Per-irregular-verb participle tables (cf. paradigms_data.PARTICIPLES which has 8 verbs covered: գրել, կարդալ, ունենալ, լինել, գալ, տեսնել, ուտել, տալ + the universal anel/ar`nel) are not directly cited from a single book passage — Sakayan p354-355 has the table; needs a citation source on its own."
   - "Discrepancy: sakayan says 'two sets of four' (= 8 forms), tioyan lists 5 independent + 4 dependent (= 9, with հարակատար bridging). The accounting depends on whether հարակատար is counted once or twice. Worth resolving by reading both sources more carefully."
   - "Sociolinguistic / register data on participle usage: which forms are colloquial-only vs literary-only? E.g. is համակատար (synchronic converb in -ելիս) used in colloquial speech or only in writing? Untreated by the cited sources. (Partial datum 2026-07-13: dumtragut flags a causal -ով example as 'Colloquial Armenian' [#11], and Brunette's «Դիմակ» lyric uses the -ով construction with textbook punctuation — both forms clearly alive in colloquial registers.)"
   - "Aspectual semantics of the BOUND participles: vague labels like 'imperfective' vs 'perfect' don't fully capture the system. Dum-Tragut 2009 is now extracted; the -իս/-ով adverbial split is covered below (2026-07-13), but the tense-driving participles' aspect semantics remain TODO."
-  - "Same-subject constraint: do -իս / -ով converb clauses require their implicit subject to corefer with the matrix subject? Not covered by the spans read so far; Dum-Tragut's subordination chapter likely treats it."
+  - "Same-subject constraint, -իս half: the -ով half is now covered ([#18], 2026-07-24 — implicit agent = matrix subject, non-coreferent agent in dative); whether -իս clauses obey the same constraint is still uncited."
 ---
 
 # Non-finite verb forms (participles, դերբայներ) in Eastern Armenian
@@ -445,6 +463,27 @@ expect of an instrumental:
 
 So the two zones overlap only at the temporal edge, where `-իս` is
 the default [#8]; everywhere else the choice is forced by function.
+
+### Orientation: the implicit agent is the matrix subject
+
+The `-ով` construction is **subject-oriented**. Dum-Tragut states it
+for the case-declined infinitive constructions: "The logical agent,
+if other than the sentence's subject, appears in the dative" [#18] —
+i.e. the unexpressed agent of the converb *is* the matrix subject,
+and any other agent must be overtly dative-marked. Every cited
+example conforms: the non-acclimatisers = the movers [#11], the
+hearers = the runners (`Կրկեսի մասին լսելով բոլոր երեխաները վազեցին
+դուրս` [#18]), the listeners = the leavers [#9].
+
+Practical consequence: you cannot use a bare `-ով` clause for an
+adjunct whose agent is the matrix *object*. `*թողիր նրան քեզ
+չգտնելով` fails for "leave him in a state where he didn't find you"
+— the non-finder is parsed as the addressee of `թողիր`, the reverse
+of the intended reading. That meaning needs a finite subordinate
+clause (`թողիր այնպես, որ նա քեզ չգտնի` — prior, uncited) or a
+dative agent with a causal reading, not an object-oriented converb.
+Whether `-իս` obeys the same constraint is still an open gap (see
+frontmatter).
 
 **Position and punctuation.** -իս constructions gravitate to
 sentence-initial position [#7]; instrumental-infinitive constructions

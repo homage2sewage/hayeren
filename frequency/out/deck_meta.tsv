@@ -610,7 +610,7 @@ lemma	rank	src
 ուրախություն	0631	dictionary
 անուշ	0632	dictionary
 ձի	0633	dictionary
-տար	0634	dictionary
+տար	0634	hand-override
 կառուցվել	0635	hand-override
 մեռնել	0636	dictionary
 եկեղեցի	0637	dictionary
@@ -684,7 +684,7 @@ lemma	rank	src
 աղքատ	0707	dictionary
 էշ	0708	dictionary
 մատ	0709	dictionary
-երևում	0710	dictionary
+երևում	0710	hand-override
 ճակատ	0711	dictionary
 առջև	0712	dictionary
 սրանք	0713	dictionary

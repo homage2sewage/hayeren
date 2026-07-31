@@ -580,6 +580,17 @@ HAND_OVERRIDES: dict[str, str] = {
     # ամուր = firm/sturdy/solid, NOT "strong" (that's ուժեղ). parnasyan
     # p347 «ամուր … крепкий, прочный, твердый»; tioyan p13/p254/p344.
     "ամուր":     "firm, sturdy, solid / крепкий, прочный, твёрдый",
+    # 2026-07-26 — homograph traps surfaced while building the
+    # explore/ wordlist (critic pass over the top-2000). Both were
+    # shipping wrong-sense kaikki glosses: տար "distant, far off"
+    # is archaic — the corpus token is the imperative of տանել /
+    # subjunctive of տալ (sakayan p175 paradigm, p355 «մի՜ տար»,
+    # p411 «ջուրը տար»); երևում "appearance, emergence" is the rare
+    # noun — the corpus token is the converb of երևալ (երևում է).
+    "տար":       "take (it) away! (imperative of տանել); would give "
+                 "(subjunctive of տալ) / отнеси, унеси",
+    "երևում":    "(երևում է) apparently, evidently; converb of երևալ "
+                 "/ видно, по-видимому",
 }
 
 
